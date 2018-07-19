@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\asm-bits.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\cpuid_main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\libcpuid_util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\msrdriver.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\rdmsr.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\rdtsc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\recog_amd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\recog_intel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\amd_code_t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\asm-bits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\intel_code_t.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\libcpuid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\libcpuid_constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\libcpuid_internal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\libcpuid_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\libcpuid_util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\rdtsc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\recog_amd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\recog_intel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\dd24b52a84320415e103991f7dd2a4f0\masm-x64.obj.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\src\masm-x64.asm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\LibCpuId\masm-x64.obj">
+      <Filter>Object Files</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7F268C8C-9291-3DC3-BD8F-4F34CD22C999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{DD10CFD6-3133-3031-AA9C-2A7889CDABBF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object Files">
+      <UniqueIdentifier>{7EA290C9-2C7B-3201-B39E-9462AFDF6298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B961055E-F8C3-3511-8A81-99023ECE156E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

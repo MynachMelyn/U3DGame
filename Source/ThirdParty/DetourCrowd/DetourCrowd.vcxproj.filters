@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\source\DetourCrowd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\source\DetourLocalBoundary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\source\DetourObstacleAvoidance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\source\DetourPathCorridor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\source\DetourPathQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\source\DetourProximityGrid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\include\DetourCrowd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\include\DetourLocalBoundary.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\include\DetourObstacleAvoidance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\include\DetourPathCorridor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\include\DetourPathQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\include\DetourProximityGrid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\DetourCrowd\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{DD10CFD6-3133-3031-AA9C-2A7889CDABBF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B961055E-F8C3-3511-8A81-99023ECE156E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

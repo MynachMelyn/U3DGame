@@ -1,0 +1,10 @@
+<renderpath>
+    <rendertarget name="dofblur" tag="DoF" sizedivisor="1 1" format="rgba" filter="true" />
+    <command type="quad" tag="DoF" vs="DepthOfFieldBokeh" ps="DepthOfFieldBokeh" output="viewport">
+        <parameter name="Bias" value="3" />
+		<parameter name="BlurClamp" value="0.4" />
+        <parameter name="Focus" value="0.98" />
+        <texture unit="diffuse" name="viewport" />
+		<texture unit="depth" name="depth" />
+    </command>
+</renderpath>

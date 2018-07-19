@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DB25A4F6-4D12-3044-97DF-3D01B9D9805E}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\include;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Bullet;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\include;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Bullet;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\include;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Bullet;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\Source\Tools\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/Tools/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/Tools/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/repos/Urho/urho3d-master/Source/Tools/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;D:\repos\Urho\urho3d-master\CMake\Modules\FindUrho3D.cmake;D:\repos\Urho\urho3d-master\Source\Tools\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\Tools\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\repos\Urho\urho3d-master\Source\Tools\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/Tools/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/Tools/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/repos/Urho/urho3d-master/Source/Tools/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;D:\repos\Urho\urho3d-master\CMake\Modules\FindUrho3D.cmake;D:\repos\Urho\urho3d-master\Source\Tools\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\Tools\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\repos\Urho\urho3d-master\Source\Tools\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/Tools/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/Tools/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/repos/Urho/urho3d-master/Source/Tools/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;D:\repos\Urho\urho3d-master\CMake\Modules\FindUrho3D.cmake;D:\repos\Urho\urho3d-master\Source\Tools\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\Tools\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\repos\Urho\urho3d-master\Source\Tools\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\ZERO_CHECK.vcxproj">
+      <Project>{36C62202-BF37-3E02-8B2F-94544E442F7B}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Tools\AssetImporter\AssetImporter.vcxproj">
+      <Project>{817ACA5D-D2B8-37B1-A5CB-15B14D7F0E07}</Project>
+      <Name>AssetImporter</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\Assimp\code\Assimp.vcxproj">
+      <Project>{B0E12B03-2C5F-3E5F-A26C-B05ABF09527D}</Project>
+      <Name>Assimp</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Tools\OgreImporter\OgreImporter.vcxproj">
+      <Project>{B6DF62EC-9D90-38FC-B82A-BE86EE94027E}</Project>
+      <Name>OgreImporter</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Tools\PackageTool\PackageTool.vcxproj">
+      <Project>{31B411E8-16D9-3679-BB9F-C5F912BA99A3}</Project>
+      <Name>PackageTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Tools\RampGenerator\RampGenerator.vcxproj">
+      <Project>{FD047089-E285-351A-9DBB-B10FF5ACB56B}</Project>
+      <Name>RampGenerator</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Tools\ScriptCompiler\ScriptCompiler.vcxproj">
+      <Project>{6DAFB183-9A41-346C-A0B7-D3BFC206E1C5}</Project>
+      <Name>ScriptCompiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Tools\SpritePacker\SpritePacker.vcxproj">
+      <Project>{CAB24457-1231-384C-88C0-676E1F7A4BE5}</Project>
+      <Name>SpritePacker</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Tools\Urho3DPlayer\Urho3DPlayer.vcxproj">
+      <Project>{B7DD023C-9468-3904-A014-86DC08F7F153}</Project>
+      <Name>Urho3DPlayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

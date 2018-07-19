@@ -1,0 +1,2316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{29C73F9F-4A8A-3587-806F-F3FE309260DA}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>SDL</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SDL</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">SDL</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SDL</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IncludePaths>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(IncludePaths)</IncludePaths>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>																																																																					</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_assert.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_assert.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_atomic.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_atomic.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_audio.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_audio.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_bits.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_bits.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_blendmode.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_blendmode.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_clipboard.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_clipboard.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_android.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_android.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_iphoneos.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_iphoneos.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_macosx.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_macosx.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_minimal.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_minimal.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_pandora.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_pandora.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_psp.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_psp.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_windows.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_windows.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_winrt.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_winrt.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_wiz.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_wiz.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_copying.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_copying.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_cpuinfo.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_cpuinfo.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_egl.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_egl.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_endian.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_endian.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_error.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_error.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_events.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_events.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_filesystem.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_filesystem.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_gamecontroller.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_gamecontroller.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_gesture.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_gesture.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_haptic.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_haptic.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_hints.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_hints.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_joystick.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_joystick.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_keyboard.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_keyboard.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_keycode.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_keycode.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_loadso.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_loadso.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_log.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_log.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_main.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_main.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_messagebox.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_messagebox.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_mouse.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_mouse.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_mutex.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_mutex.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_name.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_name.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengl.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengl.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengl_glext.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengl_glext.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_gl2.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_gl2.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_gl2ext.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_gl2ext.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_gl2platform.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_gl2platform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_khrplatform.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_khrplatform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_pixels.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_pixels.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_platform.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_platform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_power.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_power.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_quit.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_quit.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_rect.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_rect.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_render.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_render.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_revision.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_revision.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_rwops.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_rwops.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_scancode.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_scancode.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_shape.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_shape.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_stdinc.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_stdinc.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_surface.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_surface.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_system.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_system.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_syswm.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_syswm.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_thread.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_thread.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_timer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_timer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_touch.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_touch.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_types.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_types.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_version.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_version.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_video.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_video.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_vulkan.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_vulkan.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/begin_code.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/begin_code.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/close_code.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/close_code.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/generated/SDL_config.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/generated/SDL_config.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/generated/SDL_config.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IncludePaths>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(IncludePaths)</IncludePaths>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>																																																																					</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_assert.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_assert.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_atomic.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_atomic.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_audio.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_audio.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_bits.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_bits.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_blendmode.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_blendmode.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_clipboard.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_clipboard.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_android.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_android.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_iphoneos.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_iphoneos.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_macosx.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_macosx.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_minimal.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_minimal.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_pandora.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_pandora.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_psp.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_psp.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_windows.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_windows.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_winrt.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_winrt.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_wiz.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_wiz.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_copying.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_copying.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_cpuinfo.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_cpuinfo.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_egl.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_egl.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_endian.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_endian.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_error.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_error.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_events.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_events.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_filesystem.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_filesystem.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_gamecontroller.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_gamecontroller.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_gesture.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_gesture.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_haptic.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_haptic.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_hints.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_hints.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_joystick.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_joystick.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_keyboard.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_keyboard.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_keycode.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_keycode.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_loadso.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_loadso.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_log.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_log.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_main.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_main.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_messagebox.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_messagebox.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_mouse.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_mouse.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_mutex.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_mutex.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_name.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_name.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengl.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengl.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengl_glext.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengl_glext.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_gl2.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_gl2.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_gl2ext.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_gl2ext.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_gl2platform.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_gl2platform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_khrplatform.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_khrplatform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_pixels.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_pixels.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_platform.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_platform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_power.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_power.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_quit.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_quit.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_rect.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_rect.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_render.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_render.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_revision.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_revision.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_rwops.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_rwops.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_scancode.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_scancode.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_shape.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_shape.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_stdinc.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_stdinc.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_surface.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_surface.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_system.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_system.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_syswm.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_syswm.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_thread.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_thread.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_timer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_timer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_touch.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_touch.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_types.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_types.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_version.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_version.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_video.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_video.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_vulkan.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_vulkan.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/begin_code.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/begin_code.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/close_code.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/close_code.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/generated/SDL_config.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/generated/SDL_config.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/generated/SDL_config.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;USING_GENERATED_CONFIG_H;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IncludePaths>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(IncludePaths)</IncludePaths>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\generated;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>																																																																					</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_assert.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_assert.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_atomic.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_atomic.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_audio.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_audio.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_bits.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_bits.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_blendmode.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_blendmode.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_clipboard.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_clipboard.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_android.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_android.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_iphoneos.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_iphoneos.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_macosx.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_macosx.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_minimal.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_minimal.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_pandora.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_pandora.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_psp.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_psp.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_windows.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_windows.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_winrt.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_winrt.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_config_wiz.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config_wiz.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_copying.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_copying.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_cpuinfo.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_cpuinfo.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_egl.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_egl.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_endian.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_endian.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_error.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_error.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_events.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_events.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_filesystem.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_filesystem.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_gamecontroller.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_gamecontroller.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_gesture.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_gesture.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_haptic.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_haptic.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_hints.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_hints.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_joystick.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_joystick.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_keyboard.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_keyboard.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_keycode.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_keycode.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_loadso.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_loadso.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_log.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_log.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_main.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_main.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_messagebox.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_messagebox.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_mouse.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_mouse.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_mutex.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_mutex.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_name.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_name.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengl.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengl.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengl_glext.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengl_glext.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_gl2.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_gl2.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_gl2ext.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_gl2ext.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_gl2platform.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_gl2platform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_opengles2_khrplatform.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_opengles2_khrplatform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_pixels.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_pixels.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_platform.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_platform.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_power.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_power.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_quit.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_quit.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_rect.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_rect.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_render.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_render.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_revision.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_revision.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_rwops.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_rwops.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_scancode.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_scancode.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_shape.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_shape.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_stdinc.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_stdinc.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_surface.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_surface.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_system.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_system.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_syswm.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_syswm.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_thread.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_thread.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_timer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_timer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_touch.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_touch.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_types.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_types.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_version.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_version.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_video.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_video.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/SDL_vulkan.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_vulkan.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/begin_code.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/begin_code.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/close_code.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/close_code.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/generated/SDL_config.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/generated/SDL_config.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/include/generated/SDL_config.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/SDL/SDL_config.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckCSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckStructHasMember.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckSymbolExists.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\cmake\macros.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\cmake\sdlchecks.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config.h.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckCSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckStructHasMember.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckSymbolExists.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\cmake\macros.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\cmake\sdlchecks.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config.h.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/repos/Urho/urho3d-master/Source/ThirdParty/SDL/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCheckCompilerFlagCommonPatterns.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckCCompilerFlag.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckCSourceRuns.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckIncludeFiles.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckStructHasMember.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CheckSymbolExists.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\cmake\macros.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\cmake\sdlchecks.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config.h.cmake;D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\SDL.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\SDL_assert.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\SDL_dataqueue.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\SDL_error.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\SDL_hints.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\SDL_log.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\atomic\SDL_atomic.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\atomic\SDL_spinlock.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\SDL_audio.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\SDL_audiocvt.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\SDL_audiodev.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\SDL_audiotypecvt.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\SDL_mixer.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\SDL_wave.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\cpuinfo\SDL_cpuinfo.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\events\SDL_clipboardevents.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\events\SDL_dropevents.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\events\SDL_events.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\events\SDL_gesture.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\events\SDL_keyboard.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\events\SDL_mouse.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\events\SDL_quit.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\events\SDL_touch.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\events\SDL_windowevents.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\file\SDL_rwops.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\haptic\SDL_haptic.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\joystick\SDL_gamecontroller.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\joystick\SDL_joystick.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\e_atan2.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\e_log.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\e_pow.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\e_rem_pio2.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\e_sqrt.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\k_cos.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\k_rem_pio2.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\k_sin.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\k_tan.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\s_atan.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\s_copysign.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\s_cos.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\s_fabs.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\s_floor.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\s_scalbn.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\s_sin.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\libm\s_tan.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\power\SDL_power.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\stdlib\SDL_getenv.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\stdlib\SDL_iconv.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\stdlib\SDL_malloc.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\stdlib\SDL_qsort.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\stdlib\SDL_stdlib.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\stdlib\SDL_string.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\thread\SDL_thread.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\timer\SDL_timer.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_RLEaccel.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_blit.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_blit_0.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_blit_1.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_blit_A.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_blit_N.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_blit_auto.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_blit_copy.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_blit_slow.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_bmp.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_clipboard.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_egl.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_fillrect.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_pixels.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_rect.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_shape.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_stretch.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_surface.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_video.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\SDL_vulkan_utils.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\dummy\SDL_dummyaudio.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\disk\SDL_diskaudio.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\dummy\SDL_nullevents.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\dummy\SDL_nullframebuffer.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\dummy\SDL_nullvideo.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\core\windows\SDL_windows.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\core\windows\SDL_xinput.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\winmm\SDL_winmm.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\directsound\SDL_directsound.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\xaudio2\SDL_xaudio2.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\audio\wasapi\SDL_wasapi.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsclipboard.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsevents.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsframebuffer.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowskeyboard.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsmessagebox.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsmodes.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsmouse.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsopengl.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsopengles.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsshape.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsvideo.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowsvulkan.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\video\windows\SDL_windowswindow.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\thread\windows\SDL_sysmutex.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\thread\windows\SDL_syssem.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\thread\windows\SDL_systhread.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\thread\windows\SDL_systls.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\thread\generic\SDL_syscond.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\power\windows\SDL_syspower.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\filesystem\windows\SDL_sysfilesystem.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\timer\windows\SDL_systimer.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\loadso\windows\SDL_sysloadso.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\joystick\windows\SDL_dinputjoystick.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\joystick\windows\SDL_mmjoystick.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\joystick\windows\SDL_windowsjoystick.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\joystick\windows\SDL_xinputjoystick.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\haptic\windows\SDL_dinputhaptic.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\haptic\windows\SDL_windowshaptic.c" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\src\haptic\windows\SDL_xinputhaptic.c" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_assert.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_atomic.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_audio.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_bits.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_blendmode.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_clipboard.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config_android.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config_iphoneos.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config_macosx.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config_minimal.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config_pandora.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config_psp.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config_windows.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config_winrt.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_config_wiz.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_copying.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_cpuinfo.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_egl.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_endian.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_error.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_events.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_filesystem.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_gamecontroller.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_gesture.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_haptic.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_hints.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_joystick.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_keyboard.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_keycode.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_loadso.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_log.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_main.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_messagebox.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_mouse.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_mutex.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_name.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_opengl.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_opengl_glext.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_opengles.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_opengles2.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_opengles2_gl2.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_opengles2_gl2ext.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_opengles2_gl2platform.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_opengles2_khrplatform.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_pixels.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_platform.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_power.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_quit.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_rect.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_render.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_revision.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_rwops.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_scancode.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_shape.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_stdinc.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_surface.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_system.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_syswm.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_thread.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_timer.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_touch.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_types.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_version.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_video.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\SDL_vulkan.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\begin_code.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\SDL\include\close_code.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\ZERO_CHECK.vcxproj">
+      <Project>{36C62202-BF37-3E02-8B2F-94544E442F7B}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

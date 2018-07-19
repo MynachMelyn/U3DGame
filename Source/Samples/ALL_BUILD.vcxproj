@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DB25A4F6-4D12-3044-97DF-3D01B9D9805E}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\include;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Bullet;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\include;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Bullet;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\include;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Bullet;D:\repos\Urho\urho3d-master\include\Urho3D\ThirdParty\Lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\Source\Samples\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/Samples/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/Samples/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/repos/Urho/urho3d-master/Source/Samples/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;D:\repos\Urho\urho3d-master\CMake\Modules\FindUrho3D.cmake;D:\repos\Urho\urho3d-master\Source\Samples\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\Samples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\repos\Urho\urho3d-master\Source\Samples\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/Samples/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/Samples/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/repos/Urho/urho3d-master/Source/Samples/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;D:\repos\Urho\urho3d-master\CMake\Modules\FindUrho3D.cmake;D:\repos\Urho\urho3d-master\Source\Samples\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\Samples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\repos\Urho\urho3d-master\Source\Samples\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/Samples/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/Samples/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/repos/Urho/urho3d-master/Source/Samples/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\FindPackageMessage.cmake;D:\repos\Urho\urho3d-master\CMake\Modules\FindUrho3D.cmake;D:\repos\Urho\urho3d-master\Source\Samples\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\Samples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\repos\Urho\urho3d-master\Source\Samples\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\ZERO_CHECK.vcxproj">
+      <Project>{36C62202-BF37-3E02-8B2F-94544E442F7B}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\01_HelloWorld\01_HelloWorld.vcxproj">
+      <Project>{A69A7539-CCFB-30F4-9938-E5AAF87A2336}</Project>
+      <Name>01_HelloWorld</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\02_HelloGUI\02_HelloGUI.vcxproj">
+      <Project>{00ECF906-B57F-367A-8821-4147A20E29F5}</Project>
+      <Name>02_HelloGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\03_Sprites\03_Sprites.vcxproj">
+      <Project>{7A462E83-D6A6-31D3-9DBF-F4ABF3D3AB4F}</Project>
+      <Name>03_Sprites</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\04_StaticScene\04_StaticScene.vcxproj">
+      <Project>{D9D5905B-0F8A-3DD9-8490-D799684EC431}</Project>
+      <Name>04_StaticScene</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\05_AnimatingScene\05_AnimatingScene.vcxproj">
+      <Project>{E42CFF31-B603-39D8-A09E-E0F9E0102B9B}</Project>
+      <Name>05_AnimatingScene</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\06_SkeletalAnimation\06_SkeletalAnimation.vcxproj">
+      <Project>{9A3069D8-10AF-3223-B5AA-F637123A8D1B}</Project>
+      <Name>06_SkeletalAnimation</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\07_Billboards\07_Billboards.vcxproj">
+      <Project>{E0CD52C0-DCEC-3B20-8E24-BE1470E9B57B}</Project>
+      <Name>07_Billboards</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\08_Decals\08_Decals.vcxproj">
+      <Project>{BDC0FD8E-EBA0-3795-909F-5266A94EF1F0}</Project>
+      <Name>08_Decals</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\09_MultipleViewports\09_MultipleViewports.vcxproj">
+      <Project>{3D2593A7-723E-3F04-928B-4E5DF06E1240}</Project>
+      <Name>09_MultipleViewports</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\10_RenderToTexture\10_RenderToTexture.vcxproj">
+      <Project>{94581B26-98D6-3ABA-ADD4-E96C48C8C05B}</Project>
+      <Name>10_RenderToTexture</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\11_Physics\11_Physics.vcxproj">
+      <Project>{6A8F9768-0366-3EAA-97FA-38D4E4F1B71B}</Project>
+      <Name>11_Physics</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\12_PhysicsStressTest\12_PhysicsStressTest.vcxproj">
+      <Project>{28EB8D21-D72D-3CB3-A854-26ABE68D57F0}</Project>
+      <Name>12_PhysicsStressTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\13_Ragdolls\13_Ragdolls.vcxproj">
+      <Project>{7E6A7546-CC51-33A1-9389-2FC47DF447A9}</Project>
+      <Name>13_Ragdolls</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\14_SoundEffects\14_SoundEffects.vcxproj">
+      <Project>{219C288C-9AAE-3F82-9C1E-893A1B25D497}</Project>
+      <Name>14_SoundEffects</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\15_Navigation\15_Navigation.vcxproj">
+      <Project>{970ED827-ECFB-385A-A5DF-3F6F5CF7276B}</Project>
+      <Name>15_Navigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\16_Chat\16_Chat.vcxproj">
+      <Project>{6C5452B7-9CB5-3F01-844D-31D882D30F95}</Project>
+      <Name>16_Chat</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\17_SceneReplication\17_SceneReplication.vcxproj">
+      <Project>{2F36F09C-1070-313E-8950-2B84CF1CD21D}</Project>
+      <Name>17_SceneReplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\18_CharacterDemo\18_CharacterDemo.vcxproj">
+      <Project>{62BD5984-DBE7-36BC-9E15-4134DBA2355C}</Project>
+      <Name>18_CharacterDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\19_VehicleDemo\19_VehicleDemo.vcxproj">
+      <Project>{5560B7C7-F658-38E2-A2E0-D0A8A47111CB}</Project>
+      <Name>19_VehicleDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\20_HugeObjectCount\20_HugeObjectCount.vcxproj">
+      <Project>{DEE0540C-A877-3674-AF29-51B5418575E2}</Project>
+      <Name>20_HugeObjectCount</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\21_AngelScriptIntegration\21_AngelScriptIntegration.vcxproj">
+      <Project>{E7E62B0F-2C03-38DF-A02B-2BB0DCF8FEAD}</Project>
+      <Name>21_AngelScriptIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\22_LuaIntegration\22_LuaIntegration.vcxproj">
+      <Project>{D75AFD11-9A6A-3613-8E8F-E918E95A4C04}</Project>
+      <Name>22_LuaIntegration</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\23_Water\23_Water.vcxproj">
+      <Project>{3C42DB0C-ED6B-3D12-956C-EC8ACC7DD608}</Project>
+      <Name>23_Water</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\24_Urho2DSprite\24_Urho2DSprite.vcxproj">
+      <Project>{48CEDD77-885B-31F3-AD66-B7CC39F52E11}</Project>
+      <Name>24_Urho2DSprite</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\25_Urho2DParticle\25_Urho2DParticle.vcxproj">
+      <Project>{6FE3E277-1946-343B-8DDE-200A5295DDCC}</Project>
+      <Name>25_Urho2DParticle</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\26_ConsoleInput\26_ConsoleInput.vcxproj">
+      <Project>{8095C4D0-725D-300E-8255-4FF68DFC9689}</Project>
+      <Name>26_ConsoleInput</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\27_Urho2DPhysics\27_Urho2DPhysics.vcxproj">
+      <Project>{85CD083F-34F4-33A3-8540-00BEC7DC6D6D}</Project>
+      <Name>27_Urho2DPhysics</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\28_Urho2DPhysicsRope\28_Urho2DPhysicsRope.vcxproj">
+      <Project>{6CAB4D91-9C96-378B-B306-D3E7E7D1DE2B}</Project>
+      <Name>28_Urho2DPhysicsRope</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\29_SoundSynthesis\29_SoundSynthesis.vcxproj">
+      <Project>{1F0782E7-C243-3E13-8818-C62842D4C9EA}</Project>
+      <Name>29_SoundSynthesis</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\30_LightAnimation\30_LightAnimation.vcxproj">
+      <Project>{91141EBD-6993-38DA-8F04-F310524FDB80}</Project>
+      <Name>30_LightAnimation</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\31_MaterialAnimation\31_MaterialAnimation.vcxproj">
+      <Project>{E16D8B8A-C509-3C99-8934-DBB29080695C}</Project>
+      <Name>31_MaterialAnimation</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\32_Urho2DConstraints\32_Urho2DConstraints.vcxproj">
+      <Project>{E9569341-9C36-3003-A2A1-410CE38D4FA2}</Project>
+      <Name>32_Urho2DConstraints</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\33_Urho2DSpriterAnimation\33_Urho2DSpriterAnimation.vcxproj">
+      <Project>{CE7C905F-C4DB-3781-90F0-155677F89908}</Project>
+      <Name>33_Urho2DSpriterAnimation</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\34_DynamicGeometry\34_DynamicGeometry.vcxproj">
+      <Project>{5B349C51-63C3-3C5C-B6F0-BFEAB56A7154}</Project>
+      <Name>34_DynamicGeometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\35_SignedDistanceFieldText\35_SignedDistanceFieldText.vcxproj">
+      <Project>{E9F288ED-A043-308D-B2BE-D1C5D903E8BE}</Project>
+      <Name>35_SignedDistanceFieldText</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\36_Urho2DTileMap\36_Urho2DTileMap.vcxproj">
+      <Project>{3E06E696-DBE3-357F-8949-08038F912E11}</Project>
+      <Name>36_Urho2DTileMap</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\37_UIDrag\37_UIDrag.vcxproj">
+      <Project>{55643B72-F3EA-355B-AD4A-8FE0B5966E25}</Project>
+      <Name>37_UIDrag</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\38_SceneAndUILoad\38_SceneAndUILoad.vcxproj">
+      <Project>{A65AB59A-55CC-3E60-8119-D0A6E2215B29}</Project>
+      <Name>38_SceneAndUILoad</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\39_CrowdNavigation\39_CrowdNavigation.vcxproj">
+      <Project>{5046038A-EFE4-3F0B-BEAD-C1B551770E85}</Project>
+      <Name>39_CrowdNavigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\40_Localization\40_Localization.vcxproj">
+      <Project>{D5FC0C51-EEA7-3D98-AB87-BC3F09509A55}</Project>
+      <Name>40_Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\42_PBRMaterials\42_PBRMaterials.vcxproj">
+      <Project>{204F2A44-D46E-31D4-A61A-A02CDDAE2475}</Project>
+      <Name>42_PBRMaterials</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\43_HttpRequestDemo\43_HttpRequestDemo.vcxproj">
+      <Project>{118B2EBF-BED1-3A15-B33F-0D90CF72E9A2}</Project>
+      <Name>43_HttpRequestDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\44_RibbonTrailDemo\44_RibbonTrailDemo.vcxproj">
+      <Project>{B844F603-9A1B-39E2-BC83-8E0C1FB155C7}</Project>
+      <Name>44_RibbonTrailDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\45_InverseKinematics\45_InverseKinematics.vcxproj">
+      <Project>{6DF59990-A786-3513-91E4-F3FD96278D6B}</Project>
+      <Name>45_InverseKinematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\46_RaycastVehicle\46_RaycastVehicle.vcxproj">
+      <Project>{FB98B31F-2522-3D40-A4E0-834E8167E2F6}</Project>
+      <Name>46_RaycastVehicle</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\47_Typography\47_Typography.vcxproj">
+      <Project>{CC3AF024-E502-3BB4-B3EE-B261D4875A8E}</Project>
+      <Name>47_Typography</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\48_Hello3DUI\48_Hello3DUI.vcxproj">
+      <Project>{60BC7645-4983-3E04-864E-BAC95033F171}</Project>
+      <Name>48_Hello3DUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\49_Urho2DIsometricDemo\49_Urho2DIsometricDemo.vcxproj">
+      <Project>{53F03B8B-541B-335B-9460-76C0E60DEB53}</Project>
+      <Name>49_Urho2DIsometricDemo</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\50_Urho2DPlatformer\50_Urho2DPlatformer.vcxproj">
+      <Project>{48FB17C4-F2B9-3C89-B18E-60AD5A379E5C}</Project>
+      <Name>50_Urho2DPlatformer</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\Source\Samples\51_Urho2DStretchableSprite\51_Urho2DStretchableSprite.vcxproj">
+      <Project>{3DAA9D45-4A6C-3FE3-A2DB-C7D2E64F7250}</Project>
+      <Name>51_Urho2DStretchableSprite</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,1866 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F5FC5103-63A9-3951-A872-CF13EF9B4861}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>kNet</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kNet.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kNet</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">kNet.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">kNet</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">kNet.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">kNet</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCKAPI_;KNET_MEMORY_LEAK_CHECK;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCKAPI_;KNET_MEMORY_LEAK_CHECK;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCKAPI_;KNET_MEMORY_LEAK_CHECK;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IncludePaths>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(IncludePaths)</IncludePaths>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>																																																					</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/64BitAllocDebugger.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/64BitAllocDebugger.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Alignment.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Alignment.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Allocator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Allocator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Array.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Array.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Atomics.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Atomics.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/BasicSerializedDataTypes.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/BasicSerializedDataTypes.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/BitOps.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/BitOps.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Clock.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Clock.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/DataDeserializer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/DataDeserializer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/DataSerializer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/DataSerializer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Datagram.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Datagram.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/DebugMemoryLeakCheck.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/DebugMemoryLeakCheck.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/EndPoint.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/EndPoint.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Event.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Event.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/EventArray.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/EventArray.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/FragmentedTransferManager.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/FragmentedTransferManager.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/IMessageHandler.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/IMessageHandler.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/INetworkServerListener.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/INetworkServerListener.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/LockFreePoolAllocator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/LockFreePoolAllocator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Lockable.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Lockable.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/MaxHeap.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/MaxHeap.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/MessageConnection.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/MessageConnection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/MessageListParser.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/MessageListParser.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetException.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetException.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Network.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Network.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkLogging.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkLogging.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkMessage.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkMessage.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkServer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkServer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkSimulator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkSimulator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkWorkerThread.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkWorkerThread.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/OrderedHashTable.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/OrderedHashTable.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/PolledTimer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/PolledTimer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/RingBuffer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/RingBuffer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SequentialIntegerSet.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SequentialIntegerSet.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SerializationStructCompiler.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SerializationStructCompiler.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SerializedDataIterator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SerializedDataIterator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SharedPtr.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SharedPtr.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SharedPtr.inl D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SharedPtr.inl
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Socket.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Socket.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Sort.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Sort.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Sort.inl D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Sort.inl
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SortCmp.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SortCmp.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/StatsEventHierarchy.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/StatsEventHierarchy.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/StdCMallocHeap.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/StdCMallocHeap.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/TCPMessageConnection.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/TCPMessageConnection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Thread.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Thread.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Types.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Types.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/UDPMessageConnection.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/UDPMessageConnection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/VLEPacker.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/VLEPacker.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/WaitFreeQueue.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/WaitFreeQueue.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/win32/WS2Include.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/win32/WS2Include.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/kNet.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNetBuildConfig.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/kNetBuildConfig.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNetFwd.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/kNetFwd.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCKAPI_;KNET_MEMORY_LEAK_CHECK;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCKAPI_;KNET_MEMORY_LEAK_CHECK;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_SECURE_SCL=0;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCKAPI_;KNET_MEMORY_LEAK_CHECK;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IncludePaths>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(IncludePaths)</IncludePaths>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>																																																					</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/64BitAllocDebugger.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/64BitAllocDebugger.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Alignment.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Alignment.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Allocator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Allocator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Array.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Array.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Atomics.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Atomics.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/BasicSerializedDataTypes.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/BasicSerializedDataTypes.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/BitOps.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/BitOps.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Clock.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Clock.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/DataDeserializer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/DataDeserializer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/DataSerializer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/DataSerializer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Datagram.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Datagram.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/DebugMemoryLeakCheck.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/DebugMemoryLeakCheck.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/EndPoint.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/EndPoint.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Event.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Event.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/EventArray.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/EventArray.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/FragmentedTransferManager.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/FragmentedTransferManager.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/IMessageHandler.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/IMessageHandler.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/INetworkServerListener.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/INetworkServerListener.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/LockFreePoolAllocator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/LockFreePoolAllocator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Lockable.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Lockable.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/MaxHeap.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/MaxHeap.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/MessageConnection.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/MessageConnection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/MessageListParser.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/MessageListParser.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetException.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetException.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Network.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Network.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkLogging.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkLogging.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkMessage.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkMessage.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkServer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkServer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkSimulator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkSimulator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkWorkerThread.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkWorkerThread.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/OrderedHashTable.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/OrderedHashTable.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/PolledTimer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/PolledTimer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/RingBuffer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/RingBuffer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SequentialIntegerSet.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SequentialIntegerSet.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SerializationStructCompiler.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SerializationStructCompiler.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SerializedDataIterator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SerializedDataIterator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SharedPtr.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SharedPtr.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SharedPtr.inl D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SharedPtr.inl
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Socket.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Socket.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Sort.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Sort.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Sort.inl D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Sort.inl
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SortCmp.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SortCmp.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/StatsEventHierarchy.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/StatsEventHierarchy.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/StdCMallocHeap.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/StdCMallocHeap.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/TCPMessageConnection.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/TCPMessageConnection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Thread.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Thread.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Types.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Types.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/UDPMessageConnection.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/UDPMessageConnection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/VLEPacker.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/VLEPacker.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/WaitFreeQueue.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/WaitFreeQueue.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/win32/WS2Include.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/win32/WS2Include.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/kNet.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNetBuildConfig.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/kNetBuildConfig.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNetFwd.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/kNetFwd.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCKAPI_;KNET_MEMORY_LEAK_CHECK;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCKAPI_;KNET_MEMORY_LEAK_CHECK;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <MASM>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;URHO3D_ANGELSCRIPT;URHO3D_FILEWATCHER;URHO3D_IK;URHO3D_LOGGING;URHO3D_LUA;URHO3D_MINIDUMPS;URHO3D_NAVIGATION;URHO3D_NETWORK;URHO3D_PHYSICS;URHO3D_PROFILING;URHO3D_THREADING;URHO3D_URHO2D;URHO3D_WEBP;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINSOCKAPI_;KNET_MEMORY_LEAK_CHECK;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IncludePaths>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(IncludePaths)</IncludePaths>
+    </MASM>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>																																																					</Message>
+      <Command>setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/64BitAllocDebugger.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/64BitAllocDebugger.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Alignment.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Alignment.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Allocator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Allocator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Array.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Array.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Atomics.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Atomics.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/BasicSerializedDataTypes.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/BasicSerializedDataTypes.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/BitOps.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/BitOps.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Clock.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Clock.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/DataDeserializer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/DataDeserializer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/DataSerializer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/DataSerializer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Datagram.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Datagram.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/DebugMemoryLeakCheck.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/DebugMemoryLeakCheck.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/EndPoint.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/EndPoint.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Event.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Event.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/EventArray.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/EventArray.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/FragmentedTransferManager.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/FragmentedTransferManager.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/IMessageHandler.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/IMessageHandler.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/INetworkServerListener.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/INetworkServerListener.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/LockFreePoolAllocator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/LockFreePoolAllocator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Lockable.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Lockable.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/MaxHeap.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/MaxHeap.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/MessageConnection.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/MessageConnection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/MessageListParser.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/MessageListParser.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetException.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetException.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Network.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Network.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkLogging.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkLogging.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkMessage.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkMessage.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkServer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkServer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkSimulator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkSimulator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/NetworkWorkerThread.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/NetworkWorkerThread.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/OrderedHashTable.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/OrderedHashTable.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/PolledTimer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/PolledTimer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/RingBuffer.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/RingBuffer.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SequentialIntegerSet.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SequentialIntegerSet.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SerializationStructCompiler.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SerializationStructCompiler.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SerializedDataIterator.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SerializedDataIterator.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SharedPtr.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SharedPtr.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SharedPtr.inl D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SharedPtr.inl
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Socket.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Socket.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Sort.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Sort.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Sort.inl D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Sort.inl
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/SortCmp.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/SortCmp.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/StatsEventHierarchy.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/StatsEventHierarchy.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/StdCMallocHeap.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/StdCMallocHeap.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/TCPMessageConnection.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/TCPMessageConnection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Thread.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Thread.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/Types.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/Types.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/UDPMessageConnection.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/UDPMessageConnection.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/VLEPacker.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/VLEPacker.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/WaitFreeQueue.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/WaitFreeQueue.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet/win32/WS2Include.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/win32/WS2Include.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNet.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/kNet.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNetBuildConfig.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/kNetBuildConfig.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E copy_if_different D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/include/kNetFwd.h D:/repos/Urho/urho3d-master/include/Urho3D/ThirdParty/kNet/kNetFwd.h
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HD:/repos/Urho/urho3d-master -BD:/repos/Urho/urho3d-master --check-stamp-file D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/repos/Urho/urho3d-master/Source/ThirdParty/kNet/CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeLists.txt;D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\64BitAllocDebugger.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="64BitAllocDebugger.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="64BitAllocDebugger.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="64BitAllocDebugger.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\Clock.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="Clock.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="Clock.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="Clock.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\DataDeserializer.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="DataDeserializer.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="DataDeserializer.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="DataDeserializer.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\DataSerializer.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="DataSerializer.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="DataSerializer.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="DataSerializer.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\FragmentedTransferManager.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="FragmentedTransferManager.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="FragmentedTransferManager.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="FragmentedTransferManager.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\MessageConnection.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="MessageConnection.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="MessageConnection.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="MessageConnection.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\MessageListParser.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="MessageListParser.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="MessageListParser.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="MessageListParser.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\Network.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="Network.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="Network.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="Network.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\NetworkLogging.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="NetworkLogging.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="NetworkLogging.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="NetworkLogging.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\NetworkMessage.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="NetworkMessage.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="NetworkMessage.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="NetworkMessage.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\NetworkServer.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="NetworkServer.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="NetworkServer.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="NetworkServer.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\NetworkSimulator.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="NetworkSimulator.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="NetworkSimulator.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="NetworkSimulator.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\NetworkWorkerThread.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="NetworkWorkerThread.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="NetworkWorkerThread.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="NetworkWorkerThread.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\SerializationStructCompiler.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="SerializationStructCompiler.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="SerializationStructCompiler.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="SerializationStructCompiler.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\SerializedDataIterator.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="SerializedDataIterator.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="SerializedDataIterator.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="SerializedDataIterator.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\Socket.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="Socket.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="Socket.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="Socket.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\TCPMessageConnection.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="TCPMessageConnection.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="TCPMessageConnection.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="TCPMessageConnection.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\Thread.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="Thread.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="Thread.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="Thread.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\UDPMessageConnection.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="UDPMessageConnection.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="UDPMessageConnection.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="UDPMessageConnection.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\win32\W32Event.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="W32Event.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="W32Event.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="W32Event.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\win32\W32EventArray.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="W32EventArray.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="W32EventArray.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="W32EventArray.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\src\win32\W32Thread.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DEBUG_CPP_NAME="W32Thread.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">DEBUG_CPP_NAME="W32Thread.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">DEBUG_CPP_NAME="W32Thread.cpp";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\64BitAllocDebugger.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Alignment.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Allocator.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Array.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Atomics.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\BasicSerializedDataTypes.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\BitOps.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Clock.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\DataDeserializer.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\DataSerializer.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Datagram.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\DebugMemoryLeakCheck.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\EndPoint.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Event.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\EventArray.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\FragmentedTransferManager.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\IMessageHandler.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\INetworkServerListener.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\LockFreePoolAllocator.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Lockable.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\MaxHeap.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\MessageConnection.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\MessageListParser.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\NetException.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Network.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\NetworkLogging.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\NetworkMessage.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\NetworkServer.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\NetworkSimulator.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\NetworkWorkerThread.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\OrderedHashTable.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\PolledTimer.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\RingBuffer.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\SequentialIntegerSet.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\SerializationStructCompiler.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\SerializedDataIterator.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\SharedPtr.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\SharedPtr.inl" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Socket.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Sort.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Sort.inl" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\SortCmp.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\StatsEventHierarchy.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\StdCMallocHeap.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\TCPMessageConnection.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Thread.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\Types.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\UDPMessageConnection.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\VLEPacker.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\WaitFreeQueue.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNetBuildConfig.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNetFwd.h" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\ThirdParty\kNet\include\kNet\win32\WS2Include.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\repos\Urho\urho3d-master\ZERO_CHECK.vcxproj">
+      <Project>{36C62202-BF37-3E02-8B2F-94544E442F7B}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,1923 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\Addons.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\AudioAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\CoreAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\DatabaseAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\EngineAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\GraphicsAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\IKAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\IOAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\InputAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\MathAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\NavigationAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\NetworkAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\PhysicsAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\ResourceAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\SceneAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\Script.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\ScriptAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\ScriptAPIDump.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\ScriptFile.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\ScriptInstance.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\UIAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\Urho2DAPI.cpp">
+      <Filter>Source Files\AngelScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\Audio.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\BufferedSoundStream.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\OggVorbisSoundStream.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\Sound.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\SoundListener.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\SoundSource.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\SoundSource3D.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\SoundStream.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Allocator.cpp">
+      <Filter>Source Files\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\HashBase.cpp">
+      <Filter>Source Files\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\RefCounted.cpp">
+      <Filter>Source Files\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Str.cpp">
+      <Filter>Source Files\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Swap.cpp">
+      <Filter>Source Files\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\VectorBase.cpp">
+      <Filter>Source Files\Container</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Condition.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Context.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\EventProfiler.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\MiniDump.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Mutex.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Object.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\ProcessUtils.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Profiler.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Spline.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\StringHashRegister.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\StringUtils.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Thread.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Timer.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Variant.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\WorkQueue.cpp">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\Application.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\Console.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\DebugHud.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\Engine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\AnimatedModel.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Animation.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\AnimationController.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\AnimationState.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Batch.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\BillboardSet.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Camera.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ConstantBuffer.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\CustomGeometry.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\DebugRenderer.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\DecalSet.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Drawable.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\GPUObject.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Geometry.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Graphics.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\GraphicsDefs.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\IndexBuffer.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Light.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Material.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Model.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OcclusionBuffer.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Octree.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OctreeQuery.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLConstantBuffer.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLGraphics.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLIndexBuffer.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLRenderSurface.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLShaderProgram.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLShaderVariation.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLTexture.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLTexture2D.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLTexture2DArray.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLTexture3D.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLTextureCube.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLVertexBuffer.cpp">
+      <Filter>Source Files\Graphics\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ParticleEffect.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ParticleEmitter.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\RenderPath.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\RenderSurface.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Renderer.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\RibbonTrail.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Shader.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ShaderPrecache.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ShaderVariation.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Skeleton.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Skybox.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\StaticModel.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\StaticModelGroup.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Tangent.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Technique.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Terrain.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\TerrainPatch.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Texture.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Texture2D.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Texture2DArray.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Texture3D.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\TextureCube.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\VertexBuffer.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\View.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Viewport.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Zone.cpp">
+      <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IK.cpp">
+      <Filter>Source Files\IK</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IKConstraint.cpp">
+      <Filter>Source Files\IK</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IKConverters.cpp">
+      <Filter>Source Files\IK</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IKEffector.cpp">
+      <Filter>Source Files\IK</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IKSolver.cpp">
+      <Filter>Source Files\IK</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\Compression.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\Deserializer.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\File.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\FileSystem.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\FileWatcher.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\Log.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\MemoryBuffer.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\NamedPipe.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\PackageFile.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\Serializer.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\VectorBuffer.cpp">
+      <Filter>Source Files\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Input\Controls.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Input\Input.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LibraryInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaFile.cpp">
+      <Filter>Source Files\LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaFunction.cpp">
+      <Filter>Source Files\LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaScript.cpp">
+      <Filter>Source Files\LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaScriptEventInvoker.cpp">
+      <Filter>Source Files\LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaScriptInstance.cpp">
+      <Filter>Source Files\LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\ToluaUtils.cpp">
+      <Filter>Source Files\LuaScript</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\AreaAllocator.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\BoundingBox.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Color.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Frustum.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\MathDefs.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Matrix2.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Matrix3.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Matrix3x4.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Matrix4.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Plane.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Polyhedron.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Quaternion.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Random.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Ray.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Rect.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Sphere.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\StringHash.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Vector2.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Vector3.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Vector4.cpp">
+      <Filter>Source Files\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\CrowdAgent.cpp">
+      <Filter>Source Files\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\CrowdManager.cpp">
+      <Filter>Source Files\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\DynamicNavigationMesh.cpp">
+      <Filter>Source Files\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\NavArea.cpp">
+      <Filter>Source Files\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\NavBuildData.cpp">
+      <Filter>Source Files\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\Navigable.cpp">
+      <Filter>Source Files\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\NavigationMesh.cpp">
+      <Filter>Source Files\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\Obstacle.cpp">
+      <Filter>Source Files\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\OffMeshConnection.cpp">
+      <Filter>Source Files\Navigation</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\Connection.cpp">
+      <Filter>Source Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\HttpRequest.cpp">
+      <Filter>Source Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\Network.cpp">
+      <Filter>Source Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\NetworkPriority.cpp">
+      <Filter>Source Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\CollisionShape.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\Constraint.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\PhysicsWorld.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\RaycastVehicle.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\RigidBody.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Precompiled.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\BackgroundLoader.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\Decompress.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\Image.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\JSONFile.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\JSONValue.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\Localization.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\PListFile.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\Resource.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\ResourceCache.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\XMLElement.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\XMLFile.cpp">
+      <Filter>Source Files\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Animatable.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Component.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\LogicComponent.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Node.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\ObjectAnimation.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Scene.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\SceneResolver.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Serializable.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\SmoothedTransform.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\SplinePath.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\UnknownComponent.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\ValueAnimation.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\ValueAnimationInfo.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\BorderImage.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Button.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\CheckBox.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Cursor.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\DropDownList.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\FileSelector.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Font.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\FontFace.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\FontFaceBitmap.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\FontFaceFreeType.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\LineEdit.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ListView.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Menu.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\MessageBox.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ProgressBar.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ScrollBar.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ScrollView.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Slider.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Sprite.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Text.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Text3D.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ToolTip.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UI.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UIBatch.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UIComponent.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UIElement.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UISelectable.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\View3D.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Window.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\AnimatedSprite2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\AnimationSet2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionBox2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionChain2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionCircle2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionEdge2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionPolygon2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionShape2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Constraint2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintDistance2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintFriction2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintGear2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintMotor2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintMouse2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintPrismatic2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintPulley2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintRevolute2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintRope2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintWeld2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintWheel2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Drawable2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ParticleEffect2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ParticleEmitter2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\PhysicsWorld2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Renderer2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\RigidBody2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Sprite2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\SpriteSheet2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\SpriterData2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\SpriterInstance2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\StaticSprite2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\StretchableSprite2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\TileMap2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\TileMapDefs2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\TileMapLayer2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\TmxFile2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Urho2D.cpp">
+      <Filter>Source Files\Urho2D</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\AudioLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\CoreLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\EngineLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\GraphicsLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\IKLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\IOLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\InputLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\LuaScriptLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\MathLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\NavigationLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\NetworkLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\PhysicsLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\ResourceLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\SceneLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\UILuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\generated\Urho2DLuaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\APITemplates.h">
+      <Filter>Header Files\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\Addons.h">
+      <Filter>Header Files\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\Script.h">
+      <Filter>Header Files\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\ScriptAPI.h">
+      <Filter>Header Files\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\ScriptEventListener.h">
+      <Filter>Header Files\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\ScriptFile.h">
+      <Filter>Header Files\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\AngelScript\ScriptInstance.h">
+      <Filter>Header Files\AngelScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\Audio.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\AudioDefs.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\AudioEvents.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\BufferedSoundStream.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\OggVorbisSoundStream.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\Sound.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\SoundListener.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\SoundSource.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\SoundSource3D.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Audio\SoundStream.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Allocator.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\ArrayPtr.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\ForEach.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Hash.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\HashBase.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\HashMap.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\HashSet.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\LinkedList.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\List.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\ListBase.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Pair.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Ptr.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\RefCounted.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Sort.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Str.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Swap.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\Vector.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Container\VectorBase.h">
+      <Filter>Header Files\Container</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Attribute.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Condition.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Context.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\CoreEvents.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\EventProfiler.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Main.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\MiniDump.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Mutex.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Object.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\ProcessUtils.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Profiler.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Spline.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\StringHashRegister.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\StringUtils.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Thread.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Timer.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\Variant.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Core\WorkQueue.h">
+      <Filter>Header Files\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\DebugNew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\Application.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\Console.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\DebugHud.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\Engine.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\EngineDefs.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Engine\EngineEvents.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\AnimatedModel.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Animation.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\AnimationController.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\AnimationState.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Batch.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\BillboardSet.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Camera.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ConstantBuffer.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\CustomGeometry.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\DebugRenderer.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\DecalSet.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Drawable.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\DrawableEvents.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\GPUObject.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Geometry.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Graphics.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\GraphicsDefs.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\GraphicsEvents.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\GraphicsImpl.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\IndexBuffer.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Light.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Material.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Model.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OcclusionBuffer.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Octree.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OctreeQuery.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLGraphicsImpl.h">
+      <Filter>Header Files\Graphics\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\OpenGL\OGLShaderProgram.h">
+      <Filter>Header Files\Graphics\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ParticleEffect.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ParticleEmitter.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\RenderPath.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\RenderSurface.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Renderer.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\RibbonTrail.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Shader.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ShaderPrecache.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ShaderProgram.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\ShaderVariation.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Skeleton.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Skybox.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\StaticModel.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\StaticModelGroup.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Tangent.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Technique.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Terrain.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\TerrainPatch.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Texture.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Texture2D.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Texture2DArray.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Texture3D.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\TextureCube.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\VertexBuffer.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\VertexDeclaration.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\View.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Viewport.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Graphics\Zone.h">
+      <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IK.h">
+      <Filter>Header Files\IK</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IKConstraint.h">
+      <Filter>Header Files\IK</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IKConverters.h">
+      <Filter>Header Files\IK</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IKEffector.h">
+      <Filter>Header Files\IK</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IKEvents.h">
+      <Filter>Header Files\IK</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IK\IKSolver.h">
+      <Filter>Header Files\IK</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\AbstractFile.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\Compression.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\Deserializer.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\File.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\FileSystem.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\FileWatcher.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\IOEvents.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\Log.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\MacFileWatcher.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\MemoryBuffer.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\NamedPipe.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\PackageFile.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\RWOpsWrapper.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\Serializer.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\IO\VectorBuffer.h">
+      <Filter>Header Files\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Input\Controls.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Input\Input.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Input\InputEvents.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LibraryInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaFile.h">
+      <Filter>Header Files\LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaFunction.h">
+      <Filter>Header Files\LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaScript.h">
+      <Filter>Header Files\LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaScriptEventInvoker.h">
+      <Filter>Header Files\LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaScriptEventListener.h">
+      <Filter>Header Files\LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\LuaScriptInstance.h">
+      <Filter>Header Files\LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\LuaScript\ToluaUtils.h">
+      <Filter>Header Files\LuaScript</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\AreaAllocator.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\BoundingBox.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Color.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Frustum.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\MathDefs.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Matrix2.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Matrix3.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Matrix3x4.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Matrix4.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Plane.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Polyhedron.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Quaternion.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Random.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Ray.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Rect.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Sphere.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\StringHash.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Vector2.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Vector3.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Math\Vector4.h">
+      <Filter>Header Files\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\CrowdAgent.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\CrowdManager.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\DynamicNavigationMesh.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\NavArea.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\NavBuildData.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\Navigable.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\NavigationEvents.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\NavigationMesh.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\Obstacle.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Navigation\OffMeshConnection.h">
+      <Filter>Header Files\Navigation</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\Connection.h">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\HttpRequest.h">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\Network.h">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\NetworkEvents.h">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\NetworkPriority.h">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Network\Protocol.h">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\CollisionShape.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\Constraint.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\PhysicsEvents.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\PhysicsUtils.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\PhysicsWorld.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\RaycastVehicle.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Physics\RigidBody.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Precompiled.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\BackgroundLoader.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\Decompress.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\Image.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\JSONFile.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\JSONValue.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\Localization.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\PListFile.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\Resource.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\ResourceCache.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\ResourceEvents.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\XMLElement.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Resource\XMLFile.h">
+      <Filter>Header Files\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Animatable.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\AnimationDefs.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Component.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\LogicComponent.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Node.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\ObjectAnimation.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\ReplicationState.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Scene.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\SceneEvents.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\SceneResolver.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\Serializable.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\SmoothedTransform.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\SplinePath.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\UnknownComponent.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\ValueAnimation.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Scene\ValueAnimationInfo.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\BorderImage.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Button.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\CheckBox.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Cursor.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\DropDownList.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\FileSelector.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Font.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\FontFace.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\FontFaceBitmap.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\FontFaceFreeType.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\LineEdit.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ListView.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Menu.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\MessageBox.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ProgressBar.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ScrollBar.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ScrollView.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Slider.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Sprite.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Text.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Text3D.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\ToolTip.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UI.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UIBatch.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UIComponent.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UIElement.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UIEvents.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\UISelectable.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\View3D.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\UI\Window.h">
+      <Filter>Header Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\AnimatedSprite2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\AnimationSet2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionBox2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionChain2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionCircle2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionEdge2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionPolygon2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\CollisionShape2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Constraint2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintDistance2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintFriction2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintGear2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintMotor2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintMouse2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintPrismatic2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintPulley2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintRevolute2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintRope2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintWeld2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ConstraintWheel2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Drawable2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ParticleEffect2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\ParticleEmitter2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\PhysicsEvents2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\PhysicsUtils2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\PhysicsWorld2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Renderer2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\RigidBody2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Sprite2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\SpriteSheet2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\SpriterData2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\SpriterInstance2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\StaticSprite2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\StretchableSprite2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\TileMap2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\TileMapDefs2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\TileMapLayer2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\TmxFile2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Urho2D.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho2D\Urho2DEvents.h">
+      <Filter>Header Files\Urho2D</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\Urho3DAll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Urho3D\librevision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\4abe946ee1470b80054b5392d01e2a7b\librevision.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\AudioLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\CoreLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\EngineLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\GraphicsLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\IKLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\IOLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\InputLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\LuaScriptLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\MathLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\NavigationLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\NetworkLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\PhysicsLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\ResourceLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\SceneLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\UILuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\b58e35b6bfa0dfdc3bdf471f93fea1b6\Urho2DLuaAPI.cpp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\Source\Urho3D\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7F268C8C-9291-3DC3-BD8F-4F34CD22C999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{DD10CFD6-3133-3031-AA9C-2A7889CDABBF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AngelScript">
+      <UniqueIdentifier>{F793E679-01ED-3E9A-91C5-F9A365FE5D22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Audio">
+      <UniqueIdentifier>{4FFD39CA-D25D-35C2-B788-BB0CBCB109EA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Container">
+      <UniqueIdentifier>{4BE5198D-9D89-3430-A3A4-25F112605EC5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Core">
+      <UniqueIdentifier>{D957362A-5425-3DD6-B953-5CC64EBF3133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine">
+      <UniqueIdentifier>{07E14C60-EA30-3AEB-99AB-FF7B441B2A2B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics">
+      <UniqueIdentifier>{7E75EF0A-1BC2-3E3F-AC68-600DAE7ECE3A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Graphics\OpenGL">
+      <UniqueIdentifier>{71E88358-5198-3243-908D-771EE2786A68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IK">
+      <UniqueIdentifier>{2F5581BE-4368-319E-8F8C-7AC859AD769D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IO">
+      <UniqueIdentifier>{5A3C7B82-7DB9-3A15-97EA-70B6CA607480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{2B6C757C-C0C6-36D8-B7AA-8C0748DB29A5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LuaScript">
+      <UniqueIdentifier>{2482374F-51B0-36BE-9DD7-31364CBAA57A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math">
+      <UniqueIdentifier>{2DB5FBCF-08B2-30D6-82AA-8EE2E0E39FA9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Navigation">
+      <UniqueIdentifier>{92AC9727-8DC4-334A-8FE5-AAFFB4EF2B6E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Network">
+      <UniqueIdentifier>{922B29B7-261C-39A8-96E0-D9C1B7D1FB7A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics">
+      <UniqueIdentifier>{03044F00-53BA-30F9-A635-DACC8BD95145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Resource">
+      <UniqueIdentifier>{0C1C2C4D-04AA-3698-88BA-2DAB8EA5E44E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{EA1B4058-3C91-31DC-BEE6-85C985F2701C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UI">
+      <UniqueIdentifier>{1D554427-608E-31F7-8E00-95AAFD228612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Urho2D">
+      <UniqueIdentifier>{CDB9F5D4-42F7-3B22-B079-DEA0F4A1DF8D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B961055E-F8C3-3511-8A81-99023ECE156E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AngelScript">
+      <UniqueIdentifier>{963BED04-C4A6-3C36-B205-82B6A8E2C585}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Audio">
+      <UniqueIdentifier>{25A8B26B-7DC4-373D-AF88-3AA85F13DE3A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Container">
+      <UniqueIdentifier>{9315E2D6-DC05-3D36-9410-897ABE2F3685}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{9CAE57BA-8E31-3DFC-8268-0F8E3BA3E6D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{16A89AEC-D10E-3F01-AC2A-7DC75E951DE5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics">
+      <UniqueIdentifier>{B179864A-F6E4-3EA0-8E5C-29B7E9C8AAD3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\OpenGL">
+      <UniqueIdentifier>{BEC51B92-AF68-32CE-A6B7-A38A0BEE5AE2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IK">
+      <UniqueIdentifier>{838F0188-AC30-3F5F-AD64-2C977B0033D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IO">
+      <UniqueIdentifier>{E45374A3-2449-3280-A135-A3639224B36D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{B2720E6E-3B77-3F1D-A827-62EC9E8B9C06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LuaScript">
+      <UniqueIdentifier>{CFC36108-2FCD-364F-9182-EAB5872DF4EC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math">
+      <UniqueIdentifier>{944DD92A-3F6A-3F1B-9BD0-ECD7A64F3FFD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Navigation">
+      <UniqueIdentifier>{283ACE41-3835-3577-BFAA-F726B7171D98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Network">
+      <UniqueIdentifier>{82C171C0-44DB-3047-9A01-CE591626B4AF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{4B1DB325-1F6C-3320-B5EF-F1BD0E67D86C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Resource">
+      <UniqueIdentifier>{F3720B1E-A935-39B4-934B-5B922F01D0E2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{104D63A0-D6AD-3458-B55A-65ED1D576612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{52AD4FDF-A742-3D75-BADE-DCFB7B4F162B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Urho2D">
+      <UniqueIdentifier>{86723D99-2B23-38E2-8F2F-B052A7B8A412}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

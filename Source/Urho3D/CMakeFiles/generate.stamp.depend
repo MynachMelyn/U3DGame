@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+D:/repos/Urho/urho3d-master/CMake/Modules/exportheader.cmake.in
+D:/repos/Urho/urho3d-master/Source/Urho3D/CMakeLists.txt
+D:/repos/Urho/urho3d-master/Source/Urho3D/Urho3D.pc.in
+D:/repos/Urho/urho3d-master/Source/Urho3D/Urho3DAll.h.in

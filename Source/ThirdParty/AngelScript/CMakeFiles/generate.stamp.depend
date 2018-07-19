@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeASMInformation.cmake
+C:/Program Files/CMake/share/cmake-3.12/Modules/CMakeASM_MASMInformation.cmake
+D:/repos/Urho/urho3d-master/CMakeFiles/3.12.0-rc2/CMakeASM_MASMCompiler.cmake
+D:/repos/Urho/urho3d-master/Source/ThirdParty/AngelScript/CMakeLists.txt

@@ -1,0 +1,4 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.12/Modules/FindPackageMessage.cmake
+D:/repos/Urho/urho3d-master/CMake/Modules/FindUrho3D.cmake
+D:/repos/Urho/urho3d-master/Source/Tools/CMakeLists.txt

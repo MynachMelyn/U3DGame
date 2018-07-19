@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\repos\Urho\urho3d-master\CMakeFiles\c6da456c4bd4b790ce755fcf36dfa673\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7F268C8C-9291-3DC3-BD8F-4F34CD22C999}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,15 @@
+<renderpath>
+    <rendertarget name="blurh" tag="Blur" sizedivisor="1 1" format="rgba" filter="true" />
+    <rendertarget name="blurv" tag="Blur" sizedivisor="1 1" format="rgba" filter="true" />
+    <command type="quad" tag="Blur" vs="Blur" ps="Blur" psdefines="BLURDOFDEBUG" output="viewport">
+        <parameter name="BlurDir" value="1.0 0.0" />
+        <parameter name="BlurRadius" value="2.0" />
+        <parameter name="BlurSigma" value="5.0" />
+		<parameter name="Bias" value="3" />
+		<parameter name="BlurClamp" value="0.4" />
+        <parameter name="Focus" value="0.98" />
+		<parameter name="ProximityMultiplier" value="1.5" />
+        <texture unit="diffuse" name="viewport" />
+		<texture unit="depth" name="depth" />
+    </command>
+</renderpath>
