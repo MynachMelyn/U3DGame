@@ -147,7 +147,7 @@ void PhotoCamera::MakeViewport() {
 	float proximityMultiplier = 1.5f;
 
 	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
-	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/FUCKINGDAMNIT.xml"));
+	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFFinal.xml"));
 	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/Blur.xml"));
 	rttViewport->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
 	rttViewport->GetRenderPath()->SetShaderParameter("Bias", bias);
@@ -156,7 +156,7 @@ void PhotoCamera::MakeViewport() {
 
 
 	rttViewportDebug->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
-	rttViewportDebug->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/FUCKINGDAMNITDEBUG.xml"));
+	rttViewportDebug->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFFinalDebug.xml"));
 	rttViewportDebug->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
 	rttViewportDebug->GetRenderPath()->SetShaderParameter("Bias", bias);
 	rttViewportDebug->GetRenderPath()->SetShaderParameter("Focus", focus);
