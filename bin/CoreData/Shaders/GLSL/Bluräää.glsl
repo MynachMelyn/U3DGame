@@ -20,29 +20,18 @@ uniform float cBias; //aperture - bigger values for shallower depth of field
 uniform float cFocus;  // this value comes from ReadDepth script.
 uniform float cProximityMultiplier;
 
-// float getCoC(float depth) {
-	// // Lazy, but all of these *are* technically accessible from here, in this scope
-	// // Multiplying the depth by ten works for our chosen values, and doesn't make too much impact on the depth comparison later.
-	// float factor = clamp( ( depth - cFocus ) * cBias, -cBlurClamp, cBlurClamp );
-	
-	// // WARNUNG: DO NOT PUT THIS PART IN FOR THE COC COMPARISONS; IT IS ONLY NEEDED FOR ACTUAL PLAIN BLURRING
-	// // if(factor < 0.0) {
-		// // factor *= cProximityMultiplier;
-	// // }
-	// return float(abs(factor));
-// }
-
 float getCoC(float depth) {
-	float factor = ( depth - cFocus ) * cBias;
+	// Lazy, but all of these *are* technically accessible from here, in this scope
+	// Multiplying the depth by ten works for our chosen values, and doesn't make too much impact on the depth comparison later.
+	float factor = clamp( ( depth - cFocus ) * cBias, -cBlurClamp, cBlurClamp );
+	if(factor < 0.0) {
+		factor *= cProximityMultiplier;
+	}
 	return float(abs(factor));
 }
 
 float magicalFunction(float x) {
 	return (1 / (1 - pow(x + 0.1, 4))) - 1;
-}
-
-float funkyFunction(float x) {
-	return clamp(min(max((pow(x*10, 2)-1)/15, 0), 1), 0, 1);
 }
 
 // Does Gaussian blur whilst taking into account the depth difference and difference in CoC
@@ -74,51 +63,43 @@ vec4 GaussianBlurDoF(int blurKernelSize, vec2 blurDir, vec2 blurRadius, float si
 		vec2 sampleCoordPos = texCoord + float(i) * blurVec;
 		vec2 sampleCoordNeg = texCoord - float(i) * blurVec;
 		
+		// Get depth at the sample point
+		float sampleDepth = 10 * ReconstructDepth( texture2D(sDepthBuffer, sampleCoordPos).r );
+		
+		// Get the influence of the CoC on the depth rejection, which is similar to a log graph (but cheaper)
+		float cocInfluence = magicalFunction(getCoC(sampleDepth));
 				
 		{ // New Scope to separate likenamed vars
-			// Get depth at the sample point
-			float sampleDepth = 10 * ReconstructDepth( texture2D(sDepthBuffer, sampleCoordPos).r );
-			
-			// Get the influence of the CoC on the depth rejection, which is similar to a log graph (but cheaper)
-			//float cocInfluence = funkyFunction(getCoC(sampleDepth));
-			float cocInfluence = clamp(funkyFunction(getCoC(sampleDepth)), 0, 1);
-		
 			// The higher the delta, the higher the rejection amount
-			float delta = ((depth - sampleDepth) / 10.0) * cocInfluence;
-			// If we're behind the sample texel...
+			float delta = ((depth - sampleDepth) / 10.0) * cocInfluence; // May want to clamp this formally
 			if(delta > 0) {
 				vec3 colourA = texture2D(texSampler, sampleCoordPos).rgb;
 				vec3 colourB = texture2D(texSampler, texCoord).rgb;
 				avgValue += vec4( (colourB.r - colourA.r)*delta + colourA.r, (colourB.g - colourA.g)*delta + colourA.g, (colourB.b - colourA.b)*delta + colourA.b, 1.0 ) * gaussCoeff.x;
-				
-				gaussCoeffSum += gaussCoeff.x;
+				// avgValue += texture2D(texSampler, texCoord) * gaussCoeff.x;
 			} else {
 				avgValue += texture2D(texSampler, sampleCoordPos) * gaussCoeff.x;
-				gaussCoeffSum += gaussCoeff.x;
 			}
 		}
 		
 		
+		
+		// Get depth at the sample point
+		float sampleDepth = 10 * ReconstructDepth( texture2D(sDepthBuffer, sampleCoordNeg).r );
+		
+		// Get the influence of the CoC on the depth rejection, which is similar to a log graph (but cheaper)
+		float cocInfluence = magicalFunction(getCoC(sampleDepth));
 				
 		{ // New Scope to separate likenamed vars
-			// Get depth at the sample point
-			float sampleDepth = 10 * ReconstructDepth( texture2D(sDepthBuffer, sampleCoordNeg).r );
-			// Get the influence of the CoC on the depth rejection, which is similar to a log graph (but cheaper)
-			//float cocInfluence = funkyFunction(getCoC(sampleDepth));
-			float cocInfluence = clamp(funkyFunction(getCoC(sampleDepth)), 0, 1);
-
 			// The higher the delta, the higher the rejection amount
-			float delta = ((depth - sampleDepth) / 10.0) * cocInfluence;
-			// If we're behind the sample texel...
+			float delta = ((depth - sampleDepth) / 10.0) * cocInfluence; // May want to clamp this formally
 			if(delta > 0) {
 				vec3 colourA = texture2D(texSampler, sampleCoordNeg).rgb;
 				vec3 colourB = texture2D(texSampler, texCoord).rgb;
 				avgValue += vec4( (colourB.r - colourA.r)*delta + colourA.r, (colourB.g - colourA.g)*delta + colourA.g, (colourB.b - colourA.b)*delta + colourA.b, 1.0 ) * gaussCoeff.x;
-				
-				gaussCoeffSum += gaussCoeff.x;
+				// avgValue += texture2D(texSampler, texCoord) * gaussCoeff.x;
 			} else {
 				avgValue += texture2D(texSampler, sampleCoordNeg) * gaussCoeff.x;
-				gaussCoeffSum += gaussCoeff.x;
 			}
 		}
 		
@@ -132,7 +113,7 @@ vec4 GaussianBlurDoF(int blurKernelSize, vec2 blurDir, vec2 blurRadius, float si
 			// avgValue += texture2D(texSampler, sampleCoordNeg) * gaussCoeff.x;
 		// }        
 
-        //gaussCoeffSum += 2.0 * gaussCoeff.x;
+        gaussCoeffSum += 2.0 * gaussCoeff.x;
 		
 		// I believe this line just proceeds to the next gaussian values needed to sample, 
 		// so we ALWAYS do it regardless of whether or not we reject

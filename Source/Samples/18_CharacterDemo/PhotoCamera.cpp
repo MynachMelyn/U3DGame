@@ -90,6 +90,8 @@ void PhotoCamera::Setup() {
 	MakeViewport();
 }
 
+//float fucky = 0.0f;
+
 void PhotoCamera::FixedUpdate(float timeStep) {
 	//todo Could cache the components for faster access instead of finding them each frame
 	//auto* body = GetComponent<RigidBody>();
@@ -98,21 +100,24 @@ void PhotoCamera::FixedUpdate(float timeStep) {
 	if (focusChange != 0) {
 		if (!changeAperture) {
 			// First, get the value as a proportion of how many seconds have passed this step
-			float currentValue = cameraRenderPath->GetShaderParameter("Focus").GetFloat();
-			currentValue += focusChange * timeStep;
+			float currentValue = cameraRenderPath->GetShaderParameter("FocalPlane").GetFloat();
+			currentValue += focusChange * timeStep * 2.0f;
 			currentValue = Clamp(currentValue, 0.0f, 1.0f);
-			cameraRenderPath->SetShaderParameter("Focus", currentValue);
-			cameraRenderPathDebug->SetShaderParameter("Focus", currentValue);
-			focusChange = 0;
+			cameraRenderPath->SetShaderParameter("FocalPlane", currentValue);
+			cameraRenderPathDebug->SetShaderParameter("FocalPlane", currentValue);
 		} else {
-			float currentValue = cameraRenderPath->GetShaderParameter("Bias").GetFloat();
-			currentValue += focusChange * timeStep * 20;
-			currentValue = Clamp(currentValue, 0.5f, 15.0f);
-			cameraRenderPath->SetShaderParameter("Bias", currentValue);
-			cameraRenderPathDebug->SetShaderParameter("Bias", currentValue);
+			float currentValue = cameraRenderPath->GetShaderParameter("FocusScale").GetFloat();
+			currentValue += focusChange * timeStep;
+			currentValue = Clamp(currentValue, 0.02f, 2.0f);
+			cameraRenderPath->SetShaderParameter("FocusScale", currentValue);
+			cameraRenderPathDebug->SetShaderParameter("FocusScale", currentValue);
 		}
 		focusChange = 0;
 	}
+	//fucky += timeStep;
+	//cameraRenderPath->SetShaderParameter("FocusScale", sin(fucky));
+	//cameraRenderPathDebug->SetShaderParameter("FocusScale", sin(fucky));
+
 }
 
 void PhotoCamera::MakeViewport() {
@@ -145,22 +150,24 @@ void PhotoCamera::MakeViewport() {
 	float bias = 8.0f;
 	float focus = 0.3f;
 	float proximityMultiplier = 1.5f;
+	float far = 10.0f;
 
 	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
-	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFFinal.xml"));
-	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/Blur.xml"));
-	rttViewport->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
-	rttViewport->GetRenderPath()->SetShaderParameter("Bias", bias);
-	rttViewport->GetRenderPath()->SetShaderParameter("Focus", focus);
-	rttViewport->GetRenderPath()->SetShaderParameter("ProximityMultiplier", proximityMultiplier);
+	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlog.xml"));
+	rttViewport->GetRenderPath()->SetShaderParameter("Far", far);
+	//rttViewport->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
+	//rttViewport->GetRenderPath()->SetShaderParameter("Bias", bias);
+	//rttViewport->GetRenderPath()->SetShaderParameter("Focus", focus);
+	//rttViewport->GetRenderPath()->SetShaderParameter("ProximityMultiplier", proximityMultiplier);
 
 
 	rttViewportDebug->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
-	rttViewportDebug->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFFinalDebug.xml"));
-	rttViewportDebug->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
-	rttViewportDebug->GetRenderPath()->SetShaderParameter("Bias", bias);
-	rttViewportDebug->GetRenderPath()->SetShaderParameter("Focus", focus);
-	rttViewportDebug->GetRenderPath()->SetShaderParameter("ProximityMultiplier", proximityMultiplier);
+	rttViewportDebug->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlogDebug.xml"));
+	rttViewportDebug->GetRenderPath()->SetShaderParameter("Far", far);
+	//rttViewportDebug->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
+	//rttViewportDebug->GetRenderPath()->SetShaderParameter("Bias", bias);
+	//rttViewportDebug->GetRenderPath()->SetShaderParameter("Focus", focus);
+	//rttViewportDebug->GetRenderPath()->SetShaderParameter("ProximityMultiplier", proximityMultiplier);
 	//surface->SetViewport(0, rttViewport);
 
 	renderer->SetNumViewports(3);

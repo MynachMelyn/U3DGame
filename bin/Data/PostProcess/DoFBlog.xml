@@ -1,0 +1,9 @@
+<renderpath>
+    <command type="quad" tag="DoF" vs="fucky" ps="fucky" output="viewport">
+		<parameter name="Far" value="300.0" />
+		<parameter name="FocusScale" value="1.0" />
+		<parameter name="FocalPlane" value="1.0" />
+        <texture unit="diffuse" name="viewport" />
+		<texture unit="depth" name="depth" />
+    </command>
+</renderpath>
