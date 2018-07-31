@@ -90,8 +90,6 @@ void PhotoCamera::Setup() {
 	MakeViewport();
 }
 
-//float fucky = 0.0f;
-
 void PhotoCamera::FixedUpdate(float timeStep) {
 	//todo Could cache the components for faster access instead of finding them each frame
 	//auto* body = GetComponent<RigidBody>();
@@ -101,16 +99,21 @@ void PhotoCamera::FixedUpdate(float timeStep) {
 		if (!changeAperture) {
 			// First, get the value as a proportion of how many seconds have passed this step
 			float currentValue = cameraRenderPath->GetShaderParameter("FocalPlane").GetFloat();
-			currentValue += focusChange * timeStep * 2.0f;
-			currentValue = Clamp(currentValue, 0.0f, 1.0f);
+			currentValue += focusChange * timeStep * 1.0f;
+			currentValue = Clamp(currentValue, 0.007f, 0.98f);
 			cameraRenderPath->SetShaderParameter("FocalPlane", currentValue);
 			cameraRenderPathDebug->SetShaderParameter("FocalPlane", currentValue);
 		} else {
-			float currentValue = cameraRenderPath->GetShaderParameter("FocusScale").GetFloat();
-			currentValue += focusChange * timeStep;
-			currentValue = Clamp(currentValue, 0.02f, 2.0f);
-			cameraRenderPath->SetShaderParameter("FocusScale", currentValue);
-			cameraRenderPathDebug->SetShaderParameter("FocusScale", currentValue);
+			float currentValue = cameraRenderPath->GetShaderParameter("Aperture").GetFloat();
+			currentValue += focusChange * timeStep * 15.0f;
+			currentValue = Clamp(currentValue, 3.5f, 21.0f);
+			cameraRenderPath->SetShaderParameter("Aperture", currentValue);
+			cameraRenderPathDebug->SetShaderParameter("Aperture", currentValue);
+
+			//currentValue += focusChange * timeStep;
+			//currentValue = Clamp(currentValue, 0.02f, 2.0f);
+			//cameraRenderPath->SetShaderParameter("FocusScale", currentValue);
+			//cameraRenderPathDebug->SetShaderParameter("FocusScale", currentValue);
 		}
 		focusChange = 0;
 	}
@@ -131,42 +134,52 @@ void PhotoCamera::MakeViewport() {
 	// NEW
 	auto* graphics = GetSubsystem<Graphics>();
 	auto* renderer = GetSubsystem<Renderer>();
+
+	float scale = 2.4f * graphics->GetWidth() * graphics->GetHeight() / 10000;
+
 	SharedPtr<Viewport> rttViewport(new Viewport(this->GetContext(), this->GetScene(), rttCameraNode->GetComponent<Camera>(),
-		IntRect(graphics->GetWidth() * 2 / 3,
-			32,
-			graphics->GetWidth() - 32,
-			graphics->GetHeight() / 3)
+		IntRect(0,
+			0,
+			3.0 * scale,
+			2.0 * scale)
 	));
 
 	SharedPtr<Viewport> rttViewportDebug(new Viewport(this->GetContext(), this->GetScene(), rttCameraNode->GetComponent<Camera>(),
-		IntRect(graphics->GetWidth() * 2 / 3,
-			graphics->GetHeight() / 3,
-			graphics->GetWidth() - 32,
-			graphics->GetHeight() * 2 / 3)
+		IntRect(0,
+			scale * 2.0f,
+			3.0 * scale,
+			4.0 * scale)
 	));
 
 
 	float blurClamp = 1.0f;
 	float bias = 8.0f;
-	float focus = 0.3f;
+	float focus = 0.007f;
 	float proximityMultiplier = 1.5f;
-	float far = 10.0f;
+	//float far = 10.0f;
+	float far = 1.0f;
+
+	// Allows mm -> px conversion
+	// Divide pixel height by format height (35mm height)
+	float sizeOverFormat = rttViewport->GetRect().Height() / 24.0;
 
 	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
 	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlog.xml"));
 	rttViewport->GetRenderPath()->SetShaderParameter("Far", far);
+	rttViewport->GetRenderPath()->SetShaderParameter("SizeOverFormat", sizeOverFormat);
+	rttViewport->GetRenderPath()->SetShaderParameter("FocalPlane", focus);
 	//rttViewport->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
 	//rttViewport->GetRenderPath()->SetShaderParameter("Bias", bias);
-	//rttViewport->GetRenderPath()->SetShaderParameter("Focus", focus);
 	//rttViewport->GetRenderPath()->SetShaderParameter("ProximityMultiplier", proximityMultiplier);
 
 
 	rttViewportDebug->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
 	rttViewportDebug->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlogDebug.xml"));
 	rttViewportDebug->GetRenderPath()->SetShaderParameter("Far", far);
+	rttViewportDebug->GetRenderPath()->SetShaderParameter("SizeOverFormat", sizeOverFormat);
+	rttViewportDebug->GetRenderPath()->SetShaderParameter("FocalPlane", focus);
 	//rttViewportDebug->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
 	//rttViewportDebug->GetRenderPath()->SetShaderParameter("Bias", bias);
-	//rttViewportDebug->GetRenderPath()->SetShaderParameter("Focus", focus);
 	//rttViewportDebug->GetRenderPath()->SetShaderParameter("ProximityMultiplier", proximityMultiplier);
 	//surface->SetViewport(0, rttViewport);
 
