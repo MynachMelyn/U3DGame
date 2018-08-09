@@ -97,7 +97,26 @@ void CharacterDemo::Start() {
 }
 
 void CharacterDemo::SetupViewport() {
+	auto* cache = GetSubsystem<ResourceCache>();
+	//RenderSurface* surface = renderTexture->GetRenderSurface();
 
+	// NEW
+	auto* graphics = GetSubsystem<Graphics>();
+	auto* renderer = GetSubsystem<Renderer>();
+
+	SharedPtr<Viewport> rttViewport(new Viewport(context_, scene_, cameraNode_->GetComponent<Camera>()));
+
+
+	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
+	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlog.xml"));
+	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlog.xml"));
+	rttViewport->GetRenderPath()->SetShaderParameter("Far", rttViewport->GetCamera()->GetFarClip());
+	rttViewport->GetRenderPath()->SetShaderParameter("ResWidth", 1920.0);
+	rttViewport->GetRenderPath()->SetShaderParameter("FWheel", 0.87);
+	rttViewport->GetRenderPath()->SetShaderParameter("FocalLengthMM", 70.0);
+	rttViewport->GetRenderPath()->SetShaderParameter("Aperture", 1.0f);
+
+	renderer->SetViewport(0, rttViewport);
 }
 
 void CharacterDemo::CreateScene() {
@@ -125,21 +144,26 @@ void CharacterDemo::CreateScene() {
 	cameraNode_->SetPosition(Vector3(0.0f, 10.0f, -10.0f));
 
 	// Set up a viewport to the Renderer subsystem so that the 3D scene can be seen
-	SharedPtr<Viewport> viewport(new Viewport(context_, scene_, cameraNode_->GetComponent<Camera>()));
-	viewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/DeferredHWDepth.xml"));
-	renderer->SetViewport(0, viewport);
-	// Add post-processing effects appropriate with the example scene
+	//SharedPtr<Viewport> viewport(new Viewport(context_, scene_, cameraNode_->GetComponent<Camera>()));
+	//viewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
+	//renderer->SetViewport(0, viewport);
+	//// Add post-processing effects appropriate with the example scene
 
-	SharedPtr<RenderPath> effectRenderPath = viewport->GetRenderPath()->Clone();
-	//effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/FXAA2.xml"));
-	//effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/GammaCorrection.xml"));
-	//effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/Tonemap.xml"));
-	//effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/AutoExposure.xml"));
+	//SharedPtr<RenderPath> effectRenderPath = viewport->GetRenderPath()->Clone();
+	////effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/FXAA2.xml"));
+	////effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/GammaCorrection.xml"));
+	////effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/Tonemap.xml"));
+	////effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/AutoExposure.xml"));
 
-	//effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/Blur.xml"));
-	//effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/DepthOfFieldNew.xml"));
-	//effectRenderPath->SetShaderParameter("BlurClamp", 0.0f);
-	viewport->SetRenderPath(effectRenderPath);
+	////effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/Blur.xml"));
+	////effectRenderPath->SetShaderParameter("BlurClamp", 0.0f);
+	//effectRenderPath->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlogDebug.xml"));
+	//effectRenderPath->SetShaderParameter("Far", viewport->GetCamera()->GetFarClip());
+	//effectRenderPath->SetShaderParameter("ResWidth", viewport->GetRect().Width());
+	//effectRenderPath->SetShaderParameter("FocalPlane", 0.05);
+	//effectRenderPath->SetShaderParameter("Aperture", 4.0f);
+	//viewport->SetRenderPath(effectRenderPath);
+	//renderer->SetViewport(0, viewport);
 
 
 
@@ -331,12 +355,6 @@ void CharacterDemo::HandleUpdate(StringHash eventType, VariantMap& eventData) {
 				character_->controls_.Set(CTRL_BACK, input->GetKeyDown(KEY_S));
 				character_->controls_.Set(CTRL_LEFT, input->GetKeyDown(KEY_A));
 				character_->controls_.Set(CTRL_RIGHT, input->GetKeyDown(KEY_D));
-			}
-			character_->controls_.Set(CTRL_JUMP, input->GetKeyDown(KEY_SPACE));
-			character_->controls_.Set(CTRL_TAKESNAP, input->GetKeyDown(KEY_E));
-			character_->controls_.Set(CTRL_APERTUREHOLD, input->GetKeyDown(KEY_SHIFT));
-			if (input->GetMouseMoveWheel() != 0) {
-				character_->camera->GetComponent<PhotoCamera>()->focusChange = input->GetMouseMoveWheel();
 			}
 
 			// Add character yaw & pitch from the mouse motion or touch input
