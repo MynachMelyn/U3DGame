@@ -100,7 +100,7 @@ void PhotoCamera::FixedUpdate(float timeStep) {
 			// First, get the value as a proportion of how many seconds have passed this step
 			float currentValue = cameraRenderPath->GetShaderParameter("FocalPlane").GetFloat();
 			currentValue += focusChange * timeStep * 1.0f;
-			currentValue = Clamp(currentValue, 0.007f, 0.98f);
+			currentValue = Clamp(currentValue, 0.003f, 0.99f);
 			cameraRenderPath->SetShaderParameter("FocalPlane", currentValue);
 			cameraRenderPathDebug->SetShaderParameter("FocalPlane", currentValue);
 		} else {
@@ -157,16 +157,17 @@ void PhotoCamera::MakeViewport() {
 	float focus = 0.007f;
 	float proximityMultiplier = 1.5f;
 	//float far = 10.0f;
-	float far = 1.0f;
+	//float far = 1.0f;
+	float far = rttViewport->GetCamera()->GetFarClip();
+	//float far = rttViewport->GetCamera()->GetFarClip();
 
 	// Allows mm -> px conversion
-	// Divide pixel height by format height (35mm height)
-	float sizeOverFormat = rttViewport->GetRect().Height() / 24.0;
+	float resolutionWidth = 1920;//rttViewport->GetRect().Width();
 
 	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
 	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlog.xml"));
 	rttViewport->GetRenderPath()->SetShaderParameter("Far", far);
-	rttViewport->GetRenderPath()->SetShaderParameter("SizeOverFormat", sizeOverFormat);
+	rttViewport->GetRenderPath()->SetShaderParameter("ResWidth", resolutionWidth);
 	rttViewport->GetRenderPath()->SetShaderParameter("FocalPlane", focus);
 	//rttViewport->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
 	//rttViewport->GetRenderPath()->SetShaderParameter("Bias", bias);
@@ -176,7 +177,7 @@ void PhotoCamera::MakeViewport() {
 	rttViewportDebug->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
 	rttViewportDebug->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlogDebug.xml"));
 	rttViewportDebug->GetRenderPath()->SetShaderParameter("Far", far);
-	rttViewportDebug->GetRenderPath()->SetShaderParameter("SizeOverFormat", sizeOverFormat);
+	rttViewportDebug->GetRenderPath()->SetShaderParameter("ResWidth", resolutionWidth);
 	rttViewportDebug->GetRenderPath()->SetShaderParameter("FocalPlane", focus);
 	//rttViewportDebug->GetRenderPath()->SetShaderParameter("BlurClamp", blurClamp);
 	//rttViewportDebug->GetRenderPath()->SetShaderParameter("Bias", bias);

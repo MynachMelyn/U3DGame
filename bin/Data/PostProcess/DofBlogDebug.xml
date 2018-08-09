@@ -3,7 +3,8 @@
 		<parameter name="Far" value="300.0" />
 		<parameter name="FocusScale" value="1.0" />
 		<parameter name="Aperture" value="4.0" />
-		<parameter name="FocalPlane" value="1.0" />
+		<parameter name="FocalPlane" value="0.007f" />
+		<parameter name="ResWidth" value="1920.0" />
 		<parameter name="SizeOverFormat" value="100.0" />
         <texture unit="diffuse" name="viewport" />
 		<texture unit="depth" name="depth" />

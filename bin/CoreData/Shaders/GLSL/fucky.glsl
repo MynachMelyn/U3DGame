@@ -16,11 +16,15 @@ uniform float cAperture;
 // Viewport Height / 24mm (The vertical size of 35mm format) - used to convert between mm and relative px
 uniform float cSizeOverFormat;
 
+uniform float cResWidth;
+
 const float GOLDEN_ANGLE = 2.39996323;
-const float MAX_BLUR_SIZE = 20.0;
+const float MAX_BLUR_SIZE = 25.0;
 const float RAD_SCALE = 0.5;
-const float FOCAL_LENGTH = 0.045; //45 mm. 1 sceneunit = 1m, ish.
-const float FOCAL_LENGTH_MM = 45.0; //45 mm. 1 sceneunit = 1m, ish.
+const float FOCAL_LENGTH = 0.045; //45 mm. 1 sceneunit = 1m, ish?
+const float FOCAL_LENGTH_MM = 45.0; //45 mm. 1 sceneunit = 1m, ish?
+// Every scene unit is about 2 metres?
+const float SCENEUNITS_IN_M = 0.75;
 
 void VS() {
     mat4 modelMatrix = iModelMatrix;
@@ -60,17 +64,51 @@ float getCoCBlurRadiusNvidia(float depth, float focalPlane, float aperture) {
 	
 	float CoC = D * abs(FOCAL_LENGTH_MM / (focalPlane - FOCAL_LENGTH_MM)) * abs(1 - (focalPlane/depth));
 	CoC = min(60, CoC); // Limit to 75mm
+	//return 7.0 * CoC / cSizeOverFormat; //mm to px
 	return 7.0 * CoC / cSizeOverFormat; //mm to px
 }
 
+float getCoCBlurRadiusGit(float depth, float focalPlane, float aperture) {
+	depth *= cFar * 1000.0;
+	focalPlane *= cFar * 1000.0;
+	
+	float a = (depth * FOCAL_LENGTH_MM) / (depth - FOCAL_LENGTH_MM);
+	float b = (focalPlane * FOCAL_LENGTH_MM) / (focalPlane - FOCAL_LENGTH_MM);
+	float c = (focalPlane - FOCAL_LENGTH_MM) / (depth * aperture * 0.03);
+	float CoC = abs(a-b) * c;
+	
+	return CoC / cSizeOverFormat;
+}
+
+// Alle Eingaben sind in Metern.
+// Von: desmos.com/calculator/j2gcokbykz
+// TODO!!!: Move all but depth to use the uniforms
+float getCoCBlurRadiusSE(float depth, float focalPlane, float aperture) {
+	float F_M = FOCAL_LENGTH_MM / 1000;
+	float f = focalPlane * cFar * SCENEUNITS_IN_M;
+	float d = depth * cFar * SCENEUNITS_IN_M;
+	float N = aperture;
+	
+	float a =  abs(d - f)/d;
+	float b = (F_M * F_M) / (N * (f - F_M));
+	float c = (cResWidth*1000) / 36; //Dividing 36 by 1000 is harder than just simplifying it.
+	//return min(a * b * c, 60.0);
+	return a * b * c;
+}
+
+float getCoC(float depth, float focalPlane, float aperture) {
+	return getCoCBlurRadiusSE(depth, focalPlane, aperture);
+}
+
 vec3 depthOfField(vec2 texCoord, float focusPoint, float focusScale, sampler2D diffTexture, sampler2D depthTexture) {
-	float centerDepth = ReconstructDepth(texture2D(depthTexture, texCoord).r) * cFar;
+	float centerDepth = ReconstructDepth(texture2D(depthTexture, texCoord).r);
 	//float centerSize = getBlurSize(centerDepth, focusPoint, focusScale);
-	float centerSize = getCoCBlurRadiusNvidia(centerDepth, focusPoint, cAperture);
+	// float centerSize = getCoCBlurRadiusNvidia(centerDepth, focusPoint, cAperture);
+	float centerSize = getCoC(centerDepth, focusPoint, cAperture);
 	
 	#ifdef DEBUGMODE
-		return vec3(centerSize / MAX_BLUR_SIZE);
-		//return vec3(centerSize);
+		//return vec3(centerSize / MAX_BLUR_SIZE);
+		return vec3(centerSize) / 15.0;
 	#endif
 	
 	vec3 color = texture2D(diffTexture, texCoord).rgb; // Previously had vTexCoord
@@ -85,9 +123,10 @@ vec3 depthOfField(vec2 texCoord, float focusPoint, float focusScale, sampler2D d
 		vec2 tc = texCoord + vec2(cos(ang), sin(ang)) * cGBufferInvSize.xy * radius;
 
 		vec3 sampleColor = texture2D(diffTexture, tc).rgb;
-		float sampleDepth = ReconstructDepth(texture2D(depthTexture, tc).r) * cFar;
+		float sampleDepth = ReconstructDepth(texture2D(depthTexture, tc).r);
 		//float sampleSize = getBlurSize(sampleDepth, focusPoint, focusScale);
-		float sampleSize = getCoCBlurRadiusNvidia(sampleDepth, focusPoint, cAperture);
+		// float sampleSize = getCoCBlurRadiusNvidia(sampleDepth, focusPoint, cAperture);
+		float sampleSize = getCoC(sampleDepth, focusPoint, cAperture);
 		
 		if (sampleDepth > centerDepth) {
 			sampleSize = clamp(sampleSize, 0.0, centerSize*2.0);
