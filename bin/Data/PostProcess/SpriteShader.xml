@@ -1,0 +1,7 @@
+<renderpath>
+    <command type="quad" tag="DoF" vs="spritemosaic" ps="spritemosaic" output="viewport">
+		<parameter name="RTDimensions" value="1920.0 1080.0" />
+		<parameter name="LowResDimensions" value="10.0 10.0" />
+        <texture unit="diffuse" name="viewport" />
+    </command>
+</renderpath>

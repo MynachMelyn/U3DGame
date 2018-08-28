@@ -1,0 +1,14 @@
+<renderpath>
+	<rendertarget name="diffuse" sizedivisor="8 8" format="rgba" />	
+	<!-- <rendertarget name="depthtwo" sizedivisor="8 8" format="readabledepth"/> -->
+	
+	<!-- <command type="quad" vs="CopyFramebuffer" ps="CopyFramebuffer" output="depthtwo"> -->
+        <!-- <texture unit="diffuse" name="depth" /> -->
+    <!-- </command>	 -->
+	<command type="quad" vs="CopyFramebuffer" ps="CopyFramebuffer" output="diffuse">
+        <texture unit="diffuse" name="viewport" />
+    </command>
+    <command type="quad" vs="CopyFramebuffer" ps="CopyFramebuffer" output="viewport">
+        <texture unit="diffuse" name="diffuse" />
+    </command>
+</renderpath>

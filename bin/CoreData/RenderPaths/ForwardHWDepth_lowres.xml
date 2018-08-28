@@ -1,0 +1,27 @@
+<renderpath>
+    <rendertarget name="depth" sizedivisor="4 4" format="readabledepth" />
+    <rendertarget name="depthcopy" sizedivisor="4 4" format="readabledepth" />
+	<rendertarget name="diffcopy" sizedivisor="4 4" format="rgba" />
+    <command type="clear" color="fog" depth="1.0" stencil="0" depthstencil="depth" output="diffcopy"/>
+    <command type="scenepass" pass="base" vertexlights="true" metadata="base" depthstencil="depth" output="diffcopy"/>
+    <command type="forwardlights" pass="light" depthstencil="depth" output="diffcopy"/>
+    <command type="scenepass" pass="postopaque" depthstencil="depth" output="diffcopy"/>
+    <command type="scenepass" pass="refract" depthstencil="depth" output="diffcopy">
+        <texture unit="environment" name="viewport" />
+    </command>
+    <command type="scenepass" pass="alpha" vertexlights="true" sort="backtofront" metadata="alpha" depthstencil="depth" psdefines="HWDEPTH" output="diffcopy">
+        <texture unit="depth" name="depth" />
+    </command>
+    <command type="scenepass" pass="postalpha" sort="backtofront" depthstencil="depth" output="diffcopy"/>
+	
+	<command type="quad" vs="CopyFramebuffer" ps="CopyFramebuffer" output="viewport">
+        <texture unit="diffuse" name="diffcopy" />
+    </command>
+	
+	<command type="quad" vs="CopyFramebuffer" ps="CopyFramebuffer" output="depthcopy">
+        <texture unit="diffuse" name="depth" />
+    </command>
+	<command type="quad" vs="CopyFramebufferDepth" ps="CopyFramebufferDepth" output="depth">
+        <texture unit="diffuse" name="depthcopy" />
+    </command>
+</renderpath>

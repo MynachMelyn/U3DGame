@@ -1,0 +1,18 @@
+<node id="16777216">
+	<attribute name="Name" value="forest.014"/>
+	<component id="16777216" type="StaticModel">
+		<attribute name="Model" value="Model;Forest/Models/forest.014.mdl"/>
+		<attribute name="Material" value="Material;Forest/Materials/None.xml"/>
+<attribute name="Is Occluder" value="true" />
+<attribute name="Cast Shadows" value="true" />
+	</component>
+	<component id="16777217" type="RigidBody">
+		<attribute name="Collision Layer" value="2"/>
+		<attribute name="Use Gravity" value="false"/>
+	</component>
+	<component id="16777218" type="CollisionShape">
+		<attribute name="Shape Type" value="ConvexHull"/>
+		<attribute name="Size" value="0.415873 0.56392 0.415873"/>
+		<attribute name="Offset Position" value="0.00779178 0.281439 0.0177157"/>
+	</component>
+</node>
