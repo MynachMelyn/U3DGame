@@ -20,7 +20,7 @@ uniform float cSizeOverFormat;
 uniform float cResWidth;
 
 const float GOLDEN_ANGLE = 2.39996323;
-const float MAX_BLUR_SIZE = 20.0; //20-25
+const float MAX_BLUR_SIZE = 10.0; //20-25
 const float RAD_SCALE = 0.5;
 // Every scene unit is about X metres?
 const float SCENEUNITS_IN_M = 0.75;
@@ -36,7 +36,6 @@ void VS() {
 #ifdef COMPILEPS
 // Alle Eingaben sind in Metern.
 // Von: desmos.com/calculator/j2gcokbykz
-// TODO!!!: Move all but depth to use the uniforms
 float getCoCBlurRadiusSE(float depth) {
 	float F_M = cFocalLengthMM / 1000;
 	float f = cFar * SCENEUNITS_IN_M * 0.006/(1-cFWheel); // min/(1-wheel) to get exponential increase;

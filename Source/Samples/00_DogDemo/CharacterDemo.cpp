@@ -23,6 +23,7 @@
 #include <Urho3D/Core/CoreEvents.h>
 #include <Urho3D/Core/ProcessUtils.h>
 #include <Urho3D/Engine/Engine.h>
+#include <Urho3D/Engine/EngineDefs.h>
 #include <Urho3D/Graphics/AnimatedModel.h>
 #include <Urho3D/Graphics/AnimationController.h>
 #include <Urho3D/Graphics/Camera.h>
@@ -68,9 +69,18 @@ CharacterDemo::CharacterDemo(Context* context) :
 
 CharacterDemo::~CharacterDemo() = default;
 
+void CharacterDemo::Setup() {
+	engineParameters_[EP_FULL_SCREEN] = false;
+	engineParameters_[EP_WINDOW_TITLE] = "Unbenanntes Fenster";
+	//engineParameters_[“VSync”] = true;
+	engineParameters_[EP_WINDOW_WIDTH] = 1800;
+	engineParameters_[EP_WINDOW_HEIGHT] = 980;
+}
+
 void CharacterDemo::Start() {
 	// Execute base class startup
 	Sample::Start();
+
 	if (touchEnabled_)
 		touch_ = new Touch(context_, TOUCH_SENSITIVITY);
 
@@ -104,17 +114,28 @@ void CharacterDemo::SetupViewport() {
 	auto* graphics = GetSubsystem<Graphics>();
 	auto* renderer = GetSubsystem<Renderer>();
 
-	SharedPtr<Viewport> rttViewport(new Viewport(context_, scene_, cameraNode_->GetComponent<Camera>()));
+	SharedPtr<Viewport> rttViewport(new Viewport(context_, scene_, cameraNode_->GetComponent<Camera>(), IntRect(0.0f, 0.0f, 1920.0f, 1080.0f)));
 
+	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth_lowres.xml"));
 
-	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
+	// TODO: Render to Texture of 1/4 res, display that to screen in full on a quad
+
+	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/Downscaler.xml"));
+
+	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/SpriteShader.xml"));
+	//rttViewport->GetRenderPath()->SetShaderParameter("RTDimensions", Vector2(rttViewport->GetRect().Width(), rttViewport->GetRect().Height()));
+	//rttViewport->GetRenderPath()->SetShaderParameter("LowResDimensions", Vector2(6.0f, 6.0f));
+
+	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/Bloom.xml"));
+
 	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlog.xml"));
-	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlog.xml"));
 	rttViewport->GetRenderPath()->SetShaderParameter("Far", rttViewport->GetCamera()->GetFarClip());
 	rttViewport->GetRenderPath()->SetShaderParameter("ResWidth", 1920.0);
-	rttViewport->GetRenderPath()->SetShaderParameter("FWheel", 0.87);
+	rttViewport->GetRenderPath()->SetShaderParameter("FWheel", 0.86);
 	rttViewport->GetRenderPath()->SetShaderParameter("FocalLengthMM", 70.0);
-	rttViewport->GetRenderPath()->SetShaderParameter("Aperture", 1.0f);
+	rttViewport->GetRenderPath()->SetShaderParameter("Aperture", 1.3f);
+
+
 
 	renderer->SetViewport(0, rttViewport);
 }
@@ -122,6 +143,7 @@ void CharacterDemo::SetupViewport() {
 void CharacterDemo::CreateScene() {
 	auto* cache = GetSubsystem<ResourceCache>();
 	auto* renderer = GetSubsystem<Renderer>();
+	auto* graphics = GetSubsystem<Graphics>(); //for ortho
 
 	renderer->SetHDRRendering(true);
 
@@ -142,6 +164,9 @@ void CharacterDemo::CreateScene() {
 	auto* camera = cameraNode_->CreateComponent<Camera>();
 	camera->SetFarClip(300.0f);
 	cameraNode_->SetPosition(Vector3(0.0f, 10.0f, -10.0f));
+
+	camera->SetOrthographic(true); // Set camera orthographic
+	camera->SetOrthoSize((float)graphics->GetHeight() * 0.012); // Set camera ortho size (the value of PIXEL_SIZE is 0.01)
 
 	// Set up a viewport to the Renderer subsystem so that the 3D scene can be seen
 	//SharedPtr<Viewport> viewport(new Viewport(context_, scene_, cameraNode_->GetComponent<Camera>()));
@@ -252,14 +277,16 @@ void CharacterDemo::CreateCharacter() {
 	// spin node - can be good for scaling too!
 	Node* adjustNode = objectNode->CreateChild("AdjNode");
 	//	adjustNode->SetRotation(Quaternion(180, Vector3(0, 1, 0)));
-	adjustNode->SetScale(0.121f); //Please don't use this later, could be annoying. Scale around default import scales for chars n items.
+	adjustNode->SetScale(0.4f); //Please don't use this later, could be annoying. Scale around default import scales for chars n items.
+	adjustNode->SetPosition(Vector3(0.0f, 0.5f, 0.0f));
 
 	// Create the rendering component + animation controller
 	auto* object = adjustNode->CreateComponent<AnimatedModel>();
-	object->SetModel(cache->GetResource<Model>("Character/Models/Character.mdl"));
-	object->SetMaterial(cache->GetResource<Material>("Character/Materials/Character.xml"));
+	object->SetModel(cache->GetResource<Model>("Dog/Models/Wolf.mdl"));
+	object->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
 	object->SetCastShadows(true);
 	adjustNode->CreateComponent<AnimationController>();
+	auto* animCtrl = adjustNode->GetComponent<AnimationController>(true);
 
 	// Set the head bone for manual control
 	//object->GetSkeleton().GetBone("Mutant:Head")->animated_ = false;
@@ -379,11 +406,13 @@ void CharacterDemo::HandleUpdate(StringHash eventType, VariantMap& eventData) {
 			// Limit pitch
 			character_->controls_.pitch_ = Clamp(character_->controls_.pitch_, -80.0f, 80.0f);
 			// Set rotation already here so that it's updated every rendering frame instead of every physics frame
-			character_->GetNode()->SetRotation(Quaternion(character_->controls_.yaw_, Vector3::UP));
+			//character_->GetNode()->SetRotation(Quaternion(character_->controls_.yaw_, Vector3::UP));
 
 			// Switch between 1st and 3rd person
 			if (input->GetKeyPress(KEY_F))
 				firstPerson_ = !firstPerson_;
+
+			character_->controls_.Set(CTRL_JUMP, input->GetKeyDown(KEY_SPACE));
 
 			// Turn on/off gyroscope on mobile platform
 			if (touch_ && input->GetKeyPress(KEY_G))

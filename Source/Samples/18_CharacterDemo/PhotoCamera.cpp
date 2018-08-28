@@ -18,6 +18,11 @@
 
 #include "PhotoCamera.h"
 
+
+// TODO:
+// Photo -> RenderToTexture -> Image -> HardDisk via a new thread.
+
+
 PhotoCamera::PhotoCamera(Context* context) :
 	LogicComponent(context) {
 	// Only the physics update event is needed: unsubscribe from the rest for optimisation

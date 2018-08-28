@@ -55,7 +55,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	bool softGrounded = inAirTimer_ < INAIR_THRESHOLD_TIME;
 
 	// Update movement & animation
-	const Quaternion& rot = node_->GetRotation();
+	//const Quaternion& rot = node_->GetRotation();
 	Vector3 moveDir = Vector3::ZERO;
 	const Vector3& velocity = body->GetLinearVelocity();
 	// Velocity on the XZ plane
@@ -77,7 +77,9 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		moveDir.Normalize();
 
 	// If in air, allow control, but slower than when on ground - using tertiary syntax
-	body->ApplyImpulse(rot * moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
+	//body->ApplyImpulse(rot * moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
+	body->ApplyImpulse(moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
+	node_->LookAt(node_->GetPosition() + moveDir, Vector3::UP);
 
 	if (softGrounded) {
 		// When on ground, apply a braking force to limit maximum ground velocity
@@ -90,25 +92,31 @@ void NewCharacter::FixedUpdate(float timeStep) {
 				body->ApplyImpulse(Vector3::UP * JUMP_FORCE);
 				okToJump_ = false;
 				//TODO make this a jump ani
-				animCtrl->PlayExclusive("Character/Models/Aim_Camera.ani", 0, false, 0.2f);
+				animCtrl->PlayExclusive("Dog/Models/Walking.ani", 0, true, 1.0f);
+				animCtrl->SetStartBone("Dog/Models/Walking.ani", "Bone");
 			}
-		} else
+		} else {
 			okToJump_ = true;
+		}
 	}
 
 	if (!onGround_) {
 		//TODO "
-		animCtrl->PlayExclusive("Character/Models/Aim_Camera.ani", 0, false, 0.2f);
+		animCtrl->PlayExclusive("Dog/Models/Walking.ani", 0, true, 1.0f);
+		animCtrl->SetStartBone("Dog/Models/Walking.ani", "Bone");
 	} else {
 		// Play walk animation if moving on ground, otherwise fade it out
 		if (softGrounded && !moveDir.Equals(Vector3::ZERO)) {
-			//animCtrl->PlayExclusive("Character/Models/Run.ani", 0, true, 0.2f);
+			animCtrl->PlayExclusive("Dog/Models/Walking.ani", 0, true, 1.0f);
+			animCtrl->SetStartBone("Dog/Models/Walking.ani", "Bone");
+			animCtrl->SetSpeed("Dog/Models/Walking.ani", 3.3f);
 		} else {
-			animCtrl->PlayExclusive("Character/Models/Idle_Camera.ani", 0, true, 0.2f);
+			animCtrl->PlayExclusive("Dog/Models/Idle.ani", 0, true, 1.0f);
+			animCtrl->SetStartBone("Dog/Models/Idle.ani", "Bone");
 		}
 
 		// Set walk animation speed proportional to velocity
-		//animCtrl->SetSpeed("Character/Models/Run.ani", planeVelocity.Length() * 0.3f);
+		//animCtrl->SetSpeed("Wolf/Models/Walk.ani", planeVelocity.Length() * 0.3f);
 	}
 
 	// Reset grounded flag for next frame
