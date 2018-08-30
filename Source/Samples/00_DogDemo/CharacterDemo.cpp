@@ -126,7 +126,7 @@ void CharacterDemo::SetupViewport() {
 	//rttViewport->GetRenderPath()->SetShaderParameter("RTDimensions", Vector2(rttViewport->GetRect().Width(), rttViewport->GetRect().Height()));
 	//rttViewport->GetRenderPath()->SetShaderParameter("LowResDimensions", Vector2(6.0f, 6.0f));
 
-	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/Bloom.xml"));
+	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/Bloom.xml"));
 
 	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlog.xml"));
 	rttViewport->GetRenderPath()->SetShaderParameter("Far", rttViewport->GetCamera()->GetFarClip());
@@ -134,7 +134,6 @@ void CharacterDemo::SetupViewport() {
 	rttViewport->GetRenderPath()->SetShaderParameter("FWheel", 0.86);
 	rttViewport->GetRenderPath()->SetShaderParameter("FocalLengthMM", 70.0);
 	rttViewport->GetRenderPath()->SetShaderParameter("Aperture", 1.3f);
-
 
 
 	renderer->SetViewport(0, rttViewport);
@@ -150,8 +149,8 @@ void CharacterDemo::CreateScene() {
 	scene_ = new Scene(context_);
 
 	///////////////////
-	//SharedPtr<File> file = cache->GetFile("Scenes/PBRExample.xml");
-	//scene_->LoadXML(*file);
+	SharedPtr<File> file = cache->GetFile("Scenes/Forest_demo.xml");
+	scene_->LoadXML(*file);
 	///////////////////
 
 	// Create scene subsystem components
@@ -202,29 +201,29 @@ void CharacterDemo::CreateScene() {
 	zone->SetBoundingBox(BoundingBox(-1000.0f, 1000.0f));
 
 	// Create a directional light with cascaded shadow mapping
-	Node* lightNode = scene_->CreateChild("DirectionalLight");
-	lightNode->SetDirection(Vector3(0.3f, -0.5f, 0.425f));
-	auto* light = lightNode->CreateComponent<Light>();
-	light->SetLightType(LIGHT_DIRECTIONAL);
-	light->SetCastShadows(true);
-	light->SetShadowBias(BiasParameters(0.00025f, 0.5f));
-	light->SetShadowCascade(CascadeParameters(10.0f, 50.0f, 200.0f, 0.0f, 0.8f));
-	light->SetSpecularIntensity(0.5f);
+	//Node* lightNode = scene_->CreateChild("DirectionalLight");
+	//lightNode->SetDirection(Vector3(0.3f, -0.5f, 0.425f));
+	//auto* light = lightNode->CreateComponent<Light>();
+	//light->SetLightType(LIGHT_DIRECTIONAL);
+	//light->SetCastShadows(true);
+	//light->SetShadowBias(BiasParameters(0.00025f, 0.5f));
+	//light->SetShadowCascade(CascadeParameters(10.0f, 50.0f, 200.0f, 0.0f, 0.8f));
+	//light->SetSpecularIntensity(0.5f);
 
 	// Create the floor object
-	Node* floorNode = scene_->CreateChild("Floor");
-	floorNode->SetPosition(Vector3(0.0f, -0.5f, 0.0f));
-	floorNode->SetScale(Vector3(200.0f, 1.0f, 200.0f));
-	auto* object = floorNode->CreateComponent<StaticModel>();
-	object->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
-	object->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
+	//Node* floorNode = scene_->CreateChild("Floor");
+	//floorNode->SetPosition(Vector3(0.0f, -0.5f, 0.0f));
+	//floorNode->SetScale(Vector3(200.0f, 1.0f, 200.0f));
+	//auto* object = floorNode->CreateComponent<StaticModel>();
+	//object->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
+	//object->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
 
-	auto* body = floorNode->CreateComponent<RigidBody>();
-	// Use collision layer bit 2 to mark world scenery. This is what we will raycast against to prevent camera from going
-	// inside geometry
-	body->SetCollisionLayer(2);
-	auto* shape = floorNode->CreateComponent<CollisionShape>();
-	shape->SetBox(Vector3::ONE);
+	//auto* body = floorNode->CreateComponent<RigidBody>();
+	//// Use collision layer bit 2 to mark world scenery. This is what we will raycast against to prevent camera from going
+	//// inside geometry
+	//body->SetCollisionLayer(2);
+	//auto* shape = floorNode->CreateComponent<CollisionShape>();
+	//shape->SetBox(Vector3::ONE);
 
 	// Create mushrooms of varying sizes
 	const unsigned NUM_MUSHROOMS = 60;
@@ -232,7 +231,7 @@ void CharacterDemo::CreateScene() {
 		Node* objectNode = scene_->CreateChild("Mushroom");
 		objectNode->SetPosition(Vector3(Random(180.0f) - 90.0f, 0.0f, Random(180.0f) - 90.0f));
 		objectNode->SetRotation(Quaternion(0.0f, Random(360.0f), 0.0f));
-		objectNode->SetScale(2.0f + Random(5.0f));
+		objectNode->SetScale(0.2f + Random(0.5f));
 		auto* object = objectNode->CreateComponent<StaticModel>();
 		object->SetModel(cache->GetResource<Model>("Models/Mushroom.mdl"));
 		object->SetMaterial(cache->GetResource<Material>("Materials/Mushroom.xml"));
@@ -241,7 +240,7 @@ void CharacterDemo::CreateScene() {
 		auto* body = objectNode->CreateComponent<RigidBody>();
 		body->SetCollisionLayer(2);
 		auto* shape = objectNode->CreateComponent<CollisionShape>();
-		shape->SetTriangleMesh(object->GetModel(), 0);
+		shape->SetConvexHull(object->GetModel(), 0);
 	}
 
 	// Create movable boxes. Let them fall from the sky at first
@@ -277,13 +276,13 @@ void CharacterDemo::CreateCharacter() {
 	// spin node - can be good for scaling too!
 	Node* adjustNode = objectNode->CreateChild("AdjNode");
 	//	adjustNode->SetRotation(Quaternion(180, Vector3(0, 1, 0)));
-	adjustNode->SetScale(0.4f); //Please don't use this later, could be annoying. Scale around default import scales for chars n items.
-	adjustNode->SetPosition(Vector3(0.0f, 0.5f, 0.0f));
+	adjustNode->SetScale(0.22f); //Please don't use this later, could be annoying. Scale around default import scales for chars n items.
+	adjustNode->SetPosition(Vector3(0.0f, 0.0f, 0.0f));
 
 	// Create the rendering component + animation controller
 	auto* object = adjustNode->CreateComponent<AnimatedModel>();
-	object->SetModel(cache->GetResource<Model>("Dog/Models/Wolf.mdl"));
-	object->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
+	object->SetModel(cache->GetResource<Model>("Beagle/Models/Geo_Beagle.mdl"));
+	object->SetMaterial(cache->GetResource<Material>("Beagle/Materials/lambert2SG.xml"));
 	object->SetCastShadows(true);
 	adjustNode->CreateComponent<AnimationController>();
 	auto* animCtrl = adjustNode->GetComponent<AnimationController>(true);
@@ -315,7 +314,7 @@ void CharacterDemo::CreateCharacter() {
 
 	// Set a capsule shape for collision
 	auto* shape = objectNode->CreateComponent<CollisionShape>();
-	shape->SetCapsule(0.7f, 1.8f, Vector3(0.0f, 0.9f, 0.0f));
+	shape->SetCylinder(1.8f, 1.8f, Vector3(0.0, 0.9, 0.0f));
 
 	// Create the character logic component, which takes care of steering the rigidbody
 	// Remember it so that we can set the controls. Use a WeakPtr because the scene hierarchy already owns it

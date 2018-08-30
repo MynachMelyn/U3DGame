@@ -1,0 +1,19 @@
+<node id="16777216">
+	<attribute name="Name" value="Scene"/>
+	<node id="16777217">
+		<attribute name="Name" value="Geo_Beagle"/>
+		<component id="16777216" type="AnimatedModel">
+			<attribute name="Model" value="Model;Beagle/Models/Geo_Beagle.mdl"/>
+			<attribute name="Material" value="Material;Beagle/Materials/lambert2SG.xml"/>
+		</component>
+		<component id="16777217" type="RigidBody">
+			<attribute name="Collision Layer" value="2"/>
+			<attribute name="Use Gravity" value="false"/>
+		</component>
+		<component id="16777218" type="CollisionShape">
+			<attribute name="Shape Type" value="ConvexHull"/>
+			<attribute name="Size" value="3.04548 7.89726 10.3144"/>
+			<attribute name="Offset Position" value="1.19209e-07 3.94846 -0.0541182"/>
+		</component>
+	</node>
+</node>

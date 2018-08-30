@@ -92,8 +92,8 @@ void NewCharacter::FixedUpdate(float timeStep) {
 				body->ApplyImpulse(Vector3::UP * JUMP_FORCE);
 				okToJump_ = false;
 				//TODO make this a jump ani
-				animCtrl->PlayExclusive("Dog/Models/Walking.ani", 0, true, 1.0f);
-				animCtrl->SetStartBone("Dog/Models/Walking.ani", "Bone");
+				animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 1.0f);
+				animCtrl->SetStartBone("Beagle/Models/Walk.ani", "Root");
 			}
 		} else {
 			okToJump_ = true;
@@ -101,22 +101,22 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	}
 
 	if (!onGround_) {
-		//TODO "
-		animCtrl->PlayExclusive("Dog/Models/Walking.ani", 0, true, 1.0f);
-		animCtrl->SetStartBone("Dog/Models/Walking.ani", "Bone");
+		//TODO falling ani?
+		animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 0.1f);
+		//animCtrl->SetStartBone("Beagle/Models/Walk.ani", "Root");
 	} else {
 		// Play walk animation if moving on ground, otherwise fade it out
 		if (softGrounded && !moveDir.Equals(Vector3::ZERO)) {
-			animCtrl->PlayExclusive("Dog/Models/Walking.ani", 0, true, 1.0f);
-			animCtrl->SetStartBone("Dog/Models/Walking.ani", "Bone");
-			animCtrl->SetSpeed("Dog/Models/Walking.ani", 3.3f);
+			animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 0.1f);
+			//animCtrl->SetStartBone("Beagle/Models/Walk.ani", "Root");
+			//animCtrl->SetSpeed("Beagle/Models/Walk.ani", 3.3f);
 		} else {
-			animCtrl->PlayExclusive("Dog/Models/Idle.ani", 0, true, 1.0f);
-			animCtrl->SetStartBone("Dog/Models/Idle.ani", "Bone");
+			animCtrl->PlayExclusive("Beagle/Models/IdleLoop.ani", 0, true, 0.5f);
+			//animCtrl->SetStartBone("Beagle/Models/IdleLoop.ani", "Root");
 		}
 
 		// Set walk animation speed proportional to velocity
-		//animCtrl->SetSpeed("Wolf/Models/Walk.ani", planeVelocity.Length() * 0.3f);
+		animCtrl->SetSpeed("Beagle/Models/Walk.ani", planeVelocity.Length() * 0.55f);
 	}
 
 	// Reset grounded flag for next frame

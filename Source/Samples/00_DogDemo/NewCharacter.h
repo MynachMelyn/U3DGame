@@ -29,7 +29,7 @@ const unsigned CTRL_APERTUREHOLD = 64;
 
 
 // Movement value consts
-const float MOVE_FORCE = 0.8f;
+const float MOVE_FORCE = 0.6f;
 const float INAIR_MOVE_FORCE = 0.02f;
 const float BRAKE_FORCE = 0.2f;
 const float JUMP_FORCE = 7.0f;
