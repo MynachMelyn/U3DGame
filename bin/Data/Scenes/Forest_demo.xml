@@ -5,15 +5,26 @@
 	<attribute name="Smoothing Constant" value="50" />
 	<attribute name="Snap Threshold" value="5" />
 	<attribute name="Elapsed Time" value="5.71105" />
-	<attribute name="Next Replicated Node ID" value="27" />
-	<attribute name="Next Replicated Component ID" value="16" />
-	<attribute name="Next Local Node ID" value="16777583" />
-	<attribute name="Next Local Component ID" value="16777694" />
+	<attribute name="Next Replicated Node ID" value="29" />
+	<attribute name="Next Replicated Component ID" value="19" />
+	<attribute name="Next Local Node ID" value="16783815" />
+	<attribute name="Next Local Component ID" value="16783905" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
 	<component type="DebugRenderer" id="2" />
 	<component type="PhysicsWorld" id="5" />
+	<component type="Zone" id="18">
+		<attribute name="Bounding Box Min" value="-25 0 -25" />
+		<attribute name="Bounding Box Max" value="25 30 25" />
+		<attribute name="Ambient Color" value="0.1 0.2 0.05 1" />
+		<attribute name="Fog Color" value="0.6 0.6 0.35 1" />
+		<attribute name="Fog Start" value="2" />
+		<attribute name="Fog End" value="100" />
+		<attribute name="Fog Height" value="-1" />
+		<attribute name="Fog Height Scale" value="1.1" />
+		<attribute name="Height Fog Mode" value="true" />
+	</component>
 	<node id="2">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Plane" />
@@ -59,9 +70,13 @@
 		<component type="Light" id="16777490">
 			<attribute name="Light Type" value="Directional" />
 			<attribute name="Color" value="1 0.9 0.8 1" />
+			<attribute name="Specular Intensity" value="0.5" />
+			<attribute name="Attenuation Texture" value="Texture2D;Textures/RampExtreme.png" />
 			<attribute name="Cast Shadows" value="true" />
+			<attribute name="CSM Splits" value="10 50 200 0" />
 			<attribute name="View Size Minimum" value="2" />
 			<attribute name="Depth Constant Bias" value="0.0001" />
+			<attribute name="Depth Slope Bias" value="0.9" />
 		</component>
 	</node>
 	<node id="16777341">
@@ -77,7 +92,9 @@
 			<attribute name="Color" value="0.8 0.8 1 1" />
 			<attribute name="Brightness Multiplier" value="0.25" />
 			<attribute name="Temperature" value="6500" />
+			<attribute name="Attenuation Texture" value="Texture2D;Textures/RampExtreme.png" />
 			<attribute name="Cast Shadows" value="true" />
+			<attribute name="Depth Constant Bias" value="0.0005" />
 		</component>
 	</node>
 	<node id="16777273">
@@ -109,8 +126,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777444">
-				<attribute name="Size" value="0.217003 0.654526 0.231707" />
-				<attribute name="Offset Position" value="0.0208288 0.326673 0.0174236" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.013.mdl" />
 			</component>
 		</node>
 		<node id="16777275">
@@ -134,8 +151,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777447">
-				<attribute name="Size" value="0.308284 0.434281 0.340854" />
-				<attribute name="Offset Position" value="-0.00341648 0.216992 -0.000993028" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.012.mdl" />
 			</component>
 		</node>
 		<node id="16777276">
@@ -159,8 +176,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777450">
-				<attribute name="Size" value="0.404373 0.756429 0.480161" />
-				<attribute name="Offset Position" value="-0.00199625 0.378066 -6.37025e-05" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.001.mdl" />
 			</component>
 		</node>
 		<node id="16777277">
@@ -185,8 +202,8 @@
 				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16777453">
-				<attribute name="Size" value="0.260962 0.351936 0.260962" />
-				<attribute name="Offset Position" value="0.00779152 0.175771 0.0177158" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.008.mdl" />
 			</component>
 		</node>
 		<node id="16777278">
@@ -210,8 +227,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777456">
-				<attribute name="Size" value="0.435697 0.553524 0.349584" />
-				<attribute name="Offset Position" value="-0.0196631 0.276613 0.0307721" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.015.mdl" />
 			</component>
 		</node>
 		<node id="16777279">
@@ -235,8 +252,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777459">
-				<attribute name="Size" value="0.571819 0.877294 0.571819" />
-				<attribute name="Offset Position" value="0.0101556 0.438787 0.0145926" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.002.mdl" />
 			</component>
 		</node>
 		<node id="16777280">
@@ -260,8 +277,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777462">
-				<attribute name="Size" value="0.233237 0.436299 0.276951" />
-				<attribute name="Offset Position" value="0.0021466 0.218002 0.00746088" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.004.mdl" />
 			</component>
 		</node>
 		<node id="16777281">
@@ -285,8 +302,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777465">
-				<attribute name="Size" value="0.415873 0.56392 0.415873" />
-				<attribute name="Offset Position" value="0.00779177 0.281439 0.0177157" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.014.mdl" />
 			</component>
 		</node>
 		<node id="16777282">
@@ -310,8 +327,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777468">
-				<attribute name="Size" value="0.369782 0.986464 0.369782" />
-				<attribute name="Offset Position" value="0.00437173 0.492978 0.017844" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.006.mdl" />
 			</component>
 		</node>
 		<node id="16777283">
@@ -337,8 +354,8 @@
 				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16777471">
-				<attribute name="Size" value="0.515477 0.726064 0.529076" />
-				<attribute name="Offset Position" value="0.0381545 0.362883 0.0203088" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.011.mdl" />
 			</component>
 		</node>
 		<node id="16777284">
@@ -363,8 +380,8 @@
 				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16777474">
-				<attribute name="Size" value="0.297983 0.407524 0.297982" />
-				<attribute name="Offset Position" value="0.00779191 0.203314 0.0177156" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.009.mdl" />
 			</component>
 		</node>
 		<node id="16777285">
@@ -390,8 +407,8 @@
 				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16777477">
-				<attribute name="Size" value="0.511167 0.877294 0.511166" />
-				<attribute name="Offset Position" value="0.00405279 0.439577 0.0188812" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.016.mdl" />
 			</component>
 		</node>
 		<node id="16777286">
@@ -416,8 +433,8 @@
 				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16777480">
-				<attribute name="Size" value="0.378219 0.563921 0.378218" />
-				<attribute name="Offset Position" value="0.00779182 0.281755 0.0177158" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.005.mdl" />
 			</component>
 		</node>
 		<node id="16777287">
@@ -441,8 +458,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777483">
-				<attribute name="Size" value="0.435689 0.756429 0.475127" />
-				<attribute name="Offset Position" value="0.0170378 0.378067 0.000948563" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.007.mdl" />
 			</component>
 		</node>
 		<node id="16777288">
@@ -466,8 +483,8 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777486">
-				<attribute name="Size" value="0.291146 0.878157 0.310873" />
-				<attribute name="Offset Position" value="0.0252836 0.438752 0.0173236" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.010.mdl" />
 			</component>
 		</node>
 		<node id="16777289">
@@ -491,9 +508,22 @@
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16777489">
-				<attribute name="Size" value="0.323545 0.637835 0.323545" />
-				<attribute name="Offset Position" value="0.00954306 0.318661 0.0163626" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Model" value="Model;Forest/Models/forest.003.mdl" />
 			</component>
 		</node>
+	</node>
+	<node id="16777585">
+		<attribute name="Is Enabled" value="true" />
+		<attribute name="Name" value="Man" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="-0.856661 -2.38498 25.7753" />
+		<attribute name="Rotation" value="0.00147993 0 0.999999 0" />
+		<attribute name="Scale" value="4.1622 4.1622 4.1622" />
+		<attribute name="Variables" />
+		<component type="StaticModel" id="16777718">
+			<attribute name="Model" value="Model;Models/Jack.mdl" />
+			<attribute name="Material" value="Material;Beagle/Materials/lambert2SGUnlit.xml;Beagle/Materials/lambert2SGUnlit.xml" />
+		</component>
 	</node>
 </scene>

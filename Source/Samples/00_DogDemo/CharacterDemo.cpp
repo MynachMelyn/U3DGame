@@ -131,7 +131,8 @@ void CharacterDemo::SetupViewport() {
 	rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/DoFBlog.xml"));
 	rttViewport->GetRenderPath()->SetShaderParameter("Far", rttViewport->GetCamera()->GetFarClip());
 	rttViewport->GetRenderPath()->SetShaderParameter("ResWidth", 1920.0);
-	rttViewport->GetRenderPath()->SetShaderParameter("FWheel", 0.86);
+	//rttViewport->GetRenderPath()->SetShaderParameter("FWheel", 0.86); // for (0, 10, 10) camera pos with lookat
+	rttViewport->GetRenderPath()->SetShaderParameter("FWheel", 0.934f);
 	rttViewport->GetRenderPath()->SetShaderParameter("FocalLengthMM", 70.0);
 	rttViewport->GetRenderPath()->SetShaderParameter("Aperture", 1.3f);
 
@@ -192,13 +193,13 @@ void CharacterDemo::CreateScene() {
 
 
 	// Create static scene content. First create a zone for ambient lighting and fog control
-	Node* zoneNode = scene_->CreateChild("Zone");
-	auto* zone = zoneNode->CreateComponent<Zone>();
-	zone->SetAmbientColor(Color(0.15f, 0.15f, 0.15f));
-	zone->SetFogColor(Color(0.5f, 0.5f, 0.7f));
-	zone->SetFogStart(100.0f);
-	zone->SetFogEnd(300.0f);
-	zone->SetBoundingBox(BoundingBox(-1000.0f, 1000.0f));
+	//Node* zoneNode = scene_->CreateChild("Zone");
+	//auto* zone = zoneNode->CreateComponent<Zone>();
+	//zone->SetAmbientColor(Color(0.15f, 0.15f, 0.15f));
+	//zone->SetFogColor(Color(0.5f, 0.5f, 0.7f));
+	//zone->SetFogStart(100.0f);
+	//zone->SetFogEnd(300.0f);
+	//zone->SetBoundingBox(BoundingBox(-1000.0f, 1000.0f));
 
 	// Create a directional light with cascaded shadow mapping
 	//Node* lightNode = scene_->CreateChild("DirectionalLight");
@@ -282,7 +283,7 @@ void CharacterDemo::CreateCharacter() {
 	// Create the rendering component + animation controller
 	auto* object = adjustNode->CreateComponent<AnimatedModel>();
 	object->SetModel(cache->GetResource<Model>("Beagle/Models/Geo_Beagle.mdl"));
-	object->SetMaterial(cache->GetResource<Material>("Beagle/Materials/lambert2SG.xml"));
+	object->SetMaterial(cache->GetResource<Material>("Beagle/Materials/lambert2SGUnlit.xml"));
 	object->SetCastShadows(true);
 	adjustNode->CreateComponent<AnimationController>();
 	auto* animCtrl = adjustNode->GetComponent<AnimationController>(true);
@@ -302,8 +303,10 @@ void CharacterDemo::CreateCharacter() {
 
 	// Create rigidbody, and set non-zero mass so that the body becomes dynamic
 	auto* body = objectNode->CreateComponent<RigidBody>();
+	body->SetFriction(3.0f);
 	body->SetCollisionLayer(1);
-	body->SetMass(1.0f);
+	//body->SetMass(1.0f);
+	body->SetMass(2.0f);
 
 	// Set zero angular factor so that physics doesn't turn the character on its own.
 	// Instead we will control the character yaw manually
@@ -367,7 +370,7 @@ void CharacterDemo::HandleUpdate(StringHash eventType, VariantMap& eventData) {
 	if (character_) {
 
 		// Clear previous controls
-		character_->controls_.Set(CTRL_FORWARD | CTRL_BACK | CTRL_LEFT | CTRL_RIGHT | CTRL_JUMP | CTRL_TAKESNAP | CTRL_APERTUREHOLD, false);
+		character_->controls_.Set(CTRL_FORWARD | CTRL_BACK | CTRL_LEFT | CTRL_RIGHT | CTRL_JUMP | CTRL_SPRINT, false);
 
 		// Update controls using touch utility class
 		if (touch_)
@@ -412,6 +415,8 @@ void CharacterDemo::HandleUpdate(StringHash eventType, VariantMap& eventData) {
 				firstPerson_ = !firstPerson_;
 
 			character_->controls_.Set(CTRL_JUMP, input->GetKeyDown(KEY_SPACE));
+			character_->controls_.Set(CTRL_SPRINT, input->GetKeyDown(KEY_SHIFT));
+
 
 			// Turn on/off gyroscope on mobile platform
 			if (touch_ && input->GetKeyPress(KEY_G))
@@ -475,7 +480,11 @@ void CharacterDemo::HandlePostUpdate(StringHash eventType, VariantMap& eventData
 	//	cameraNode_->SetRotation(dir);
 	//}
 
-	cameraNode_->SetPosition(characterNode->GetPosition() + Vector3(0.0f, 10.0f, -10.0f));
+	cameraNode_->SetPosition(characterNode->GetPosition() + Vector3(0.0f, 20.0f, -20.0f));
 	cameraNode_->LookAt(characterNode->GetPosition(), Vector3(0.0f, 1.0f, 0.0f));
+
+	/*auto* renderer = GetSubsystem<Renderer>();
+	renderer->SetShadowQuality(ShadowQuality::SHADOWQUALITY_BLUR_VSM);
+	renderer->SetShadowSoftness(2.5f);*/
 
 }

@@ -24,17 +24,26 @@ const unsigned CTRL_BACK = 2;
 const unsigned CTRL_LEFT = 4;
 const unsigned CTRL_RIGHT = 8;
 const unsigned CTRL_JUMP = 16;
-const unsigned CTRL_TAKESNAP = 32;
-const unsigned CTRL_APERTUREHOLD = 64;
+const unsigned CTRL_SPRINT = 32;
 
 
 // Movement value consts
-const float MOVE_FORCE = 0.6f;
+const float MAX_WALK_SPEED = 6.0f; // 6 units/sec
+const float MAX_SPRINT_SPEED = 99.0f;
+const float ARTIFICIAL_BRAKING_FORCE = 1.0f;
+const float WALK_FORCE = 1.4f;
+const float SPRINT_FORCE = 0.6f;
+
+const float BRAKING_FRICTION = 4.2f;
+
+const float WALK_FRICTION = 7.0f;
+const float SPRINT_FRICTION = 3.0f;
+
 const float INAIR_MOVE_FORCE = 0.02f;
-const float BRAKE_FORCE = 0.2f;
 const float JUMP_FORCE = 7.0f;
 const float YAW_SENSITIVITY = 0.1f;
 const float INAIR_THRESHOLD_TIME = 0.1f;
+//const float ACCELERATION_FACTOR = 0.1f;
 
 /// Character component, responsible for physical movement according to controls, as well as animation.
 class NewCharacter : public LogicComponent {
@@ -73,4 +82,14 @@ private:
 	float inAirTimer_;
 
 	bool okToSnapPhoto = true;
+
+	float deltaSinceLastTurn = 0.0f;
+
+	Vector3 lastMoveDir;
+
+	float MOVE_FORCE = WALK_FORCE;
+	float ACCELERATION_FRICTION = WALK_FRICTION;
+	float MAX_SPEED = MAX_WALK_SPEED;
+
+	//bool isSprinting = false;
 };
