@@ -39,6 +39,9 @@ void NewCharacter::RegisterObject(Context* context) {
 void NewCharacter::Start() {
 	// Component has been inserted into its scene node. Subscribe to events now
 	SubscribeToEvent(GetNode(), E_NODECOLLISION, URHO3D_HANDLER(NewCharacter, HandleNodeCollision));
+
+	// Find the model adjustment node, don't do it recursively (should be top level)
+	modelAdjustmentNode_ = node_->GetChild("AdjNode", false);
 }
 
 void NewCharacter::FixedUpdate(float timeStep) {
@@ -101,20 +104,48 @@ void NewCharacter::FixedUpdate(float timeStep) {
 
 	Vector3 forwardCurrent = node_->GetRotation() * Vector3::FORWARD;
 
-	// Lerp between current and target (move dir, kinda) using time since last "turn"
+	// Lerp between current and target (move dir, kinda) using time since last "turn". Capped at 1.0 using that tertiary expression
 	if (planeVelocity.Length() > 0.0f && moveDir != Vector3::ZERO) {
 		if (moveDir.Equals(lastMoveDir)) {
-			deltaSinceLastTurn += timeStep;
+			deltaSinceLastTurn += deltaSinceLastTurn > 1.0f ? 0.0f : timeStep;
 		} else {
+			if (moveDir.Equals(lastMoveDir * -1)) {
+				// Rotate CW just a tiny bit to assist the LERP (1°)
+				//forwardCurrent = Quaternion(1, Vector3(0.0, 1.0, 0.0)) * forwardCurrent;
+				//body->ApplyImpulse(Vector3(0.0, 40.0, 0.0));
+			}
 			deltaSinceLastTurn = 0.0f;
 		}
-		lastMoveDir = moveDir;
+		lastMoveDir = (moveDir == Vector3::ZERO) ? lastMoveDir : moveDir;
 
 		// 90° sideways? Could be nice to have some rolling about the feet to change direction
 		//Vector3 sideVector = Vector3(-moveDir.z_, moveDir.y_, moveDir.x_);
 		//Vector3 newUp = Vector3(sideVector).Lerp(node_->GetRotation() * Vector3::UP, timeStep);
-		node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, deltaSinceLastTurn), /*newUp*/node_->GetRotation() * Vector3::UP); // Could simply use World::UP
+		node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, 10.0f * timeStep), /*newUp*/node_->GetRotation() * Vector3::UP); // Could simply use World::UP
 	}
+
+
+	// Calculate the rotation angle for that thing that animals do to keep their centre of gravity (genauso wie Overgrowth)
+	// 45° * difference between accel and velo vectors, unless we're STATIONARY OR CLOSE ENOUGH 
+	if (moveDir != Vector3::ZERO || moveDir.AbsDotProduct(planeVelocity.Normalized()) < 0.98f) {
+		// Figure out which "side" we're on
+		signRotCoM = Sign(moveDir.CrossProduct(planeVelocity.Normalized()).y_);
+		// Hit max CoM compensation angle at 24u/s, any more and ignore
+		speedFactorCoM = Max(Min(1 / (MAX_SPRINT_SPEED - planeVelocity.Length()), 1.0f), 0.0f);
+		modelAdjustmentNode_->SetRotation(
+			modelAdjustmentNode_->GetRotation().Slerp(
+				Quaternion(signRotCoM * speedFactorCoM * 35 * (1 - moveDir.DotProduct(planeVelocity.Normalized())), modelAdjustmentNode_->GetRotation() * Vector3::FORWARD)
+				, 15.0f * timeStep)
+		);
+	} else {
+		if (modelAdjustmentNode_->GetRotation().DotProduct(Quaternion::IDENTITY) < 0.99f) {
+			modelAdjustmentNode_->SetRotation(modelAdjustmentNode_->GetRotation().Slerp(Quaternion::IDENTITY, 5.0f * timeStep));
+		} else {
+			modelAdjustmentNode_->SetRotation(Quaternion::IDENTITY);
+		}
+	}
+	//modelAdjustmentNode_->SetRotation(Quaternion(modelAdjustmentNode_->GetRotation().Angle() + timeStep * 30, modelAdjustmentNode_->GetRotation() * Vector3::FORWARD));
+
 
 	if (softGrounded) {
 		// When on ground, apply a braking force to limit maximum ground velocity

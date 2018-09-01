@@ -33,12 +33,13 @@ const float MAX_SPRINT_SPEED = 10.0f;
 const float ARTIFICIAL_BRAKING_FORCE = 5.0f;
 
 const float WALK_FORCE = 20.0f;
-const float SPRINT_FORCE = 15.0f;
+const float SPRINT_FORCE = 25.0f;
 
-const float BRAKING_FRICTION = 4.2f;
+const float BRAKING_FRICTION = 3.8f;
 
 const float WALK_FRICTION = 1.0f;
-const float SPRINT_FRICTION = 0.8f;
+const float SPRINT_FRICTION = 1.2f;
+//const float SPRINT_FRICTION = 0.8f;
 
 const float INAIR_MOVE_FORCE = 0.02f;
 const float JUMP_FORCE = 7.0f;
@@ -86,12 +87,18 @@ private:
 	bool okToSnapPhoto = true;
 
 	float deltaSinceLastTurn = 0.0f;
+	float deltaSinceLastChangeCoM = 0.0f;
 
 	Vector3 lastMoveDir;
 
 	float MOVE_FORCE = WALK_FORCE;
 	float ACCELERATION_FRICTION = WALK_FRICTION;
 	float MAX_SPEED = MAX_WALK_SPEED;
+
+	Node* modelAdjustmentNode_;
+
+	int signRotCoM;
+	float speedFactorCoM = 0.0f;
 
 	//bool isSprinting = false;
 };
