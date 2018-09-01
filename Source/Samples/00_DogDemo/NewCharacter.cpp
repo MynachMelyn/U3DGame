@@ -89,7 +89,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 
 	// If in air, allow control, but slower than when on ground - using tertiary syntax
 	//body->ApplyImpulse(rot * moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
-	body->ApplyImpulse(moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
+	body->ApplyForce(moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
 
 	// If we're trying to move, lower the friction
 	if (moveDir != Vector3::ZERO) {
@@ -147,7 +147,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	} else {
 		// Play walk animation if moving on ground, otherwise fade it out
 		if (softGrounded && !moveDir.Equals(Vector3::ZERO)) {
-			if (planeVelocity.Length() < MAX_WALK_SPEED) {
+			if (planeVelocity.Length() < WALK_TO_SPRINT_SPEED_ANIM) {
 				animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 0.1f);
 			} else {
 				animCtrl->PlayExclusive("Beagle/Models/Run.ani", 0, true, 0.2f);

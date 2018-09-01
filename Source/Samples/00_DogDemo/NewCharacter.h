@@ -28,22 +28,24 @@ const unsigned CTRL_SPRINT = 32;
 
 
 // Movement value consts
-const float MAX_WALK_SPEED = 6.0f; // 6 units/sec
-const float MAX_SPRINT_SPEED = 99.0f;
-const float ARTIFICIAL_BRAKING_FORCE = 1.0f;
-const float WALK_FORCE = 1.4f;
-const float SPRINT_FORCE = 0.6f;
+const float MAX_WALK_SPEED = 3.0f; // units/sec
+const float MAX_SPRINT_SPEED = 10.0f;
+const float ARTIFICIAL_BRAKING_FORCE = 5.0f;
+
+const float WALK_FORCE = 20.0f;
+const float SPRINT_FORCE = 15.0f;
 
 const float BRAKING_FRICTION = 4.2f;
 
-const float WALK_FRICTION = 7.0f;
-const float SPRINT_FRICTION = 3.0f;
+const float WALK_FRICTION = 1.0f;
+const float SPRINT_FRICTION = 0.8f;
 
 const float INAIR_MOVE_FORCE = 0.02f;
 const float JUMP_FORCE = 7.0f;
 const float YAW_SENSITIVITY = 0.1f;
 const float INAIR_THRESHOLD_TIME = 0.1f;
-//const float ACCELERATION_FACTOR = 0.1f;
+
+const float WALK_TO_SPRINT_SPEED_ANIM = 6.0f;
 
 /// Character component, responsible for physical movement according to controls, as well as animation.
 class NewCharacter : public LogicComponent {
