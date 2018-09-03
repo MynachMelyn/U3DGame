@@ -16,6 +16,7 @@
 #include <Urho3D/Input/Input.h>
 #include <Urho3D/Graphics/OctreeQuery.h>
 #include <Urho3D/Graphics/Octree.h>
+#include <Urho3D/Graphics/Skeleton.h>
 #include <Lightning.h>
 
 #include "NewCharacter.h"
@@ -50,6 +51,7 @@ void NewCharacter::Start() {
 
 	Lightning::RegisterObject(context_);
 }
+
 
 void NewCharacter::FixedUpdate(float timeStep) {
 	/// \todo Could cache the components for faster access instead of finding them each frame
@@ -153,12 +155,17 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	}
 	//modelAdjustmentNode_->SetRotation(Quaternion(modelAdjustmentNode_->GetRotation().Angle() + timeStep * 30, modelAdjustmentNode_->GetRotation() * Vector3::FORWARD));
 
-
 	// LIGHTNING STUFF
-	lightning_elapsedTime += timeStep;
-	if (lightning_elapsedTime > 0.25f) {
-		makeLightning();
-		lightning_elapsedTime = 0.0f;
+	if (planeVelocity.Length() > 0) {
+		// If we're travelling faster than walking pace + a buffer (to stop lightning on near-run), ZAP
+		if (planeVelocity.Length() > MAX_WALK_SPEED + 2.0f) {
+			lightning_elapsedTime += timeStep;
+			if (lightning_elapsedTime > 0.5f / planeVelocity.Length()) {
+				//makeLightning();
+				makeLightningBones();
+				lightning_elapsedTime = 0.0f;
+			}
+		}
 	}
 
 	if (softGrounded) {
@@ -333,6 +340,84 @@ void NewCharacter::makeLightning() {
 
 	// Should work with local space
 	objectNode->SetPosition(surfacePoint);
+
+	Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
+	lightning_->Start();
+	lightning_->setLifeTime(0.1f);
+	lightning_->setTarget(targetPos);
+	lightning_->extendToPoint();
+}
+
+void NewCharacter::makeLightningBones() {
+	PODVector<RayQueryResult> results;
+	Vector3 bonePoint;
+	Vector3 bonePointWorld;
+	Node* boneChosen;
+
+	Vector3 targetPos = Vector3::ZERO;
+	bool hitSomethingOtherThanDoggy = false;
+	int maxTries = 5;
+	int attempts = 0;
+
+
+	Node* adjNode = node_->GetChild("AdjNode");
+
+	while (results.Size() < 1 || !hitSomethingOtherThanDoggy) {
+		// Could square this to bias it toward the far end? Maybe
+		//Vector3 dirVec = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 1.0f), Random(-1.0f, 1.0f)) * 5.0f;
+		Vector3 dirVec = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 1.0f), Random(-1.0f, 1.0f)) * 0.25f;
+
+		// Get random bone
+		{
+			Vector<Bone> boneList = adjNode->GetComponent<AnimatedModel>()->GetSkeleton().GetBones();
+
+		boneLoop:
+			{
+				boneChosen = boneList.At(Random(0, boneList.Size() - 1)).node_;
+				String boneName = boneChosen->GetName();
+
+				// DO NOT pick any Poles, roots, or tail-bones (unless tail-tip)
+				if (boneName.Contains("Pole", false) || boneName.Compare("Root", false) == 0) {
+					goto boneLoop;
+				} else if (boneName.Contains("Tail", false) && !boneName.Contains("Tip", false)) {
+					goto boneLoop;
+				}
+			}
+
+			bonePointWorld = boneChosen->GetWorldPosition();
+			bonePoint = boneChosen->GetPosition();
+
+			// Test: dirVec is bone relative to root + 1y, but slightly random
+			dirVec = (dirVec + (Vector3(0, -1, 0) + bonePointWorld - node_->GetWorldPosition()).Normalized()).Normalized() * 5.0f;
+		}
+
+
+
+		Ray ray = Ray(bonePointWorld, dirVec);
+		RayOctreeQuery query(results, ray, Urho3D::RAY_TRIANGLE, dirVec.Length(), Urho3D::DRAWABLE_GEOMETRY, -1);
+		node_->GetScene()->GetComponent<Urho3D::Octree>()->Raycast(query);
+
+		for (RayQueryResult result : results) {
+			if (result.node_->GetName().Compare("AdjNode") != 0) {
+				targetPos = result.position_;
+				hitSomethingOtherThanDoggy = true;
+				break;
+			}
+		}
+
+		attempts++;
+		if (attempts > maxTries) {
+			return;
+		}
+	}
+
+
+	//Node* objectNode = boneChosen->CreateChild("LightningBolt");
+	//objectNode->SetPosition(Vector3::ZERO);
+
+	Node* objectNode = GetScene()->CreateChild("LightningBolt");
+	objectNode->SetPosition(bonePointWorld);
+
 
 	Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
 	lightning_->Start();

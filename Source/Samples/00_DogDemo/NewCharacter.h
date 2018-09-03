@@ -29,16 +29,16 @@ const unsigned CTRL_SPRINT = 32;
 
 // Movement value consts
 const float MAX_WALK_SPEED = 3.0f; // units/sec
-const float MAX_SPRINT_SPEED = 10.0f;
+const float MAX_SPRINT_SPEED = 12.0f; // was 10
 const float ARTIFICIAL_BRAKING_FORCE = 5.0f;
 
 const float WALK_FORCE = 20.0f;
-const float SPRINT_FORCE = 25.0f;
+const float SPRINT_FORCE = 35.0f;
 
 const float BRAKING_FRICTION = 3.8f;
 
 const float WALK_FRICTION = 1.0f;
-const float SPRINT_FRICTION = 1.2f;
+const float SPRINT_FRICTION = 2.0f;
 //const float SPRINT_FRICTION = 0.8f;
 
 const float INAIR_MOVE_FORCE = 0.02f;
@@ -63,6 +63,8 @@ public:
 	void Start() override;
 	/// Handle physics world update. Called by LogicComponent base class.
 	void FixedUpdate(float timeStep) override;
+
+	//void Update(float timeStep) override;
 
 	/// Movement controls. Assigned by the main program each frame.
 	Controls controls_;
@@ -101,6 +103,7 @@ private:
 	float speedFactorCoM = 0.0f;
 
 	void makeLightning();
+	void makeLightningBones();
 	float lightning_elapsedTime = 0.0f;
 	//bool isSprinting = false;
 };
