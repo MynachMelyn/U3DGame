@@ -235,6 +235,7 @@ void NewCharacter::HandleNodeCollision(StringHash eventType, VariantMap& eventDa
 	}
 }
 
+
 void NewCharacter::makeLightning() {
 	PODVector<RayQueryResult> results;
 	Vector3 surfacePoint;
@@ -274,9 +275,9 @@ void NewCharacter::makeLightning() {
 
 
 			// 16-bit indices ; short
-			if (indexSize == sizeof(unsigned short)) {
-				surfacePoint = *(Vector3*)(&vertices[(short)Random(0, (int)vertexSize)]);
-				//surfacePoint = *(Vector3*)(&vertices[0]);
+			if (vertexSize != sizeof(unsigned short)) {
+				//surfacePoint = *(Vector3*)(&vertices[(short)Random(0, (int)vertexSize)]);
+				surfacePoint = *(Vector3*)(&vertices[0]);
 				//surfacePoint = Vector3(0.0f, 3.23084f, -7.89709f);
 
 				// Centre to surfacepoint, plus some random angle
@@ -284,27 +285,12 @@ void NewCharacter::makeLightning() {
 				//dirVec.Normalize();
 
 				// Rotate
-				//surfacePoint = adjNode->GetWorldRotation() * surfacePoint;
+				surfacePoint = adjNode->GetWorldRotation() * surfacePoint;
 				// Scale
-				//surfacePoint *= adjNode->GetWorldScale();
+				surfacePoint *= adjNode->GetWorldScale();
 				// Position
-				//surfacePoint = surfacePoint + adjNode->GetWorldPosition();
+				surfacePoint = surfacePoint + adjNode->GetWorldPosition();
 
-				{
-					Node* objectNode = GetScene()->CreateChild("LightningBolt");
-					// Should work with local space
-					objectNode->SetPosition(surfacePoint);
-					Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
-					lightning_->Start();
-					lightning_->setLifeTime(10.0f);
-					lightning_->setTarget(targetPos);
-					lightning_->extendToPoint();
-				}
-
-			}
-			// 32-bit indices ; int
-			else {
-				//surfacePoint = (Vector3*)(&vertices[Random(0, (int)vertexSize)]);
 			}
 		}
 
@@ -342,7 +328,7 @@ void NewCharacter::makeLightning() {
 
 	//Vector3 targetPos = results.At(closestIdx).position_;
 
-	/*
+
 	Node* objectNode = GetScene()->CreateChild("LightningBolt");
 
 	// Should work with local space
@@ -350,7 +336,7 @@ void NewCharacter::makeLightning() {
 
 	Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
 	lightning_->Start();
-	lightning_->setLifeTime(5.0f);
+	lightning_->setLifeTime(0.1f);
 	lightning_->setTarget(targetPos);
-	lightning_->extendToPoint(); */
+	lightning_->extendToPoint();
 }

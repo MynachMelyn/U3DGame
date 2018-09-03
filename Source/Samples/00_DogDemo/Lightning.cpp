@@ -23,19 +23,16 @@ void Lightning::Start() {
 	auto* cache = GetSubsystem<ResourceCache>();
 
 	auto* visuals = node_->CreateComponent<StaticModel>();
-	//visuals->SetModel(cache->GetResource<Model>("Lightning/Models/Lightning1.mdl"));
-	visuals->SetModel(cache->GetResource<Model>("Models/Sphere.mdl"));
+	visuals->SetModel(cache->GetResource<Model>("Lightning/Models/Lightning1.mdl"));
+	//visuals->SetModel(cache->GetResource<Model>("Models/Sphere.mdl"));
 	visuals->SetMaterial(cache->GetResource<Material>("Lightning/Materials/Lightning.xml"));
-
-	//DELET THIS
-	node_->SetScale(0.1f);
 }
 
 void Lightning::extendToPoint() {
 	node_->LookAt(target, Vector3::UP, Urho3D::TS_WORLD);
 	// Stretch toward the point. Could add a small 15%ish x and y scaling as well?
 	float scale = (node_->GetPosition() - target).Length();
-	//node_->SetScale(Vector3(3.0f, 3.0f, scale));
+	node_->SetScale(Vector3(3.0f, 3.0f, scale));
 }
 
 void Lightning::FixedUpdate(float timeStep) {
