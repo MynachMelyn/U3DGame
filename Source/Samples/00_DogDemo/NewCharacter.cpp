@@ -100,8 +100,8 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		moveDir.Normalize();
 
 	// If in air, allow control, but slower than when on ground - using tertiary syntax
-	//body->ApplyImpulse(rot * moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
 	body->ApplyForce(moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
+	//body->ApplyForce(node_->GetRotation() * Vector3::FORWARD * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
 
 	// If we're trying to move, lower the friction
 	if (moveDir != Vector3::ZERO) {
@@ -143,7 +143,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		speedFactorCoM = Max(Min(1 / (MAX_SPRINT_SPEED - planeVelocity.Length()), 1.0f), 0.0f);
 		modelAdjustmentNode_->SetRotation(
 			modelAdjustmentNode_->GetRotation().Slerp(
-				Quaternion(signRotCoM * speedFactorCoM * 35 * (1 - moveDir.DotProduct(planeVelocity.Normalized())), modelAdjustmentNode_->GetRotation() * Vector3::FORWARD)
+				Quaternion(signRotCoM * speedFactorCoM * 25 * (1 - moveDir.DotProduct(planeVelocity.Normalized())), modelAdjustmentNode_->GetRotation() * Vector3::FORWARD)
 				, 15.0f * timeStep)
 		);
 	} else {
@@ -158,9 +158,9 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	// LIGHTNING STUFF
 	if (planeVelocity.Length() > 0) {
 		// If we're travelling faster than walking pace + a buffer (to stop lightning on near-run), ZAP
-		if (planeVelocity.Length() > MAX_WALK_SPEED + 2.0f) {
+		if (planeVelocity.Length() > LIGHTNING_SPEED) {
 			lightning_elapsedTime += timeStep;
-			if (lightning_elapsedTime > 0.5f / planeVelocity.Length()) {
+			if (lightning_elapsedTime > 0.3f / planeVelocity.Length()) {
 				//makeLightning();
 				makeLightningBones();
 				lightning_elapsedTime = 0.0f;
@@ -387,8 +387,8 @@ void NewCharacter::makeLightningBones() {
 			bonePointWorld = boneChosen->GetWorldPosition();
 			bonePoint = boneChosen->GetPosition();
 
-			// Test: dirVec is bone relative to root + 1y, but slightly random
-			dirVec = (dirVec + (Vector3(0, -1, 0) + bonePointWorld - node_->GetWorldPosition()).Normalized()).Normalized() * 5.0f;
+			// Test: dirVec is bone relative to root + 1y, but slightly random. Multiplied to increase range
+			dirVec = (dirVec + (Vector3(0, -1, 0) + bonePointWorld - node_->GetWorldPosition()).Normalized()).Normalized() * 7.0f;
 		}
 
 
