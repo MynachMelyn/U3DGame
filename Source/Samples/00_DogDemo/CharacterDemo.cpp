@@ -45,6 +45,7 @@
 #include <Urho3D/UI/UI.h>
 #include <Urho3D/UI/Window.h>
 #include <Urho3D/Graphics/RenderPath.h>
+#include <Urho3D/Graphics/Geometry.h>
 
 #include "NewCharacter.h"
 #include "CharacterDemo.h"
@@ -270,7 +271,7 @@ void CharacterDemo::CreateScene() {
 void CharacterDemo::CreateCharacter() {
 	auto* cache = GetSubsystem<ResourceCache>();
 
-	Node* objectNode = scene_->CreateChild("Michael");
+	Node* objectNode = scene_->CreateChild("Beagle");
 	objectNode->SetPosition(Vector3(0.0f, 1.0f, 0.0f));
 	// new: adjust scale to fit default scene a bit better - not entirely needed if we just pan camera out
 
@@ -287,6 +288,9 @@ void CharacterDemo::CreateCharacter() {
 	object->SetCastShadows(true);
 	adjustNode->CreateComponent<AnimationController>();
 	auto* animCtrl = adjustNode->GetComponent<AnimationController>(true);
+
+	// To stop lightning-checks from hitting the dog himself
+	//object->SetViewMask(0x7fffffff);
 
 	// Set the head bone for manual control
 	//object->GetSkeleton().GetBone("Mutant:Head")->animated_ = false;

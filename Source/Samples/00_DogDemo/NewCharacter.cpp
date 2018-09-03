@@ -7,11 +7,16 @@
 #include <Urho3D/Scene/Scene.h>
 #include <Urho3D/Scene/SceneEvents.h>
 #include <Urho3D/Graphics/StaticModel.h>
+#include <Urho3D/Graphics/Geometry.h>
+#include <Urho3D/Graphics/VertexBuffer.h>
 #include <Urho3D/Resource/ResourceCache.h>
 #include <Urho3D/Physics/CollisionShape.h>
 #include <Urho3D/Graphics/Material.h>
 #include <Urho3D/Graphics/AnimatedModel.h>
 #include <Urho3D/Input/Input.h>
+#include <Urho3D/Graphics/OctreeQuery.h>
+#include <Urho3D/Graphics/Octree.h>
+#include <Lightning.h>
 
 #include "NewCharacter.h"
 
@@ -42,6 +47,8 @@ void NewCharacter::Start() {
 
 	// Find the model adjustment node, don't do it recursively (should be top level)
 	modelAdjustmentNode_ = node_->GetChild("AdjNode", false);
+
+	Lightning::RegisterObject(context_);
 }
 
 void NewCharacter::FixedUpdate(float timeStep) {
@@ -147,6 +154,13 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	//modelAdjustmentNode_->SetRotation(Quaternion(modelAdjustmentNode_->GetRotation().Angle() + timeStep * 30, modelAdjustmentNode_->GetRotation() * Vector3::FORWARD));
 
 
+	// LIGHTNING STUFF
+	lightning_elapsedTime += timeStep;
+	if (lightning_elapsedTime > 0.25f) {
+		makeLightning();
+		lightning_elapsedTime = 0.0f;
+	}
+
 	if (softGrounded) {
 		// When on ground, apply a braking force to limit maximum ground velocity
 		//Vector3 brakeForce = -planeVelocity * BRAKE_FORCE * (planeVelocity.Length() / 16);
@@ -165,6 +179,9 @@ void NewCharacter::FixedUpdate(float timeStep) {
 				//TODO make this a jump ani
 				animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 1.0f);
 				animCtrl->SetStartBone("Beagle/Models/Walk.ani", "Root");
+
+				//DEBUG: ZAP
+				//makeLightning();
 			}
 		} else {
 			okToJump_ = true;
@@ -216,4 +233,124 @@ void NewCharacter::HandleNodeCollision(StringHash eventType, VariantMap& eventDa
 				onGround_ = true;
 		}
 	}
+}
+
+void NewCharacter::makeLightning() {
+	PODVector<RayQueryResult> results;
+	Vector3 surfacePoint;
+	Vector3 targetPos = Vector3::ZERO;
+	bool hitSomethingOtherThanDoggy = false;
+	int maxTries = 5;
+	int attempts = 0;
+
+
+	Node* adjNode = node_->GetChild("AdjNode");
+
+	while (results.Size() < 1 || !hitSomethingOtherThanDoggy) {
+		// Could square this to bias it toward the far end? Maybe
+		Vector3 dirVec = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 1.0f), Random(-1.0f, 1.0f)) * 3.0f;
+
+		// Get random vertex
+		{
+			// Get a random surface point
+			//Model* model = node_->GetComponent<AnimatedModel>()->GetModel();
+			//Geometry* geom = model->GetGeometry(0, 0);
+			Geometry* geom = ((AnimatedModel*)adjNode->GetComponent<AnimatedModel>())->GetLodGeometry(0, 0);
+
+			const unsigned char* vertexData;
+			const unsigned char* indexData;
+			unsigned vertexSize;
+			unsigned indexSize;
+			const PODVector<VertexElement>* elements;
+
+			geom->GetRawData(vertexData, vertexSize, indexData, indexSize, elements);
+
+			// If data is bad:
+			if (!vertexData || !elements || VertexBuffer::GetElementOffset(*elements, TYPE_VECTOR3, SEM_POSITION) != 0) {
+				return;
+			}
+			const auto* vertices = (const unsigned char*)vertexData;
+
+
+
+			// 16-bit indices ; short
+			if (indexSize == sizeof(unsigned short)) {
+				surfacePoint = *(Vector3*)(&vertices[(short)Random(0, (int)vertexSize)]);
+				//surfacePoint = *(Vector3*)(&vertices[0]);
+				//surfacePoint = Vector3(0.0f, 3.23084f, -7.89709f);
+
+				// Centre to surfacepoint, plus some random angle
+				//dirVec = (surfacePoint.Normalized() + dirVec);
+				//dirVec.Normalize();
+
+				// Rotate
+				//surfacePoint = adjNode->GetWorldRotation() * surfacePoint;
+				// Scale
+				//surfacePoint *= adjNode->GetWorldScale();
+				// Position
+				//surfacePoint = surfacePoint + adjNode->GetWorldPosition();
+
+				{
+					Node* objectNode = GetScene()->CreateChild("LightningBolt");
+					// Should work with local space
+					objectNode->SetPosition(surfacePoint);
+					Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
+					lightning_->Start();
+					lightning_->setLifeTime(10.0f);
+					lightning_->setTarget(targetPos);
+					lightning_->extendToPoint();
+				}
+
+			}
+			// 32-bit indices ; int
+			else {
+				//surfacePoint = (Vector3*)(&vertices[Random(0, (int)vertexSize)]);
+			}
+		}
+
+
+		Ray ray = Ray(surfacePoint, dirVec);
+		RayOctreeQuery query(results, ray, Urho3D::RAY_TRIANGLE, dirVec.Length(), Urho3D::DRAWABLE_GEOMETRY, -1);
+		node_->GetScene()->GetComponent<Urho3D::Octree>()->Raycast(query);
+
+		for (RayQueryResult result : results) {
+			if (result.node_->GetName().Compare("AdjNode") != 0) {
+				targetPos = result.position_;
+				hitSomethingOtherThanDoggy = true;
+				break;
+			}
+		}
+
+		attempts++;
+		if (attempts > maxTries) {
+			return;
+		}
+	}
+
+
+	// This may be unnecessary
+	//int i = 0;
+	//int closestIdx = 0;
+	//float shortestDist = results.At(0).distance_;
+	//for (RayQueryResult result : results) {
+	//	if (result.distance_ < shortestDist) {
+	//		shortestDist = result.distance_;
+	//		closestIdx = i;
+	//	}
+	//	i++;
+	//}
+
+	//Vector3 targetPos = results.At(closestIdx).position_;
+
+	/*
+	Node* objectNode = GetScene()->CreateChild("LightningBolt");
+
+	// Should work with local space
+	objectNode->SetPosition(surfacePoint);
+
+	Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
+	lightning_->Start();
+	lightning_->setLifeTime(5.0f);
+	lightning_->setTarget(targetPos);
+	lightning_->extendToPoint(); */
 }
