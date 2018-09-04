@@ -27,7 +27,7 @@ NewCharacter::NewCharacter(Context* context) :
 	okToJump_(true),
 	inAirTimer_(0.0f) {
 	// Only the physics update event is needed: unsubscribe from the rest for optimisation
-	SetUpdateEventMask(USE_FIXEDUPDATE);
+	//SetUpdateEventMask(USE_FIXEDUPDATE);
 }
 
 void NewCharacter::RegisterObject(Context* context) {
@@ -52,6 +52,17 @@ void NewCharacter::Start() {
 	Lightning::RegisterObject(context_);
 }
 
+void NewCharacter::Update(float timeStep) {
+	//TEMP REMOVE ME
+	if (lightning_elapsedTime > lightning_maxTime) {
+		makeLightningBones(TORSO_ONLY);
+		lightning_elapsedTime = 0.0f;
+		SetRandomSeed(Time::GetSystemTime());
+		lightning_maxTime = Random(0.04f, 4.5f);
+	}
+	lightning_elapsedTime += timeStep;
+
+}
 
 void NewCharacter::FixedUpdate(float timeStep) {
 	/// \todo Could cache the components for faster access instead of finding them each frame
@@ -155,14 +166,14 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	}
 	//modelAdjustmentNode_->SetRotation(Quaternion(modelAdjustmentNode_->GetRotation().Angle() + timeStep * 30, modelAdjustmentNode_->GetRotation() * Vector3::FORWARD));
 
-	// LIGHTNING STUFF
+	 //LIGHTNING STUFF
 	if (planeVelocity.Length() > 0) {
 		// If we're travelling faster than walking pace + a buffer (to stop lightning on near-run), ZAP
 		if (planeVelocity.Length() > LIGHTNING_SPEED) {
 			lightning_elapsedTime += timeStep;
-			if (lightning_elapsedTime > 0.3f / planeVelocity.Length()) {
+			if (lightning_elapsedTime > 0.2f / planeVelocity.Length()) {
 				//makeLightning();
-				makeLightningBones();
+				makeLightningBones(FEET_ONLY);
 				lightning_elapsedTime = 0.0f;
 			}
 		}
@@ -241,8 +252,7 @@ void NewCharacter::HandleNodeCollision(StringHash eventType, VariantMap& eventDa
 		}
 	}
 }
-
-
+/*
 void NewCharacter::makeLightning() {
 	PODVector<RayQueryResult> results;
 	Vector3 surfacePoint;
@@ -253,6 +263,7 @@ void NewCharacter::makeLightning() {
 
 
 	Node* adjNode = node_->GetChild("AdjNode");
+	adjNode->GetComponent<AnimatedModel>()->GetModel();
 
 	while (results.Size() < 1 || !hitSomethingOtherThanDoggy) {
 		// Could square this to bias it toward the far end? Maybe
@@ -284,20 +295,16 @@ void NewCharacter::makeLightning() {
 			// 16-bit indices ; short
 			if (vertexSize != sizeof(unsigned short)) {
 				//surfacePoint = *(Vector3*)(&vertices[(short)Random(0, (int)vertexSize)]);
-				surfacePoint = *(Vector3*)(&vertices[0]);
-				//surfacePoint = Vector3(0.0f, 3.23084f, -7.89709f);
+				surfacePoint = *(Vector3*)(&vertices[(short)Random(0, (int)geom->GetVertexCount()) * vertexSize]);
+				// To World
+				surfacePoint = adjNode->GetWorldTransform() * surfacePoint;
+			} else {
+				//surfacePoint = *(Vector3*)(&vertices[(short)Random(0, (int)vertexSize)]);
+				surfacePoint = *(Vector3*)(&vertices[Random(0, (int)geom->GetVertexCount()) * vertexSize]);
+				//surfacePoint = *(Vector3*)(&vertices[0]);
 
-				// Centre to surfacepoint, plus some random angle
-				//dirVec = (surfacePoint.Normalized() + dirVec);
-				//dirVec.Normalize();
-
-				// Rotate
-				surfacePoint = adjNode->GetWorldRotation() * surfacePoint;
-				// Scale
-				surfacePoint *= adjNode->GetWorldScale();
-				// Position
-				surfacePoint = surfacePoint + adjNode->GetWorldPosition();
-
+				// To World
+				surfacePoint = adjNode->GetWorldTransform() * surfacePoint;
 			}
 		}
 
@@ -307,6 +314,7 @@ void NewCharacter::makeLightning() {
 		node_->GetScene()->GetComponent<Urho3D::Octree>()->Raycast(query);
 
 		for (RayQueryResult result : results) {
+			String gg = result.node_->GetName();
 			if (result.node_->GetName().Compare("AdjNode") != 0) {
 				targetPos = result.position_;
 				hitSomethingOtherThanDoggy = true;
@@ -320,35 +328,25 @@ void NewCharacter::makeLightning() {
 		}
 	}
 
-
-	// This may be unnecessary
-	//int i = 0;
-	//int closestIdx = 0;
-	//float shortestDist = results.At(0).distance_;
-	//for (RayQueryResult result : results) {
-	//	if (result.distance_ < shortestDist) {
-	//		shortestDist = result.distance_;
-	//		closestIdx = i;
-	//	}
-	//	i++;
-	//}
-
-	//Vector3 targetPos = results.At(closestIdx).position_;
-
-
 	Node* objectNode = GetScene()->CreateChild("LightningBolt");
 
 	// Should work with local space
 	objectNode->SetPosition(surfacePoint);
 
-	Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
-	lightning_->Start();
-	lightning_->setLifeTime(0.1f);
-	lightning_->setTarget(targetPos);
-	lightning_->extendToPoint();
-}
+	//Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
+	//lightning_->Start();
+	//lightning_->setLifeTime(0.1f);
+	//lightning_->setTarget(targetPos);
+	//lightning_->extendToPoint();
 
-void NewCharacter::makeLightningBones() {
+	StaticModel* mdl = objectNode->CreateComponent<StaticModel>();
+	mdl->SetModel(GetSubsystem<ResourceCache>()->GetResource<Model>("Models/Sphere.mdl"));
+	objectNode->SetScale(0.15f);
+}
+*/
+
+// TODO: Add octree search/ cell search
+void NewCharacter::makeLightningBones(LIGHTNING_TYPE lightningType) {
 	PODVector<RayQueryResult> results;
 	Vector3 bonePoint;
 	Vector3 bonePointWorld;
@@ -356,7 +354,7 @@ void NewCharacter::makeLightningBones() {
 
 	Vector3 targetPos = Vector3::ZERO;
 	bool hitSomethingOtherThanDoggy = false;
-	int maxTries = 5;
+	int maxTries = 9;
 	int attempts = 0;
 
 
@@ -364,8 +362,7 @@ void NewCharacter::makeLightningBones() {
 
 	while (results.Size() < 1 || !hitSomethingOtherThanDoggy) {
 		// Could square this to bias it toward the far end? Maybe
-		//Vector3 dirVec = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 1.0f), Random(-1.0f, 1.0f)) * 5.0f;
-		Vector3 dirVec = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 1.0f), Random(-1.0f, 1.0f)) * 0.25f;
+		Vector3 dirVec;// = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 1.0f), Random(-1.0f, 1.0f)) * 0.25f;
 
 		// Get random bone
 		{
@@ -377,10 +374,38 @@ void NewCharacter::makeLightningBones() {
 				String boneName = boneChosen->GetName();
 
 				// DO NOT pick any Poles, roots, or tail-bones (unless tail-tip)
-				if (boneName.Contains("Pole", false) || boneName.Compare("Root", false) == 0) {
-					goto boneLoop;
-				} else if (boneName.Contains("Tail", false) && !boneName.Contains("Tip", false)) {
-					goto boneLoop;
+				//if (boneName.Contains("Pole", false) || boneName.Contains("Root", false) || (boneName.Contains("Tail", false) && !boneName.Contains("Tip", false))) {
+				//	goto boneLoop;
+				//}
+
+				switch (lightningType) {
+				case FULL_BODY:
+					if (boneName.Contains("Pole", false) || boneName.Contains("Root", false) || (boneName.Contains("Tail", false) && !boneName.Contains("Tip", false))) {
+						goto boneLoop;
+					}
+					break;
+				case FEET_ONLY:
+					if (!boneName.Contains("PawIK", false)) {
+						goto boneLoop;
+					}
+					break;
+				case HEAD_ONLY:
+					if (!boneName.Contains("Head", false)) {
+						goto boneLoop;
+					}
+					break;
+				case TAIL_ONLY:
+					if (!boneName.Contains("Tail", false)) {
+						goto boneLoop;
+					}
+					break;
+				case TORSO_ONLY:
+					if (!(boneName.Compare("Pelvis", false) || boneName.Compare("Body", false) || boneName.Compare("Chest", false) || boneName.Compare("Shoulder", false) || boneName.Compare("Neck", false))) {
+						goto boneLoop;
+					}
+					break;
+				default:
+					break;
 				}
 			}
 
@@ -388,7 +413,12 @@ void NewCharacter::makeLightningBones() {
 			bonePoint = boneChosen->GetPosition();
 
 			// Test: dirVec is bone relative to root + 1y, but slightly random. Multiplied to increase range
-			dirVec = (dirVec + (Vector3(0, -1, 0) + bonePointWorld - node_->GetWorldPosition()).Normalized()).Normalized() * 7.0f;
+			// TODO: This ought to allow upward/sideward checks too! Rather than just forcing it downward
+			//dirVec = (dirVec + (Vector3(0, -1, 0) + bonePointWorld - node_->GetWorldPosition()).Normalized()).Normalized() * 7.0f;
+
+			dirVec = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 1.0f), Random(-1.0f, 1.0f)).Normalized();
+			dirVec *= 3.0f;
+			// Get a random point in a circle of radius 1 about Node's Centre (+0.5f upward)
 		}
 
 
@@ -421,7 +451,7 @@ void NewCharacter::makeLightningBones() {
 
 	Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
 	lightning_->Start();
-	lightning_->setLifeTime(0.1f);
+	lightning_->setLifeTime(Random(0.1f, 0.25f));
 	lightning_->setTarget(targetPos);
 	lightning_->extendToPoint();
 }

@@ -65,6 +65,7 @@ public:
 	void Start() override;
 	/// Handle physics world update. Called by LogicComponent base class.
 	void FixedUpdate(float timeStep) override;
+	void Update(float timeStep) override; //TEMP
 
 	//void Update(float timeStep) override;
 
@@ -105,7 +106,17 @@ private:
 	float speedFactorCoM = 0.0f;
 
 	void makeLightning();
-	void makeLightningBones();
+
+	const enum LIGHTNING_TYPE {
+		FULL_BODY,
+		FEET_ONLY,
+		HEAD_ONLY,
+		TAIL_ONLY,
+		TORSO_ONLY
+	};
+
+	void makeLightningBones(LIGHTNING_TYPE lightningType);
 	float lightning_elapsedTime = 0.0f;
+	float lightning_maxTime = 1.0f;
 	//bool isSprinting = false;
 };

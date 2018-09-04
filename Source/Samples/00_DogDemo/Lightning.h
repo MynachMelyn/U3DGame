@@ -1,6 +1,9 @@
 #pragma once
 
 #include <Urho3D/Scene/LogicComponent.h>
+#include <Urho3D/Graphics/Model.h>
+#include <Urho3D/Graphics/StaticModel.h>
+#include <Urho3D/Graphics/Material.h>
 
 using namespace Urho3D;
 /// Character component, responsible for physical movement according to controls, as well as animation.
@@ -35,4 +38,21 @@ private:
 
 	float lifeTime = 1.0f;
 	float timeAlive = 0.0f;
+
+	const float modelCycleTime = 0.05f;
+	float modelTime = 0.0f;
+
+	bool thiccLightning = false;
+
+	const static std::string thinNames[3];
+	const static std::string thickNames[3];
+
+	static std::array<Model*, 3> thinModels;
+	static std::array<Model*, 3> thickModels;
+
+	static Material* lightningMat;
+
+	int currentModelIndex = -1;
+
+	StaticModel* visuals = nullptr;
 };

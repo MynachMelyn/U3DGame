@@ -137,7 +137,6 @@ void CharacterDemo::SetupViewport() {
 	rttViewport->GetRenderPath()->SetShaderParameter("FocalLengthMM", 70.0);
 	rttViewport->GetRenderPath()->SetShaderParameter("Aperture", 1.3f);
 
-
 	renderer->SetViewport(0, rttViewport);
 }
 
