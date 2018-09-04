@@ -6,8 +6,9 @@
 #include <Urho3D/Graphics/Model.h>
 #include <Urho3D/Graphics/Material.h>
 
-#include "Lightning.h"
 #include <array>
+#include <Lightning.h>
+
 
 Lightning::Lightning(Context* context) : LogicComponent(context) {
 	// Only the physics update event is needed: unsubscribe from the rest for optimisation

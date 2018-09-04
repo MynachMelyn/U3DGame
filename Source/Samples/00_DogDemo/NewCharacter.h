@@ -3,7 +3,6 @@
 #include <Urho3D/Input/Controls.h>
 #include <Urho3D/Scene/LogicComponent.h>
 #include <SDL/SDL_scancode.h>
-#include <PhotoCamera.h>
 
 using namespace Urho3D;
 
@@ -29,8 +28,12 @@ const unsigned CTRL_SPRINT = 32;
 
 // Movement value consts
 const float MAX_WALK_SPEED = 3.0f; // units/sec
+//const float MAX_SPRINT_SPEED = 10.0f; //
 const float MAX_SPRINT_SPEED = 22.0f; // was 10
 const float ARTIFICIAL_BRAKING_FORCE = 5.0f;
+
+const float WALK_TO_SPRINT_SPEED_ANIM = 6.0f;
+const float SPRINT_TO_GALLOP_SPEED_ANIM = 15.0f;
 
 const float WALK_FORCE = 20.0f;
 const float SPRINT_FORCE = 35.0f;
@@ -45,8 +48,6 @@ const float INAIR_MOVE_FORCE = 0.02f;
 const float JUMP_FORCE = 15.0f;
 const float YAW_SENSITIVITY = 0.1f;
 const float INAIR_THRESHOLD_TIME = 0.1f;
-
-const float WALK_TO_SPRINT_SPEED_ANIM = 6.0f;
 
 const float LIGHTNING_SPEED = MAX_WALK_SPEED + ((MAX_SPRINT_SPEED - MAX_WALK_SPEED) / 2);
 
@@ -107,7 +108,7 @@ private:
 
 	void makeLightning();
 
-	const enum LIGHTNING_TYPE {
+	static const enum LIGHTNING_TYPE {
 		FULL_BODY,
 		FEET_ONLY,
 		HEAD_ONLY,
@@ -115,8 +116,9 @@ private:
 		TORSO_ONLY
 	};
 
-	void makeLightningBones(LIGHTNING_TYPE lightningType);
+	void makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType);
 	float lightning_elapsedTime = 0.0f;
 	float lightning_maxTime = 1.0f;
+	float lightningRun_maxTime = 1.0f;
 	//bool isSprinting = false;
 };

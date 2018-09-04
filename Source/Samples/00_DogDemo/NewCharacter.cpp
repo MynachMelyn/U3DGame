@@ -17,9 +17,10 @@
 #include <Urho3D/Graphics/OctreeQuery.h>
 #include <Urho3D/Graphics/Octree.h>
 #include <Urho3D/Graphics/Skeleton.h>
+
 #include <Lightning.h>
 
-#include "NewCharacter.h"
+#include <NewCharacter.h>
 
 NewCharacter::NewCharacter(Context* context) :
 	LogicComponent(context),
@@ -53,7 +54,6 @@ void NewCharacter::Start() {
 }
 
 void NewCharacter::Update(float timeStep) {
-	//TEMP REMOVE ME
 	if (lightning_elapsedTime > lightning_maxTime) {
 		makeLightningBones(TORSO_ONLY);
 		lightning_elapsedTime = 0.0f;
@@ -171,10 +171,11 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		// If we're travelling faster than walking pace + a buffer (to stop lightning on near-run), ZAP
 		if (planeVelocity.Length() > LIGHTNING_SPEED) {
 			lightning_elapsedTime += timeStep;
-			if (lightning_elapsedTime > 0.2f / planeVelocity.Length()) {
+			if (lightning_elapsedTime > lightningRun_maxTime) {
 				//makeLightning();
 				makeLightningBones(FEET_ONLY);
 				lightning_elapsedTime = 0.0f;
+				lightningRun_maxTime = Random(0.8f, 2.6f) / planeVelocity.Length();
 			}
 		}
 	}
@@ -215,8 +216,10 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		if (softGrounded && !moveDir.Equals(Vector3::ZERO)) {
 			if (planeVelocity.Length() < WALK_TO_SPRINT_SPEED_ANIM) {
 				animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 0.1f);
-			} else {
+			} else if (planeVelocity.Length() < SPRINT_TO_GALLOP_SPEED_ANIM) {
 				animCtrl->PlayExclusive("Beagle/Models/Run.ani", 0, true, 0.2f);
+			} else {
+				animCtrl->PlayExclusive("Beagle/Models/Gallop.ani", 0, true, 0.2f);
 			}
 		} else {
 			animCtrl->PlayExclusive("Beagle/Models/IdleLoop.ani", 0, true, 0.5f);
@@ -226,6 +229,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		// Set walk animation speed proportional to velocity
 		animCtrl->SetSpeed("Beagle/Models/Walk.ani", planeVelocity.Length() * 0.55f);
 		animCtrl->SetSpeed("Beagle/Models/Run.ani", planeVelocity.Length() * 0.1f);
+		animCtrl->SetSpeed("Beagle/Models/Gallop.ani", planeVelocity.Length() * 0.07f);
 	}
 
 	// Reset grounded flag for next frame
@@ -346,7 +350,7 @@ void NewCharacter::makeLightning() {
 */
 
 // TODO: Add octree search/ cell search
-void NewCharacter::makeLightningBones(LIGHTNING_TYPE lightningType) {
+void NewCharacter::makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType) {
 	PODVector<RayQueryResult> results;
 	Vector3 bonePoint;
 	Vector3 bonePointWorld;
