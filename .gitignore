@@ -65,9 +65,13 @@ Thumbs.db
 x64/
 x86/
 bld/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
+[Bb]in/*.exe
+[Bb]in/*.ilk
+[Bb]in/*.pdb
+[Bb]in/tool/
+[Bb]in/Autoload/
 
 # Visual Studio 2015 cache/options directory
 .vs/
