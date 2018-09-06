@@ -163,19 +163,20 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	{
 		// Figure out which "side" we're on
 		signRotCoM = Sign(moveDir.CrossProduct(planeVelocity.Normalized()).y_);
+		//signRotCoM = Sign(moveDir.CrossProduct(node_->GetRotation() * Vector3::FORWARD).y_);
 		// Calculate the rotation angle for that thing that animals do to keep their centre of gravity (genauso wie Overgrowth)
 		// 45° * difference between accel and velo vectors, unless we're STATIONARY OR CLOSE ENOUGH 
 		if (moveDir != Vector3::ZERO && moveDir.AbsDotProduct(planeVelocity.Normalized()) < 0.98f) {
 			if (planeVelocity.Length() > MAX_WALK_SPEED) {
 				// Hit max CoM compensation angle at 24u/s, any more and ignore
 				//speedFactorCoM = Max(Min(1 / (MAX_SPRINT_SPEED - planeVelocity.Length()), 1.0f), 0.0f);
-				speedFactorCoM = Max(Min(Min(planeVelocity.Length(), MAX_SPRINT_SPEED), 1.0f), 0.0f);
+				speedFactorCoM = Max(Min(planeVelocity.Length() / MAX_SPRINT_SPEED, 1.0f), 0.0f);
 
-				//modelAdjustmentNode_->SetRotation(
-				//	modelAdjustmentNode_->GetRotation().Slerp(
-				//		Quaternion(signRotCoM * speedFactorCoM * 45 * (1 - moveDir.DotProduct(planeVelocity.Normalized())), modelAdjustmentNode_->GetRotation() * Vector3::FORWARD)
-				//		, 10.0f * timeStep)
-				//);
+				modelAdjustmentNode_->SetRotation(
+					modelAdjustmentNode_->GetRotation().Slerp(
+						Quaternion(signRotCoM * speedFactorCoM * 45 * (1 - moveDir.DotProduct(planeVelocity.Normalized())), modelAdjustmentNode_->GetRotation() * Vector3::FORWARD)
+						, 10.0f * timeStep)
+				);
 
 			} else {
 				// Only try and rotate if we're quick enough, otherwise begin to reset,
@@ -184,7 +185,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 			}
 		} else {
 		resetlerp:
-			if (modelAdjustmentNode_->GetRotation().DotProduct(Quaternion::IDENTITY) < 0.99f) {
+			if (modelAdjustmentNode_->GetRotation().w_ > 0.01) {
 				modelAdjustmentNode_->SetRotation(modelAdjustmentNode_->GetRotation().Slerp(Quaternion::IDENTITY, 3.0f * timeStep));
 			} else {
 				modelAdjustmentNode_->SetRotation(Quaternion::IDENTITY);
