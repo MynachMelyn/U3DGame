@@ -294,7 +294,12 @@ void NewCharacter::FixedUpdate(float timeStep) {
 				animCtrl->PlayExclusive("Beagle/Models/Gallop.ani", 0, true, 0.2f);
 			}
 		} else {
-			animCtrl->PlayExclusive("Beagle/Models/IdleLoop.ani", 0, true, 0.5f);
+			if (moveDir == Vector3::ZERO && planeVelocity.Length() > 0.5f) {
+				animCtrl->PlayExclusive("Beagle/Models/Brake.ani", 0, true, 0.1f); // Fade in does not work with manually-set weights
+				animCtrl->SetSpeed("Beagle/Models/Brake.ani", 2.0f); // Fade in does not work with manually-set weights
+			} else {
+				animCtrl->PlayExclusive("Beagle/Models/IdleLoop.ani", 0, true, 0.5f);
+			}
 			//animCtrl->SetStartBone("Beagle/Models/IdleLoop.ani", "Root");
 		}
 
