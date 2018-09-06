@@ -195,13 +195,12 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		float weightR = animCtrl->GetWeight("Beagle/Models/RotateRight.ani");
 		float weightL = animCtrl->GetWeight("Beagle/Models/RotateLeft.ani");
 		// Head look and spine twist
-		if (planeVelocity.Length() > 0.5f || moveDir != Vector3::ZERO) {
+		if (planeVelocity.Length() > 0.05f || moveDir != Vector3::ZERO) {
+			signRotCoM = Sign(moveDir.CrossProduct(node_->GetRotation() * Vector3::FORWARD).y_);
+
 			// Direction Factor - hit max at X°
-			//speedFactorBodyTwist = Min(Acos(moveDir.AbsDotProduct(planeVelocity.Normalized())) / 45, 1.0); // 0 to 1
 			speedFactorBodyTwist = Min(Acos(moveDir.AbsDotProduct(node_->GetRotation() * Vector3::FORWARD)) / 45, 1.0); // 0 to 1
 
-			//animCtrl->SetWeight("Beagle/Models/RotateRight.ani", Lerp(animCtrl->GetWeight("Beagle/Models/RotateRight.ani"), signRotCoM == -1 ? speedFactorBodyTwist : 0, 9.0f * timeStep));
-			//animCtrl->SetWeight("Beagle/Models/RotateLeft.ani", Lerp(animCtrl->GetWeight("Beagle/Models/RotateLeft.ani"), signRotCoM == 1 ? speedFactorBodyTwist : 0, 9.0f * timeStep));
 			if (signRotCoM == -1) {
 				if (weightR < speedFactorBodyTwist) {
 					animCtrl->SetWeight("Beagle/Models/RotateRight.ani", Min(weightR + HEAD_TURN_RATE * speedFactorBodyTwist * timeStep, speedFactorBodyTwist));
