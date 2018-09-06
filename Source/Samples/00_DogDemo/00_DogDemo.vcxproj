@@ -280,12 +280,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="Lightning.cpp" />
     <ClCompile Include="Lightning.h" />
     <ClCompile Include="NewCharacter.cpp" />
+    <ClCompile Include="SelfDestructor.cpp" />
     <ClCompile Include="Touch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterDemo.h" />
     <ClInclude Include="NewCharacter.h" />
+    <ClInclude Include="SelfDestructor.h" />
     <ClInclude Include="Touch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

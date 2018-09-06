@@ -17,6 +17,11 @@
 #include <Urho3D/Graphics/OctreeQuery.h>
 #include <Urho3D/Graphics/Octree.h>
 #include <Urho3D/Graphics/Skeleton.h>
+#include <Urho3D/Graphics/DrawableEvents.h>
+
+#include <Urho3D/Graphics/ParticleEffect.h>
+#include <Urho3D/Graphics/ParticleEmitter.h>
+#include <SelfDestructor.h>
 
 #include <Lightning.h>
 
@@ -47,11 +52,30 @@ void NewCharacter::RegisterObject(Context* context) {
 void NewCharacter::Start() {
 	// Component has been inserted into its scene node. Subscribe to events now
 	SubscribeToEvent(GetNode(), E_NODECOLLISION, URHO3D_HANDLER(NewCharacter, HandleNodeCollision));
+	Lightning::RegisterObject(context_);
+	SelfDestructor::RegisterObject(context_);
+}
+
+void NewCharacter::DelayedStart() {
+	auto* cache = GetSubsystem<ResourceCache>();
 
 	// Find the model adjustment node, don't do it recursively (should be top level)
 	modelAdjustmentNode_ = node_->GetChild("AdjNode", false);
+	SubscribeToEvent(modelAdjustmentNode_, E_ANIMATIONTRIGGER, URHO3D_HANDLER(NewCharacter, HandleAnimationTrigger));
 
-	Lightning::RegisterObject(context_);
+	for (Bone bone : modelAdjustmentNode_->GetComponent<AnimatedModel>()->GetSkeleton().GetBones()) {
+		if (bone.name_.Contains("PawIK", false)) {
+			Node* particleNode = bone.node_->CreateChild();
+			particleNode->SetName(bone.name_);
+
+			SelfDestructor* destroyer = particleNode->CreateComponent<SelfDestructor>();
+			destroyer->setTimer(0.1f);
+
+			ParticleEmitter* particleEmitter = particleNode->CreateComponent<ParticleEmitter>();
+			particleEmitter->SetEffect(cache->GetResource<ParticleEffect>("Particle/DustDog.xml"));
+			particleEmitter->SetEmitting(true);
+		}
+	}
 }
 
 void NewCharacter::Update(float timeStep) {
@@ -294,9 +318,10 @@ void NewCharacter::FixedUpdate(float timeStep) {
 				animCtrl->PlayExclusive("Beagle/Models/Gallop.ani", 0, true, 0.2f);
 			}
 		} else {
-			if (moveDir == Vector3::ZERO && planeVelocity.Length() > 0.5f) {
+			if (moveDir == Vector3::ZERO && planeVelocity.Length() > MAX_WALK_SPEED + 0.05f) {
 				animCtrl->PlayExclusive("Beagle/Models/Brake.ani", 0, true, 0.1f); // Fade in does not work with manually-set weights
 				animCtrl->SetSpeed("Beagle/Models/Brake.ani", 2.0f); // Fade in does not work with manually-set weights
+				//PARTICLESTODO
 			} else {
 				animCtrl->PlayExclusive("Beagle/Models/IdleLoop.ani", 0, true, 0.5f);
 			}
@@ -333,6 +358,29 @@ void NewCharacter::HandleNodeCollision(StringHash eventType, VariantMap& eventDa
 		}
 	}
 }
+
+void NewCharacter::HandleAnimationTrigger(StringHash eventType, VariantMap& eventData) {
+	using namespace AnimationTrigger;
+
+	AnimatedModel* model = modelAdjustmentNode_->GetComponent<AnimatedModel>();
+	AnimationState* state = model->GetAnimationState(eventData[P_NAME].GetString());
+	if (!state) {
+		return;
+	}
+	//If the footstep is blended with a high enough weight, enable the particle effect
+	if (state->GetWeight() > 0.5f) {
+		String eventName = eventData[P_DATA].GetString();
+		for (Bone bone : model->GetSkeleton().GetBones()) {
+			if (bone.name_.Compare(eventName) == 0) {
+				Node* emitterNode = bone.node_->GetChild(bone.name_);
+				emitterNode->GetComponent<ParticleEmitter>()->SetEmitting(true);
+				emitterNode->GetComponent<SelfDestructor>()->resetTimer();
+			}
+		}
+	}
+}
+
+
 /*
 void NewCharacter::makeLightning() {
 	PODVector<RayQueryResult> results;
@@ -508,8 +556,9 @@ void NewCharacter::makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType
 		RayOctreeQuery query(results, ray, Urho3D::RAY_TRIANGLE, dirVec.Length(), Urho3D::DRAWABLE_GEOMETRY, -1);
 		node_->GetScene()->GetComponent<Urho3D::Octree>()->Raycast(query);
 
+		// Only zap things that a. Aren't the dog, and b. Have a visual model
 		for (RayQueryResult result : results) {
-			if (result.node_->GetName().Compare("AdjNode") != 0) {
+			if (result.node_->GetName().Compare("AdjNode") != 0 && (result.node_->HasComponent<AnimatedModel>() || result.node_->HasComponent<StaticModel>())) {
 				targetPos = result.position_;
 				hitSomethingOtherThanDoggy = true;
 				break;

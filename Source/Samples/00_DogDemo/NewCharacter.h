@@ -65,6 +65,8 @@ public:
 
 	/// Handle startup. Called by LogicComponent base class.
 	void Start() override;
+	void DelayedStart() override; //After first frame
+
 	/// Handle physics world update. Called by LogicComponent base class.
 	void FixedUpdate(float timeStep) override;
 	void Update(float timeStep) override; //TEMP
@@ -84,6 +86,9 @@ public:
 private:
 	/// Handle physics collision event.
 	void HandleNodeCollision(StringHash eventType, VariantMap& eventData);
+
+	/// Handle footsteps and foot particles
+	void HandleAnimationTrigger(StringHash eventType, VariantMap& eventData);
 
 	/// Grounded flag for movement.
 	bool onGround_;
@@ -126,5 +131,4 @@ private:
 	float lightning_elapsedTime = 0.0f;
 	float lightning_maxTime = 1.0f;
 	float lightningRun_maxTime = 1.0f;
-	//bool isSprinting = false;
 };
