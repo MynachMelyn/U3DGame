@@ -41,6 +41,7 @@ void NewCharacter::RegisterObject(Context* context) {
 	URHO3D_ATTRIBUTE("On Ground", bool, onGround_, false, AM_DEFAULT);
 	URHO3D_ATTRIBUTE("OK To Jump", bool, okToJump_, true, AM_DEFAULT);
 	URHO3D_ATTRIBUTE("In Air Timer", float, inAirTimer_, 0.0f, AM_DEFAULT);
+
 }
 
 void NewCharacter::Start() {
@@ -64,10 +65,23 @@ void NewCharacter::Update(float timeStep) {
 
 }
 
+
 void NewCharacter::FixedUpdate(float timeStep) {
 	/// \todo Could cache the components for faster access instead of finding them each frame
 	auto* body = GetComponent<RigidBody>();
 	auto* animCtrl = node_->GetComponent<AnimationController>(true);
+
+	// Load these anims
+	if (!animCtrl->IsPlaying("Beagle/Models/RotateRight.ani")) {
+		animCtrl->PlayExclusive("Beagle/Models/RotateRight.ani", 1, true, 0.0f);
+		animCtrl->PlayExclusive("Beagle/Models/RotateLeft.ani", 1, true, 0.0f);
+		animCtrl->SetBlendMode("Beagle/Models/RotateRight.ani", AnimationBlendMode::ABM_ADDITIVE);
+		animCtrl->SetBlendMode("Beagle/Models/RotateLeft.ani", AnimationBlendMode::ABM_ADDITIVE);
+		animCtrl->SetWeight("Beagle/Models/RotateRight.ani", 0.0f);
+		animCtrl->SetWeight("Beagle/Models/RotateLeft.ani", 0.0f);
+		animCtrl->SetRemoveOnCompletion("Beagle/Models/RotateRight.ani", false);
+		animCtrl->SetRemoveOnCompletion("Beagle/Models/RotateLeft.ani", false);
+	}
 
 	// Update the in air timer. Reset if grounded
 	if (!onGround_)
@@ -131,7 +145,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		} else {
 			if (moveDir.Equals(lastMoveDir * -1)) {
 				// Rotate CW just a tiny bit to assist the LERP (1°)
-				//forwardCurrent = Quaternion(1, Vector3(0.0, 1.0, 0.0)) * forwardCurrent;
+				forwardCurrent = Quaternion(1, Vector3(0.0, 1.0, 0.0)) * forwardCurrent;
 				//body->ApplyImpulse(Vector3(0.0, 40.0, 0.0));
 			}
 			deltaSinceLastTurn = 0.0f;
@@ -141,29 +155,87 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		// 90° sideways? Could be nice to have some rolling about the feet to change direction
 		//Vector3 sideVector = Vector3(-moveDir.z_, moveDir.y_, moveDir.x_);
 		//Vector3 newUp = Vector3(sideVector).Lerp(node_->GetRotation() * Vector3::UP, timeStep);
-		node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, 10.0f * timeStep), /*newUp*/node_->GetRotation() * Vector3::UP); // Could simply use World::UP
+		node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), node_->GetRotation() * Vector3::UP); // Could simply use World::UP
 	}
 
 
-	// Calculate the rotation angle for that thing that animals do to keep their centre of gravity (genauso wie Overgrowth)
-	// 45° * difference between accel and velo vectors, unless we're STATIONARY OR CLOSE ENOUGH 
-	if (moveDir != Vector3::ZERO || moveDir.AbsDotProduct(planeVelocity.Normalized()) < 0.98f) {
+	// Speed based rotations
+	{
 		// Figure out which "side" we're on
 		signRotCoM = Sign(moveDir.CrossProduct(planeVelocity.Normalized()).y_);
-		// Hit max CoM compensation angle at 24u/s, any more and ignore
-		speedFactorCoM = Max(Min(1 / (MAX_SPRINT_SPEED - planeVelocity.Length()), 1.0f), 0.0f);
-		modelAdjustmentNode_->SetRotation(
-			modelAdjustmentNode_->GetRotation().Slerp(
-				Quaternion(signRotCoM * speedFactorCoM * 25 * (1 - moveDir.DotProduct(planeVelocity.Normalized())), modelAdjustmentNode_->GetRotation() * Vector3::FORWARD)
-				, 15.0f * timeStep)
-		);
-	} else {
-		if (modelAdjustmentNode_->GetRotation().DotProduct(Quaternion::IDENTITY) < 0.99f) {
-			modelAdjustmentNode_->SetRotation(modelAdjustmentNode_->GetRotation().Slerp(Quaternion::IDENTITY, 5.0f * timeStep));
+		// Calculate the rotation angle for that thing that animals do to keep their centre of gravity (genauso wie Overgrowth)
+		// 45° * difference between accel and velo vectors, unless we're STATIONARY OR CLOSE ENOUGH 
+		if (moveDir != Vector3::ZERO && moveDir.AbsDotProduct(planeVelocity.Normalized()) < 0.98f) {
+			if (planeVelocity.Length() > MAX_WALK_SPEED) {
+				// Hit max CoM compensation angle at 24u/s, any more and ignore
+				//speedFactorCoM = Max(Min(1 / (MAX_SPRINT_SPEED - planeVelocity.Length()), 1.0f), 0.0f);
+				speedFactorCoM = Max(Min(Min(planeVelocity.Length(), MAX_SPRINT_SPEED), 1.0f), 0.0f);
+
+				//modelAdjustmentNode_->SetRotation(
+				//	modelAdjustmentNode_->GetRotation().Slerp(
+				//		Quaternion(signRotCoM * speedFactorCoM * 45 * (1 - moveDir.DotProduct(planeVelocity.Normalized())), modelAdjustmentNode_->GetRotation() * Vector3::FORWARD)
+				//		, 10.0f * timeStep)
+				//);
+
+			} else {
+				// Only try and rotate if we're quick enough, otherwise begin to reset,
+				// but keep the head movement
+				goto resetlerp;
+			}
 		} else {
-			modelAdjustmentNode_->SetRotation(Quaternion::IDENTITY);
+		resetlerp:
+			if (modelAdjustmentNode_->GetRotation().DotProduct(Quaternion::IDENTITY) < 0.99f) {
+				modelAdjustmentNode_->SetRotation(modelAdjustmentNode_->GetRotation().Slerp(Quaternion::IDENTITY, 3.0f * timeStep));
+			} else {
+				modelAdjustmentNode_->SetRotation(Quaternion::IDENTITY);
+			}
+		}
+
+
+		float weightR = animCtrl->GetWeight("Beagle/Models/RotateRight.ani");
+		float weightL = animCtrl->GetWeight("Beagle/Models/RotateLeft.ani");
+		// Head look and spine twist
+		if (planeVelocity.Length() > 0.5f || moveDir != Vector3::ZERO) {
+			// Direction Factor - hit max at X°
+			//speedFactorBodyTwist = Min(Acos(moveDir.AbsDotProduct(planeVelocity.Normalized())) / 45, 1.0); // 0 to 1
+			speedFactorBodyTwist = Min(Acos(moveDir.AbsDotProduct(node_->GetRotation() * Vector3::FORWARD)) / 45, 1.0); // 0 to 1
+
+			//animCtrl->SetWeight("Beagle/Models/RotateRight.ani", Lerp(animCtrl->GetWeight("Beagle/Models/RotateRight.ani"), signRotCoM == -1 ? speedFactorBodyTwist : 0, 9.0f * timeStep));
+			//animCtrl->SetWeight("Beagle/Models/RotateLeft.ani", Lerp(animCtrl->GetWeight("Beagle/Models/RotateLeft.ani"), signRotCoM == 1 ? speedFactorBodyTwist : 0, 9.0f * timeStep));
+			if (signRotCoM == -1) {
+				if (weightR < speedFactorBodyTwist) {
+					animCtrl->SetWeight("Beagle/Models/RotateRight.ani", Min(weightR + HEAD_TURN_RATE * speedFactorBodyTwist * timeStep, speedFactorBodyTwist));
+				} else if (weightR > speedFactorBodyTwist) {
+					animCtrl->SetWeight("Beagle/Models/RotateRight.ani", Max(weightR - HEAD_TURN_RATE * speedFactorBodyTwist * timeStep, speedFactorBodyTwist));
+				} else {
+					animCtrl->SetWeight("Beagle/Models/RotateRight.ani", speedFactorBodyTwist);
+				}
+				animCtrl->SetWeight("Beagle/Models/RotateLeft.ani", 0);
+			} else if (signRotCoM == 1) {
+				if (weightL < speedFactorBodyTwist) {
+					animCtrl->SetWeight("Beagle/Models/RotateLeft.ani", Min(weightL + HEAD_TURN_RATE * speedFactorBodyTwist * timeStep, speedFactorBodyTwist));
+				} else if (weightL > speedFactorBodyTwist) {
+					animCtrl->SetWeight("Beagle/Models/RotateLeft.ani", Max(weightL - HEAD_TURN_RATE * speedFactorBodyTwist * timeStep, speedFactorBodyTwist));
+				} else {
+					animCtrl->SetWeight("Beagle/Models/RotateLeft.ani", speedFactorBodyTwist);
+				}
+				animCtrl->SetWeight("Beagle/Models/RotateRight.ani", 0);
+			} else {
+				animCtrl->SetWeight("Beagle/Models/RotateRight.ani", 0);
+				animCtrl->SetWeight("Beagle/Models/RotateLeft.ani", 0);
+			}
+
+		} else {
+			if (weightR > 0) {
+				animCtrl->SetWeight("Beagle/Models/RotateRight.ani", Max(weightR - HEAD_TURN_RATE * timeStep, 0));
+			}
+			if (weightL > 0) {
+				animCtrl->SetWeight("Beagle/Models/RotateLeft.ani", Max(weightL - HEAD_TURN_RATE * timeStep, 0));
+			}
 		}
 	}
+
+
 	//modelAdjustmentNode_->SetRotation(Quaternion(modelAdjustmentNode_->GetRotation().Angle() + timeStep * 30, modelAdjustmentNode_->GetRotation() * Vector3::FORWARD));
 
 	 //LIGHTNING STUFF
@@ -196,16 +268,16 @@ void NewCharacter::FixedUpdate(float timeStep) {
 				body->ApplyImpulse(Vector3::UP * JUMP_FORCE);
 				okToJump_ = false;
 				//TODO make this a jump ani
-				animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 1.0f);
+				animCtrl->Play("Beagle/Models/Walk.ani", 0, true, 1.0f);
 				animCtrl->SetStartBone("Beagle/Models/Walk.ani", "Root");
-
-				//DEBUG: ZAP
-				//makeLightning();
+				animCtrl->SetWeight("Beagle/Models/Walk.ani", 0.5f);
 			}
 		} else {
 			okToJump_ = true;
 		}
 	}
+
+
 
 	if (!onGround_) {
 		//TODO falling ani?
@@ -454,7 +526,7 @@ void NewCharacter::makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType
 
 
 	Lightning* lightning_ = objectNode->CreateComponent<Lightning>();
-	lightning_->Start();
+	//lightning_->Start();
 	lightning_->setLifeTime(Random(0.1f, 0.25f));
 	lightning_->setTarget(targetPos);
 	lightning_->extendToPoint();

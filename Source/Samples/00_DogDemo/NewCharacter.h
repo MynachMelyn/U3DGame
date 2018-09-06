@@ -36,12 +36,13 @@ const float WALK_TO_SPRINT_SPEED_ANIM = 6.0f;
 const float SPRINT_TO_GALLOP_SPEED_ANIM = 15.0f;
 
 const float WALK_FORCE = 20.0f;
-const float SPRINT_FORCE = 35.0f;
+//const float SPRINT_FORCE = 35.0f;
+const float SPRINT_FORCE = 70.0f;
 
 const float BRAKING_FRICTION = 3.8f;
 
 const float WALK_FRICTION = 1.0f;
-const float SPRINT_FRICTION = 2.0f;
+const float SPRINT_FRICTION = 6.0f;
 //const float SPRINT_FRICTION = 0.8f;
 
 const float INAIR_MOVE_FORCE = 0.02f;
@@ -79,6 +80,7 @@ public:
 	Node* camera;
 	Node* itemBoneNodeR;
 
+
 private:
 	/// Handle physics collision event.
 	void HandleNodeCollision(StringHash eventType, VariantMap& eventData);
@@ -105,6 +107,10 @@ private:
 
 	int signRotCoM;
 	float speedFactorCoM = 0.0f;
+	float speedFactorBodyTwist = 0.0f;
+
+	const float TURN_MATCH_RATE = 5.0f;
+	const float HEAD_TURN_RATE = 5.2f;
 
 	void makeLightning();
 

@@ -75,6 +75,14 @@ void Lightning::extendToPoint() {
 	node_->SetScale(Vector3(zigzagginess, zigzagginess, scale));
 }
 
+void Lightning::setLifeTime(float lifeTime) {
+	this->lifeTime = lifeTime;
+}
+
+void Lightning::setTarget(Vector3 target) {
+	this->target = target;
+}
+
 void Lightning::FixedUpdate(float timeStep) {
 	extendToPoint();
 
@@ -104,10 +112,3 @@ void Lightning::FixedUpdate(float timeStep) {
 	}
 }
 
-void Lightning::setLifeTime(float lifeTime) {
-	this->lifeTime = lifeTime;
-}
-
-void Lightning::setTarget(Vector3 target) {
-	this->target = target;
-}

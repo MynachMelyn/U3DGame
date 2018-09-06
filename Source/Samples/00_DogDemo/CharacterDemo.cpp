@@ -238,10 +238,10 @@ void CharacterDemo::CreateScene() {
 		object->SetMaterial(cache->GetResource<Material>("Materials/Mushroom.xml"));
 		object->SetCastShadows(true);
 
-		auto* body = objectNode->CreateComponent<RigidBody>();
+		/*auto* body = objectNode->CreateComponent<RigidBody>();
 		body->SetCollisionLayer(2);
 		auto* shape = objectNode->CreateComponent<CollisionShape>();
-		shape->SetConvexHull(object->GetModel(), 0);
+		shape->SetConvexHull(object->GetModel(), 0);*/
 	}
 
 	// Create movable boxes. Let them fall from the sky at first
@@ -327,7 +327,6 @@ void CharacterDemo::CreateCharacter() {
 	// Remember it so that we can set the controls. Use a WeakPtr because the scene hierarchy already owns it
 	// and keeps it alive as long as it's not removed from the hierarchy
 	character_ = objectNode->CreateComponent<NewCharacter>();
-
 	//new: add camera to given bone
 	//((NewCharacter*)character_)->setupCamera(object->GetSkeleton().GetBone("Arm IK.R")->node_, object->GetSkeleton().GetBone("Item.R")->node_);
 	// could use AdjustNode instead of scene
