@@ -5,6 +5,7 @@
 #include <Urho3D/Resource/ResourceCache.h>
 #include <Urho3D/Graphics/Model.h>
 #include <Urho3D/Graphics/Material.h>
+#include <Urho3D/Graphics/Light.h>
 
 #include <array>
 #include <Lightning.h>
@@ -62,6 +63,15 @@ void Lightning::Start() {
 	} else {
 		//visuals->SetModel(thinModels[Random(0, thinModels.size())]);
 	}
+
+	//Test - add point light to centre and end?
+	Node* lightNode = node_->CreateChild();
+	lightNode->SetPosition(Vector3(0.0f, 0.0f, 0.5f));
+	Light* light = lightNode->CreateComponent<Light>();
+	light->SetLightType(LIGHT_POINT);
+	light->SetRange(10.0f);
+	light->SetColor(Color(1.0f, 1.0f, 0.8f));
+	light->SetCastShadows(false);
 }
 
 void Lightning::extendToPoint() {
@@ -81,6 +91,10 @@ void Lightning::setLifeTime(float lifeTime) {
 
 void Lightning::setTarget(Vector3 target) {
 	this->target = target;
+}
+
+float Lightning::getLifeTime() {
+	return lifeTime;
 }
 
 void Lightning::FixedUpdate(float timeStep) {
@@ -106,6 +120,9 @@ void Lightning::FixedUpdate(float timeStep) {
 			Lightning::thickModels[currentModelIndex] :
 			Lightning::thinModels[currentModelIndex]
 		);
+
+		//It's plasma... it doesn't require shadows.
+		visuals->SetCastShadows(false);
 
 		visuals->SetMaterial(Lightning::lightningMat);
 		modelTime = 0.0f;

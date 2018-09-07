@@ -1,0 +1,6 @@
+<animation>
+	<trigger normalizedtime="0.25" type="String" value="RearPawIK.R"/>
+	<trigger normalizedtime="0.25" type="String" value="JUMP"/>
+	<trigger normalizedtime="0.25" type="String" value="RearPawIK.L"/>
+	<trigger normalizedtime="0.90" type="String" value="CANLAND"/>
+</animation>

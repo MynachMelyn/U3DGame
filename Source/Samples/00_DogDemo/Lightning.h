@@ -27,6 +27,7 @@ public:
 	void extendToPoint();
 
 	void setLifeTime(float lifeTime);
+	float getLifeTime();
 
 	void setTarget(Vector3 target);
 

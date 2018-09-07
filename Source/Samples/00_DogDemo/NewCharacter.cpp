@@ -33,7 +33,7 @@ NewCharacter::NewCharacter(Context* context) :
 	okToJump_(true),
 	inAirTimer_(0.0f) {
 	// Only the physics update event is needed: unsubscribe from the rest for optimisation
-	//SetUpdateEventMask(USE_FIXEDUPDATE);
+	SetUpdateEventMask(USE_FIXEDUPDATE);
 }
 
 void NewCharacter::RegisterObject(Context* context) {
@@ -76,18 +76,23 @@ void NewCharacter::DelayedStart() {
 			particleEmitter->SetEmitting(true);
 		}
 	}
+
+	// Create the zap node that fakes the lightning shadows
+	Node* lightNode = node_->CreateChild();
+	fslBasePos = Vector3(0.0f, 0.5f, 0.0f);
+	lightNode->SetPosition(fslBasePos);
+	fakeShadowLightning = lightNode->CreateComponent<Light>();
+	fakeShadowLightning->SetLightType(LIGHT_POINT);
+	fakeShadowLightning->SetRange(10.0f);
+	fakeShadowLightning->SetRadius(1.0f);
+	fakeShadowLightning->SetCastShadows(true);
+	fakeShadowLightning->SetColor(Color(1.0f, 1.0f, 0.8f));
+	fakeShadowLightning->SetEnabled(false);
 }
 
-void NewCharacter::Update(float timeStep) {
-	if (lightning_elapsedTime > lightning_maxTime) {
-		makeLightningBones(TORSO_ONLY);
-		lightning_elapsedTime = 0.0f;
-		SetRandomSeed(Time::GetSystemTime());
-		lightning_maxTime = Random(0.04f, 4.5f);
-	}
-	lightning_elapsedTime += timeStep;
+/*void NewCharacter::Update(float timeStep) {
 
-}
+}*/
 
 
 void NewCharacter::FixedUpdate(float timeStep) {
@@ -108,12 +113,19 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	}
 
 	// Update the in air timer. Reset if grounded
-	if (!onGround_)
+	if (!onGround_) {
 		inAirTimer_ += timeStep;
-	else
+	} else {
 		inAirTimer_ = 0.0f;
+	}
 	// When character has been in air less than 1/10 second, it's still interpreted as being on ground
 	bool softGrounded = inAirTimer_ < INAIR_THRESHOLD_TIME;
+
+	//if (!inAir) {
+	//	if (!onGround_ && !softGrounded) {
+	//		inAir = true;
+	//	}
+	//}
 
 	// Update movement & animation
 	//const Quaternion& rot = node_->GetRotation();
@@ -121,17 +133,24 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	const Vector3& velocity = body->GetLinearVelocity();
 	// Velocity on the XZ plane
 	Vector3 planeVelocity(velocity.x_, 0.0f, velocity.z_);
-
-	if (controls_.IsDown(CTRL_FORWARD))
-		moveDir += Vector3::FORWARD;
-	if (controls_.IsDown(CTRL_BACK))
-		moveDir += Vector3::BACK;
-	if (controls_.IsDown(CTRL_LEFT))
-		moveDir += Vector3::LEFT;
-	if (controls_.IsDown(CTRL_RIGHT)) {
-		moveDir += Vector3::RIGHT;
+	if (canWalk) {
+		if (controls_.IsDown(CTRL_FORWARD))
+			moveDir += Vector3::FORWARD;
+		if (controls_.IsDown(CTRL_BACK))
+			moveDir += Vector3::BACK;
+		if (controls_.IsDown(CTRL_LEFT))
+			moveDir += Vector3::LEFT;
+		if (controls_.IsDown(CTRL_RIGHT)) {
+			moveDir += Vector3::RIGHT;
+		}
 	}
-	if (controls_.IsDown(CTRL_SPRINT)) {
+
+	// Slow the player when charging a jump
+	if (jumpChargeTime > 0.25f) {
+		MOVE_FORCE = CHARGE_IMPEDED_FORCE;
+		ACCELERATION_FRICTION = CHARGE_IMPEDED_FRICTION;
+		MAX_SPEED = MAX_CHARGE_IMPEDED_SPEED;
+	} else if (controls_.IsDown(CTRL_SPRINT)) {
 		//isSprinting = true;
 		MOVE_FORCE = SPRINT_FORCE;
 		ACCELERATION_FRICTION = SPRINT_FRICTION;
@@ -153,7 +172,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	//body->ApplyForce(node_->GetRotation() * Vector3::FORWARD * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
 
 	// If we're trying to move, lower the friction
-	if (moveDir != Vector3::ZERO) {
+	if (moveDir != Vector3::ZERO || !canWalk) {
 		body->SetFriction(ACCELERATION_FRICTION);
 	} else {
 		body->SetFriction(BRAKING_FRICTION);
@@ -263,7 +282,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	//modelAdjustmentNode_->SetRotation(Quaternion(modelAdjustmentNode_->GetRotation().Angle() + timeStep * 30, modelAdjustmentNode_->GetRotation() * Vector3::FORWARD));
 
 	 //LIGHTNING STUFF
-	if (planeVelocity.Length() > 0) {
+	if (planeVelocity.Length() > 0.5f) {
 		// If we're travelling faster than walking pace + a buffer (to stop lightning on near-run), ZAP
 		if (planeVelocity.Length() > LIGHTNING_SPEED) {
 			lightning_elapsedTime += timeStep;
@@ -274,9 +293,59 @@ void NewCharacter::FixedUpdate(float timeStep) {
 				lightningRun_maxTime = Random(0.8f, 2.6f) / planeVelocity.Length();
 			}
 		}
+	} else if (lightning_elapsedTime > lightning_maxTime) {
+		makeLightningBones(TORSO_ONLY);
+		lightning_elapsedTime = 0.0f;
+		SetRandomSeed(Time::GetSystemTime());
+		lightning_maxTime = Random(0.04f, 4.5f);
+	}
+	lightning_elapsedTime += timeStep;
+
+	if (lightningShadowLightMaxTime > 0.0f) {
+		lightningShadowLightOnTime += timeStep;
+		if (lightningShadowLightOnTime >= lightningShadowLightMaxTime) {
+			lightningShadowLightMaxTime = 0.0f;
+			lightningShadowLightOnTime = 0.0f;
+			fakeShadowLightning->SetEnabled(false);
+		} else if (jitterLight) {
+			fakeShadowLightning->GetNode()->SetPosition(fslBasePos + Vector3(Random(-0.5f, 0.5f), 0.0f, Random(-0.5f, 0.5f)));
+			jitterLight = false;
+		}
 	}
 
-	if (softGrounded) {
+
+	if (onGround_) {
+		if (canWalk) {
+			// Play walk animation if moving on ground, otherwise fade it out
+			if (!moveDir.Equals(Vector3::ZERO)) {
+				if (planeVelocity.Length() < WALK_TO_SPRINT_SPEED_ANIM) {
+					animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 0.1f);
+				} else if (planeVelocity.Length() < SPRINT_TO_GALLOP_SPEED_ANIM) {
+					animCtrl->PlayExclusive("Beagle/Models/Run.ani", 0, true, 0.2f);
+				} else {
+					animCtrl->PlayExclusive("Beagle/Models/Gallop.ani", 0, true, 0.2f);
+				}
+			} else {
+				if (moveDir == Vector3::ZERO && planeVelocity.Length() > MAX_WALK_SPEED + 0.05f) {
+					animCtrl->PlayExclusive("Beagle/Models/Brake.ani", 0, true, 0.1f); // Fade in does not work with manually-set weights
+					animCtrl->SetSpeed("Beagle/Models/Brake.ani", 2.0f); // Fade in does not work with manually-set weights
+				} else {
+					animCtrl->PlayExclusive("Beagle/Models/IdleLoop.ani", 0, true, 0.5f);
+				}
+				//animCtrl->SetStartBone("Beagle/Models/IdleLoop.ani", "Root");
+			}
+
+			// Set walk animation speed proportional to velocity
+			animCtrl->SetSpeed("Beagle/Models/Walk.ani", planeVelocity.Length() * 0.55f);
+			animCtrl->SetSpeed("Beagle/Models/Run.ani", planeVelocity.Length() * 0.1f);
+			animCtrl->SetSpeed("Beagle/Models/Gallop.ani", planeVelocity.Length() * 0.07f);
+		} else if (canLand) {
+			animCtrl->PlayExclusive("Beagle/Models/Land.ani", 0, false, 0.0f);
+			animCtrl->SetSpeed("Beagle/Models/Land.ani", 2.0f);
+		}
+	}
+
+	if (softGrounded && canWalk) {
 		// When on ground, apply a braking force to limit maximum ground velocity
 		//Vector3 brakeForce = -planeVelocity * BRAKE_FORCE * (planeVelocity.Length() / 16);
 		//Vector3 brakeForce = -planeVelocity * (1 / (8 - planeVelocity.Length())) * BRAKE_FORCE;
@@ -289,49 +358,43 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		// Jump. Must release jump control between jumps
 		if (controls_.IsDown(CTRL_JUMP)) {
 			if (okToJump_) {
-				body->ApplyImpulse(Vector3::UP * JUMP_FORCE);
-				okToJump_ = false;
-				//TODO make this a jump ani
-				animCtrl->Play("Beagle/Models/Walk.ani", 0, true, 1.0f);
-				animCtrl->SetStartBone("Beagle/Models/Walk.ani", "Root");
-				animCtrl->SetWeight("Beagle/Models/Walk.ani", 0.5f);
+				jumpChargeTime += timeStep;
+				animCtrl->PlayExclusive("Beagle/Models/Jump.ani", 0, false, 0.1f);
+				animCtrl->SetSpeed("Beagle/Models/Jump.ani", 0.0f);
+
+				if (jumpChargeTime > MAX_JUMP_CHARGE_TIME) {
+					goto doajump;
+				}
 			}
+		} else if (jumpChargeTime > 0.0f) {
+		doajump:
+			okToJump_ = false;
+			//TODO make this a jump ani
+			animCtrl->PlayExclusive("Beagle/Models/Jump.ani", 0, false, 0.0f);
+			animCtrl->SetSpeed("Beagle/Models/Jump.ani", 1.0f);
+			canWalk = false;
+			canLand = false;
+			jumpBonus = jumpChargeTime / MAX_JUMP_CHARGE_TIME; // 0% to 100% bonus
+			jumpChargeTime = 0.0f;
 		} else {
 			okToJump_ = true;
 		}
 	}
 
+	if (!canWalk && manualJumpAngling && !canLand) {
+		animCtrl->SetSpeed("Beagle/Models/Jump.ani", 0.0f);
+		float divisor = 10.0f;
+		//float speed = Pow(body->GetLinearVelocity().y_ / 3.0f, 3.0f); //* Sign(body->GetLinearVelocity().y_);
+		//float factor = 0.25 + Clamp((-speed + divisor / 2.0f) / divisor, 0.0f, 1.0f) * 0.75; //Adjusted to stop it from incorporating the initial part of the jump
+		float factor = 0.25 + Clamp((-body->GetLinearVelocity().y_ + divisor / 2.0f) / divisor, 0.0f, 1.0f) * 0.75; //Adjusted to stop it from incorporating the initial part of the jump
 
+		animCtrl->SetTime("Beagle/Models/Jump.ani", Lerp(animCtrl->GetTime("Beagle/Models/Jump.ani"), factor, 15.0f * timeStep));
 
-	if (!onGround_) {
-		//TODO falling ani?
-		animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 0.1f);
-		//animCtrl->SetStartBone("Beagle/Models/Walk.ani", "Root");
-	} else {
-		// Play walk animation if moving on ground, otherwise fade it out
-		if (softGrounded && !moveDir.Equals(Vector3::ZERO)) {
-			if (planeVelocity.Length() < WALK_TO_SPRINT_SPEED_ANIM) {
-				animCtrl->PlayExclusive("Beagle/Models/Walk.ani", 0, true, 0.1f);
-			} else if (planeVelocity.Length() < SPRINT_TO_GALLOP_SPEED_ANIM) {
-				animCtrl->PlayExclusive("Beagle/Models/Run.ani", 0, true, 0.2f);
-			} else {
-				animCtrl->PlayExclusive("Beagle/Models/Gallop.ani", 0, true, 0.2f);
-			}
-		} else {
-			if (moveDir == Vector3::ZERO && planeVelocity.Length() > MAX_WALK_SPEED + 0.05f) {
-				animCtrl->PlayExclusive("Beagle/Models/Brake.ani", 0, true, 0.1f); // Fade in does not work with manually-set weights
-				animCtrl->SetSpeed("Beagle/Models/Brake.ani", 2.0f); // Fade in does not work with manually-set weights
-				//PARTICLESTODO
-			} else {
-				animCtrl->PlayExclusive("Beagle/Models/IdleLoop.ani", 0, true, 0.5f);
-			}
-			//animCtrl->SetStartBone("Beagle/Models/IdleLoop.ani", "Root");
+		if (factor >= 1.0f || (onGround_ && factor > 0.525f)) {
+			manualJumpAngling = false;
+			canLand = true;
+			inAir = false;
 		}
-
-		// Set walk animation speed proportional to velocity
-		animCtrl->SetSpeed("Beagle/Models/Walk.ani", planeVelocity.Length() * 0.55f);
-		animCtrl->SetSpeed("Beagle/Models/Run.ani", planeVelocity.Length() * 0.1f);
-		animCtrl->SetSpeed("Beagle/Models/Gallop.ani", planeVelocity.Length() * 0.07f);
 	}
 
 	// Reset grounded flag for next frame
@@ -368,7 +431,22 @@ void NewCharacter::HandleAnimationTrigger(StringHash eventType, VariantMap& even
 		return;
 	}
 	//If the footstep is blended with a high enough weight, enable the particle effect
-	if (state->GetWeight() > 0.5f) {
+
+	if (eventData[P_DATA].GetString().Contains("JUMP")) {
+		auto* body = GetComponent<RigidBody>();
+		body->ApplyImpulse(Vector3::UP * JUMP_FORCE + (node_->GetRotation() * Vector3::FORWARD * JUMP_FORCE * jumpBonus));
+		jumpBonus = 0.0f;
+		manualJumpAngling = true;
+
+	} else if (eventData[P_DATA].GetString().Contains("CANLAND")) {
+		manualJumpAngling = false;
+		canLand = true;
+
+	} else if (eventData[P_DATA].GetString().Contains("CANWALK")) {
+		canLand = false;
+		canWalk = true;
+
+	} else if (state->GetWeight() > 0.5f) {
 		String eventName = eventData[P_DATA].GetString();
 		for (Bone bone : model->GetSkeleton().GetBones()) {
 			if (bone.name_.Compare(eventName) == 0) {
@@ -584,4 +662,8 @@ void NewCharacter::makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType
 	lightning_->setLifeTime(Random(0.1f, 0.25f));
 	lightning_->setTarget(targetPos);
 	lightning_->extendToPoint();
+
+	lightningShadowLightMaxTime += lightning_->getLifeTime();
+	fakeShadowLightning->SetEnabled(true);
+	jitterLight = true;
 }

@@ -85,7 +85,6 @@ void CharacterDemo::Start() {
 	if (touchEnabled_)
 		touch_ = new Touch(context_, TOUCH_SENSITIVITY);
 
-
 	// Create static scene content
 	CreateScene();
 

@@ -1,0 +1,7 @@
+<animation>
+	<trigger normalizedtime="0" type="String" value="FrontPawIK.R"/>
+	<trigger normalizedtime="0" type="String" value="FrontPawIK.L"/>
+	<trigger normalizedtime="0.25" type="String" value="RearPawIK.R"/>
+	<trigger normalizedtime="0.25" type="String" value="RearPawIK.L"/>
+	<trigger normalizedtime="0.9" type="String" value="CANWALK"/>
+</animation>

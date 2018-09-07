@@ -28,21 +28,22 @@ const unsigned CTRL_SPRINT = 32;
 
 // Movement value consts
 const float MAX_WALK_SPEED = 3.0f; // units/sec
-//const float MAX_SPRINT_SPEED = 10.0f; //
 const float MAX_SPRINT_SPEED = 22.0f; // was 10
+const float MAX_CHARGE_IMPEDED_SPEED = 0.25f;
 const float ARTIFICIAL_BRAKING_FORCE = 5.0f;
 
 const float WALK_TO_SPRINT_SPEED_ANIM = 6.0f;
 const float SPRINT_TO_GALLOP_SPEED_ANIM = 15.0f;
 
 const float WALK_FORCE = 20.0f;
-//const float SPRINT_FORCE = 35.0f;
 const float SPRINT_FORCE = 70.0f;
+const float CHARGE_IMPEDED_FORCE = 10.0f;
 
 const float BRAKING_FRICTION = 3.8f;
 
 const float WALK_FRICTION = 1.0f;
 const float SPRINT_FRICTION = 6.0f;
+const float CHARGE_IMPEDED_FRICTION = 0.1f;
 //const float SPRINT_FRICTION = 0.8f;
 
 const float INAIR_MOVE_FORCE = 0.02f;
@@ -69,7 +70,7 @@ public:
 
 	/// Handle physics world update. Called by LogicComponent base class.
 	void FixedUpdate(float timeStep) override;
-	void Update(float timeStep) override; //TEMP
+	//void Update(float timeStep) override; //TEMP
 
 	//void Update(float timeStep) override;
 
@@ -95,9 +96,16 @@ private:
 	/// Jump flag.
 	bool okToJump_;
 	/// In air timer. Due to possible physics inaccuracy, character can be off ground for max. 1/10 second and still be allowed to move.
-	float inAirTimer_;
+	float inAirTimer_ = 0.0f;
 
-	bool okToSnapPhoto = true;
+	float jumpChargeTime = 0.0f;
+	float MAX_JUMP_CHARGE_TIME = 2.0;
+	float jumpBonus = 0.0f; // e.g. force * (1 + bonus)
+
+	bool inAir = false;
+	bool canWalk = true;
+	bool canLand = false;
+	bool manualJumpAngling = false;
 
 	float deltaSinceLastTurn = 0.0f;
 	float deltaSinceLastChangeCoM = 0.0f;
@@ -126,6 +134,12 @@ private:
 		TAIL_ONLY,
 		TORSO_ONLY
 	};
+
+	float lightningShadowLightOnTime = 0.0f;
+	float lightningShadowLightMaxTime = 0.0f;
+	Light* fakeShadowLightning;
+	bool jitterLight = false;
+	Vector3 fslBasePos;
 
 	void makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType);
 	float lightning_elapsedTime = 0.0f;
