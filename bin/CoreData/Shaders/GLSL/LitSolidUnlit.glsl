@@ -5,6 +5,10 @@
 #include "Lighting.glsl"
 #include "Fog.glsl"
 
+
+// For banding - float because ints don't work
+uniform float cBandCount = 1.0;
+
 #ifdef NORMALMAP
     varying vec4 vTexCoord;
     varying vec4 vTangent;
@@ -151,7 +155,7 @@ void PS()
         vec3 finalColor;
 
         //float diff = GetDiffuse(normal, vWorldPos.xyz, lightDir);
-        float diff = GetDiffuseBanded(normal, vWorldPos.xyz, lightDir);
+        float diff = GetDiffuseBanded(normal, vWorldPos.xyz, int(round(cBandCount)), lightDir);
 
         #ifdef SHADOW
             diff *= GetShadow(vShadowPos, vWorldPos.w);

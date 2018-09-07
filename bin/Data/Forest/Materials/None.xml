@@ -3,4 +3,5 @@
 	<texture name="Forest/Textures/PUSHILIN_forest.png" unit="diffuse"/>
 	<parameter name="MatDiffColor" value="1.0 1.0 1.0 1"/>
 	<parameter name="MatSpecColor" value="0.1 0.1 0.1 1"/>
+	<parameter name="BandCount" value="3.0" />
 </material>

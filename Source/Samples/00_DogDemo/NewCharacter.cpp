@@ -291,7 +291,8 @@ void NewCharacter::FixedUpdate(float timeStep) {
 				lightningRun_maxTime = Random(0.8f, 2.6f) / planeVelocity.Length();
 			}
 		}
-	} else if (lightning_elapsedTime > lightning_maxTime) {
+	}
+	if (lightning_elapsedTime > lightning_maxTime) {
 		makeLightningBones(TORSO_ONLY);
 		lightning_elapsedTime = 0.0f;
 		SetRandomSeed(Time::GetSystemTime());

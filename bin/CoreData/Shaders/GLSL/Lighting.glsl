@@ -129,18 +129,16 @@ float steppingFunction(float input, int stepCount) {
 	return round(input * stepCount) / stepCount;
 }
 
-const int numSteps = 1;
-
-//A test to get a banded/cel lighting look
-float GetDiffuseBanded(vec3 normal, vec3 worldPos, out vec3 lightDir)
+//To get a banded/cel lighting look
+float GetDiffuseBanded(vec3 normal, vec3 worldPos, int bands, out vec3 lightDir)
 {
 	//if directional light,
     #ifdef DIRLIGHT
         lightDir = cLightDirPS;
         #ifdef TRANSLUCENT
-            return steppingFunction(abs(dot(normal, lightDir)), numSteps);
+            return steppingFunction(abs(dot(normal, lightDir)), bands);
         #else
-            return steppingFunction(max(dot(normal, lightDir), 0.0), numSteps);
+            return steppingFunction(max(dot(normal, lightDir), 0.0), bands);
         #endif
 	//if point or spotlight
     #else
@@ -148,9 +146,9 @@ float GetDiffuseBanded(vec3 normal, vec3 worldPos, out vec3 lightDir)
         float lightDist = length(lightVec);
         lightDir = lightVec / lightDist;
         #ifdef TRANSLUCENT
-            return steppingFunction(abs(dot(normal, lightDir)) * texture2D(sLightRampMap, vec2(lightDist, 0.0)).r, numSteps);
+            return steppingFunction(abs(dot(normal, lightDir)) * texture2D(sLightRampMap, vec2(lightDist, 0.0)).r, bands);
         #else
-            return steppingFunction(max(dot(normal, lightDir), 0.0) * texture2D(sLightRampMap, vec2(lightDist, 0.0)).r, numSteps);
+            return steppingFunction(max(dot(normal, lightDir), 0.0) * texture2D(sLightRampMap, vec2(lightDist, 0.0)).r, bands);
         #endif
     #endif
 }

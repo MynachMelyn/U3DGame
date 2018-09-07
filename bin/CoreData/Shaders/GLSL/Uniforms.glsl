@@ -84,6 +84,9 @@ uniform vec2 cShadowIntensity;
 uniform vec2 cShadowMapInvSize;
 uniform vec4 cShadowSplits;
 uniform mat4 cLightMatricesPS[4];
+
+//uniform int cBandCount; //For banded toon shader
+
 #ifdef VSM_SHADOW
 uniform vec2 cVSMShadowParams;
 #endif
