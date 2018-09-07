@@ -135,11 +135,11 @@ private:
 		TORSO_ONLY
 	};
 
-	float lightningShadowLightOnTime = 0.0f;
+	/*float lightningShadowLightOnTime = 0.0f;
 	float lightningShadowLightMaxTime = 0.0f;
 	Light* fakeShadowLightning;
 	bool jitterLight = false;
-	Vector3 fslBasePos;
+	Vector3 lightningShadowCopyPos;*/
 
 	void makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType);
 	float lightning_elapsedTime = 0.0f;

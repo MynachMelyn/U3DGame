@@ -8,8 +8,19 @@
 #include <Urho3D/Graphics/Light.h>
 
 #include <array>
-#include <Lightning.h>
 
+// TELL ME WHY,
+// I HAVE TO #DEFINE CHECK THISSSS
+// TELL ME WHY,
+// C++ TAKES THE PISSSS
+// TELL ME WHY,
+// I NEVER WANNA HEAR IT SAY error LNK2019: unresolved external symbol "void __cdecl Lightning::setTarget(void)" (?setTarget@@YAXXZ) referenced in function _main
+#ifndef LIGHTNING       
+#define LIGHTNING       
+#include <Lightning.h>  
+#endif //LIGHTNING		
+
+#define HIGH_QUALITY_LIGHTNING
 
 Lightning::Lightning(Context* context) : LogicComponent(context) {
 	// Only the physics update event is needed: unsubscribe from the rest for optimisation
@@ -67,11 +78,15 @@ void Lightning::Start() {
 	//Test - add point light to centre and end?
 	Node* lightNode = node_->CreateChild();
 	lightNode->SetPosition(Vector3(0.0f, 0.0f, 0.5f));
-	Light* light = lightNode->CreateComponent<Light>();
+	light = lightNode->CreateComponent<Light>();
 	light->SetLightType(LIGHT_POINT);
 	light->SetRange(10.0f);
 	light->SetColor(Color(1.0f, 1.0f, 0.8f));
+#ifdef HIGH_QUALITY_LIGHTNING
+	light->SetCastShadows(true);
+#else
 	light->SetCastShadows(false);
+#endif
 }
 
 void Lightning::extendToPoint() {
@@ -83,6 +98,9 @@ void Lightning::extendToPoint() {
 	float zigzagginess = (thiccLightning) ? Max(Min((-scale / 2) + 2.5f, 2), 0.4) : Max(Min((-scale / 2) + 4.5f, 4), 0.8);
 
 	node_->SetScale(Vector3(zigzagginess, zigzagginess, scale));
+	if (light) {
+		light->SetBrightness((thiccLightning + 1.0f) * node_->GetScale().z_ * 0.5f);
+	}
 }
 
 void Lightning::setLifeTime(float lifeTime) {

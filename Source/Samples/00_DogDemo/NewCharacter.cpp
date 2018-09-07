@@ -78,16 +78,14 @@ void NewCharacter::DelayedStart() {
 	}
 
 	// Create the zap node that fakes the lightning shadows
-	Node* lightNode = node_->CreateChild();
-	fslBasePos = Vector3(0.0f, 0.5f, 0.0f);
-	lightNode->SetPosition(fslBasePos);
+	/*Node* lightNode = node_->CreateChild();
 	fakeShadowLightning = lightNode->CreateComponent<Light>();
 	fakeShadowLightning->SetLightType(LIGHT_POINT);
 	fakeShadowLightning->SetRange(10.0f);
 	fakeShadowLightning->SetRadius(1.0f);
 	fakeShadowLightning->SetCastShadows(true);
 	fakeShadowLightning->SetColor(Color(1.0f, 1.0f, 0.8f));
-	fakeShadowLightning->SetEnabled(false);
+	fakeShadowLightning->SetEnabled(false);*/
 }
 
 /*void NewCharacter::Update(float timeStep) {
@@ -301,17 +299,18 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	}
 	lightning_elapsedTime += timeStep;
 
-	if (lightningShadowLightMaxTime > 0.0f) {
-		lightningShadowLightOnTime += timeStep;
-		if (lightningShadowLightOnTime >= lightningShadowLightMaxTime) {
-			lightningShadowLightMaxTime = 0.0f;
-			lightningShadowLightOnTime = 0.0f;
-			fakeShadowLightning->SetEnabled(false);
-		} else if (jitterLight) {
-			fakeShadowLightning->GetNode()->SetPosition(fslBasePos + Vector3(Random(-0.5f, 0.5f), 0.0f, Random(-0.5f, 0.5f)));
-			jitterLight = false;
-		}
-	}
+	//if (lightningShadowLightMaxTime > 0.0f) {
+	//	lightningShadowLightOnTime += timeStep;
+	//	if (lightningShadowLightOnTime >= lightningShadowLightMaxTime) {
+	//		lightningShadowLightMaxTime = 0.0f;
+	//		lightningShadowLightOnTime = 0.0f;
+	//		fakeShadowLightning->SetEnabled(false);
+	//	} else if (jitterLight) {
+	//		// Copy the position of the most recent lightning
+	//		fakeShadowLightning->GetNode()->SetWorldPosition(lightningShadowCopyPos);
+	//		jitterLight = false;
+	//	}
+	//}
 
 
 	if (onGround_) {
@@ -623,7 +622,7 @@ void NewCharacter::makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType
 			// TODO: This ought to allow upward/sideward checks too! Rather than just forcing it downward
 			//dirVec = (dirVec + (Vector3(0, -1, 0) + bonePointWorld - node_->GetWorldPosition()).Normalized()).Normalized() * 7.0f;
 
-			dirVec = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 1.0f), Random(-1.0f, 1.0f)).Normalized();
+			dirVec = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 0.0f), Random(-1.0f, 1.0f)).Normalized();
 			dirVec *= 3.0f;
 			// Get a random point in a circle of radius 1 about Node's Centre (+0.5f upward)
 		}
@@ -663,7 +662,8 @@ void NewCharacter::makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType
 	lightning_->setTarget(targetPos);
 	lightning_->extendToPoint();
 
-	lightningShadowLightMaxTime += lightning_->getLifeTime();
+	/*lightningShadowLightMaxTime += lightning_->getLifeTime();
 	fakeShadowLightning->SetEnabled(true);
-	jitterLight = true;
+	lightningShadowCopyPos = objectNode->GetWorldPosition() + (objectNode->GetRotation() * Vector3::FORWARD * 0.5f * objectNode->GetScale().z_);
+	jitterLight = true;*/
 }

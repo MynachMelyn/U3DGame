@@ -56,4 +56,6 @@ private:
 	int currentModelIndex = -1;
 
 	StaticModel* visuals = nullptr;
+
+	Light* light;
 };
