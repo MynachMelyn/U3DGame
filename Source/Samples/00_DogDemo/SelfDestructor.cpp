@@ -31,12 +31,36 @@ void SelfDestructor::Update(float timeStep) {
 	if (!complete) {
 		time += timeStep;
 		if (time >= timeMax) {
-			ParticleEmitter* emitter = node_->GetComponent<ParticleEmitter>();
-			if (emitter) {
-				emitter->SetEmitting(false);
-			}
-			complete = true;
+			Destruct();
 		}
 	}
 }
 
+
+SelfEmitToggler::SelfEmitToggler(Context* context) : SelfDestructor(context) {
+	SetUpdateEventMask(USE_UPDATE);
+}
+
+void SelfEmitToggler::RegisterObject(Context* context) {
+	context->RegisterFactory<SelfEmitToggler>();
+}
+
+void SelfEmitToggler::Destruct() {
+	ParticleEmitter* emitter = node_->GetComponent<ParticleEmitter>();
+	if (emitter) {
+		emitter->SetEmitting(false);
+	}
+}
+
+
+SelfNodeRemover::SelfNodeRemover(Context* context) : SelfDestructor(context) {
+	SetUpdateEventMask(USE_UPDATE);
+}
+
+void SelfNodeRemover::RegisterObject(Context* context) {
+	context->RegisterFactory<SelfNodeRemover>();
+}
+
+void SelfNodeRemover::Destruct() {
+	node_->Remove();
+}

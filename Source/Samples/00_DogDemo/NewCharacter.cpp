@@ -23,6 +23,10 @@
 #include <Urho3D/Graphics/ParticleEmitter.h>
 #include <SelfDestructor.h>
 
+#include <Urho3D/Physics/RigidBody.h>
+#include <Urho3D/Physics/CollisionShape.h>
+#include <Urho3D/Physics/Constraint.h>
+
 #include <Lightning.h>
 
 #include <NewCharacter.h>
@@ -53,6 +57,7 @@ void NewCharacter::Start() {
 	// Component has been inserted into its scene node. Subscribe to events now
 	SubscribeToEvent(GetNode(), E_NODECOLLISION, URHO3D_HANDLER(NewCharacter, HandleNodeCollision));
 	Lightning::RegisterObject(context_);
+	SelfEmitToggler::RegisterObject(context_);
 	SelfDestructor::RegisterObject(context_);
 }
 
@@ -68,13 +73,23 @@ void NewCharacter::DelayedStart() {
 			Node* particleNode = bone.node_->CreateChild();
 			particleNode->SetName(bone.name_);
 
-			SelfDestructor* destroyer = particleNode->CreateComponent<SelfDestructor>();
-			destroyer->setTimer(0.1f);
+			//SelfDestructor* destroyer = particleNode->CreateComponent<SelfDestructor>();
+			SelfEmitToggler* destroyer = particleNode->CreateComponent<SelfEmitToggler>();
+			destroyer->setTimer(0.05f);
+
+			/*SelfNodeRemover* destroyerTwo = particleNode->CreateComponent<SelfNodeRemover>();
+			destroyerTwo->setTimer(5.0f);*/
 
 			ParticleEmitter* particleEmitter = particleNode->CreateComponent<ParticleEmitter>();
 			particleEmitter->SetEffect(cache->GetResource<ParticleEffect>("Particle/DustDog.xml"));
 			particleEmitter->SetEmitting(true);
-		}
+		} /*else if (bone.name_.Contains("Head", false)) {
+			RigidBody* body = bone.node_->CreateComponent<RigidBody>();
+			CollisionShape* shape = bone.node_->CreateComponent<CollisionShape>();
+
+			body->SetKinematic(false);
+			shape->SetCylinder(0.5f, 0.5f);
+		}*/
 	}
 
 	// Create the zap node that fakes the lightning shadows
@@ -197,6 +212,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		//Vector3 sideVector = Vector3(-moveDir.z_, moveDir.y_, moveDir.x_);
 		//Vector3 newUp = Vector3(sideVector).Lerp(node_->GetRotation() * Vector3::UP, timeStep);
 		node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), node_->GetRotation() * Vector3::UP); // Could simply use World::UP
+
 	}
 
 
@@ -397,6 +413,10 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		}
 	}
 
+
+	// Update physical body to match node
+	//body->SetRotation(Quaternion(90.0f, Vector3::UP));
+
 	// Reset grounded flag for next frame
 	onGround_ = false;
 }
@@ -452,7 +472,7 @@ void NewCharacter::HandleAnimationTrigger(StringHash eventType, VariantMap& even
 			if (bone.name_.Compare(eventName) == 0) {
 				Node* emitterNode = bone.node_->GetChild(bone.name_);
 				emitterNode->GetComponent<ParticleEmitter>()->SetEmitting(true);
-				emitterNode->GetComponent<SelfDestructor>()->resetTimer();
+				emitterNode->GetComponent<SelfEmitToggler>()->resetTimer();
 			}
 		}
 	}

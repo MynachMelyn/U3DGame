@@ -134,7 +134,8 @@ void CharacterDemo::SetupViewport() {
 	//rttViewport->GetRenderPath()->SetShaderParameter("FWheel", 0.86); // for (0, 10, 10) camera pos with lookat
 	rttViewport->GetRenderPath()->SetShaderParameter("FWheel", 0.934f);
 	rttViewport->GetRenderPath()->SetShaderParameter("FocalLengthMM", 70.0);
-	rttViewport->GetRenderPath()->SetShaderParameter("Aperture", 1.3f);
+	//rttViewport->GetRenderPath()->SetShaderParameter("Aperture", 1.3f);
+	rttViewport->GetRenderPath()->SetShaderParameter("Aperture", 0.5f);
 
 	renderer->SetViewport(0, rttViewport);
 }
@@ -320,7 +321,12 @@ void CharacterDemo::CreateCharacter() {
 
 	// Set a capsule shape for collision
 	auto* shape = objectNode->CreateComponent<CollisionShape>();
-	shape->SetCylinder(1.8f, 1.8f, Vector3(0.0, 0.9, 0.0f));
+	auto* shape2 = objectNode->CreateComponent<CollisionShape>();
+	auto* shape3 = objectNode->CreateComponent<CollisionShape>();
+	//shape->SetCylinder(1.0f, 1.8f, Vector3(0.0, 0.9, 0.0f));
+	shape->SetCapsule(0.7f, 1.8f, Vector3(0.0f, 0.9f, -0.1f), Quaternion(90, Vector3::LEFT));
+	shape2->SetBox(Vector3(0.6f, 0.5f, 1.7f), Vector3(0.0f, 0.25f, -0.3f));
+	shape3->SetCapsule(0.4f, 0.9f, Vector3(0.0f, 1.5f, 0.8f), Quaternion(40, Vector3::LEFT));
 
 	// Create the character logic component, which takes care of steering the rigidbody
 	// Remember it so that we can set the controls. Use a WeakPtr because the scene hierarchy already owns it
