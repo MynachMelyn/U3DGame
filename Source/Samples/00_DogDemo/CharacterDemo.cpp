@@ -323,10 +323,12 @@ void CharacterDemo::CreateCharacter() {
 	auto* shape = objectNode->CreateComponent<CollisionShape>();
 	auto* shape2 = objectNode->CreateComponent<CollisionShape>();
 	auto* shape3 = objectNode->CreateComponent<CollisionShape>();
+
 	//shape->SetCylinder(1.0f, 1.8f, Vector3(0.0, 0.9, 0.0f));
 	shape->SetCapsule(0.7f, 1.8f, Vector3(0.0f, 0.9f, -0.1f), Quaternion(90, Vector3::LEFT));
-	shape2->SetBox(Vector3(0.6f, 0.5f, 1.7f), Vector3(0.0f, 0.25f, -0.3f));
-	shape3->SetCapsule(0.4f, 0.9f, Vector3(0.0f, 1.5f, 0.8f), Quaternion(40, Vector3::LEFT));
+	//shape2->SetBox(Vector3(0.6f, 0.5f, 1.7f), Vector3(0.0f, 0.25f, -0.3f));
+	shape2->SetCapsule(0.8f, 2.2f, Vector3(0.0f, 0.4f, -0.3f), Quaternion(90.0f, 0.0f, 0.0f));
+	shape3->SetCapsule(0.4f, 0.4f, Vector3(0.0f, 1.5f, 0.8f), Quaternion(85, Vector3::LEFT));
 
 	// Create the character logic component, which takes care of steering the rigidbody
 	// Remember it so that we can set the controls. Use a WeakPtr because the scene hierarchy already owns it
@@ -364,6 +366,8 @@ void CharacterDemo::SubscribeToEvents() {
 
 	// Subscribe to PostUpdate event for updating the camera position after physics simulation
 	SubscribeToEvent(E_POSTUPDATE, URHO3D_HANDLER(CharacterDemo, HandlePostUpdate));
+
+	//SubscribeToEvent(E_POSTRENDERUPDATE, URHO3D_HANDLER(CharacterDemo, HandlePostRenderUpdate));
 
 	// Unsubscribe the SceneUpdate event from base class as the camera node is being controlled in HandlePostUpdate() in this sample
 	UnsubscribeFromEvent(E_SCENEUPDATE);
@@ -494,5 +498,9 @@ void CharacterDemo::HandlePostUpdate(StringHash eventType, VariantMap& eventData
 	/*auto* renderer = GetSubsystem<Renderer>();
 	renderer->SetShadowQuality(ShadowQuality::SHADOWQUALITY_BLUR_VSM);
 	renderer->SetShadowSoftness(2.5f);*/
-
 }
+
+//void CharacterDemo::HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData) {
+//	//if (drawDebug_)
+//	//scene_->GetComponent<PhysicsWorld>()->DrawDebugGeometry(false);
+//}

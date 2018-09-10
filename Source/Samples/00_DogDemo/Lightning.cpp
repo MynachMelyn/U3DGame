@@ -6,6 +6,8 @@
 #include <Urho3D/Graphics/Model.h>
 #include <Urho3D/Graphics/Material.h>
 #include <Urho3D/Graphics/Light.h>
+//#include <Urho3D/Graphics/ParticleEmitter.h>
+#include <Urho3D/Graphics/ParticleEffect.h>
 
 #include <array>
 
@@ -82,6 +84,19 @@ void Lightning::Start() {
 	light->SetLightType(LIGHT_POINT);
 	light->SetRange(10.0f);
 	light->SetColor(Color(1.0f, 1.0f, 0.8f));
+
+	if (Random(0.0f, 1.0f) < 0.3f) {
+		emitterNode = GetScene()->CreateChild();
+		emitterNode->SetPosition(node_->LocalToWorld(Vector3(0.0f, 0.0f, 1.0f)));
+		//emitterNode->SetPosition(Vector3(0.0f, 0.0f, 1.0f));
+		emitterNode->SetScale(0.05f);
+		ParticleEmitter* particles = emitterNode->CreateComponent<ParticleEmitter>();
+		particles->SetEffect(cache->GetResource<ParticleEffect>("Particle/SmokeLightning.xml"));
+		particles->SetEmitting(true);
+		particles->SetAutoRemoveMode(AutoRemoveMode::REMOVE_NODE);
+	}
+
+
 #ifdef HIGH_QUALITY_LIGHTNING
 	light->SetCastShadows(true);
 #else
@@ -99,7 +114,13 @@ void Lightning::extendToPoint() {
 
 	node_->SetScale(Vector3(zigzagginess, zigzagginess, scale));
 	if (light) {
-		light->SetBrightness((thiccLightning + 1.0f) * node_->GetScale().z_ * 0.5f);
+		light->SetBrightness(
+			Min((thiccLightning + 1.0f) * node_->GetScale().z_ * 0.25f, 1.0f)
+		);
+	}
+	if (emitterNode) {
+		emitterNode->SetPosition(node_->LocalToWorld(Vector3(0.0f, 0.0f, 1.0f)));
+		emitterNode->SetScale(Max(Min(scale * 0.4f, 0.5f), 0.25f));
 	}
 }
 

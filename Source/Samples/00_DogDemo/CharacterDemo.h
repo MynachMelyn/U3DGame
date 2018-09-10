@@ -122,6 +122,9 @@ private:
 	/// Handle application post-update. Update camera position after character has moved.
 	void HandlePostUpdate(StringHash eventType, VariantMap& eventData);
 
+	/// Mainly for drawing debug geom
+	//void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData);
+
 	/// Touch utility object.
 	SharedPtr<Touch> touch_;
 	/// The controllable character component.

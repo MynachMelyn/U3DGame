@@ -1,0 +1,6 @@
+<material>
+	<technique name="Techniques/DiffAlpha.xml"/>
+	<texture name="Interior Props/Textures/texture-alpha.png" unit="diffuse"/>
+	<parameter name="MatDiffColor" value="1 1 1 1"/>
+	<parameter name="MatSpecColor" value="1 1 1 0"/>
+</material>

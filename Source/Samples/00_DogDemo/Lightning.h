@@ -4,6 +4,7 @@
 #include <Urho3D/Graphics/Model.h>
 #include <Urho3D/Graphics/StaticModel.h>
 #include <Urho3D/Graphics/Material.h>
+#include <Urho3D/Graphics/ParticleEmitter.h>
 
 using namespace Urho3D;
 /// Character component, responsible for physical movement according to controls, as well as animation.
@@ -58,4 +59,5 @@ private:
 	StaticModel* visuals = nullptr;
 
 	Light* light;
+	Node* emitterNode = nullptr;
 };

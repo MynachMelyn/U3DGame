@@ -1,0 +1,9 @@
+<material>
+	<technique name="Techniques/DiffNormal.xml"/>
+	<texture name="InteriorProps/Textures/oldWoodReal.jpg" unit="diffuse"/>
+	<texture name="InteriorProps/Textures/oldWoodReal_n.jpg" unit="normal"/>
+	<parameter name="MatDiffColor" value="1 1 1 1"/>
+	<parameter name="MatSpecColor" value="0 0 0 50"/>
+	<parameter name="UOffset" value="4 0 0 0" />
+    <parameter name="VOffset" value="0 4 0 0" />
+</material>

@@ -643,8 +643,14 @@ void NewCharacter::makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType
 			// TODO: This ought to allow upward/sideward checks too! Rather than just forcing it downward
 			//dirVec = (dirVec + (Vector3(0, -1, 0) + bonePointWorld - node_->GetWorldPosition()).Normalized()).Normalized() * 7.0f;
 
-			dirVec = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 0.0f), Random(-1.0f, 1.0f)).Normalized();
-			dirVec *= 3.0f;
+			// 80% chance of upward lightning
+			if (Random(0.0f, 1.0f) > 0.2f) {
+				dirVec = Vector3(Random(-1.0f, 1.0f), Random(-0.1f, 0.0f), Random(-1.0f, 1.0f)).Normalized();
+				dirVec *= 3.0f;
+			} else {
+				dirVec = Vector3(Random(-1.0f, 1.0f), Random(0.1f, 1.0f), Random(-1.0f, 1.0f)).Normalized();
+				dirVec *= 7.0f;
+			}
 			// Get a random point in a circle of radius 1 about Node's Centre (+0.5f upward)
 		}
 
