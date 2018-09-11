@@ -42,31 +42,58 @@ varying vec4 vWorldPos;
 #endif
 
 uniform vec3 cObjectPositionArray[100];
+uniform float cObjectSizeArray[100];
 uniform int cNumberOfObjects;
+uniform float cGrassYStart;
+uniform float cGrassYEnd;
+uniform float cMaxWidth;
+
+uniform float cGrassSpeed;
+uniform float cGrassTime;
+uniform float cSwayMax;
+uniform float cGrassRigidity;
 
 void VS()
 {
     mat4 modelMatrix = iModelMatrix;
     vec3 worldPos = GetWorldPos(modelMatrix);
-    gl_Position = GetClipPos(worldPos);
-    vNormal = GetWorldNormal(modelMatrix);
-    vWorldPos = vec4(worldPos, GetDepth(gl_Position));
 
     #ifdef VERTEXCOLOR
-        // vColor = iColor;
-		vColor = vec4(0.0, 0.0, 0.0, 0.0);
-		if(cNumberOfObjects > 0) {
-			float radiusFactor = 9.0f;
-			int i = 0;
-			for (int i = 0; i < cNumberOfObjects; i++) {
-				float dis = distance(cObjectPositionArray[i], worldPos);
-				float radius = 1 - clamp(dis / radiusFactor, 0.0, 1.0);
-				vec3 sphereDisp = worldPos - cObjectPositionArray[i];
-				sphereDisp *= radius;
-				vColor += vec4(sphereDisp.x, 0.0, sphereDisp.z, 1.0);
-			}
-		}
+        vColor = iColor;
     #endif
+	
+	float verticalProportion = clamp(clamp(worldPos.y - cGrassYStart, 0.0, 1.0) / (cGrassYEnd - cGrassYStart), 0.0, 1.0);
+	
+	// if(cGrassTime > 0.0) {
+		// float swayX = sin(worldPos.x / cGrassRigidity + (cGrassTime * cGrassSpeed)) * (worldPos.y - cGrassYEnd) * 5.0;
+		// float patrick_swayZ = sin(worldPos.z / cGrassRigidity + (cGrassTime * cGrassSpeed)) * (worldPos.y - cGrassYEnd) * 5.0;
+		// worldPos.x += step(0.0, worldPos.y - cGrassYEnd) * swayX * cSwayMax;
+		// worldPos.z += step(0.0, worldPos.y - cGrassYEnd) * patrick_swayZ * cSwayMax;
+		
+		float swayX = sin(worldPos.x / cGrassRigidity + (cGrassTime * cGrassSpeed));
+		float patrick_swayZ = sin(worldPos.z / cGrassRigidity + (cGrassTime * cGrassSpeed));
+		worldPos.x += verticalProportion * swayX * cSwayMax;
+		worldPos.z += verticalProportion * patrick_swayZ * cSwayMax;
+	// }
+	
+	//This assumes object centres are at the base of the object.
+	if(cNumberOfObjects > 0) {
+		const float radiusFactor = 1.5;
+		int i = 0;
+		for (int i = 0; i < cNumberOfObjects; i++) {
+			vec3 objectPosition = cObjectPositionArray[i];
+			float dis = distance(objectPosition, worldPos);
+			float radius = 1 - clamp(dis / radiusFactor, 0.0, 1.0);
+			vec3 sphereDisp = worldPos - objectPosition;
+			sphereDisp *= radius * (cObjectSizeArray[i]);
+			// float heightFactor = clamp(clamp((worldPos.y - cGrassYStart), 0.0, 1.0) / (cGrassYEnd - cGrassYStart), 0.0, 1.0);
+			worldPos.xz += clamp(sphereDisp.xz * step(cGrassYStart, worldPos.y), -cMaxWidth, cMaxWidth);				
+		}
+	}
+	
+	gl_Position = GetClipPos(worldPos);
+    vNormal = GetWorldNormal(modelMatrix);
+    vWorldPos = vec4(worldPos, GetDepth(gl_Position));
 
     #ifdef NORMALMAP
         vec4 tangent = GetWorldTangent(modelMatrix);

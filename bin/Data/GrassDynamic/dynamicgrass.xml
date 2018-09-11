@@ -3,4 +3,5 @@
     <texture unit="diffuse" name="Grass/grass.png" />
     <parameter name="MatSpecColor" value="0.1 0.1 0.1 16" />
     <parameter name="ObjectPositionArray"/>
+	<cull value="none" />
 </material>

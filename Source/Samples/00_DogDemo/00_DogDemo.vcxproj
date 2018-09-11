@@ -277,6 +277,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterDemo.cpp" />
+    <ClCompile Include="DynamicGrass.cpp" />
     <ClCompile Include="Lightning.cpp" />
     <ClCompile Include="Lightning.h" />
     <ClCompile Include="NewCharacter.cpp" />
@@ -286,6 +287,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterDemo.h" />
+    <ClInclude Include="DynamicGrass.h" />
     <ClInclude Include="NewCharacter.h" />
     <ClInclude Include="SelfDestructor.h" />
     <ClInclude Include="Touch.h" />

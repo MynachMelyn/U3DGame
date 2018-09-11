@@ -50,6 +50,7 @@
 #include "NewCharacter.h"
 #include "CharacterDemo.h"
 #include "Touch.h"
+#include <DynamicGrass.h>
 
 
 // Debug stuff
@@ -66,6 +67,7 @@ CharacterDemo::CharacterDemo(Context* context) :
 	firstPerson_(false) {
 	// Register factory and attributes for the Character component so it can be created via CreateComponent, and loaded / saved
 	NewCharacter::RegisterObject(context);
+	DynamicGrass::RegisterObject(context);
 }
 
 CharacterDemo::~CharacterDemo() = default;
@@ -245,12 +247,12 @@ void CharacterDemo::CreateScene() {
 	}
 
 	// Create movable boxes. Let them fall from the sky at first
-	const unsigned NUM_BOXES = 100;
+	const unsigned NUM_BOXES = 5;
 	for (unsigned i = 0; i < NUM_BOXES; ++i) {
 		float scale = Random(2.0f) + 0.5f;
 
 		Node* objectNode = scene_->CreateChild("Box");
-		objectNode->SetPosition(Vector3(Random(180.0f) - 90.0f, Random(10.0f) + 10.0f, Random(180.0f) - 90.0f));
+		objectNode->SetPosition(Vector3(Random(40.0f) - 20.0f, Random(10.0f) + 10.0f, Random(40.0f) - 20.0f));
 		objectNode->SetRotation(Quaternion(Random(360.0f), Random(360.0f), Random(360.0f)));
 		objectNode->SetScale(scale);
 		auto* object = objectNode->CreateComponent<StaticModel>();
@@ -259,11 +261,28 @@ void CharacterDemo::CreateScene() {
 		object->SetCastShadows(true);
 
 		auto* body = objectNode->CreateComponent<RigidBody>();
-		body->SetCollisionLayer(2);
+		body->SetCollisionLayer(130); //2nd and 8th
 		// Bigger boxes will be heavier and harder to move
 		body->SetMass(scale * 2.0f);
 		auto* shape = objectNode->CreateComponent<CollisionShape>();
 		shape->SetBox(Vector3::ONE);
+	}
+
+	{
+		//Node* grassNode = scene_->GetChild("Grass_Plane", false);
+		Node* grassNode = scene_->CreateChild("GrassFlat");
+		grassNode->SetPosition(Vector3(-12.0f, 0.0f, 0.0f));
+		grassNode->SetScale(7.0f);
+		StaticModel* model = grassNode->CreateComponent<StaticModel>();
+		model->SetModel(cache->GetResource<Model>("GrassDynamic/Models/PlaneGrassBlades.mdl"));
+		//model->SetModel(cache->GetResource<Model>("GrassDynamic/Models/PlaneOld.mdl"));
+		Material* material = cache->GetResource<Material>("GrassDynamic/dynamicgrass.xml");
+		model->SetMaterial(material);
+
+		if (grassNode) {
+			DynamicGrass* grassLogic = grassNode->CreateComponent<DynamicGrass>();
+			grassLogic->SetGrassMaterial(material);
+		}
 	}
 }
 
@@ -307,7 +326,7 @@ void CharacterDemo::CreateCharacter() {
 	// Create rigidbody, and set non-zero mass so that the body becomes dynamic
 	auto* body = objectNode->CreateComponent<RigidBody>();
 	body->SetFriction(3.0f);
-	body->SetCollisionLayer(1);
+	body->SetCollisionLayer(129); //Allows collision with grass as well, Layer1, Layer8
 	//body->SetMass(1.0f);
 	body->SetMass(2.0f);
 	body->SetRestitution(0.3f);
