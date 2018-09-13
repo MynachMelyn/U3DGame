@@ -1,0 +1,17 @@
+<node id="16777216">
+	<attribute name="Name" value="DeadOak2"/>
+	<component id="16777216" type="StaticModel">
+		<attribute name="Model" value="Model;ForestNew/Models/DeadOak2.mdl"/>
+		<attribute name="Material" value="Material;ForestNew/Materials/DeadOakTreeTrunk.xml"/>
+<attribute name="Cast Shadows" value="true" />
+	</component>
+	<component id="16777217" type="RigidBody">
+		<attribute name="Collision Layer" value="2"/>
+		<attribute name="Use Gravity" value="false"/>
+	</component>
+	<component id="16777218" type="CollisionShape">
+		<attribute name="Shape Type" value="ConvexHull"/>
+		<attribute name="Size" value="10.3439 29.8899 10.9646"/>
+		<attribute name="Offset Position" value="1.60429 14.945 0.113223"/>
+	</component>
+</node>

@@ -1,0 +1,17 @@
+<node id="16777216">
+	<attribute name="Name" value="DeadSpruce2"/>
+	<component id="16777216" type="StaticModel">
+		<attribute name="Model" value="Model;ForestNew/Models/DeadSpruce2.mdl"/>
+		<attribute name="Material" value="Material;ForestNew/Materials/DeadSpruceTreeTrunk.xml"/>
+<attribute name="Cast Shadows" value="true" />
+	</component>
+	<component id="16777217" type="RigidBody">
+		<attribute name="Collision Layer" value="2"/>
+		<attribute name="Use Gravity" value="false"/>
+	</component>
+	<component id="16777218" type="CollisionShape">
+		<attribute name="Shape Type" value="ConvexHull"/>
+		<attribute name="Size" value="2.35971 4.22417 2.29053"/>
+		<attribute name="Offset Position" value="-0.0559605 2.11004 0.00105017"/>
+	</component>
+</node>

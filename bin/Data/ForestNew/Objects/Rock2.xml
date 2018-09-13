@@ -1,0 +1,17 @@
+<node id="16777216">
+	<attribute name="Name" value="Rock2"/>
+	<component id="16777216" type="StaticModel">
+		<attribute name="Model" value="Model;ForestNew/Models/Rock2.mdl"/>
+		<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml"/>
+<attribute name="Cast Shadows" value="true" />
+	</component>
+	<component id="16777217" type="RigidBody">
+		<attribute name="Collision Layer" value="2"/>
+		<attribute name="Use Gravity" value="false"/>
+	</component>
+	<component id="16777218" type="CollisionShape">
+		<attribute name="Shape Type" value="ConvexHull"/>
+		<attribute name="Size" value="1.74674 2.03693 2.26233"/>
+		<attribute name="Offset Position" value="-0.0241844 -0.00312251 0.140142"/>
+	</component>
+</node>

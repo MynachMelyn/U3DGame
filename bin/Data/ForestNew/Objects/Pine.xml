@@ -1,0 +1,17 @@
+<node id="16777216">
+	<attribute name="Name" value="Pine"/>
+	<component id="16777216" type="StaticModel">
+		<attribute name="Model" value="Model;ForestNew/Models/Pine.mdl"/>
+		<attribute name="Material" value="Material;ForestNew/Materials/mat11.xml;ForestNew/Materials/mat20.xml"/>
+<attribute name="Cast Shadows" value="true" />
+	</component>
+	<component id="16777217" type="RigidBody">
+		<attribute name="Collision Layer" value="2"/>
+		<attribute name="Use Gravity" value="false"/>
+	</component>
+	<component id="16777218" type="CollisionShape">
+		<attribute name="Shape Type" value="ConvexHull"/>
+		<attribute name="Size" value="1.48933 1.45974 2.58617"/>
+		<attribute name="Offset Position" value="0.018791 -0.0591217 -1.29308"/>
+	</component>
+</node>

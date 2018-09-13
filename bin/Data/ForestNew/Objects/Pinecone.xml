@@ -1,0 +1,17 @@
+<node id="16777216">
+	<attribute name="Name" value="PineCone"/>
+	<component id="16777216" type="StaticModel">
+		<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl"/>
+		<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml"/>
+<attribute name="Cast Shadows" value="true" />
+	</component>
+	<component id="16777217" type="RigidBody">
+		<attribute name="Collision Layer" value="2"/>
+		<attribute name="Use Gravity" value="false"/>
+	</component>
+	<component id="16777218" type="CollisionShape">
+		<attribute name="Shape Type" value="ConvexHull"/>
+		<attribute name="Size" value="8.11575 8.20022 8.9827"/>
+		<attribute name="Offset Position" value="-0.00496292 0.00758791 -0.944842"/>
+	</component>
+</node>

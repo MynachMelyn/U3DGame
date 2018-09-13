@@ -49,7 +49,7 @@ uniform float cGrassYEnd;
 uniform float cMaxWidth;
 
 uniform float cGrassSpeed;
-uniform float cGrassTime;
+uniform float cGrassTime = 0;
 uniform float cSwayMax;
 uniform float cGrassRigidity;
 
@@ -64,7 +64,8 @@ void VS()
 	
 	float verticalProportion = clamp(clamp(worldPos.y - cGrassYStart, 0.0, 1.0) / (cGrassYEnd - cGrassYStart), 0.0, 1.0);
 	
-	// if(cGrassTime > 0.0) {
+	// If it breaks, remove this If
+	 if(cGrassTime > 0.0) {
 		// float swayX = sin(worldPos.x / cGrassRigidity + (cGrassTime * cGrassSpeed)) * (worldPos.y - cGrassYEnd) * 5.0;
 		// float patrick_swayZ = sin(worldPos.z / cGrassRigidity + (cGrassTime * cGrassSpeed)) * (worldPos.y - cGrassYEnd) * 5.0;
 		// worldPos.x += step(0.0, worldPos.y - cGrassYEnd) * swayX * cSwayMax;
@@ -74,12 +75,13 @@ void VS()
 		float patrick_swayZ = sin(worldPos.z / cGrassRigidity + (cGrassTime * cGrassSpeed));
 		worldPos.x += verticalProportion * swayX * cSwayMax;
 		worldPos.z += verticalProportion * patrick_swayZ * cSwayMax;
-	// }
+	}
 	
 	//This assumes object centres are at the base of the object.
 	if(cNumberOfObjects > 0) {
+		// vec2 originalWorldPos = worldPos.xz;
+		
 		const float radiusFactor = 1.5;
-		int i = 0;
 		for (int i = 0; i < cNumberOfObjects; i++) {
 			vec3 objectPosition = cObjectPositionArray[i];
 			float dis = distance(objectPosition, worldPos);
@@ -89,6 +91,7 @@ void VS()
 			// float heightFactor = clamp(clamp((worldPos.y - cGrassYStart), 0.0, 1.0) / (cGrassYEnd - cGrassYStart), 0.0, 1.0);
 			worldPos.xz += clamp(sphereDisp.xz * step(cGrassYStart, worldPos.y), -cMaxWidth, cMaxWidth);				
 		}
+		// worldPos.xz = clamp(worldPos, originalWorldPos - cMaxWidth, originalWorldPos + cMaxWidth)
 	}
 	
 	gl_Position = GetClipPos(worldPos);

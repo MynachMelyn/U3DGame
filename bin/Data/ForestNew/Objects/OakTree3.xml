@@ -1,0 +1,17 @@
+<node id="16777216">
+	<attribute name="Name" value="OakTree3"/>
+	<component id="16777216" type="StaticModel">
+		<attribute name="Model" value="Model;ForestNew/Models/OakTree3.mdl"/>
+		<attribute name="Material" value="Material;ForestNew/Materials/OakTreeLeaf.xml;ForestNew/Materials/OakTreeTrunk.xml"/>
+<attribute name="Cast Shadows" value="true" />
+	</component>
+	<component id="16777217" type="RigidBody">
+		<attribute name="Collision Layer" value="2"/>
+		<attribute name="Use Gravity" value="false"/>
+	</component>
+	<component id="16777218" type="CollisionShape">
+		<attribute name="Shape Type" value="ConvexHull"/>
+		<attribute name="Size" value="4.41989 5.08651 4.52483"/>
+		<attribute name="Offset Position" value="0.135252 2.51437 0.16441"/>
+	</component>
+</node>

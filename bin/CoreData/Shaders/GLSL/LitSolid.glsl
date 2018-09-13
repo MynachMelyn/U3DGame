@@ -41,6 +41,10 @@ varying vec4 vWorldPos;
     #endif
 #endif
 
+#ifdef WORLDUV
+	uniform float cUVScaler;
+#endif
+
 void VS()
 {
     mat4 modelMatrix = iModelMatrix;
@@ -48,7 +52,7 @@ void VS()
     gl_Position = GetClipPos(worldPos);
     vNormal = GetWorldNormal(modelMatrix);
     vWorldPos = vec4(worldPos, GetDepth(gl_Position));
-
+	
     #ifdef VERTEXCOLOR
         vColor = iColor;
     #endif
@@ -61,6 +65,10 @@ void VS()
     #else
         vTexCoord = GetTexCoord(iTexCoord);
     #endif
+	
+	#ifdef WORLDUV
+		vTexCoord = GetTexCoord(worldPos.xz * cUVScaler);
+	#endif
 
     #ifdef PERPIXEL
         // Per-pixel forward lighting
