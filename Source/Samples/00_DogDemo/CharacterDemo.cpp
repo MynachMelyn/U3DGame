@@ -303,7 +303,14 @@ void CharacterDemo::CreateCharacter() {
 	auto* cache = GetSubsystem<ResourceCache>();
 
 	Node* objectNode = scene_->CreateChild("Beagle");
-	objectNode->SetPosition(Vector3(0.0f, 1.0f, 0.0f));
+
+
+	// Set position to level spawn point (if multiple exist, use first)
+	{
+		PODVector<Node*> tagged;
+		scene_->GetNodesWithTag(tagged, "playerspawn");
+		objectNode->SetPosition(tagged.Front()->GetPosition());
+	}
 	// new: adjust scale to fit default scene a bit better - not entirely needed if we just pan camera out
 
 	// spin node - can be good for scaling too!

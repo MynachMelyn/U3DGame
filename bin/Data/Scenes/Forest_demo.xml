@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="780.409" />
 	<attribute name="Next Replicated Node ID" value="86" />
 	<attribute name="Next Replicated Component ID" value="70" />
-	<attribute name="Next Local Node ID" value="16806249" />
-	<attribute name="Next Local Component ID" value="16806588" />
+	<attribute name="Next Local Node ID" value="16806252" />
+	<attribute name="Next Local Component ID" value="16806616" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
@@ -18,11 +18,11 @@
 		<attribute name="Bounding Box Min" value="-10 -1 -45" />
 		<attribute name="Bounding Box Max" value="50 20 15" />
 		<attribute name="Ambient Color" value="0.25 0.25 0.3 1" />
-		<attribute name="Fog Color" value="0.9 0.9 0.95 1" />
-		<attribute name="Fog Start" value="2" />
+		<attribute name="Fog Color" value="0.8 0.8 0.95 1" />
+		<attribute name="Fog Start" value="-1" />
 		<attribute name="Fog End" value="100" />
 		<attribute name="Fog Height" value="-0.9" />
-		<attribute name="Fog Height Scale" value="1" />
+		<attribute name="Fog Height Scale" value="0.9" />
 		<attribute name="Height Fog Mode" value="true" />
 	</component>
 	<node id="16777255">
@@ -214,7 +214,7 @@
 				<attribute name="Cast Shadows" value="true" />
 			</component>
 			<component type="RigidBody" id="16777479">
-				<attribute name="Physics Rotation" value="0.996072 -0.00180395 0.0860354 0.0208851" />
+				<attribute name="Physics Rotation" value="0.996072 -0.00180395 0.0860353 0.0208851" />
 				<attribute name="Physics Position" value="3.01704 -0.0497152 -1.28785" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
@@ -338,6 +338,236 @@
 				<attribute name="Size" value="1 8 1" />
 				<attribute name="Offset Position" value="0 4 0" />
 				<attribute name="Model" value="Model;ForestNew/Models/DeadSpruce3.mdl" />
+			</component>
+		</node>
+		<node id="72">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="SpruceTree2" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="0.0640356 0.00510248 -0.223131" />
+			<attribute name="Rotation" value="0.995837 -0.0300521 -0.0860151 -0.00259574" />
+			<attribute name="Scale" value="0.15 0.15 0.15" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806552">
+				<attribute name="Model" value="Model;ForestNew/Models/SpruceTree2.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/SpruceTreeTrunk.xml;ForestNew/Materials/SpruceTreeLeaf.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806553">
+				<attribute name="Physics Rotation" value="0.999545 -0.030164 6.70553e-08 2.09548e-09" />
+				<attribute name="Physics Position" value="0.575324 0.00130964 -2.1369" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806554">
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="2.11665 5.56065 1.9342" />
+				<attribute name="Offset Position" value="0.0682167 2.77824 0.018019" />
+			</component>
+		</node>
+		<node id="71">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="SpruceTree1" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="0.740784 0.00529966 -1.62573" />
+			<attribute name="Rotation" value="0.996291 0 -0.0860543 0" />
+			<attribute name="Scale" value="0.1 0.1 0.1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806549">
+				<attribute name="Model" value="Model;ForestNew/Models/SpruceTree1.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/SpruceTreeTrunk.xml;ForestNew/Materials/SpruceTreeLeaf.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806550">
+				<attribute name="Physics Rotation" value="1 0 8.19564e-08 0" />
+				<attribute name="Physics Position" value="4.83754 0.00328136 -17.1156" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806551">
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="5.9008 12.0855 5.4431" />
+				<attribute name="Offset Position" value="-0.16273 6.03751 0.044631" />
+			</component>
+		</node>
+		<node id="73">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="SpruceTree3" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-0.060922 0.00497152 -1.64252" />
+			<attribute name="Rotation" value="0.99582 -0.00264541 -0.0860136 0.0306271" />
+			<attribute name="Scale" value="0.1 0.1 0.1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806555">
+				<attribute name="Model" value="Model;ForestNew/Models/SpruceTree3.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/SpruceTreeTrunk.xml;ForestNew/Materials/SpruceTreeLeaf.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806556">
+				<attribute name="Physics Rotation" value="0.999527 2.56114e-09 6.70553e-08 0.0307411" />
+				<attribute name="Physics Position" value="-3.08957 0 -15.9063" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806557">
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="3.51846 10.1982 3.09648" />
+				<attribute name="Offset Position" value="-0.0030511 5.09383 0.0910478" />
+			</component>
+		</node>
+		<node id="79">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="DeadOak2" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-0.414704 0.00844754 -0.696189" />
+			<attribute name="Rotation" value="0.995582 0.0032457 -0.085993 -0.037577" />
+			<attribute name="Scale" value="0.1 0.1 0.1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806573">
+				<attribute name="Model" value="Model;ForestNew/Models/DeadOak2.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/DeadOakTreeTrunk.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806574">
+				<attribute name="Physics Rotation" value="0.999288 -3.25963e-09 6.70552e-08 -0.0377169" />
+				<attribute name="Physics Position" value="-4.95232 0.0347602 -5.97652" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806575">
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="10.3439 29.8899 10.9646" />
+				<attribute name="Offset Position" value="1.60429 14.945 0.113223" />
+			</component>
+		</node>
+		<node id="83">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="PineCone" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-0.169134 0.0155144 -0.788476" />
+			<attribute name="Rotation" value="0.980981 -0.0981521 0.166629 0.0166721" />
+			<attribute name="Scale" value="0.12 0.12 0.12" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806585">
+				<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+		</node>
+		<node id="74">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="treeStump" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-0.0901435 0.00497152 -1.1198" />
+			<attribute name="Rotation" value="0.98007 0 -0.198651 0" />
+			<attribute name="Scale" value="0.1 0.1 0.1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806558">
+				<attribute name="Model" value="Model;ForestNew/Models/treeStump.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/lambert26SG.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806559">
+				<attribute name="Physics Rotation" value="0.993529 0 -0.113575 0" />
+				<attribute name="Physics Position" value="-2.48114 0 -10.7064" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806560">
+				<attribute name="Size" value="1 0.75 1" />
+				<attribute name="Offset Position" value="0 0.35 0" />
+			</component>
+		</node>
+		<node id="75">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="tree_roots_Cylinder.007" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-0.123391 0.0160331 -0.880095" />
+			<attribute name="Rotation" value="0.436879 0.0599794 0.889178 -0.122076" />
+			<attribute name="Scale" value="0.0999998 0.1 0.0999998" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806561">
+				<attribute name="Model" value="Model;ForestNew/Models/tree_roots_Cylinder.007.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/None.002.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806562">
+				<attribute name="Physics Rotation" value="0.358741 0.0492517 0.923474 -0.126785" />
+				<attribute name="Physics Position" value="-2.39768 0.110616 -8.28786" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806563">
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="1.86833 0.858286 2.28389" />
+				<attribute name="Offset Position" value="-0.20493 -0.016999 -0.318302" />
+			</component>
+		</node>
+		<node id="80">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Log" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-0.287411 0.0433573 -0.79038" />
+			<attribute name="Rotation" value="0.965576 0.116935 0.230673 -0.0279354" />
+			<attribute name="Scale" value="0.1 0.1 0.1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806576">
+				<attribute name="Model" value="Model;ForestNew/Models/Log.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/None.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806577">
+				<attribute name="Physics Rotation" value="0.942143 0.114097 0.312909 -0.0378946" />
+				<attribute name="Physics Position" value="-3.85975 0.383858 -7.12275" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806578">
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="3.12211 1.37311 1.46764" />
+				<attribute name="Offset Position" value="-0.0531055 0.118639 -0.727159" />
+			</component>
+		</node>
+		<node id="82">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="PineCone" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="1.5999 0.0103205 -0.435103" />
+			<attribute name="Rotation" value="0.858948 -0.0859421 -0.502291 -0.0502568" />
+			<attribute name="Scale" value="0.1 0.1 0.1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806582">
+				<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+		</node>
+		<node id="84">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="PineCone" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="1.61657 0.0103205 -0.530858" />
+			<attribute name="Rotation" value="0.98098 -0.0981522 0.16663 0.0166721" />
+			<attribute name="Scale" value="0.07 0.07 0.07" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806586">
+				<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+		</node>
+		<node id="85">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="PineCone" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-0.32245 0.0155144 -0.723324" />
+			<attribute name="Rotation" value="0.243821 0.873933 -0.0652913 -0.415367" />
+			<attribute name="Scale" value="0.12 0.12 0.12" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806587">
+				<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml" />
+				<attribute name="Cast Shadows" value="true" />
 			</component>
 		</node>
 	</node>
@@ -76412,347 +76642,129 @@
 			</component>
 			<component type="CollisionShape" id="16806515" />
 		</node>
+		<node id="77">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="BigRock3" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-4.54013 1.87593 -12.5511" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806567">
+				<attribute name="Model" value="Model;ForestNew/Models/BigRock3.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806568">
+				<attribute name="Physics Position" value="-4.54013 1.87593 -12.5511" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806569">
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="11.5148 9.42154 9.29619" />
+				<attribute name="Offset Position" value="-0.00133228 0.0431757 -0.19016" />
+			</component>
+		</node>
+		<node id="76">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Rock_25" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-4.3994 0.222205 -8.73964" />
+			<attribute name="Rotation" value="0.557268 0 0.830333 0" />
+			<attribute name="Scale" value="0.4 0.4 0.4" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806564">
+				<attribute name="Model" value="Model;ForestNew/Models/Rock_25.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806565">
+				<attribute name="Physics Rotation" value="0.557268 0 0.830333 0" />
+				<attribute name="Physics Position" value="-4.3994 0.222205 -8.73964" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806566" />
+		</node>
+		<node id="78">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="BigRock5" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-6.88693 0.616796 -5.6742" />
+			<attribute name="Rotation" value="0.82437 0 0.566051 0" />
+			<attribute name="Scale" value="0.5 0.5 0.5" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806570">
+				<attribute name="Model" value="Model;ForestNew/Models/BigRock5.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806571">
+				<attribute name="Physics Rotation" value="0.82437 0 0.566051 0" />
+				<attribute name="Physics Position" value="-6.88693 0.616796 -5.6742" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806572">
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="4.11225 3.36915 4.19719" />
+				<attribute name="Offset Position" value="-0.21865 0.238786 0.299061" />
+			</component>
+		</node>
+		<node id="70">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Rock_12" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-3.8607 0.371185 -5.06496" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806546">
+				<attribute name="Model" value="Model;ForestNew/Models/Rock_12.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806547">
+				<attribute name="Physics Position" value="-3.8607 0.371185 -5.06496" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806548" />
+		</node>
+		<node id="69">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Rock7" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="-2.91027 0.368277 -5.65553" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="1 1 1" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="16806543">
+				<attribute name="Model" value="Model;ForestNew/Models/Rock7.mdl" />
+				<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806544">
+				<attribute name="Physics Position" value="-2.91027 0.368277 -5.65553" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+				<attribute name="Is Kinematic" value="true" />
+			</component>
+			<component type="CollisionShape" id="16806545">
+				<attribute name="Offset Position" value="0 0.2 0" />
+			</component>
+		</node>
 	</node>
-	<node id="69">
+	<node id="16806249">
 		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="Rock7" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-2.91027 0.368277 -5.65553" />
+		<attribute name="Name" value="Player Spawn" />
+		<attribute name="Tags">
+			<string value="playerspawn" />
+		</attribute>
+		<attribute name="Position" value="1.42406 2.05489 -10.4148" />
 		<attribute name="Rotation" value="1 0 0 0" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
-		<component type="StaticModel" id="16806543">
-			<attribute name="Model" value="Model;ForestNew/Models/Rock7.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806544">
-			<attribute name="Physics Position" value="-2.91027 0.368277 -5.65553" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-			<attribute name="Is Kinematic" value="true" />
-		</component>
-		<component type="CollisionShape" id="16806545">
-			<attribute name="Offset Position" value="0 0.2 0" />
-		</component>
-	</node>
-	<node id="70">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="Rock_12" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-3.8607 0.371185 -5.06496" />
-		<attribute name="Rotation" value="1 0 0 0" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806546">
-			<attribute name="Model" value="Model;ForestNew/Models/Rock_12.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806547">
-			<attribute name="Physics Position" value="-3.8607 0.371185 -5.06496" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806548" />
-	</node>
-	<node id="71">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="SpruceTree1" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="4.83754 0.00328135 -17.1156" />
-		<attribute name="Rotation" value="1 0 0 0" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806549">
-			<attribute name="Model" value="Model;ForestNew/Models/SpruceTree1.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/SpruceTreeTrunk.xml;ForestNew/Materials/SpruceTreeLeaf.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806550">
-			<attribute name="Physics Position" value="4.83754 0.00328135 -17.1156" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806551">
-			<attribute name="Shape Type" value="ConvexHull" />
-			<attribute name="Size" value="5.9008 12.0855 5.4431" />
-			<attribute name="Offset Position" value="-0.16273 6.03751 0.044631" />
-		</component>
-	</node>
-	<node id="72">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="SpruceTree2" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="0.575324 0.00130963 -2.1369" />
-		<attribute name="Rotation" value="0.999545 -0.030164 0 0" />
-		<attribute name="Scale" value="1.5 1.5 1.5" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806552">
-			<attribute name="Model" value="Model;ForestNew/Models/SpruceTree2.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/SpruceTreeTrunk.xml;ForestNew/Materials/SpruceTreeLeaf.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806553">
-			<attribute name="Physics Rotation" value="0.999545 -0.030164 0 0" />
-			<attribute name="Physics Position" value="0.575324 0.00130963 -2.1369" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806554">
-			<attribute name="Shape Type" value="ConvexHull" />
-			<attribute name="Size" value="2.11665 5.56065 1.9342" />
-			<attribute name="Offset Position" value="0.0682167 2.77824 0.018019" />
-		</component>
-	</node>
-	<node id="73">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="SpruceTree3" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-3.08957 0 -15.9063" />
-		<attribute name="Rotation" value="0.999527 0 0 0.0307411" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806555">
-			<attribute name="Model" value="Model;ForestNew/Models/SpruceTree3.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/SpruceTreeTrunk.xml;ForestNew/Materials/SpruceTreeLeaf.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806556">
-			<attribute name="Physics Rotation" value="0.999527 0 0 0.0307411" />
-			<attribute name="Physics Position" value="-3.08957 0 -15.9063" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806557">
-			<attribute name="Shape Type" value="ConvexHull" />
-			<attribute name="Size" value="3.51846 10.1982 3.09648" />
-			<attribute name="Offset Position" value="-0.0030511 5.09383 0.0910478" />
-		</component>
-	</node>
-	<node id="74">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="treeStump" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-2.48114 0 -10.7064" />
-		<attribute name="Rotation" value="0.993529 0 -0.113575 0" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806558">
-			<attribute name="Model" value="Model;ForestNew/Models/treeStump.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/lambert26SG.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806559">
-			<attribute name="Physics Rotation" value="0.993529 0 -0.113575 0" />
-			<attribute name="Physics Position" value="-2.48114 0 -10.7064" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806560">
-			<attribute name="Size" value="1 0.75 1" />
-			<attribute name="Offset Position" value="0 0.35 0" />
-		</component>
-	</node>
-	<node id="75">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="tree_roots_Cylinder.007" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-2.39768 0.110616 -8.28786" />
-		<attribute name="Rotation" value="-0.35874 -0.0492518 -0.923474 0.126784" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806561">
-			<attribute name="Model" value="Model;ForestNew/Models/tree_roots_Cylinder.007.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/None.002.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806562">
-			<attribute name="Physics Rotation" value="0.358741 0.0492518 0.923474 -0.126785" />
-			<attribute name="Physics Position" value="-2.39768 0.110616 -8.28786" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806563">
-			<attribute name="Shape Type" value="ConvexHull" />
-			<attribute name="Size" value="1.86833 0.858286 2.28389" />
-			<attribute name="Offset Position" value="-0.20493 -0.016999 -0.318302" />
-		</component>
-	</node>
-	<node id="76">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="Rock_25" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-4.3994 0.222205 -8.73964" />
-		<attribute name="Rotation" value="0.557268 0 0.830333 0" />
-		<attribute name="Scale" value="0.4 0.4 0.4" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806564">
-			<attribute name="Model" value="Model;ForestNew/Models/Rock_25.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806565">
-			<attribute name="Physics Rotation" value="0.557268 0 0.830333 0" />
-			<attribute name="Physics Position" value="-4.3994 0.222205 -8.73964" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806566" />
-	</node>
-	<node id="77">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="BigRock3" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-4.54013 1.87593 -12.5511" />
-		<attribute name="Rotation" value="1 0 0 0" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806567">
-			<attribute name="Model" value="Model;ForestNew/Models/BigRock3.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806568">
-			<attribute name="Physics Position" value="-4.54013 1.87593 -12.5511" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806569">
-			<attribute name="Shape Type" value="ConvexHull" />
-			<attribute name="Size" value="11.5148 9.42154 9.29619" />
-			<attribute name="Offset Position" value="-0.00133228 0.0431757 -0.19016" />
-		</component>
-	</node>
-	<node id="78">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="BigRock5" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-6.88693 0.616796 -5.6742" />
-		<attribute name="Rotation" value="-0.824371 0 -0.566051 0" />
-		<attribute name="Scale" value="0.5 0.5 0.5" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806570">
-			<attribute name="Model" value="Model;ForestNew/Models/BigRock5.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/Rock.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806571">
-			<attribute name="Physics Rotation" value="0.824371 -0 0.56605 -0" />
-			<attribute name="Physics Position" value="-6.88693 0.616796 -5.6742" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806572">
-			<attribute name="Shape Type" value="ConvexHull" />
-			<attribute name="Size" value="4.11225 3.36915 4.19719" />
-			<attribute name="Offset Position" value="-0.21865 0.238786 0.299061" />
-		</component>
-	</node>
-	<node id="79">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="DeadOak2" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-4.95232 0.0347602 -5.97652" />
-		<attribute name="Rotation" value="0.999288 0 0 -0.0377169" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806573">
-			<attribute name="Model" value="Model;ForestNew/Models/DeadOak2.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/DeadOakTreeTrunk.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806574">
-			<attribute name="Physics Rotation" value="0.999288 0 0 -0.0377169" />
-			<attribute name="Physics Position" value="-4.95232 0.0347602 -5.97652" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806575">
-			<attribute name="Shape Type" value="ConvexHull" />
-			<attribute name="Size" value="10.3439 29.8899 10.9646" />
-			<attribute name="Offset Position" value="1.60429 14.945 0.113223" />
-		</component>
-	</node>
-	<node id="80">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="Log" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-3.85975 0.383858 -7.12275" />
-		<attribute name="Rotation" value="0.942143 0.114098 0.312909 -0.0378946" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806576">
-			<attribute name="Model" value="Model;ForestNew/Models/Log.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/None.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-		<component type="RigidBody" id="16806577">
-			<attribute name="Physics Rotation" value="0.942143 0.114098 0.312909 -0.0378946" />
-			<attribute name="Physics Position" value="-3.85975 0.383858 -7.12275" />
-			<attribute name="Collision Layer" value="2" />
-			<attribute name="Use Gravity" value="false" />
-		</component>
-		<component type="CollisionShape" id="16806578">
-			<attribute name="Shape Type" value="ConvexHull" />
-			<attribute name="Size" value="3.12211 1.37311 1.46764" />
-			<attribute name="Offset Position" value="-0.0531055 0.118639 -0.727159" />
-		</component>
-	</node>
-	<node id="82">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="PineCone" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="15.3431 0.0534896 -6.85877" />
-		<attribute name="Rotation" value="0.898986 -0.0899481 -0.426512 -0.0426747" />
-		<attribute name="Scale" value="1 1 1" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806582">
-			<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-	</node>
-	<node id="83">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="PineCone" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-2.69124 0.105429 -7.3068" />
-		<attribute name="Rotation" value="0.963003 -0.0963533 0.250429 0.0250567" />
-		<attribute name="Scale" value="1.2 1.2 1.2" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806585">
-			<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-	</node>
-	<node id="84">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="PineCone" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="15.3431 0.0534896 -7.83072" />
-		<attribute name="Rotation" value="0.963003 -0.0963533 0.250429 0.0250567" />
-		<attribute name="Scale" value="0.7 0.7 0.7" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806586">
-			<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
-	</node>
-	<node id="85">
-		<attribute name="Is Enabled" value="true" />
-		<attribute name="Name" value="PineCone" />
-		<attribute name="Tags" />
-		<attribute name="Position" value="-4.08997 0.105429 -6.40204" />
-		<attribute name="Rotation" value="0.248536 0.834948 -0.0440672 -0.489032" />
-		<attribute name="Scale" value="1.2 1.2 1.2" />
-		<attribute name="Variables" />
-		<component type="StaticModel" id="16806587">
-			<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl" />
-			<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml" />
-			<attribute name="Cast Shadows" value="true" />
-		</component>
 	</node>
 </scene>
