@@ -11,6 +11,7 @@
 
 DynamicGrass::DynamicGrass(Context* context) : LogicComponent(context) {
 	//SetUpdateEventMask(USE_POSTUPDATE);
+	collidedThisFrame = false;
 }
 
 void DynamicGrass::RegisterObject(Context* context) {
@@ -29,12 +30,22 @@ void DynamicGrass::Start() {
 	body->SetCollisionMask((unsigned)128); // Only collide us with things on this layer
 
 	collision = node_->CreateComponent<CollisionShape>();
-	collision->SetBox(Vector3(2.2f, 1.0f, 2.2f), Vector3(0.0f, 0.25f, 0.0f));
+	String name = node_->GetComponent<StaticModel>()->GetModel()->GetName();
+
+	//collision->SetBox(Vector3(1.1f, 0.5f, 1.1f), Vector3(0.0f, 0.25f, 0.0f));
+	if (name.Contains("Blades")) {
+		collision->SetBox(Vector3(1.1f, 0.5f, 1.1f), Vector3(0.0f, 0.25f, 0.0f));
+	} else if (name.Contains("Wheat")) {
+		collision->SetBox(Vector3(2.0f, 0.3f, 1.0f), Vector3(0.0f, 0.15f, 0.0f));
+	} else if (name.Contains("Circle")) {
+		collision->SetBox(Vector3(0.6f, 0.6f, 0.6f), Vector3(0.0f, 0.15f, 0.0f));
+	} else {
+		collision->SetBox(Vector3(2.2f, 1.0f, 2.2f), Vector3(0.0f, 0.25f, 0.0f));
+	}
+
 
 	varvec = new VariantVector();
 	sizevec = new VariantVector();
-
-	node_->CreateChild("Michael");
 }
 
 void DynamicGrass::Update(float timeStep) {
@@ -87,9 +98,11 @@ void DynamicGrass::HandleNodeCollision(StringHash eventType, VariantMap& eventDa
 }
 
 
-void DynamicGrass::PostUpdate(float timeStep) {
+void DynamicGrass::FixedPostUpdate(float timeStep) {
 	// Clear
 	if (collidedThisFrame) {
+		//Variant varvarbinks = grassMaterial->GetShaderParameter("ObjectPositionArray");
+
 		grassMaterial->SetShaderParameter("ObjectPositionArray", *varvec);
 		grassMaterial->SetShaderParameter("ObjectSizeArray", *sizevec);
 		grassMaterial->SetShaderParameter("NumberOfObjects", varvec->Size());

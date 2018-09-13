@@ -425,19 +425,21 @@ void NewCharacter::HandleNodeCollision(StringHash eventType, VariantMap& eventDa
 	// Check collision contacts and see if character is standing on ground (look for a contact that has near vertical normal)
 	using namespace NodeCollision;
 
-	MemoryBuffer contacts(eventData[P_CONTACTS].GetBuffer());
+	if (!((RigidBody*)eventData[P_OTHERBODY].GetPtr())->IsTrigger()) {
+		MemoryBuffer contacts(eventData[P_CONTACTS].GetBuffer());
 
-	while (!contacts.IsEof()) {
-		Vector3 contactPosition = contacts.ReadVector3();
-		Vector3 contactNormal = contacts.ReadVector3();
-		/*float contactDistance = */contacts.ReadFloat();
-		/*float contactImpulse = */contacts.ReadFloat();
+		while (!contacts.IsEof()) {
+			Vector3 contactPosition = contacts.ReadVector3();
+			Vector3 contactNormal = contacts.ReadVector3();
+			/*float contactDistance = */contacts.ReadFloat();
+			/*float contactImpulse = */contacts.ReadFloat();
 
-		// If contact is below node center and pointing up, assume it's a ground contact
-		if (contactPosition.y_ < (node_->GetPosition().y_ + 1.0f)) {
-			float level = contactNormal.y_;
-			if (level > 0.75)
-				onGround_ = true;
+			// If contact is below node center and pointing up, assume it's a ground contact
+			if (contactPosition.y_ < (node_->GetPosition().y_ + 1.0f)) {
+				float level = contactNormal.y_;
+				if (level > 0.75)
+					onGround_ = true;
+			}
 		}
 	}
 }

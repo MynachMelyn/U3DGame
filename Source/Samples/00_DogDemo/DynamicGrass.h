@@ -19,14 +19,16 @@ public:
 	/// Handle startup. Called by LogicComponent base class.
 	void Start() override;
 	void Update(float timeStep) override;
-	void PostUpdate(float timeStep) override;
+	void FixedPostUpdate(float timeStep) override;
 
 	void SetGrassMaterial(Material* material);
 	void HandleNodeCollision(StringHash eventType, VariantMap& eventData);
+
 protected:
 	CollisionShape * collision = nullptr;
 	Material * grassMaterial = nullptr;
 	RigidBody* body = nullptr;
+
 	VariantVector* varvec;
 	VariantVector* sizevec;
 	bool collidedThisFrame = false;

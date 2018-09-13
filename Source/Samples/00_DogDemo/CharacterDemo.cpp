@@ -229,59 +229,72 @@ void CharacterDemo::CreateScene() {
 	//shape->SetBox(Vector3::ONE);
 
 	// Create mushrooms of varying sizes
-	const unsigned NUM_MUSHROOMS = 60;
-	for (unsigned i = 0; i < NUM_MUSHROOMS; ++i) {
-		Node* objectNode = scene_->CreateChild("Mushroom");
-		objectNode->SetPosition(Vector3(Random(180.0f) - 90.0f, 0.0f, Random(180.0f) - 90.0f));
-		objectNode->SetRotation(Quaternion(0.0f, Random(360.0f), 0.0f));
-		objectNode->SetScale(0.2f + Random(0.5f));
-		auto* object = objectNode->CreateComponent<StaticModel>();
-		object->SetModel(cache->GetResource<Model>("Models/Mushroom.mdl"));
-		object->SetMaterial(cache->GetResource<Material>("Materials/Mushroom.xml"));
-		object->SetCastShadows(true);
+	//const unsigned NUM_MUSHROOMS = 60;
+	//for (unsigned i = 0; i < NUM_MUSHROOMS; ++i) {
+	//	Node* objectNode = scene_->CreateChild("Mushroom");
+	//	objectNode->SetPosition(Vector3(Random(180.0f) - 90.0f, 0.0f, Random(180.0f) - 90.0f));
+	//	objectNode->SetRotation(Quaternion(0.0f, Random(360.0f), 0.0f));
+	//	objectNode->SetScale(0.2f + Random(0.5f));
+	//	auto* object = objectNode->CreateComponent<StaticModel>();
+	//	object->SetModel(cache->GetResource<Model>("Models/Mushroom.mdl"));
+	//	object->SetMaterial(cache->GetResource<Material>("Materials/Mushroom.xml"));
+	//	object->SetCastShadows(true);
 
-		/*auto* body = objectNode->CreateComponent<RigidBody>();
-		body->SetCollisionLayer(2);
-		auto* shape = objectNode->CreateComponent<CollisionShape>();
-		shape->SetConvexHull(object->GetModel(), 0);*/
-	}
+	//	/*auto* body = objectNode->CreateComponent<RigidBody>();
+	//	body->SetCollisionLayer(2);
+	//	auto* shape = objectNode->CreateComponent<CollisionShape>();
+	//	shape->SetConvexHull(object->GetModel(), 0);*/
+	//}
 
 	// Create movable boxes. Let them fall from the sky at first
-	const unsigned NUM_BOXES = 5;
-	for (unsigned i = 0; i < NUM_BOXES; ++i) {
-		float scale = Random(2.0f) + 0.5f;
+	//const unsigned NUM_BOXES = 5;
+	//for (unsigned i = 0; i < NUM_BOXES; ++i) {
+	//	float scale = Random(2.0f) + 0.5f;
 
-		Node* objectNode = scene_->CreateChild("Box");
-		objectNode->SetPosition(Vector3(Random(40.0f) - 20.0f, Random(10.0f) + 10.0f, Random(40.0f) - 20.0f));
-		objectNode->SetRotation(Quaternion(Random(360.0f), Random(360.0f), Random(360.0f)));
-		objectNode->SetScale(scale);
-		auto* object = objectNode->CreateComponent<StaticModel>();
-		object->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
-		object->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
-		object->SetCastShadows(true);
+	//	Node* objectNode = scene_->CreateChild("Box");
+	//	objectNode->SetPosition(Vector3(Random(40.0f) - 20.0f, Random(10.0f) + 10.0f, Random(40.0f) - 20.0f));
+	//	objectNode->SetRotation(Quaternion(Random(360.0f), Random(360.0f), Random(360.0f)));
+	//	objectNode->SetScale(scale);
+	//	auto* object = objectNode->CreateComponent<StaticModel>();
+	//	object->SetModel(cache->GetResource<Model>("Models/Box.mdl"));
+	//	object->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
+	//	object->SetCastShadows(true);
 
-		auto* body = objectNode->CreateComponent<RigidBody>();
-		body->SetCollisionLayer(130); //2nd and 8th
-		// Bigger boxes will be heavier and harder to move
-		body->SetMass(scale * 2.0f);
-		auto* shape = objectNode->CreateComponent<CollisionShape>();
-		shape->SetBox(Vector3::ONE);
-	}
+	//	auto* body = objectNode->CreateComponent<RigidBody>();
+	//	body->SetCollisionLayer(130); //2nd and 8th
+	//	// Bigger boxes will be heavier and harder to move
+	//	body->SetMass(scale * 2.0f);
+	//	auto* shape = objectNode->CreateComponent<CollisionShape>();
+	//	shape->SetBox(Vector3::ONE);
+	//}
+
+	//{
+	//	Node* grassNode = scene_->CreateChild("GrassFlat");
+	//	grassNode->SetPosition(Vector3(-12.0f, 0.0f, 0.0f));
+	//	grassNode->SetScale(7.0f);
+	//	StaticModel* model = grassNode->CreateComponent<StaticModel>();
+	//	model->SetModel(cache->GetResource<Model>("GrassDynamic/Models/PlaneGrassBlades.mdl"));
+	//	Material* material = cache->GetResource<Material>("GrassDynamic/dynamicgrass.xml");
+	//	model->SetMaterial(material);
+
+	//	if (grassNode) {
+	//		DynamicGrass* grassLogic = grassNode->CreateComponent<DynamicGrass>();
+	//		grassLogic->SetGrassMaterial(material);
+	//	}
+	//}
 
 	{
-		//Node* grassNode = scene_->GetChild("Grass_Plane", false);
-		Node* grassNode = scene_->CreateChild("GrassFlat");
-		grassNode->SetPosition(Vector3(-12.0f, 0.0f, 0.0f));
-		grassNode->SetScale(7.0f);
-		StaticModel* model = grassNode->CreateComponent<StaticModel>();
-		model->SetModel(cache->GetResource<Model>("GrassDynamic/Models/PlaneGrassBlades.mdl"));
-		//model->SetModel(cache->GetResource<Model>("GrassDynamic/Models/PlaneOld.mdl"));
-		Material* material = cache->GetResource<Material>("GrassDynamic/dynamicgrass.xml");
-		model->SetMaterial(material);
-
-		if (grassNode) {
-			DynamicGrass* grassLogic = grassNode->CreateComponent<DynamicGrass>();
-			grassLogic->SetGrassMaterial(material);
+		PODVector<Node*> grassBearers;
+		scene_->GetNodesWithTag(grassBearers, "GrassBearer");
+		for (Node* grassBearerNode : grassBearers) {
+			if (grassBearerNode->HasComponent<StaticModel>()) {
+				if (grassBearerNode->GetComponent<StaticModel>()->GetMaterial()->GetName().Contains("dynamicgrass")) {
+					// Clone the material to ensure shader uniforms are per-object
+					grassBearerNode->GetComponent<StaticModel>()->SetMaterial(grassBearerNode->GetComponent<StaticModel>()->GetMaterial()->Clone());
+					DynamicGrass* grassLogic = grassBearerNode->CreateComponent<DynamicGrass>();
+					grassLogic->SetGrassMaterial(grassBearerNode->GetComponent<StaticModel>()->GetMaterial());
+				}
+			}
 		}
 	}
 }
@@ -386,7 +399,7 @@ void CharacterDemo::SubscribeToEvents() {
 	// Subscribe to PostUpdate event for updating the camera position after physics simulation
 	SubscribeToEvent(E_POSTUPDATE, URHO3D_HANDLER(CharacterDemo, HandlePostUpdate));
 
-	//SubscribeToEvent(E_POSTRENDERUPDATE, URHO3D_HANDLER(CharacterDemo, HandlePostRenderUpdate));
+	SubscribeToEvent(E_POSTRENDERUPDATE, URHO3D_HANDLER(CharacterDemo, HandlePostRenderUpdate));
 
 	// Unsubscribe the SceneUpdate event from base class as the camera node is being controlled in HandlePostUpdate() in this sample
 	UnsubscribeFromEvent(E_SCENEUPDATE);
@@ -519,7 +532,7 @@ void CharacterDemo::HandlePostUpdate(StringHash eventType, VariantMap& eventData
 	renderer->SetShadowSoftness(2.5f);*/
 }
 
-//void CharacterDemo::HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData) {
-//	//if (drawDebug_)
-//	//scene_->GetComponent<PhysicsWorld>()->DrawDebugGeometry(false);
-//}
+void CharacterDemo::HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData) {
+	//if (drawDebug_)
+	scene_->GetComponent<PhysicsWorld>()->DrawDebugGeometry(false);
+}

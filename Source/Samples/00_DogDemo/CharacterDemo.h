@@ -123,7 +123,7 @@ private:
 	void HandlePostUpdate(StringHash eventType, VariantMap& eventData);
 
 	/// Mainly for drawing debug geom
-	//void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData);
+	void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData);
 
 	/// Touch utility object.
 	SharedPtr<Touch> touch_;
