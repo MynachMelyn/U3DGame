@@ -53,7 +53,7 @@ void NewCharacter::RegisterObject(Context* context) {
 
 void NewCharacter::Start() {
 	// Component has been inserted into its scene node. Subscribe to events now
-	SubscribeToEvent(GetNode(), E_NODECOLLISION, URHO3D_HANDLER(NewCharacter, HandleNodeCollision));
+	//SubscribeToEvent(GetNode(), E_NODECOLLISION, URHO3D_HANDLER(NewCharacter, HandleNodeCollision));
 	Lightning::RegisterObject(context_);
 	SelfEmitToggler::RegisterObject(context_);
 	SelfDestructor::RegisterObject(context_);
@@ -61,6 +61,11 @@ void NewCharacter::Start() {
 
 void NewCharacter::DelayedStart() {
 	auto* cache = GetSubsystem<ResourceCache>();
+
+
+
+	SubscribeToEvent(lifter, E_NODECOLLISION, URHO3D_HANDLER(NewCharacter, HandleNodeCollision));
+
 
 	// Find the model adjustment node, don't do it recursively (should be top level)
 	SubscribeToEvent(node_, E_ANIMATIONTRIGGER, URHO3D_HANDLER(NewCharacter, HandleAnimationTrigger));
@@ -178,15 +183,15 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		moveDir.Normalize();
 
 	// If in air, allow control, but slower than when on ground - using tertiary syntax
-	body->ApplyForce(moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
-	//body->ApplyForce(node_->GetRotation() * Vector3::FORWARD * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
+	//body->ApplyForce(moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
+	body->ApplyForce(node_->GetRotation() * Vector3::FORWARD * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
 
 	// If we're trying to move, lower the friction
-	/*if (moveDir != Vector3::ZERO || !canWalk) {
+	if (moveDir != Vector3::ZERO || !canWalk) {
 		body->SetFriction(ACCELERATION_FRICTION);
 	} else {
 		body->SetFriction(BRAKING_FRICTION);
-	}*/
+	}
 	if (planeVelocity.Length() > 0.01f) {
 		body->ApplyForce(-planeVelocity);
 	} else {
@@ -248,7 +253,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 			// 90° sideways? Could be nice to have some rolling about the feet to change direction
 			//Vector3 sideVector = Vector3(-moveDir.z_, moveDir.y_, moveDir.x_);
 			//Vector3 newUp = Vector3(sideVector).Lerp(node_->GetRotation() * Vector3::UP, timeStep);
-			Vector3 normal = GetFloorNormal(node_->LocalToWorld(frontSphere->GetPosition()), node_->LocalToWorld(backSphere->GetPosition()), Vector3::UP);
+			Vector3 normal = GetFloorNormal(Vector3::ZERO, node_->LocalToWorld(backSphere->GetPosition()), Vector3::ZERO);
 			//node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), node_->GetRotation() * Vector3::UP); // Could simply use World::UP
 			//node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), normal); // Could simply use World::UP
 			//node_->LookAt(node_->GetPosition() + moveDir, normal); // Could simply use World::UP
@@ -256,7 +261,12 @@ void NewCharacter::FixedUpdate(float timeStep) {
 			Quaternion grndTilt = Quaternion(Vector3(0.0f, 1.0f, 0.0f), normal);
 			//node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), Vector3::UP);
 			node_->SetRotation(Quaternion(justYaw, Vector3::UP).Slerp(Quaternion(moveYaw, Vector3::UP), TURN_MATCH_RATE * timeStep));
+
+			// Rotate to match normal below
 			node_->Rotate(grndTilt, Urho3D::TS_WORLD);
+
+
+			// Need to rotate around the lifter, ideally, to avoid intersection with ground (sorta works currently)
 
 		}
 
@@ -446,7 +456,7 @@ void NewCharacter::HandleNodeCollision(StringHash eventType, VariantMap& eventDa
 			/*float contactImpulse = */contacts.ReadFloat();
 
 			// If contact is below node center and pointing up, assume it's a ground contact
-			if (contactPosition.y_ < (node_->GetPosition().y_ + 1.0f)) {
+			if (contactPosition.y_ < (((RigidBody*)eventData[P_BODY].GetPtr())->GetPosition().y_ + 1.0f)) {
 				float level = contactNormal.y_;
 				if (level > 0.75)
 					onGround_ = true;

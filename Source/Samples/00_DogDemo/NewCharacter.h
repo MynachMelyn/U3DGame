@@ -36,8 +36,8 @@ const float ARTIFICIAL_BRAKING_FORCE = 5.0f;
 const float WALK_TO_SPRINT_SPEED_ANIM = 6.0f;
 const float SPRINT_TO_GALLOP_SPEED_ANIM = 15.0f;
 
-const float WALK_FORCE = 20.0f;
-const float SPRINT_FORCE = 70.0f;
+const float WALK_FORCE = 70.0f;
+const float SPRINT_FORCE = 140.0f;
 const float CHARGE_IMPEDED_FORCE = 10.0f;
 
 const float BRAKING_FRICTION = 1.8f;
@@ -86,7 +86,7 @@ public:
 
 	CollisionShape* frontSphere;
 	CollisionShape* backSphere;
-
+	Node* lifter;
 
 private:
 	/// Handle physics collision event.
