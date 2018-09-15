@@ -184,7 +184,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 
 	// If in air, allow control, but slower than when on ground - using tertiary syntax
 	//body->ApplyForce(moveDir * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
-	body->ApplyForce(node_->GetRotation() * Vector3::FORWARD * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
+	body->ApplyForce(node_->GetRotation() * Vector3::FORWARD * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE) * moveDir.Length());
 
 	// If we're trying to move, lower the friction
 	if (moveDir != Vector3::ZERO || !canWalk) {
@@ -235,7 +235,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		}*/
 		float justYaw = node_->GetRotation().YawAngle();
 		Quaternion fuck; fuck.FromLookRotation(moveDir, Vector3::UP);
-		float moveYaw = fuck.YawAngle();
+		float moveYaw = moveDir == Vector3::ZERO ? justYaw : fuck.YawAngle();
 		//Vector3 forwardCurrent = node_->GetRotation() * Vector3::FORWARD;
 		// Lerp between current and target (move dir, kinda) using time since last "turn". Capped at 1.0 using that tertiary expression
 		if (planeVelocity.Length() > 0.0f && moveDir != Vector3::ZERO) {
@@ -253,22 +253,24 @@ void NewCharacter::FixedUpdate(float timeStep) {
 			// 90° sideways? Could be nice to have some rolling about the feet to change direction
 			//Vector3 sideVector = Vector3(-moveDir.z_, moveDir.y_, moveDir.x_);
 			//Vector3 newUp = Vector3(sideVector).Lerp(node_->GetRotation() * Vector3::UP, timeStep);
-			Vector3 normal = GetFloorNormal(Vector3::ZERO, node_->LocalToWorld(backSphere->GetPosition()), Vector3::ZERO);
+
 			//node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), node_->GetRotation() * Vector3::UP); // Could simply use World::UP
 			//node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), normal); // Could simply use World::UP
 			//node_->LookAt(node_->GetPosition() + moveDir, normal); // Could simply use World::UP
-			// Calculates quat that goes from 0,1,0 to normal
-			Quaternion grndTilt = Quaternion(Vector3(0.0f, 1.0f, 0.0f), normal);
 			//node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), Vector3::UP);
-			node_->SetRotation(Quaternion(justYaw, Vector3::UP).Slerp(Quaternion(moveYaw, Vector3::UP), TURN_MATCH_RATE * timeStep));
-
-			// Rotate to match normal below
-			node_->Rotate(grndTilt, Urho3D::TS_WORLD);
 
 
 			// Need to rotate around the lifter, ideally, to avoid intersection with ground (sorta works currently)
-
 		}
+		node_->SetRotation(
+			Quaternion(justYaw, node_->GetRotation() * Vector3::UP).Slerp(Quaternion(moveYaw, node_->GetRotation() * Vector3::UP), TURN_MATCH_RATE * timeStep)
+		);
+		//		node_->Yaw(-Sign(justYaw - moveYaw) * TURN_MATCH_RATE * timeStep * 15.0f);
+
+		Vector3 normal = GetFloorNormal(Vector3::ZERO, node_->LocalToWorld(backSphere->GetPosition()), Vector3::ZERO);
+		//normal = (node_->GetRotation() * Vector3::UP).Lerp(normal, TURN_MATCH_RATE * timeStep);
+		Quaternion grndTilt = Quaternion(node_->GetRotation() * Vector3::UP, normal);
+		node_->Rotate(grndTilt, Urho3D::TS_WORLD);
 
 
 		float weightR = animCtrl->GetWeight("Beagle/Models/RotateRight.ani");

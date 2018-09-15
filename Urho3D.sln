@@ -385,7 +385,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "50_Urho2DPlatformer", "Sour
 		{36C62202-BF37-3E02-8B2F-94544E442F7B} = {36C62202-BF37-3E02-8B2F-94544E442F7B}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "51_Urho2DStretchableSprite", "Source\Samples\51_Urho2DStretchableSprite\51_Urho2DStretchableSprite.vcxproj", "{3DAA9D45-4A6C-3FE3-A2DB-C7D2E64F7250}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "63_Offorad", "Source\Samples\51_Urho2DStretchableSprite\51_Urho2DStretchableSprite.vcxproj", "{3DAA9D45-4A6C-3FE3-A2DB-C7D2E64F7250}"
 	ProjectSection(ProjectDependencies) = postProject
 		{159A54C9-2165-38A0-A851-45235E3783F7} = {159A54C9-2165-38A0-A851-45235E3783F7}
 		{36C62202-BF37-3E02-8B2F-94544E442F7B} = {36C62202-BF37-3E02-8B2F-94544E442F7B}
@@ -615,6 +615,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{8B9E46D3-6078-47F7-86E9-23882F764E36}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "00_DogDemo", "Source\Samples\00_DogDemo\00_DogDemo.vcxproj", "{D0C683A4-B2AE-426F-BD27-5C0EA0717153}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "51_Urho2DStretchableSprite", "Source\Samples\63_OffroadVehicle\63_OffroadVehicle.vcxproj", "{E0CAE356-6F37-40DA-BF3E-470732C5FE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1151,6 +1153,12 @@ Global
 		{D0C683A4-B2AE-426F-BD27-5C0EA0717153}.Release|x64.Build.0 = Release|x64
 		{D0C683A4-B2AE-426F-BD27-5C0EA0717153}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
 		{D0C683A4-B2AE-426F-BD27-5C0EA0717153}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{E0CAE356-6F37-40DA-BF3E-470732C5FE2F}.Debug|x64.ActiveCfg = Debug|x64
+		{E0CAE356-6F37-40DA-BF3E-470732C5FE2F}.Debug|x64.Build.0 = Debug|x64
+		{E0CAE356-6F37-40DA-BF3E-470732C5FE2F}.Release|x64.ActiveCfg = Release|x64
+		{E0CAE356-6F37-40DA-BF3E-470732C5FE2F}.Release|x64.Build.0 = Release|x64
+		{E0CAE356-6F37-40DA-BF3E-470732C5FE2F}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{E0CAE356-6F37-40DA-BF3E-470732C5FE2F}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

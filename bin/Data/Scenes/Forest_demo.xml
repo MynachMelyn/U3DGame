@@ -76894,7 +76894,7 @@
 		</component>
 		<component type="RigidBody" id="16806642">
 			<attribute name="Physics Position" value="-24.9374 -5.69785 0" />
-			<attribute name="Mass" value="1" />
+			<attribute name="Mass" value="88" />
 			<attribute name="Friction" value="0.2" />
 			<attribute name="Use Gravity" value="false" />
 			<attribute name="Is Kinematic" value="true" />

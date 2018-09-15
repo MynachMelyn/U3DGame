@@ -15,11 +15,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3DAA9D45-4A6C-3FE3-A2DB-C7D2E64F7250}</ProjectGuid>
+    <ProjectGuid>{E0CAE356-6F37-40DA-BF3E-470732C5FE2F}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
-    <ProjectName>63_Offorad</ProjectName>
+    <ProjectName>51_Urho2DStretchableSprite</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -61,8 +61,8 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\repos\Urho\urho3d-master\bin\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">63_OffroadVehicle.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">63_OffroadVehicle_d</TargetName>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">51_Urho2DStretchableSprite.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">51_Urho2DStretchableSprite_d</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
@@ -261,11 +261,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\63_OffroadVehicle\RaycastVehicle.h" />
-    <ClInclude Include="..\63_OffroadVehicle\SmoothStep.h" />
-    <ClInclude Include="..\63_OffroadVehicle\Vehicle.h" />
-    <ClInclude Include="..\63_OffroadVehicle\VehicleDemo.h" />
-    <ClInclude Include="..\63_OffroadVehicle\WheelTrackModel.h" />
+    <ClCompile Include="D:\repos\Urho\urho3d-master\Source\Samples\51_Urho2DStretchableSprite\Urho2DStretchableSprite.cpp" />
+    <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Samples\51_Urho2DStretchableSprite\Urho2DStretchableSprite.h" />
     <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Samples\Sample.h" />
     <ClInclude Include="D:\repos\Urho\urho3d-master\Source\Samples\Sample.inl" />
     <None Include="D:\repos\Urho\urho3d-master\bin\CoreData" />
@@ -280,13 +277,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{159A54C9-2165-38A0-A851-45235E3783F7}</Project>
       <Name>Urho3D</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\63_OffroadVehicle\RaycastVehicle.cpp" />
-    <ClCompile Include="..\63_OffroadVehicle\SmoothStep.cpp" />
-    <ClCompile Include="..\63_OffroadVehicle\Vehicle.cpp" />
-    <ClCompile Include="..\63_OffroadVehicle\VehicleDemo.cpp" />
-    <ClCompile Include="..\63_OffroadVehicle\WheelTrackModel.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
