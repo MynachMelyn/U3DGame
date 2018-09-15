@@ -118,7 +118,8 @@ void CharacterDemo::SetupViewport() {
 
 	SharedPtr<Viewport> rttViewport(new Viewport(context_, scene_, cameraNode_->GetComponent<Camera>(), IntRect(0.0f, 0.0f, 1920.0f, 1080.0f)));
 
-	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth_lowres.xml"));
+	//rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth_lowres.xml"));
+	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
 
 	// TODO: Render to Texture of 1/4 res, display that to screen in full on a quad
 
@@ -303,7 +304,7 @@ void CharacterDemo::CreateCharacter() {
 	auto* cache = GetSubsystem<ResourceCache>();
 
 	Node* objectNode = scene_->CreateChild("Beagle");
-
+	objectNode->SetScale(0.22f);
 
 	// Set position to level spawn point (if multiple exist, use first)
 	{
@@ -314,18 +315,18 @@ void CharacterDemo::CreateCharacter() {
 	// new: adjust scale to fit default scene a bit better - not entirely needed if we just pan camera out
 
 	// spin node - can be good for scaling too!
-	Node* adjustNode = objectNode->CreateChild("AdjNode");
+	//Node* adjustNode = objectNode->CreateChild("AdjNode");
 	//	adjustNode->SetRotation(Quaternion(180, Vector3(0, 1, 0)));
-	adjustNode->SetScale(0.22f); //Please don't use this later, could be annoying. Scale around default import scales for chars n items.
-	adjustNode->SetPosition(Vector3(0.0f, 0.0f, 0.0f));
+	//adjustNode->SetScale(0.22f); //Please don't use this later, could be annoying. Scale around default import scales for chars n items.
+	//adjustNode->SetPosition(Vector3(0.0f, 0.0f, 0.0f));
 
 	// Create the rendering component + animation controller
-	auto* object = adjustNode->CreateComponent<AnimatedModel>();
+	auto* object = objectNode->CreateComponent<AnimatedModel>();
 	object->SetModel(cache->GetResource<Model>("Beagle/Models/Geo_Beagle.mdl"));
 	object->SetMaterial(cache->GetResource<Material>("Beagle/Materials/lambert2SGUnlit.xml"));
 	object->SetCastShadows(true);
-	adjustNode->CreateComponent<AnimationController>();
-	auto* animCtrl = adjustNode->GetComponent<AnimationController>(true);
+	objectNode->CreateComponent<AnimationController>();
+	auto* animCtrl = objectNode->GetComponent<AnimationController>(true);
 
 	// To stop lightning-checks from hitting the dog himself
 	//object->SetViewMask(0x7fffffff);
@@ -345,7 +346,7 @@ void CharacterDemo::CreateCharacter() {
 
 	// Create rigidbody, and set non-zero mass so that the body becomes dynamic
 	auto* body = objectNode->CreateComponent<RigidBody>();
-	body->SetFriction(3.0f);
+	body->SetFriction(0.0f);
 	body->SetCollisionLayer(129); //Allows collision with grass as well, Layer1, Layer8
 	//body->SetMass(1.0f);
 	body->SetMass(2.0f);
@@ -359,20 +360,20 @@ void CharacterDemo::CreateCharacter() {
 	body->SetCollisionEventMode(COLLISION_ALWAYS);
 
 	// Set a capsule shape for collision
-	auto* shape = objectNode->CreateComponent<CollisionShape>();
-	auto* shape2 = objectNode->CreateComponent<CollisionShape>();
-	auto* shape3 = objectNode->CreateComponent<CollisionShape>();
+	auto* footSphereFr = objectNode->CreateComponent<CollisionShape>();
+	auto* footSphereBa = objectNode->CreateComponent<CollisionShape>();
+	auto* bodyBox = objectNode->CreateComponent<CollisionShape>();
 
-	//shape->SetCylinder(1.0f, 1.8f, Vector3(0.0, 0.9, 0.0f));
-	shape->SetCapsule(0.7f, 1.8f, Vector3(0.0f, 0.9f, -0.1f), Quaternion(90, Vector3::LEFT));
-	//shape2->SetBox(Vector3(0.6f, 0.5f, 1.7f), Vector3(0.0f, 0.25f, -0.3f));
-	shape2->SetCapsule(0.8f, 2.2f, Vector3(0.0f, 0.4f, -0.3f), Quaternion(90.0f, 0.0f, 0.0f));
-	shape3->SetCapsule(0.4f, 0.4f, Vector3(0.0f, 1.5f, 0.8f), Quaternion(85, Vector3::LEFT));
+	footSphereFr->SetSphere(3.0f, Vector3(0.0f, 1.5f, 2.0f));
+	footSphereBa->SetSphere(3.0f, Vector3(0.0f, 1.5f, -5.0f));
+	bodyBox->SetBox(Vector3(2.0f, 3.0f, 7.0f), Vector3(0.0f, 4.0f, -0.5f));
 
 	// Create the character logic component, which takes care of steering the rigidbody
 	// Remember it so that we can set the controls. Use a WeakPtr because the scene hierarchy already owns it
 	// and keeps it alive as long as it's not removed from the hierarchy
 	character_ = objectNode->CreateComponent<NewCharacter>();
+	character_->frontSphere = footSphereFr;
+	character_->backSphere = footSphereBa;
 	//new: add camera to given bone
 	//((NewCharacter*)character_)->setupCamera(object->GetSkeleton().GetBone("Arm IK.R")->node_, object->GetSkeleton().GetBone("Item.R")->node_);
 	// could use AdjustNode instead of scene

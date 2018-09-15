@@ -3,6 +3,7 @@
 #include <Urho3D/Input/Controls.h>
 #include <Urho3D/Scene/LogicComponent.h>
 #include <SDL/SDL_scancode.h>
+#include <Lightning.h>
 
 using namespace Urho3D;
 
@@ -39,7 +40,7 @@ const float WALK_FORCE = 20.0f;
 const float SPRINT_FORCE = 70.0f;
 const float CHARGE_IMPEDED_FORCE = 10.0f;
 
-const float BRAKING_FRICTION = 3.8f;
+const float BRAKING_FRICTION = 1.8f;
 
 const float WALK_FRICTION = 1.0f;
 const float SPRINT_FRICTION = 6.0f;
@@ -83,6 +84,9 @@ public:
 	Node* camera;
 	Node* itemBoneNodeR;
 
+	CollisionShape* frontSphere;
+	CollisionShape* backSphere;
+
 
 private:
 	/// Handle physics collision event.
@@ -116,8 +120,6 @@ private:
 	float ACCELERATION_FRICTION = WALK_FRICTION;
 	float MAX_SPEED = MAX_WALK_SPEED;
 
-	Node* modelAdjustmentNode_;
-
 	int signRotCoM;
 	float speedFactorCoM = 0.0f;
 	float speedFactorBodyTwist = 0.0f;
@@ -145,4 +147,7 @@ private:
 	float lightning_elapsedTime = 0.0f;
 	float lightning_maxTime = 1.0f;
 	float lightningRun_maxTime = 1.0f;
+
+	Vector3 GetFloorNormal(Vector3 pos1, Vector3 pos2, Vector3 charUp);
+	Vector3 RaycastDown(Vector3 from);
 };

@@ -27,8 +27,6 @@
 #include <Urho3D/Physics/CollisionShape.h>
 #include <Urho3D/Physics/Constraint.h>
 
-#include <Lightning.h>
-
 #include <NewCharacter.h>
 
 NewCharacter::NewCharacter(Context* context) :
@@ -65,10 +63,9 @@ void NewCharacter::DelayedStart() {
 	auto* cache = GetSubsystem<ResourceCache>();
 
 	// Find the model adjustment node, don't do it recursively (should be top level)
-	modelAdjustmentNode_ = node_->GetChild("AdjNode", false);
-	SubscribeToEvent(modelAdjustmentNode_, E_ANIMATIONTRIGGER, URHO3D_HANDLER(NewCharacter, HandleAnimationTrigger));
+	SubscribeToEvent(node_, E_ANIMATIONTRIGGER, URHO3D_HANDLER(NewCharacter, HandleAnimationTrigger));
 
-	for (Bone bone : modelAdjustmentNode_->GetComponent<AnimatedModel>()->GetSkeleton().GetBones()) {
+	for (Bone bone : node_->GetComponent<AnimatedModel>()->GetSkeleton().GetBones()) {
 		if (bone.name_.Contains("PawIK", false)) {
 			Node* particleNode = bone.node_->CreateChild();
 			particleNode->SetName(bone.name_);
@@ -185,53 +182,36 @@ void NewCharacter::FixedUpdate(float timeStep) {
 	//body->ApplyForce(node_->GetRotation() * Vector3::FORWARD * (softGrounded ? MOVE_FORCE : INAIR_MOVE_FORCE));
 
 	// If we're trying to move, lower the friction
-	if (moveDir != Vector3::ZERO || !canWalk) {
+	/*if (moveDir != Vector3::ZERO || !canWalk) {
 		body->SetFriction(ACCELERATION_FRICTION);
 	} else {
 		body->SetFriction(BRAKING_FRICTION);
-	}
-
-
-	Vector3 forwardCurrent = node_->GetRotation() * Vector3::FORWARD;
-
-	// Lerp between current and target (move dir, kinda) using time since last "turn". Capped at 1.0 using that tertiary expression
-	if (planeVelocity.Length() > 0.0f && moveDir != Vector3::ZERO) {
-		if (moveDir.Equals(lastMoveDir)) {
-			deltaSinceLastTurn += deltaSinceLastTurn > 1.0f ? 0.0f : timeStep;
-		} else {
-			if (moveDir.Equals(lastMoveDir * -1)) {
-				// Rotate CW just a tiny bit to assist the LERP (1°)
-				forwardCurrent = Quaternion(1, Vector3(0.0, 1.0, 0.0)) * forwardCurrent;
-				//body->ApplyImpulse(Vector3(0.0, 40.0, 0.0));
-			}
-			deltaSinceLastTurn = 0.0f;
-		}
-		lastMoveDir = (moveDir == Vector3::ZERO) ? lastMoveDir : moveDir;
-
-		// 90° sideways? Could be nice to have some rolling about the feet to change direction
-		//Vector3 sideVector = Vector3(-moveDir.z_, moveDir.y_, moveDir.x_);
-		//Vector3 newUp = Vector3(sideVector).Lerp(node_->GetRotation() * Vector3::UP, timeStep);
-		node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), node_->GetRotation() * Vector3::UP); // Could simply use World::UP
-
+	}*/
+	if (planeVelocity.Length() > 0.01f) {
+		body->ApplyForce(-planeVelocity);
+	} else {
+		body->SetLinearVelocity(Vector3(0.0f, body->GetLinearVelocity().y_, 0.0f));
 	}
 
 
 	// Speed based rotations
 	{
+
+		// todo - this has been removed because it is difficult to combine with yawing - perhaps move to an additive animation layer?
+
 		// Figure out which "side" we're on
-		signRotCoM = Sign(moveDir.CrossProduct(planeVelocity.Normalized()).y_);
+		/*signRotCoM = Sign(moveDir.CrossProduct(planeVelocity.Normalized()).y_);
 		//signRotCoM = Sign(moveDir.CrossProduct(node_->GetRotation() * Vector3::FORWARD).y_);
 		// Calculate the rotation angle for that thing that animals do to keep their centre of gravity (genauso wie Overgrowth)
-		// 45° * difference between accel and velo vectors, unless we're STATIONARY OR CLOSE ENOUGH 
+		// 45° * difference between accel and velo vectors, unless we're STATIONARY OR CLOSE ENOUGH
 		if (moveDir != Vector3::ZERO && moveDir.AbsDotProduct(planeVelocity.Normalized()) < 0.98f) {
 			if (planeVelocity.Length() > MAX_WALK_SPEED) {
 				// Hit max CoM compensation angle at 24u/s, any more and ignore
-				//speedFactorCoM = Max(Min(1 / (MAX_SPRINT_SPEED - planeVelocity.Length()), 1.0f), 0.0f);
 				speedFactorCoM = Max(Min(planeVelocity.Length() / MAX_SPRINT_SPEED, 1.0f), 0.0f);
 
-				modelAdjustmentNode_->SetRotation(
-					modelAdjustmentNode_->GetRotation().Slerp(
-						Quaternion(signRotCoM * speedFactorCoM * 45 * (1 - moveDir.DotProduct(planeVelocity.Normalized())), modelAdjustmentNode_->GetRotation() * Vector3::FORWARD)
+				node_->SetRotation(
+					node_->GetRotation().Slerp(
+						Quaternion(signRotCoM * speedFactorCoM * 45 * (1 - moveDir.DotProduct(planeVelocity.Normalized())), node_->GetRotation() * Vector3::FORWARD)
 						, 10.0f * timeStep)
 				);
 
@@ -242,11 +222,42 @@ void NewCharacter::FixedUpdate(float timeStep) {
 			}
 		} else {
 		resetlerp:
-			if (modelAdjustmentNode_->GetRotation().w_ > 0.01) {
-				modelAdjustmentNode_->SetRotation(modelAdjustmentNode_->GetRotation().Slerp(Quaternion::IDENTITY, 3.0f * timeStep));
+			if (node_->GetRotation().w_ > 0.01) {
+				node_->SetRotation(node_->GetRotation().Slerp(Quaternion::IDENTITY, 3.0f * timeStep));
 			} else {
-				modelAdjustmentNode_->SetRotation(Quaternion::IDENTITY);
+				node_->SetRotation(Quaternion::IDENTITY);
 			}
+		}*/
+		float justYaw = node_->GetRotation().YawAngle();
+		Quaternion fuck; fuck.FromLookRotation(moveDir, Vector3::UP);
+		float moveYaw = fuck.YawAngle();
+		//Vector3 forwardCurrent = node_->GetRotation() * Vector3::FORWARD;
+		// Lerp between current and target (move dir, kinda) using time since last "turn". Capped at 1.0 using that tertiary expression
+		if (planeVelocity.Length() > 0.0f && moveDir != Vector3::ZERO) {
+			if (moveDir.Equals(lastMoveDir)) {
+				deltaSinceLastTurn += deltaSinceLastTurn > 1.0f ? 0.0f : timeStep;
+			} else {
+				if (moveDir.Equals(lastMoveDir * -1)) {
+					// Rotate CW just a tiny bit to assist the LERP (1°)
+					//forwardCurrent = Quaternion(1, Vector3(0.0, 1.0, 0.0)) * forwardCurrent;
+				}
+				deltaSinceLastTurn = 0.0f;
+			}
+			lastMoveDir = (moveDir == Vector3::ZERO) ? lastMoveDir : moveDir;
+
+			// 90° sideways? Could be nice to have some rolling about the feet to change direction
+			//Vector3 sideVector = Vector3(-moveDir.z_, moveDir.y_, moveDir.x_);
+			//Vector3 newUp = Vector3(sideVector).Lerp(node_->GetRotation() * Vector3::UP, timeStep);
+			Vector3 normal = GetFloorNormal(node_->LocalToWorld(frontSphere->GetPosition()), node_->LocalToWorld(backSphere->GetPosition()), Vector3::UP);
+			//node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), node_->GetRotation() * Vector3::UP); // Could simply use World::UP
+			//node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), normal); // Could simply use World::UP
+			//node_->LookAt(node_->GetPosition() + moveDir, normal); // Could simply use World::UP
+			// Calculates quat that goes from 0,1,0 to normal
+			Quaternion grndTilt = Quaternion(Vector3(0.0f, 1.0f, 0.0f), normal);
+			//node_->LookAt(node_->GetPosition() + forwardCurrent.Lerp(moveDir, TURN_MATCH_RATE * timeStep), Vector3::UP);
+			node_->SetRotation(Quaternion(justYaw, Vector3::UP).Slerp(Quaternion(moveYaw, Vector3::UP), TURN_MATCH_RATE * timeStep));
+			node_->Rotate(grndTilt, Urho3D::TS_WORLD);
+
 		}
 
 
@@ -447,7 +458,7 @@ void NewCharacter::HandleNodeCollision(StringHash eventType, VariantMap& eventDa
 void NewCharacter::HandleAnimationTrigger(StringHash eventType, VariantMap& eventData) {
 	using namespace AnimationTrigger;
 
-	AnimatedModel* model = modelAdjustmentNode_->GetComponent<AnimatedModel>();
+	AnimatedModel* model = node_->GetComponent<AnimatedModel>();
 	AnimationState* state = model->GetAnimationState(eventData[P_NAME].GetString());
 	if (!state) {
 		return;
@@ -480,6 +491,86 @@ void NewCharacter::HandleAnimationTrigger(StringHash eventType, VariantMap& even
 	}
 }
 
+// Not using charUp atm.
+Vector3 NewCharacter::GetFloorNormal(Vector3 pos1, Vector3 pos2, Vector3 charUp) {
+	//Vector3 hit1 = pos1, hit2 = pos2;
+
+	//Vector3 right = Quaternion(90, Vector3::UP)* (pos1 - pos2); // Right of the two vectors
+	//right.Normalize();
+
+	//PODVector<RayQueryResult> results;
+	//Ray ray = Ray(pos1, Vector3::DOWN);
+	//RayOctreeQuery query(results, ray, Urho3D::RAY_TRIANGLE, 10.0f, Urho3D::DRAWABLE_GEOMETRY, -1);
+	//node_->GetScene()->GetComponent<Urho3D::Octree>()->Raycast(query);
+
+	//for (RayQueryResult result : results) {
+	//	if (result.node_->HasComponent<RigidBody>()) {
+	//		if (!result.node_->GetComponent<RigidBody>()->IsTrigger()) {
+	//			hit1 = result.position_;
+	//			String asd = result.node_->GetName();
+	//			break;
+	//		}
+	//	}
+	//}
+
+	//results.Clear();
+
+	//ray = Ray(pos2, Vector3::DOWN);
+	//RayOctreeQuery query2(results, ray, Urho3D::RAY_TRIANGLE, 10.0f, Urho3D::DRAWABLE_GEOMETRY, -1);
+	//node_->GetScene()->GetComponent<Urho3D::Octree>()->Raycast(query2);
+
+	//for (RayQueryResult result : results) {
+	//	if (result.node_->HasComponent<RigidBody>()) {
+	//		if (!result.node_->GetComponent<RigidBody>()->IsTrigger() && !result.node_->GetName().Compare("Beagle")) {
+	//			//hit2 = result.position_;
+	//			hit2 = result.normal_;
+	//			break;
+	//		}
+	//	}
+	//}
+
+	//Vector3 normal = (hit1 - hit2).Normalized().CrossProduct(right);
+
+	//normal = hit2;
+
+	//return normal;
+
+	Vector3 corner1 = pos2 + Vector3(-1.0f, 0.0f, -1.0f) * 0.1f;
+	Vector3 corner2 = pos2 + Vector3(1.0f, 0.0f, -1.0f) * 0.1f;
+	Vector3 corner3 = pos2 + Vector3(1.0f, 0.0f, 1.0f) * 0.1f;
+	Vector3 corner4 = pos2 + Vector3(-1.0f, 0.0f, 1.0f) * 0.1f;
+
+	Vector3 b1 = RaycastDown(corner1);
+	Vector3 b2 = RaycastDown(corner2);
+	Vector3 b3 = RaycastDown(corner3);
+	Vector3 b4 = RaycastDown(corner4);
+
+
+	Vector3 normal = b1.CrossProduct(b2) + b2.CrossProduct(b3) +
+		b3.CrossProduct(b4) + b4.CrossProduct(b1);
+	normal.Normalize();
+	normal = -normal;
+
+	//Quaternion grndTilt = Quaternion(Vector3(0.0f, 1.0f, 0.0f), normal);
+	//node.rotation = grndTilt * Quaternion(0.0f, node.rotation.yaw, 0.0f);
+	return normal;
+}
+
+Vector3 NewCharacter::RaycastDown(Vector3 from) {
+	PODVector<RayQueryResult> results;
+	Ray ray(from + Vector3(0.0f, 1.0f, 0.0f), Vector3(0.0f, -1.0f, 0.0f));
+	RayOctreeQuery query(results, ray, RAY_TRIANGLE, 15, DRAWABLE_GEOMETRY, 1);
+	GetScene()->GetComponent<Urho3D::Octree>()->Raycast(query);
+
+	for (RayQueryResult result : results) {
+		if (result.node_->HasComponent<RigidBody>() && result.node_ != node_) {
+			if (!result.node_->GetComponent<RigidBody>()->IsTrigger()) {
+				return result.position_;
+			}
+		}
+	}
+	return Vector3::ZERO;
+}
 
 /*
 void NewCharacter::makeLightning() {
@@ -587,15 +678,13 @@ void NewCharacter::makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType
 	int attempts = 0;
 
 
-	Node* adjNode = node_->GetChild("AdjNode");
-
 	while (results.Size() < 1 || !hitSomethingOtherThanDoggy) {
 		// Could square this to bias it toward the far end? Maybe
 		Vector3 dirVec;// = Vector3(Random(-1.0f, 1.0f), Random(-1.0f, 1.0f), Random(-1.0f, 1.0f)) * 0.25f;
 
 		// Get random bone
 		{
-			Vector<Bone> boneList = adjNode->GetComponent<AnimatedModel>()->GetSkeleton().GetBones();
+			Vector<Bone> boneList = node_->GetComponent<AnimatedModel>()->GetSkeleton().GetBones();
 
 		boneLoop:
 			{
@@ -664,7 +753,7 @@ void NewCharacter::makeLightningBones(NewCharacter::LIGHTNING_TYPE lightningType
 
 		// Only zap things that a. Aren't the dog, and b. Have a visual model
 		for (RayQueryResult result : results) {
-			if (result.node_->GetName().Compare("AdjNode") != 0 && (result.node_->HasComponent<AnimatedModel>() || result.node_->HasComponent<StaticModel>())) {
+			if (result.node_->GetName().Compare("Beagle") != 0 && (result.node_->HasComponent<AnimatedModel>() || result.node_->HasComponent<StaticModel>())) {
 				targetPos = result.position_;
 				hitSomethingOtherThanDoggy = true;
 				break;

@@ -5,10 +5,10 @@
 	<attribute name="Smoothing Constant" value="50" />
 	<attribute name="Snap Threshold" value="5" />
 	<attribute name="Elapsed Time" value="780.409" />
-	<attribute name="Next Replicated Node ID" value="86" />
-	<attribute name="Next Replicated Component ID" value="70" />
-	<attribute name="Next Local Node ID" value="16806252" />
-	<attribute name="Next Local Component ID" value="16806616" />
+	<attribute name="Next Replicated Node ID" value="90" />
+	<attribute name="Next Replicated Component ID" value="82" />
+	<attribute name="Next Local Node ID" value="16806253" />
+	<attribute name="Next Local Component ID" value="16806628" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
@@ -76352,6 +76352,114 @@
 			<component type="RigidBody" id="67">
 				<attribute name="Physics Rotation" value="0.707107 0 0.707107 0" />
 				<attribute name="Physics Position" value="20 0 -30" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+				<attribute name="Is Kinematic" value="true" />
+			</component>
+		</node>
+		<node id="86">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Grass_Plane" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="44.5739 0 -30" />
+			<attribute name="Rotation" value="0.998618 0 0 0.0525625" />
+			<attribute name="Scale" value="10 10 10" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="70">
+				<attribute name="Model" value="Model;Tiles/Models/Flat.mdl" />
+				<attribute name="Material" value="Material;Grass/grass.xml" />
+				<attribute name="Is Occluder" value="true" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="CollisionShape" id="71">
+				<attribute name="Size" value="2 0.01 2" />
+				<attribute name="Offset Position" value="0 -0.005 0" />
+				<attribute name="Model" value="Model;Models/Plane.mdl" />
+			</component>
+			<component type="RigidBody" id="72">
+				<attribute name="Physics Rotation" value="0.998618 0 0 0.0525625" />
+				<attribute name="Physics Position" value="44.5739 7.45058e-09 -30" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+				<attribute name="Is Kinematic" value="true" />
+			</component>
+		</node>
+		<node id="87">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Grass_Plane" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="49.457 0.601076 -30" />
+			<attribute name="Rotation" value="0.985265 0 0 0.17103" />
+			<attribute name="Scale" value="10 10 10" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="73">
+				<attribute name="Model" value="Model;Tiles/Models/Flat.mdl" />
+				<attribute name="Material" value="Material;Grass/grass.xml" />
+				<attribute name="Is Occluder" value="true" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="CollisionShape" id="74">
+				<attribute name="Size" value="2 0.01 2" />
+				<attribute name="Offset Position" value="0 -0.005 0" />
+				<attribute name="Model" value="Model;Models/Plane.mdl" />
+			</component>
+			<component type="RigidBody" id="75">
+				<attribute name="Physics Rotation" value="0.985266 0 0 0.17103" />
+				<attribute name="Physics Position" value="49.457 0.601074 -30" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+				<attribute name="Is Kinematic" value="true" />
+			</component>
+		</node>
+		<node id="88">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Grass_Plane" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="49.457 0.601076 -27.592" />
+			<attribute name="Rotation" value="0.896515 -0.0709395 -0.408666 0.155624" />
+			<attribute name="Scale" value="10 10 10" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="76">
+				<attribute name="Model" value="Model;Tiles/Models/Flat.mdl" />
+				<attribute name="Material" value="Material;Grass/grass.xml" />
+				<attribute name="Is Occluder" value="true" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="CollisionShape" id="77">
+				<attribute name="Size" value="2 0.01 2" />
+				<attribute name="Offset Position" value="0 -0.005 0" />
+				<attribute name="Model" value="Model;Models/Plane.mdl" />
+			</component>
+			<component type="RigidBody" id="78">
+				<attribute name="Physics Rotation" value="0.896516 -0.0709395 -0.408667 0.155624" />
+				<attribute name="Physics Position" value="49.457 0.601076 -27.592" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+				<attribute name="Is Kinematic" value="true" />
+			</component>
+		</node>
+		<node id="89">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="Grass_Plane" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="47.8788 0.601076 -24.6514" />
+			<attribute name="Rotation" value="0.677279 -0.124214 -0.71557 0.117567" />
+			<attribute name="Scale" value="10 10 10" />
+			<attribute name="Variables" />
+			<component type="StaticModel" id="79">
+				<attribute name="Model" value="Model;Tiles/Models/Flat.mdl" />
+				<attribute name="Material" value="Material;Grass/grass.xml" />
+				<attribute name="Is Occluder" value="true" />
+				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="CollisionShape" id="80">
+				<attribute name="Size" value="2 0.01 2" />
+				<attribute name="Offset Position" value="0 -0.005 0" />
+				<attribute name="Model" value="Model;Models/Plane.mdl" />
+			</component>
+			<component type="RigidBody" id="81">
+				<attribute name="Physics Rotation" value="0.67728 -0.124214 -0.715571 0.117567" />
+				<attribute name="Physics Position" value="47.8788 0.601076 -24.6514" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
 				<attribute name="Is Kinematic" value="true" />
