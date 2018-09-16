@@ -314,10 +314,10 @@ void CharacterDemo::CreateCharacter() {
 	RigidBody* lifterBody = lifter->CreateComponent<RigidBody>();
 	CollisionShape* lifterSphere = lifter->CreateComponent<CollisionShape>();
 	lifterSphere->SetSphere(1.0f, Vector3(0.0f, 0.0f, 0.0f));
-	lifterBody->SetMass(3.0f);
+	lifterBody->SetMass(4.0f);
 	lifterBody->SetRollingFriction(0.0f);
-	lifterBody->SetFriction(4.0f);
-	//lifterBody->SetAngularFactor(Vector3::ZERO);
+	lifterBody->SetFriction(0.3f);
+	lifterBody->SetAngularFactor(Vector3::ZERO);
 
 	// Set position to level spawn point (if multiple exist, use first)
 	{
@@ -364,7 +364,7 @@ void CharacterDemo::CreateCharacter() {
 	body->SetFriction(0.0f);
 	body->SetCollisionLayer(129); //Allows collision with grass as well, Layer1, Layer8
 	//body->SetMass(1.0f);
-	body->SetMass(10.0f);
+	body->SetMass(1.0f);
 	body->SetRestitution(0.0f);
 
 	// Set zero angular factor so that physics doesn't turn the character on its own.
@@ -374,8 +374,16 @@ void CharacterDemo::CreateCharacter() {
 	// Set the rigidbody to signal collision also when in rest, so that we get ground collisions properly
 	body->SetCollisionEventMode(COLLISION_ALWAYS);
 
+	//body->SetLinearDamping(0.5f);
+
 	Constraint* lifterConstraint = objectNode->CreateComponent<Constraint>();
 	lifterConstraint->SetConstraintType(ConstraintType::CONSTRAINT_POINT);
+
+	//lifterConstraint->SetConstraintType(ConstraintType::CONSTRAINT_SLIDER);
+	//lifterConstraint->SetRotation(Quaternion(0.0f, 0.0f, 90.0f));
+	//lifterConstraint->SetHighLimit(Vector2(4.0f, 4.0f));
+	//lifterConstraint->SetLowLimit(Vector2(-1.0f, -1.0f));
+
 	lifterConstraint->SetOtherBody(lifterBody);
 	lifterConstraint->SetDisableCollision(true);
 

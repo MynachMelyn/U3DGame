@@ -270,7 +270,7 @@ void NewCharacter::FixedUpdate(float timeStep) {
 		Vector3 normal = GetFloorNormal(Vector3::ZERO, node_->LocalToWorld(backSphere->GetPosition()), Vector3::ZERO);
 		//normal = (node_->GetRotation() * Vector3::UP).Lerp(normal, TURN_MATCH_RATE * timeStep);
 		Quaternion grndTilt = Quaternion(node_->GetRotation() * Vector3::UP, normal);
-		node_->Rotate(grndTilt, Urho3D::TS_WORLD);
+		//node_->Rotate(grndTilt, Urho3D::TS_WORLD);
 
 
 		float weightR = animCtrl->GetWeight("Beagle/Models/RotateRight.ani");

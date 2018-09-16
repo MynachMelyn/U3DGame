@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="72.2548" />
 	<attribute name="Next Replicated Node ID" value="6" />
 	<attribute name="Next Replicated Component ID" value="21" />
-	<attribute name="Next Local Node ID" value="16777311" />
-	<attribute name="Next Local Component ID" value="16778105" />
+	<attribute name="Next Local Node ID" value="16777315" />
+	<attribute name="Next Local Component ID" value="16778131" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
@@ -34,7 +34,6 @@
 			<attribute name="Physics Position" value="0.682724 1.22664 0.0302193" />
 			<attribute name="Mass" value="3" />
 			<attribute name="Angular Factor" value="0 0 0" />
-			<attribute name="Linear Damping" value="0.8" />
 		</component>
 		<component type="Constraint" id="10">
 			<attribute name="Constraint Type" value="Slider" />
@@ -93,6 +92,7 @@
 			<attribute name="Physics Rotation" value="1 9.31323e-10 0 0" />
 			<attribute name="Physics Position" value="0.68274 0.181833 0.0302291" />
 			<attribute name="Mass" value="3" />
+			<attribute name="Friction" value="0" />
 			<attribute name="Angular Factor" value="0 0 0" />
 		</component>
 	</node>
