@@ -546,11 +546,14 @@ Vector3 NewCharacter::GetFloorNormal(Vector3 pos1, Vector3 pos2, Vector3 charUp)
 	//normal = hit2;
 
 	//return normal;
-
 	Vector3 corner1 = pos2 + Vector3(-1.0f, 0.0f, -1.0f) * 0.1f;
 	Vector3 corner2 = pos2 + Vector3(1.0f, 0.0f, -1.0f) * 0.1f;
 	Vector3 corner3 = pos2 + Vector3(1.0f, 0.0f, 1.0f) * 0.1f;
 	Vector3 corner4 = pos2 + Vector3(-1.0f, 0.0f, 1.0f) * 0.1f;
+
+	if (!onGround_) {
+		return Vector3::UP;
+	}
 
 	Vector3 b1 = RaycastDown(corner1);
 	Vector3 b2 = RaycastDown(corner2);

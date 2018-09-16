@@ -315,8 +315,8 @@ void CharacterDemo::CreateCharacter() {
 	CollisionShape* lifterSphere = lifter->CreateComponent<CollisionShape>();
 	lifterSphere->SetSphere(1.0f, Vector3(0.0f, 0.0f, 0.0f));
 	lifterBody->SetMass(3.0f);
-	lifterBody->SetRollingFriction(0.02f);
-	lifterBody->SetFriction(0.2f);
+	lifterBody->SetRollingFriction(0.0f);
+	lifterBody->SetFriction(4.0f);
 	//lifterBody->SetAngularFactor(Vector3::ZERO);
 
 	// Set position to level spawn point (if multiple exist, use first)
@@ -374,10 +374,10 @@ void CharacterDemo::CreateCharacter() {
 	// Set the rigidbody to signal collision also when in rest, so that we get ground collisions properly
 	body->SetCollisionEventMode(COLLISION_ALWAYS);
 
-	/*Constraint* lifterConstraint = objectNode->CreateComponent<Constraint>();
+	Constraint* lifterConstraint = objectNode->CreateComponent<Constraint>();
 	lifterConstraint->SetConstraintType(ConstraintType::CONSTRAINT_POINT);
 	lifterConstraint->SetOtherBody(lifterBody);
-	lifterConstraint->SetDisableCollision(true);*/
+	lifterConstraint->SetDisableCollision(true);
 
 	// Set a capsule shape for collision
 	//auto* footSphereFr = objectNode->CreateComponent<CollisionShape>();
