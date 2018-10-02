@@ -49,7 +49,7 @@
 #include <Urho3D/Graphics/Geometry.h>
 
 
-#include "NewCharacter.h"
+#include "KinematicDog.h"
 #include "CharacterDemo.h"
 #include "Touch.h"
 #include <DynamicGrass.h>
@@ -68,7 +68,7 @@ CharacterDemo::CharacterDemo(Context* context) :
 	Sample(context),
 	firstPerson_(false) {
 	// Register factory and attributes for the Character component so it can be created via CreateComponent, and loaded / saved
-	NewCharacter::RegisterObject(context);
+	KinematicDog::RegisterObject(context);
 	DynamicGrass::RegisterObject(context);
 }
 
@@ -309,16 +309,6 @@ void CharacterDemo::CreateCharacter() {
 	Node* objectNode = scene_->CreateChild("Beagle");
 	objectNode->SetScale(0.22f);
 
-	Node* lifter = objectNode->CreateChild("Lifter");
-	lifter->SetScale(4.54f);
-	RigidBody* lifterBody = lifter->CreateComponent<RigidBody>();
-	CollisionShape* lifterSphere = lifter->CreateComponent<CollisionShape>();
-	lifterSphere->SetSphere(1.0f, Vector3(0.0f, 0.0f, 0.0f));
-	lifterBody->SetMass(4.0f);
-	lifterBody->SetRollingFriction(0.0f);
-	lifterBody->SetFriction(0.3f);
-	lifterBody->SetAngularFactor(Vector3::ZERO);
-
 	// Set position to level spawn point (if multiple exist, use first)
 	{
 		PODVector<Node*> tagged;
@@ -327,85 +317,7 @@ void CharacterDemo::CreateCharacter() {
 		//lifter->SetPosition(tagged.Front()->GetPosition());
 	}
 
-	// new: adjust scale to fit default scene a bit better - not entirely needed if we just pan camera out
-
-	// spin node - can be good for scaling too!
-	//Node* adjustNode = objectNode->CreateChild("AdjNode");
-	//	adjustNode->SetRotation(Quaternion(180, Vector3(0, 1, 0)));
-	//adjustNode->SetScale(0.22f); //Please don't use this later, could be annoying. Scale around default import scales for chars n items.
-	//adjustNode->SetPosition(Vector3(0.0f, 0.0f, 0.0f));
-
-	// Create the rendering component + animation controller
-	auto* object = objectNode->CreateComponent<AnimatedModel>();
-	object->SetModel(cache->GetResource<Model>("Beagle/Models/Geo_Beagle.mdl"));
-	object->SetMaterial(cache->GetResource<Material>("Beagle/Materials/lambert2SGUnlit.xml"));
-	object->SetCastShadows(true);
-	objectNode->CreateComponent<AnimationController>();
-	auto* animCtrl = objectNode->GetComponent<AnimationController>(true);
-
-	// To stop lightning-checks from hitting the dog himself
-	//object->SetViewMask(0x7fffffff);
-
-	// Set the head bone for manual control
-	//object->GetSkeleton().GetBone("Mutant:Head")->animated_ = false;
-
-	// TEMP: Prints all bones
-	// No longer necessary! All bones should be 1-1 with their Blender names
-	/*std::ofstream debugFile;
-	debugFile.open("./meOldBoooones.txt");
-	for (Bone bone : object->GetSkeleton().GetBones()) {
-		//URHO3D_LOGINFO(bone.name_);
-		 debugFile << bone.name_.CString() << ", transl: " << bone.node_->GetPosition().ToString().CString() << "\n";
-	}
-	debugFile.close();*/
-
-	// Create rigidbody, and set non-zero mass so that the body becomes dynamic
-	auto* body = objectNode->CreateComponent<RigidBody>();
-	body->SetFriction(0.0f);
-	body->SetCollisionLayer(129); //Allows collision with grass as well, Layer1, Layer8
-	//body->SetMass(1.0f);
-	body->SetMass(1.0f);
-	body->SetRestitution(0.0f);
-
-	// Set zero angular factor so that physics doesn't turn the character on its own.
-	// Instead we will control the character yaw manually
-	body->SetAngularFactor(Vector3::ZERO);
-
-	// Set the rigidbody to signal collision also when in rest, so that we get ground collisions properly
-	body->SetCollisionEventMode(COLLISION_ALWAYS);
-
-	//body->SetLinearDamping(0.5f);
-
-	Constraint* lifterConstraint = objectNode->CreateComponent<Constraint>();
-	lifterConstraint->SetConstraintType(ConstraintType::CONSTRAINT_POINT);
-
-	//lifterConstraint->SetConstraintType(ConstraintType::CONSTRAINT_SLIDER);
-	//lifterConstraint->SetRotation(Quaternion(0.0f, 0.0f, 90.0f));
-	//lifterConstraint->SetHighLimit(Vector2(4.0f, 4.0f));
-	//lifterConstraint->SetLowLimit(Vector2(-1.0f, -1.0f));
-
-	lifterConstraint->SetOtherBody(lifterBody);
-	lifterConstraint->SetDisableCollision(true);
-
-	// Set a capsule shape for collision
-	//auto* footSphereFr = objectNode->CreateComponent<CollisionShape>();
-	auto* footSphereBa = objectNode->CreateComponent<CollisionShape>();
-	//auto* bodyBox = objectNode->CreateComponent<CollisionShape>();
-
-	//footSphereFr->SetSphere(3.0f, Vector3(0.0f, 1.5f, 2.0f));
-	footSphereBa->SetSphere(6.0f, Vector3(0.0f, 4.0f, 0.0f));
-	//bodyBox->SetBox(Vector3(2.0f, 3.0f, 7.0f), Vector3(0.0f, 4.0f, -0.5f));
-
-	// Create the character logic component, which takes care of steering the rigidbody
-	// Remember it so that we can set the controls. Use a WeakPtr because the scene hierarchy already owns it
-	// and keeps it alive as long as it's not removed from the hierarchy
-	character_ = objectNode->CreateComponent<NewCharacter>();
-	//character_->frontSphere = footSphereFr;
-	character_->backSphere = footSphereBa;
-	character_->lifter = lifter;
-	//new: add camera to given bone
-	//((NewCharacter*)character_)->setupCamera(object->GetSkeleton().GetBone("Arm IK.R")->node_, object->GetSkeleton().GetBone("Item.R")->node_);
-	// could use AdjustNode instead of scene
+	character_ = objectNode->CreateComponent<KinematicDog>();
 }
 
 void CharacterDemo::CreateInstructions() {
@@ -443,83 +355,7 @@ void CharacterDemo::SubscribeToEvents() {
 }
 
 
-void CharacterDemo::HandleUpdate(StringHash eventType, VariantMap& eventData) {
-	using namespace Update;
-
-	auto* input = GetSubsystem<Input>();
-
-	if (character_) {
-
-		// Clear previous controls
-		character_->controls_.Set(CTRL_FORWARD | CTRL_BACK | CTRL_LEFT | CTRL_RIGHT | CTRL_JUMP | CTRL_SPRINT, false);
-
-		// Update controls using touch utility class
-		if (touch_)
-			touch_->UpdateTouches(character_->controls_);
-
-		// Update controls using keys
-		auto* ui = GetSubsystem<UI>();
-		if (!ui->GetFocusElement()) {
-			if (!touch_ || !touch_->useGyroscope_) {
-				character_->controls_.Set(CTRL_FORWARD, input->GetKeyDown(KEY_W));
-				character_->controls_.Set(CTRL_BACK, input->GetKeyDown(KEY_S));
-				character_->controls_.Set(CTRL_LEFT, input->GetKeyDown(KEY_A));
-				character_->controls_.Set(CTRL_RIGHT, input->GetKeyDown(KEY_D));
-			}
-
-			// Add character yaw & pitch from the mouse motion or touch input
-			if (touchEnabled_) {
-				for (unsigned i = 0; i < input->GetNumTouches(); ++i) {
-					TouchState* state = input->GetTouch(i);
-					if (!state->touchedElement_)    // Touch on empty space
-					{
-						auto* camera = cameraNode_->GetComponent<Camera>();
-						if (!camera)
-							return;
-
-						auto* graphics = GetSubsystem<Graphics>();
-						character_->controls_.yaw_ += TOUCH_SENSITIVITY * camera->GetFov() / graphics->GetHeight() * state->delta_.x_;
-						character_->controls_.pitch_ += TOUCH_SENSITIVITY * camera->GetFov() / graphics->GetHeight() * state->delta_.y_;
-					}
-				}
-			} else {
-				character_->controls_.yaw_ += (float)input->GetMouseMoveX() * YAW_SENSITIVITY;
-				character_->controls_.pitch_ += (float)input->GetMouseMoveY() * YAW_SENSITIVITY;
-			}
-			// Limit pitch
-			character_->controls_.pitch_ = Clamp(character_->controls_.pitch_, -80.0f, 80.0f);
-			// Set rotation already here so that it's updated every rendering frame instead of every physics frame
-			//character_->GetNode()->SetRotation(Quaternion(character_->controls_.yaw_, Vector3::UP));
-
-			// Switch between 1st and 3rd person
-			if (input->GetKeyPress(KEY_F))
-				firstPerson_ = !firstPerson_;
-
-			character_->controls_.Set(CTRL_JUMP, input->GetKeyDown(KEY_SPACE));
-			character_->controls_.Set(CTRL_SPRINT, input->GetKeyDown(KEY_SHIFT));
-
-
-			// Turn on/off gyroscope on mobile platform
-			if (touch_ && input->GetKeyPress(KEY_G))
-				touch_->useGyroscope_ = !touch_->useGyroscope_;
-
-			// Check for loading / saving the scene
-			if (input->GetKeyPress(KEY_F5)) {
-				File saveFile(context_, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/CharacterDemo.xml", FILE_WRITE);
-				scene_->SaveXML(saveFile);
-			}
-			if (input->GetKeyPress(KEY_F7)) {
-				File loadFile(context_, GetSubsystem<FileSystem>()->GetProgramDir() + "Data/Scenes/CharacterDemo.xml", FILE_READ);
-				scene_->LoadXML(loadFile);
-				// After loading we have to reacquire the weak pointer to the Character component, as it has been recreated
-				// Simply find the character's scene node by name as there's only one of them
-				Node* characterNode = scene_->GetChild("Jack", true);
-				if (characterNode)
-					character_ = characterNode->GetComponent<NewCharacter>();
-			}
-		}
-	}
-}
+void CharacterDemo::HandleUpdate(StringHash eventType, VariantMap& eventData) {}
 
 void CharacterDemo::HandlePostUpdate(StringHash eventType, VariantMap& eventData) {
 	if (!character_)

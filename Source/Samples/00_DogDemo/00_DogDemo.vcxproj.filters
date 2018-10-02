@@ -47,6 +47,12 @@
     <ClCompile Include="DynamicGrass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KinematicDog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Character.h">
@@ -65,6 +71,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DynamicGrass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KinematicDog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

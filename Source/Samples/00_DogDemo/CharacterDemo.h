@@ -128,7 +128,7 @@ private:
 	/// Touch utility object.
 	SharedPtr<Touch> touch_;
 	/// The controllable character component.
-	WeakPtr<NewCharacter> character_;
+	WeakPtr<KinematicDog> character_;
 	/// First person camera flag.
 	bool firstPerson_;
 };
