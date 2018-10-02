@@ -29,7 +29,7 @@ void KinematicDog::Start() {
 
 	modelNode = node_->CreateChild("Model Node");
 	CharacterController* controller = node_->CreateComponent<CharacterController>();
-	controller->CreatePhysComponents(1.9f, 0.5f);
+	controller->CreatePhysComponents(1.0f, 1.0f);
 
 	auto* model = modelNode->CreateComponent<AnimatedModel>();
 	model->SetModel(cache->GetResource<Model>("Beagle/Models/Geo_Beagle.mdl"));

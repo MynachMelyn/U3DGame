@@ -36,7 +36,7 @@ void CharacterController::RegisterObject(Context* context) {
 
 void CharacterController::FixedUpdate(float timeStep) {
 
-	const float MOVE_SPEED = 15.0f;
+	const float MOVE_SPEED = 25.0f; // 15
 
 	Vector3 dir;
 
@@ -118,7 +118,8 @@ void CharacterController::CreatePhysComponents(float height, float diameter) {
 	startTransform.setOrigin(btVector3(0, 10, 4));
 	startTransform.setRotation(ToBtQuaternion(Quaternion(90, 0, 0)));
 
-	btConvexShape* capsule = new btCapsuleShape(diameter * 0.5, height - diameter);
+	//btConvexShape* capsule = new btCapsuleShape(diameter * 0.5, height - diameter);
+	btConvexShape* capsule = new btSphereShape(diameter);
 	//btConvexShape* capsule = new btSphereShape(height * diameter);
 	height_ = height;
 	diameter_ = diameter;
@@ -139,6 +140,7 @@ void CharacterController::CreatePhysComponents(float height, float diameter) {
 	world->addCollisionObject(ghostObject_, btBroadphaseProxy::CharacterFilter, btBroadphaseProxy::AllFilter);
 	world->addAction(bulletController_);
 	bulletController_->setMaxJumpHeight(1.5);
+	bulletController_->setStepHeight(0.5f);
 
 	//bulletController_->setLinearVelocity(ToBtVector3(Vector3(0.0f, 0.0f, 0.1f)));
 	bulletController_->applyImpulse(ToBtVector3(Vector3(0.0f, 0.0f, 10.0f)));
