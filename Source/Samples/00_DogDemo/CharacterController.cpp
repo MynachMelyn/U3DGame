@@ -36,7 +36,7 @@ void CharacterController::RegisterObject(Context* context) {
 
 void CharacterController::FixedUpdate(float timeStep) {
 
-	const float MOVE_SPEED = 90.0f;
+	const float MOVE_SPEED = 15.0f;
 
 	Vector3 dir;
 
