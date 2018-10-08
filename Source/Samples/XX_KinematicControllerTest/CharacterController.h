@@ -31,5 +31,13 @@ private:
 	virtual void FixedUpdate(float timeStep) override;
 	virtual void Update(float timeStep) override;
 
-	Vector3 Accelerate(Vector3 accelDir, Vector3 prevVelocity, float accelerate, float max_velocity);
+	Vector3 Accelerate(Vector3 accelDir, Vector3 prevVelocity, float accelerate, float max_velocity, float time);
+	Vector3 MoveGround(Vector3 accelDir, Vector3 prevVelocity, float time);
+	Vector3 MoveAir(Vector3 accelDir, Vector3 prevVelocity, float time);
+
+	const float friction = 10.0f;
+	const float MOVE_SPEED = 10.0f;
+	const float air_accelerate = 0.02f;
+	const float ground_accelerate = 1.0f;
+
 };

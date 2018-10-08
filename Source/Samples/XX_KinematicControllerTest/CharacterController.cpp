@@ -35,9 +35,6 @@ void CharacterController::RegisterObject(Context* context) {
 }
 
 void CharacterController::FixedUpdate(float timeStep) {
-
-	const float MOVE_SPEED = 90.0f;
-
 	Vector3 dir;
 
 	if (controls_.IsDown(CTRL_FORWARD))
@@ -54,31 +51,35 @@ void CharacterController::FixedUpdate(float timeStep) {
 
 	dir = node_->GetWorldRotation() * dir;
 
-	//velocity_ = Vector3(bulletController_->getLinearVelocity().getX(), 0.0f, bulletController_->getLinearVelocity().getX());
-	velocity_ += dir * timeStep * accelerationTime_ * (bulletController_->onGround() ? 1 : 0.01f);
+	/*	velocity_ += dir * timeStep * accelerationTime_ * (bulletController_->onGround() ? 1 : 0.01f);
 
-	// Decelerate constantly
-	velocity_ -= velocity_ * (bulletController_->onGround() ? 0.1f : 0.01f);
+		// Decelerate constantly
+		velocity_ -= velocity_ * (bulletController_->onGround() ? 0.1f : 0.01f);
 
-	// Cap move speed
-	if (velocity_.Length() > MOVE_SPEED) {
-		velocity_.Normalize();
-		velocity_ *= MOVE_SPEED;
-		//velocity_ -= (velocity_.Normalized()) * -0.1f;
-	}
+		// Cap move speed
+		if (velocity_.Length() > MOVE_SPEED) {
+			velocity_.Normalize();
+			velocity_ *= MOVE_SPEED;
+			//velocity_ -= (velocity_.Normalized()) * -0.1f;
+		}
+
+		//bulletController_->applyImpulse(btVector3(dir.x_, 0.0f, dir.z_));
+		if (velocity_.Length() > 0.0001f) {
+			bulletController_->setWalkDirection(ToBtVector3(velocity_ * timeStep * MOVE_SPEED));
+			//bulletController_->setLinearVelocity(ToBtVector3(velocity_ * timeStep * MOVE_SPEED));
+
+		} else {
+			bulletController_->setWalkDirection(btVector3(0, 0, 0));
+		}
+	*/
+
+	//if (dir != Vector3::ZERO)
+	velocity_ = bulletController_->onGround() ? MoveGround(dir, velocity_, timeStep) : MoveAir(dir, velocity_, timeStep);
+	bulletController_->setWalkDirection(ToBtVector3(velocity_));
 
 	if (controls_.IsDown(CTRL_JUMP)) {
 		if (bulletController_->onGround())
 			bulletController_->jump(btVector3(0, 6, 0));
-	}
-
-	//bulletController_->applyImpulse(btVector3(dir.x_, 0.0f, dir.z_));
-	if (velocity_.Length() > 0.0001f) {
-		bulletController_->setWalkDirection(ToBtVector3(velocity_ * timeStep * MOVE_SPEED));
-		//bulletController_->setLinearVelocity(ToBtVector3(velocity_ * timeStep * MOVE_SPEED));
-
-	} else {
-		bulletController_->setWalkDirection(btVector3(0, 0, 0));
 	}
 
 	btTransform t;
@@ -87,9 +88,9 @@ void CharacterController::FixedUpdate(float timeStep) {
 	node_->SetWorldPosition(newPos);
 }
 
-Vector3 CharacterController::Accelerate(Vector3 accelDir, Vector3 prevVelocity, float accelerate, float max_velocity) {
+Vector3 CharacterController::Accelerate(Vector3 accelDir, Vector3 prevVelocity, float accelerate, float max_velocity, float time) {
 	float projVel = prevVelocity.DotProduct(accelDir); // Vector projection of Current velocity onto accelDir.
-	float accelVel = accelerate;// *Time.fixedDeltaTime; // Accelerated velocity in direction of movment
+	float accelVel = accelerate * time; // Accelerated velocity in direction of movment
 
 													   // If necessary, truncate the accelerated velocity so the vector projection does not exceed max_velocity
 	if (projVel + accelVel > max_velocity) {
@@ -97,6 +98,23 @@ Vector3 CharacterController::Accelerate(Vector3 accelDir, Vector3 prevVelocity, 
 	}
 
 	return prevVelocity + accelDir * accelVel;
+}
+
+Vector3 CharacterController::MoveGround(Vector3 accelDir, Vector3 prevVelocity, float time) {
+	// Apply Friction
+	float speed = prevVelocity.Length();
+	if (speed != 0) {// To avoid divide by zero errors
+		float drop = speed * friction * time;
+		prevVelocity *= Max(speed - drop, 0) / speed; // Scale the velocity based on friction.
+	}
+
+	// ground_accelerate and max_velocity_ground are server-defined movement variables
+	return Accelerate(accelDir, prevVelocity, ground_accelerate, MOVE_SPEED, time);
+}
+
+Vector3 CharacterController::MoveAir(Vector3 accelDir, Vector3 prevVelocity, float time) {
+	// air_accelerate and max_velocity_air are server-defined movement variables
+	return Accelerate(accelDir, prevVelocity, air_accelerate, MOVE_SPEED, time);
 }
 
 void CharacterController::Update(float timeStep) {
