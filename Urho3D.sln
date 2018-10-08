@@ -611,7 +611,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "00_DogDemo", "Source\Sample
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "51_Urho2DStretchableSprite", "Source\Samples\63_OffroadVehicle\63_OffroadVehicle.vcxproj", "{E0CAE356-6F37-40DA-BF3E-470732C5FE2F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "45_InverseKinematics", "Source\Samples\XX_KinematicControllerTest\XX_KinematicControllerTest.vcxproj", "{913F6202-40BB-4C73-96CA-9733FAA6A8C5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XX_KinematicControllerTest", "Source\Samples\XX_KinematicControllerTest\XX_KinematicControllerTest.vcxproj", "{913F6202-40BB-4C73-96CA-9733FAA6A8C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

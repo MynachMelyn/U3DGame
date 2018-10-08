@@ -1,0 +1,5 @@
+<renderpath>
+    <command type="quad" tag="Dither" vs="DitheringPost" ps="DitheringPost" output="viewport">
+        <texture unit="diffuse" name="viewport" />
+    </command>
+</renderpath>

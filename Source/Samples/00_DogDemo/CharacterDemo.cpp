@@ -120,13 +120,13 @@ void CharacterDemo::SetupViewport() {
 
 	SharedPtr<Viewport> rttViewport(new Viewport(context_, scene_, cameraNode_->GetComponent<Camera>(), IntRect(0.0f, 0.0f, 1920.0f, 1080.0f)));
 
+	// THIS IS FOR TOGGLING THE DOWNSAMPLING
 	//rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth_lowres.xml"));
 	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
 
-	// TODO: Render to Texture of 1/4 res, display that to screen in full on a quad
-
+	// DO NOT DO THESE
+	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/Dither.xml"));
 	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/Downscaler.xml"));
-
 	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/SpriteShader.xml"));
 	//rttViewport->GetRenderPath()->SetShaderParameter("RTDimensions", Vector2(rttViewport->GetRect().Width(), rttViewport->GetRect().Height()));
 	//rttViewport->GetRenderPath()->SetShaderParameter("LowResDimensions", Vector2(6.0f, 6.0f));

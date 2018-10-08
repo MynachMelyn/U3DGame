@@ -84,6 +84,7 @@ void CharacterController::FixedUpdate(float timeStep) {
 	btTransform t;
 	t = bulletController_->getGhostObject()->getWorldTransform();
 	Vector3 newPos = ToVector3(t.getOrigin()) + Vector3::DOWN * height_ * 0.5f;
+	prevPos = newPos;
 	node_->SetWorldPosition(newPos);
 }
 
@@ -105,7 +106,11 @@ void CharacterController::Update(float timeStep) {
 	bulletController_->getGhostObject()->setWorldTransform(t);
 }
 
-void CharacterController::CreatePhysComponents(float height, float diameter) {
+Vector3 CharacterController::getDeltaVelocity() {
+	return node_->GetWorldPosition() - prevPos;
+}
+
+void CharacterController::CreatePhysComponents(float diameter) {
 	//   RigidBody* body = node_->CreateComponent<RigidBody>();
 	//  body->SetKinematic(true);
 	//  body->SetMass(1.0f);
@@ -118,10 +123,12 @@ void CharacterController::CreatePhysComponents(float height, float diameter) {
 	startTransform.setOrigin(btVector3(0, 10, 4));
 	startTransform.setRotation(ToBtQuaternion(Quaternion(90, 0, 0)));
 
-	//btConvexShape* capsule = new btCapsuleShape(diameter * 0.5, height - diameter);
-	btConvexShape* capsule = new btSphereShape(diameter);
+	btConvexShape* capsule = new btCapsuleShape(diameter * 0.5, 2.0f);
+	//btConvexShape* capsule = new btSphereShape(diameter);
+
 	//btConvexShape* capsule = new btSphereShape(height * diameter);
-	height_ = height;
+	//height_ = height;
+	height_ = diameter;
 	diameter_ = diameter;
 	accelerationTime_ = 2.0f;
 	velocity_ = Vector3::ZERO;
@@ -133,13 +140,18 @@ void CharacterController::CreatePhysComponents(float height, float diameter) {
 	world->getBroadphase()->getOverlappingPairCache()->setInternalGhostPairCallback(new btGhostPairCallback());
 	ghostObject_->setCollisionShape(capsule);
 	ghostObject_->setCollisionFlags(btCollisionObject::CF_CHARACTER_OBJECT);
+	//
+	//ghostObject_->setCcdMotionThreshold(1e-7);
+	//ghostObject_->setCcdSweptSphereRadius(diameter / 2);
+	//ghostObject_->setContactStiffnessAndDamping(0.0f, 0.5f);
+	//
 	bulletController_ = new btKinematicCharacterController(ghostObject_, capsule, 0.3f, btVector3(0, 0, 1));
 	bulletController_->setGravity(world->getGravity());
 	bulletController_->setMaxPenetrationDepth(btScalar(0.0f));
-
 	world->addCollisionObject(ghostObject_, btBroadphaseProxy::CharacterFilter, btBroadphaseProxy::AllFilter);
 	world->addAction(bulletController_);
 	bulletController_->setMaxJumpHeight(1.5);
+	//bulletController_->setStepHeight(0.5f);
 	bulletController_->setStepHeight(0.5f);
 
 	//bulletController_->setLinearVelocity(ToBtVector3(Vector3(0.0f, 0.0f, 0.1f)));

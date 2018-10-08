@@ -97,7 +97,7 @@ void SetLogoVisible(bool enable)
 void CreateLogo()
 {
     // Get logo texture
-    Texture2D@ logoTexture = cache.GetResource("Texture2D", "Textures/FishBoneLogo.png");
+    Texture2D@ logoTexture = cache.GetResource("Texture2D", "Textures/LogoLarge.png");
     if (logoTexture is null)
         return;
 
@@ -117,13 +117,13 @@ void CreateLogo()
     logoSprite.SetSize(textureWidth, textureHeight);
 
     // Set logo sprite hot spot
-    logoSprite.SetHotSpot(textureWidth, textureHeight);
+    logoSprite.SetHotSpot(0, textureHeight);
 
     // Set logo sprite alignment
-    logoSprite.SetAlignment(HA_RIGHT, VA_BOTTOM);
+    logoSprite.SetAlignment(HA_LEFT, VA_BOTTOM);
 
     // Make logo not fully opaque to show the scene underneath
-    logoSprite.opacity = 0.9f;
+    logoSprite.opacity = 0.75f;
 
     // Set a low priority for the logo so that other UI elements can be drawn on top
     logoSprite.priority = -100;
@@ -183,13 +183,25 @@ void HandleKeyDown(StringHash eventType, VariantMap& eventData)
     // Toggle console with F1
     if (key == KEY_F1)
         console.Toggle();
-        
+
     // Toggle debug HUD with F2
     else if (key == KEY_F2)
-        debugHud.ToggleAll();
+    {
+        if (debugHud.mode == 0 || (debugHud.mode & DEBUGHUD_SHOW_MEMORY) > 0)
+            debugHud.mode = DEBUGHUD_SHOW_STATS | DEBUGHUD_SHOW_MODE | DEBUGHUD_SHOW_PROFILER;
+        else
+            debugHud.mode = 0;
+    }
+    else if (key == KEY_F3)
+    {
+        if (debugHud.mode == 0 || (debugHud.mode & DEBUGHUD_SHOW_PROFILER) > 0)
+            debugHud.mode = DEBUGHUD_SHOW_STATS | DEBUGHUD_SHOW_MODE | DEBUGHUD_SHOW_MEMORY;
+        else
+            debugHud.mode = 0;
+    }
 
     // Common rendering quality controls, only when UI has no focused element
-    else if (ui.focusElement is null)
+    if (ui.focusElement is null)
     {
         // Preferences / Pause
         if (key == KEY_SELECT && touchEnabled)

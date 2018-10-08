@@ -2,6 +2,7 @@
 
 #include <Urho3D/Input/Controls.h>
 #include <Urho3D/Scene/LogicComponent.h>
+#include <CharacterController.h>
 
 using namespace Urho3D;
 
@@ -28,8 +29,10 @@ public:
 
 	/// Movement controls. Assigned by the main program each frame.
 	Controls controls_;
+
 private:
 	/// Handle footsteps and foot particles
 	void HandleAnimationTrigger(StringHash eventType, VariantMap& eventData);
 	Node* modelNode;
+	CharacterController* controller;
 };

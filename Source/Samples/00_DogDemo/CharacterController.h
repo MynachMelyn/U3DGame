@@ -15,7 +15,7 @@ public:
 	Controls controls_;
 
 	// Добавляет к ноде RigidBody и Shape.
-	void CreatePhysComponents(float height, float diameter);
+	void CreatePhysComponents(float height);
 
 	btPairCachingGhostObject* ghostObject_;
 	btKinematicCharacterController* bulletController_;
@@ -24,10 +24,15 @@ public:
 	float diameter_;
 	float accelerationTime_;
 	Vector3 velocity_;
+	//Vector3 resultantPlaneVelocity_;
+
+	Vector3 getDeltaVelocity();
 
 
 private:
 	virtual void Start() override;
 	virtual void FixedUpdate(float timeStep) override;
 	virtual void Update(float timeStep) override;
+
+	Vector3 prevPos;
 };

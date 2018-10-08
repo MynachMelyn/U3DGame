@@ -30,4 +30,6 @@ private:
 	virtual void Start() override;
 	virtual void FixedUpdate(float timeStep) override;
 	virtual void Update(float timeStep) override;
+
+	Vector3 Accelerate(Vector3 accelDir, Vector3 prevVelocity, float accelerate, float max_velocity);
 };

@@ -28,8 +28,9 @@ void KinematicDog::Start() {
 	auto* cache = GetSubsystem<ResourceCache>();
 
 	modelNode = node_->CreateChild("Model Node");
-	CharacterController* controller = node_->CreateComponent<CharacterController>();
-	controller->CreatePhysComponents(1.0f, 1.0f);
+	modelNode->SetPosition(Vector3(0.0f, 0.0f, 2.0f)); // Offset, to get the collider at the rear feet
+	controller = node_->CreateComponent<CharacterController>();
+	controller->CreatePhysComponents(0.5f);
 
 	auto* model = modelNode->CreateComponent<AnimatedModel>();
 	model->SetModel(cache->GetResource<Model>("Beagle/Models/Geo_Beagle.mdl"));
@@ -50,6 +51,7 @@ void KinematicDog::DelayedStart() {
 
 void KinematicDog::FixedUpdate(float timeStep) {
 	auto* animCtrl = modelNode->GetComponent<AnimationController>(true);
+	Vector3 planeVelocity = Vector3(controller->getDeltaVelocity().x_, 0.0f, controller->getDeltaVelocity().z_);
 
 	// Load these anims
 	if (!animCtrl->IsPlaying("Beagle/Models/RotateRight.ani")) {

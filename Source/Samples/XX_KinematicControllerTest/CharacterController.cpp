@@ -87,6 +87,18 @@ void CharacterController::FixedUpdate(float timeStep) {
 	node_->SetWorldPosition(newPos);
 }
 
+Vector3 CharacterController::Accelerate(Vector3 accelDir, Vector3 prevVelocity, float accelerate, float max_velocity) {
+	float projVel = prevVelocity.DotProduct(accelDir); // Vector projection of Current velocity onto accelDir.
+	float accelVel = accelerate;// *Time.fixedDeltaTime; // Accelerated velocity in direction of movment
+
+													   // If necessary, truncate the accelerated velocity so the vector projection does not exceed max_velocity
+	if (projVel + accelVel > max_velocity) {
+		accelVel = max_velocity - projVel;
+	}
+
+	return prevVelocity + accelDir * accelVel;
+}
+
 void CharacterController::Update(float timeStep) {
 	// Может быть перенести это в общий класс, чтобы был доступ окна настроек клавиш
 	controls_.Reset();
