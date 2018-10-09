@@ -162,7 +162,7 @@ void CharacterController::CreatePhysComponents(float height, float diameter) {
 	ghostObject_->setCollisionFlags(btCollisionObject::CF_CHARACTER_OBJECT);
 	bulletController_ = new btKinematicCharacterController(ghostObject_, capsule, 0.3f, btVector3(0, 0, 1));
 	//bulletController_->setGravity(world->getGravity());
-	bulletController_->setGravity(world->getGravity() / 2.0f);
+	bulletController_->setGravity(world->getGravity());
 	bulletController_->setMaxPenetrationDepth(btScalar(0.0f));
 
 	world->addCollisionObject(ghostObject_, btBroadphaseProxy::CharacterFilter, btBroadphaseProxy::AllFilter);

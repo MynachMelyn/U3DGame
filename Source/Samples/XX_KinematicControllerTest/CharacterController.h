@@ -38,7 +38,7 @@ private:
 	const float friction = 10.0f;
 	const float MOVE_SPEED = 0.1f; //10
 	const float MOVE_SPEED_AIR = 0.1f; //10
-	const float air_accelerate = 0.1f; // 0.03f
+	const float air_accelerate = 2.0f; // 0.1f
 	const float ground_accelerate = 2.0f;
 
 };
