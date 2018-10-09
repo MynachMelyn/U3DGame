@@ -37,14 +37,20 @@ void CharacterController::RegisterObject(Context* context) {
 void CharacterController::FixedUpdate(float timeStep) {
 	Vector3 dir;
 
-	if (controls_.IsDown(CTRL_FORWARD))
+	if (controls_.IsDown(CTRL_FORWARD)) {
 		dir += Vector3::FORWARD;
-	if (controls_.IsDown(CTRL_BACK))
+	}
+	if (controls_.IsDown(CTRL_BACK)) {
 		dir += Vector3::BACK;
-	if (controls_.IsDown(CTRL_LEFT))
+	}
+	if (controls_.IsDown(CTRL_LEFT)) {
 		dir += Vector3::LEFT;
-	if (controls_.IsDown(CTRL_RIGHT))
+		node_->Rotate(Quaternion(-100 * timeStep, Vector3::UP));
+	}
+	if (controls_.IsDown(CTRL_RIGHT)) {
 		dir += Vector3::RIGHT;
+		node_->Rotate(Quaternion(100 * timeStep, Vector3::UP));
+	}
 	if (dir != Vector3::ZERO) {
 		dir.Normalize();
 	}
@@ -78,8 +84,9 @@ void CharacterController::FixedUpdate(float timeStep) {
 	bulletController_->setWalkDirection(ToBtVector3(velocity_));
 
 	if (controls_.IsDown(CTRL_JUMP)) {
-		if (bulletController_->onGround())
+		if (bulletController_->onGround()) {
 			bulletController_->jump(btVector3(0, 6, 0));
+		}
 	}
 
 	btTransform t;

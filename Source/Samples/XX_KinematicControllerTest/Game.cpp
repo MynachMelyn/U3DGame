@@ -115,7 +115,7 @@ public:
 		pitch_ += MOUSE_SENSITIVITY * mouseMove.y_;
 		pitch_ = Clamp(pitch_, -90.0f, 90.0f);
 
-		charNode_->SetRotation(Quaternion(0.0f, yaw_, 0.0f));
+		//charNode_->SetRotation(Quaternion(0.0f, yaw_, 0.0f));
 	}
 
 	Node* CreateCharacter() {
