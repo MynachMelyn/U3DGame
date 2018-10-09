@@ -36,8 +36,9 @@ private:
 	Vector3 MoveAir(Vector3 accelDir, Vector3 prevVelocity, float time);
 
 	const float friction = 10.0f;
-	const float MOVE_SPEED = 10.0f;
-	const float air_accelerate = 0.02f;
-	const float ground_accelerate = 1.0f;
+	const float MOVE_SPEED = 0.1f; //10
+	const float MOVE_SPEED_AIR = 0.1f; //10
+	const float air_accelerate = 0.1f; // 0.03f
+	const float ground_accelerate = 2.0f;
 
 };

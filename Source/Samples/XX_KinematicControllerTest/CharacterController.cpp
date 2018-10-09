@@ -114,7 +114,7 @@ Vector3 CharacterController::MoveGround(Vector3 accelDir, Vector3 prevVelocity, 
 
 Vector3 CharacterController::MoveAir(Vector3 accelDir, Vector3 prevVelocity, float time) {
 	// air_accelerate and max_velocity_air are server-defined movement variables
-	return Accelerate(accelDir, prevVelocity, air_accelerate, MOVE_SPEED, time);
+	return Accelerate(accelDir, prevVelocity, air_accelerate, MOVE_SPEED_AIR, time);
 }
 
 void CharacterController::Update(float timeStep) {
@@ -161,7 +161,8 @@ void CharacterController::CreatePhysComponents(float height, float diameter) {
 	ghostObject_->setCollisionShape(capsule);
 	ghostObject_->setCollisionFlags(btCollisionObject::CF_CHARACTER_OBJECT);
 	bulletController_ = new btKinematicCharacterController(ghostObject_, capsule, 0.3f, btVector3(0, 0, 1));
-	bulletController_->setGravity(world->getGravity());
+	//bulletController_->setGravity(world->getGravity());
+	bulletController_->setGravity(world->getGravity() / 2.0f);
 	bulletController_->setMaxPenetrationDepth(btScalar(0.0f));
 
 	world->addCollisionObject(ghostObject_, btBroadphaseProxy::CharacterFilter, btBroadphaseProxy::AllFilter);
