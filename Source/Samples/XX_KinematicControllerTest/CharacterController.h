@@ -25,9 +25,10 @@ public:
 	float accelerationTime_;
 	Vector3 velocity_;
 
+	AnimationController* animControl_;
 
 private:
-	virtual void Start() override;
+	virtual void DelayedStart() override;
 	virtual void FixedUpdate(float timeStep) override;
 	virtual void Update(float timeStep) override;
 

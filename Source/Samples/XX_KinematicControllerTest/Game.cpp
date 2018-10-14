@@ -122,12 +122,19 @@ public:
 		Node* charNode = scene_->CreateChild();
 		charNode->SetPosition(Vector3(0.0f, 4.0f, 20.0f));
 
-		StaticModel* charObject = charNode->CreateComponent<StaticModel>();
-		charObject->SetModel(cache->GetResource<Model>("Models/Jack.mdl"));
+		AnimatedModel* charObject = charNode->CreateComponent<AnimatedModel>();
+		//charObject->SetModel(cache->GetResource<Model>("Models/Jack.mdl"));
+		charObject->SetModel(cache->GetResource<Model>("Crab/Models/CrabFinal.mdl"));
+		charObject->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
 		charObject->SetCastShadows(true);
+
+		//animCtrl->PlayExclusive("Crab/Models/Jump.ani", 1, true, 0.0f);
+		//animCtrl->PlayExclusive("Crab/Models/Walk.ani", 1, true, 0.0f);
+		//animCtrl->PlayExclusive("Crab/Models/Idle.ani", 1, true, 0.0f);
 
 		CharacterController* controller = charNode->CreateComponent<CharacterController>();
 		controller->CreatePhysComponents(1.9f, 0.5f);
+
 		return charNode;
 	}
 

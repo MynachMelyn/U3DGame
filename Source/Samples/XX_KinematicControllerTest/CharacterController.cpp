@@ -34,6 +34,12 @@ void CharacterController::RegisterObject(Context* context) {
 	context->RegisterFactory<CharacterController>();
 }
 
+void CharacterController::DelayedStart() {
+	animControl_ = GetNode()->CreateComponent<AnimationController>();
+	//animControl_->PlayExclusive("Crab/Models/Walk.ani", 0, true, 0.2f);
+	node_->SetScale(0.02f);
+}
+
 void CharacterController::FixedUpdate(float timeStep) {
 	Vector3 dir;
 
@@ -83,9 +89,23 @@ void CharacterController::FixedUpdate(float timeStep) {
 	velocity_ = bulletController_->onGround() ? MoveGround(dir, velocity_, timeStep) : MoveAir(dir, velocity_, timeStep);
 	bulletController_->setWalkDirection(ToBtVector3(velocity_));
 
+	if (bulletController_->onGround()) {
+		if (velocity_.Length() < 0.01f) {
+			animControl_->PlayExclusive("Crab/Models/Idle.ani", 0, true, 0.2f);
+		} else {
+			if (!animControl_->IsPlaying("Crab/Models/Walk.ani")) {
+				animControl_->PlayExclusive("Crab/Models/Walk.ani", 0, true, 0.2f);
+			}
+			//animControl_->PlayExclusive("Crab/Models/Walk.ani", 0, true, 0.2f);
+			animControl_->SetSpeed("Crab/Models/Walk.ani", velocity_.Length() * 20.0f);
+		}
+	}
+
 	if (controls_.IsDown(CTRL_JUMP)) {
 		if (bulletController_->onGround()) {
 			bulletController_->jump(btVector3(0, 6, 0));
+			animControl_->PlayExclusive("Crab/Models/Jump.ani", 0, false, 0.0f);
+			animControl_->SetTime("Crab/Models/Jump.ani", 0);
 		}
 	}
 
@@ -178,8 +198,4 @@ void CharacterController::CreatePhysComponents(float height, float diameter) {
 
 	//bulletController_->setLinearVelocity(ToBtVector3(Vector3(0.0f, 0.0f, 0.1f)));
 	bulletController_->applyImpulse(ToBtVector3(Vector3(0.0f, 0.0f, 10.0f)));
-}
-
-void CharacterController::Start() {
-
 }
