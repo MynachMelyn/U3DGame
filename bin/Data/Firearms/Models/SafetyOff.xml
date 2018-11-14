@@ -1,0 +1,3 @@
+<animation>
+	<trigger time="0.05" type="String" value="gun_safetyoff"/>
+</animation>

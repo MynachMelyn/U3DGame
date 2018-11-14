@@ -613,6 +613,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "51_Urho2DStretchableSprite"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XX_KinematicControllerTest", "Source\Samples\XX_KinematicControllerTest\XX_KinematicControllerTest.vcxproj", "{913F6202-40BB-4C73-96CA-9733FAA6A8C5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_GunDemo", "Source\Samples\_GunDemo\_GunDemo.vcxproj", "{0FCCF73C-20D2-435C-9026-79F574728141}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1154,12 +1156,19 @@ Global
 		{913F6202-40BB-4C73-96CA-9733FAA6A8C5}.Release|x64.Build.0 = Release|x64
 		{913F6202-40BB-4C73-96CA-9733FAA6A8C5}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
 		{913F6202-40BB-4C73-96CA-9733FAA6A8C5}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{0FCCF73C-20D2-435C-9026-79F574728141}.Debug|x64.ActiveCfg = Debug|x64
+		{0FCCF73C-20D2-435C-9026-79F574728141}.Debug|x64.Build.0 = Debug|x64
+		{0FCCF73C-20D2-435C-9026-79F574728141}.Release|x64.ActiveCfg = Release|x64
+		{0FCCF73C-20D2-435C-9026-79F574728141}.Release|x64.Build.0 = Release|x64
+		{0FCCF73C-20D2-435C-9026-79F574728141}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{0FCCF73C-20D2-435C-9026-79F574728141}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D0C683A4-B2AE-426F-BD27-5C0EA0717153} = {8B9E46D3-6078-47F7-86E9-23882F764E36}
+		{0FCCF73C-20D2-435C-9026-79F574728141} = {8B9E46D3-6078-47F7-86E9-23882F764E36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {14A7D5FD-012B-3DD7-A56C-4E64C5F90E44}

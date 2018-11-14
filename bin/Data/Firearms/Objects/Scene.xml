@@ -1,0 +1,10 @@
+<node id="16777216">
+	<attribute name="Name" value="Scene"/>
+	<node id="16777217">
+		<attribute name="Name" value="M9"/>
+		<component id="16777216" type="AnimatedModel">
+			<attribute name="Model" value="Model;Firearms/Models/M9.mdl"/>
+			<attribute name="Material" value="Material;;"/>
+		</component>
+	</node>
+</node>
