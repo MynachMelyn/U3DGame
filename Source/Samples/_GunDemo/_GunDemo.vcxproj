@@ -277,10 +277,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="CharacterDemo.cpp" />
     <ClCompile Include="GunLogic.cpp" />
+    <ClCompile Include="Magazine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterDemo.h" />
     <ClInclude Include="GunLogic.h" />
+    <ClInclude Include="Magazine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

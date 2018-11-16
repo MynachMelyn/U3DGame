@@ -158,7 +158,7 @@ void CharacterDemo::CreateScene() {
 	cameraNode_ = new Node(context_);
 	auto* camera = cameraNode_->CreateComponent<Camera>();
 	camera->SetFarClip(300.0f);
-	cameraNode_->SetPosition(Vector3(2.5f, 5.0f, 0.0f));
+	cameraNode_->SetPosition(Vector3(2.5f, 2.5f, 0.0f));
 
 	camera->SetOrthographic(false); // Set camera orthographic
 	camera->SetFov(75.0f);
