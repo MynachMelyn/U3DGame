@@ -11,26 +11,30 @@
 #include "GunLogic.h"
 
 GunLogic::GunLogic(Context* context) :
-	LogicComponent(context),
-	onGround_(false),
-	okToJump_(true),
-	inAirTimer_(0.0f) {
+	LogicComponent(context) {
 	// Only the physics update event is needed: unsubscribe from the rest for optimization
 	SetUpdateEventMask(USE_FIXEDUPDATE);
 }
 
 void GunLogic::RegisterObject(Context* context) {
 	context->RegisterFactory<GunLogic>();
+	context->RegisterFactory<Magazine>();
 }
 
 void GunLogic::Start() {
 	// Component has been inserted into its scene node. Subscribe to events now
-	magazineLogic = new Magazine(7, 7);
+	Node* magNode = GetScene()->CreateChild("Magazine");
+	magazine_logic = magNode->CreateComponent<Magazine>();
+
+	//magazine_logic->isLoaded = false;
 }
 
 void GunLogic::DelayedStart() {
 
-	// First, acquire the node names of the bones.
+	magazine_logic->setMaximumCapacity(7);
+	magazine_logic->setRoundsLoaded(7);
+
+	// Acquire the node names of the bones.
 	Skeleton gunSkeleton = node_->GetComponent<AnimatedModel>()->GetSkeleton();
 	Vector<Bone> bones = gunSkeleton.GetBones();
 	Node* gripBone;
@@ -39,6 +43,8 @@ void GunLogic::DelayedStart() {
 		bone.animated_ = false;
 		if (bone.name_ == "Grip") {
 			gripBone = bone.node_;
+		} else if (bone.name_ == "Magazine") {
+			gunMagBone = bone.node_;
 		}
 	}
 
@@ -65,31 +71,52 @@ void GunLogic::DelayedStart() {
 	rackSlideBack();
 }
 
+void GunLogic::insertMagazine(Magazine* mag) {
+	if (mag != nullptr) {
+		magazine_logic = mag;
+		mag->setParentBone(gunMagBone);
+	}
+}
+
+void GunLogic::ejectMagazine() {
+	if (magazine_logic != nullptr) {
+		magazine_logic->slideOut();
+		magazine_logic = nullptr;
+	}
+}
+
 float time = -3.0f;
-float time2 = -2.0f;
-float time3 = 10.0f;
+float time3 = 1.0f;
+float time4 = 0.0f;
 void GunLogic::FixedUpdate(float timeStep) {
 	time += timeStep;
-	time2 += timeStep;
 	time3 += timeStep;
+	time4 += timeStep;
 
 	//moveComponent(Component::hammer_component, (Sin(time * 60.0f) / 2) + 0.5f);
 	//moveComponent(Component::slide_component, (Sin(time * 60.0f) / 2) + 0.5f);
 	//moveComponent(Component::trigger_component, (Sin(time * 60.0f) / 2) + 0.5f);
 	//moveComponent(Component::magazine_component, (Sin(time * 60.0f) / 2) + 0.5f);
 
-	if (time3 > 12.0f) {
-		releaseSlide();
+
+	if (time4 > 8.0f) {
+		time4 = 0.0f;
+		ejectMagazine();
 	}
 
-	if (time > 3.0f) {
+	if (time3 > 4.0f) {
+		time3 = 0.0f;
+		releaseSlide();
+		insertMagazine(magazine_logic);
+	}
+
+	if (time > 1.2f) {
 		time = 0;
 		//blastBackSlide();
 		releaseTrigger();
 	}
 
-	if (time2 > 3.0f) {
-		time2 = 0;
+	if (time > 0.5f) {
 		pullTrigger();
 	}
 
@@ -97,13 +124,13 @@ void GunLogic::FixedUpdate(float timeStep) {
 	// Blast back slide or rack it
 	if (slide_being_moved) {
 
-		// Doesn't currently check for below zero.
-		slide_percent = (slide_percent + slide_speed > 1.0f) ? 1.0f : slide_percent + slide_speed;
-
 		// Use slide lock to prevent spring of slide from bringing it back to front - used to racking manually too!
 		if (!slideLocked) {
 			slide_speed -= 0.03f;
 		}
+
+		// Doesn't currently check for below zero.
+		slide_percent = (slide_percent + slide_speed > 1.0f) ? 1.0f : slide_percent + slide_speed;
 
 		if (slide_percent <= 0.0f) {
 			slide_speed = 0.0f;
@@ -112,14 +139,16 @@ void GunLogic::FixedUpdate(float timeStep) {
 		}
 
 		if (slide_percent >= 1.0f && !slideLocked) {
-			if (magazineLogic->roundsLoaded > 0) {
-				slide_speed = -slide_speed * 0.05f; // Fake restitution.
-				is_round_chambered = true;
-				magazineLogic->removeRound();
-			} else {
-				slideLocked = true;
-				slide_being_moved = true;
-				slide_speed = 0.0f;
+			if (magazine_logic != nullptr) {
+				if (magazine_logic->roundsLoaded > 0) {
+					slide_speed = -slide_speed * 0.05f; // Fake restitution.
+					is_round_chambered = true;
+					magazine_logic->removeRound();
+				} else {
+					slideLocked = true;
+					slide_being_moved = true;
+					slide_speed = 0.0f;
+				}
 			}
 		}
 

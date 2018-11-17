@@ -1,5 +1,0 @@
-<animation>
-	<trigger time="0.05" type="String" value="gun_fire"/>
-	<trigger time="0.133333" type="String" value="gun_ejectshell"/>
-	<trigger time="0.316667" type="String" value="gun_chambernew"/>
-</animation>

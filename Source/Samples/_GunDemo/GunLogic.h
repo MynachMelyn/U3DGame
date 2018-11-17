@@ -68,16 +68,14 @@ public:
 	bool trigger_in_motion = false;
 	float trigger_speed = 0.2f;
 
-	Magazine* magazineLogic;
+	Magazine* magazine_logic;
 	bool is_round_chambered = false;
 
+	Node* gunMagBone;
+
 private:
-	/// Grounded flag for movement.
-	bool onGround_;
-	/// Jump flag.
-	bool okToJump_;
-	/// In air timer. Due to possible physics inaccuracy, character can be off ground for max. 1/10 second and still be allowed to move.
-	float inAirTimer_;
+	void insertMagazine(Magazine* mag);
+	void ejectMagazine();
 
 	// Values are min and max, controlled by a 0 to 1 scale to determine rotations, positions along axes etc.
 	Vector2 trigger_values = Vector2(0.0f, 55.0f); // Degrees on local X axis
@@ -118,7 +116,4 @@ private:
 
 	void moveComponent(Node* node, Vector3 origin, Vector2 values, Vector3 mask, float scale);
 	void rotateComponent(Node* node, Quaternion origin, Vector2 values, Vector3 mask, float scale);
-
-	bool roundchambered = false;
-
 };
