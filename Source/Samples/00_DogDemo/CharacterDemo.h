@@ -112,7 +112,7 @@ private:
 	/// Create static scene content.
 	void CreateScene();
 	/// Create controllable character.
-	void CreateCharacter();
+	Node* CreateCharacter();
 	/// Construct an instruction text to the UI.
 	void CreateInstructions();
 	/// Subscribe to necessary events.
@@ -127,8 +127,8 @@ private:
 
 	/// Touch utility object.
 	SharedPtr<Touch> touch_;
-	/// The controllable character component.
-	WeakPtr<KinematicDog> character_;
+	/// The controllable character node.
+	WeakPtr<Node> character_;
 	/// First person camera flag.
 	bool firstPerson_;
 };

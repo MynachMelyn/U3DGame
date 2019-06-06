@@ -44,6 +44,7 @@ public:
 	void inspectChamber();
 	void blastBackSlide();
 	void cockHammer(float speed = 0.5f);
+	void decockHammer(float speed = 0.5f);
 	void turnSafetyOn();
 	void pullTrigger();
 	void releaseTrigger();

@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="0" />
 	<attribute name="Next Replicated Node ID" value="7" />
 	<attribute name="Next Replicated Component ID" value="6" />
-	<attribute name="Next Local Node ID" value="16777395" />
-	<attribute name="Next Local Component ID" value="16777353" />
+	<attribute name="Next Local Node ID" value="16777396" />
+	<attribute name="Next Local Component ID" value="16777365" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
@@ -21,7 +21,7 @@
 			<string value="gun" />
 		</attribute>
 		<attribute name="Position" value="0.000345692 1.13857 -0.435087" />
-		<attribute name="Rotation" value="0.794445 0.138069 -0.101269 0.582699" />
+		<attribute name="Rotation" value="0.906254 0.157501 0.0671718 -0.386504" />
 		<attribute name="Scale" value="1 1 1" />
 		<attribute name="Variables" />
 		<node id="16777351">

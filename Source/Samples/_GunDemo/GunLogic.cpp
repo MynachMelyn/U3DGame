@@ -22,7 +22,7 @@ void GunLogic::RegisterObject(Context* context) {
 }
 
 void GunLogic::Start() {
-	// Component has been inserted into its scene node. Subscribe to events now
+	// TEMP
 	Node* magNode = GetScene()->CreateChild("Magazine");
 	magazine_logic = magNode->CreateComponent<Magazine>();
 
@@ -93,19 +93,19 @@ void GunLogic::FixedUpdate(float timeStep) {
 	time3 += timeStep;
 	time4 += timeStep;
 
-	//moveComponent(Component::hammer_component, (Sin(time * 60.0f) / 2) + 0.5f);
-	//moveComponent(Component::slide_component, (Sin(time * 60.0f) / 2) + 0.5f);
-	//moveComponent(Component::trigger_component, (Sin(time * 60.0f) / 2) + 0.5f);
-	//moveComponent(Component::magazine_component, (Sin(time * 60.0f) / 2) + 0.5f);
 
-
-	if (time4 > 8.0f) {
-		time4 = 0.0f;
+	if (time4 > 8.0f && magazine_logic != nullptr) {
+		//time4 = 0.0f;
 		ejectMagazine();
 	}
 
+	if (time4 > 12.0f) {
+		time4 = 0.0f;
+		releaseSlide();
+	}
+
 	if (time3 > 4.0f) {
-		time3 = 0.0f;
+		time3 = -1000.0f;
 		releaseSlide();
 		insertMagazine(magazine_logic);
 	}
@@ -116,7 +116,7 @@ void GunLogic::FixedUpdate(float timeStep) {
 		releaseTrigger();
 	}
 
-	if (time > 0.5f) {
+	if (time > 0.5f && !trigger_being_pulled) {
 		pullTrigger();
 	}
 
@@ -136,24 +136,33 @@ void GunLogic::FixedUpdate(float timeStep) {
 			slide_speed = 0.0f;
 			slide_percent = 0.0f;
 			slide_being_moved = false;
+			if (!slideLocked && !safety_on && magazine_logic != nullptr) {
+				is_round_chambered = true;
+				magazine_logic->removeRound();
+			}
 		}
 
 		if (slide_percent >= 1.0f && !slideLocked) {
 			if (magazine_logic != nullptr) {
 				if (magazine_logic->roundsLoaded > 0) {
 					slide_speed = -slide_speed * 0.05f; // Fake restitution.
-					is_round_chambered = true;
-					magazine_logic->removeRound();
+					//is_round_chambered = true;
+					//magazine_logic->removeRound();
 				} else {
 					slideLocked = true;
 					slide_being_moved = true;
 					slide_speed = 0.0f;
 				}
+			} else {
+				slideLocked = true;
+				slide_being_moved = true;
+				slide_speed = 0.0f;
 			}
 		}
 
-		if (slide_percent > 0.5f && !hammer_being_moved && !hammer_cocked) {
-			cockHammer(0.6f);
+		if (slide_percent > 0.5f /*&& !hammer_being_moved*/ && !hammer_cocked) {
+			//cockHammer(0.6f);
+			cockHammer(0.3f);
 		}
 
 		moveComponent(Component::slide_component, slide_percent);
@@ -168,7 +177,9 @@ void GunLogic::FixedUpdate(float timeStep) {
 			hammer_cocked = hammer_percent == 1.0f; // Cock hammer if appropriate, otherwise set to 0
 			hammer_being_moved = false; // Fix hammer in place
 
-			if (!safety_on && hammer_percent <= 0.0f && Abs(hammer_speed) >= 0.7f) {
+
+			// We do not care whether or not the mag is in, our gun can fire without a mag - all we need is a chambered shot
+			if (!safety_on && hammer_percent <= 0.0f && Abs(hammer_speed) >= 0.7f && is_round_chambered) {
 				fireBullet();
 			}
 
@@ -207,7 +218,14 @@ void GunLogic::blastBackSlide() {
 void GunLogic::cockHammer(float speed) {
 	if (!hammer_being_moved) {
 		hammer_being_moved = true;
-		hammer_speed = hammer_cocked ? -speed : speed;
+		hammer_speed = speed;
+	}
+}
+
+void GunLogic::decockHammer(float speed) {
+	if (!hammer_being_moved) {
+		hammer_being_moved = true;
+		hammer_speed = -speed;
 		//hammer_speed = speed;
 	}
 }
@@ -231,7 +249,9 @@ void GunLogic::releaseHammer() {
 }
 void GunLogic::releaseSlide() {
 	slideLocked = false;
-	slide_being_moved = true;
+	if (slide_percent > 0) {
+		slide_being_moved = true;
+	}
 	// Simply let it fall
 }
 

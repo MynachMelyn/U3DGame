@@ -49,10 +49,13 @@
 #include <Urho3D/Graphics/Geometry.h>
 
 
-#include "KinematicDog.h"
+//#include "KinematicDog.h"
+#include "CrabCharacterController.h"
 #include "CharacterDemo.h"
 #include "Touch.h"
 #include <DynamicGrass.h>
+
+#include "Global.h"
 
 
 // Debug stuff
@@ -68,7 +71,8 @@ CharacterDemo::CharacterDemo(Context* context) :
 	Sample(context),
 	firstPerson_(false) {
 	// Register factory and attributes for the Character component so it can be created via CreateComponent, and loaded / saved
-	KinematicDog::RegisterObject(context);
+	//KinematicDog::RegisterObject(context);
+	CrabCharacterController::RegisterObject(context);
 	DynamicGrass::RegisterObject(context);
 }
 
@@ -83,6 +87,9 @@ void CharacterDemo::Setup() {
 }
 
 void CharacterDemo::Start() {
+	// Initialise all the global handles for things
+	InitGlobal(context_);
+
 	// Execute base class startup
 	Sample::Start();
 
@@ -93,7 +100,7 @@ void CharacterDemo::Start() {
 	CreateScene();
 
 	// Create the controllable character
-	CreateCharacter();
+	character_ = CreateCharacter();
 
 	// Create the UI content
 	//CreateInstructions();
@@ -302,7 +309,7 @@ void CharacterDemo::CreateScene() {
 	}
 }
 
-void CharacterDemo::CreateCharacter() {
+/*void CharacterDemo::CreateCharacter() {
 	auto* cache = GetSubsystem<ResourceCache>();
 
 
@@ -318,6 +325,25 @@ void CharacterDemo::CreateCharacter() {
 	}
 
 	character_ = objectNode->CreateComponent<KinematicDog>();
+}*/
+
+Node* CharacterDemo::CreateCharacter() {
+	Node* charNode = scene_->CreateChild("Beagle");
+
+	AnimatedModel* charObject = charNode->CreateComponent<AnimatedModel>();
+	//charObject->SetModel(cache->GetResource<Model>("Models/Jack.mdl"));
+	charObject->SetModel(cache->GetResource<Model>("Crab/Models/CrabFinal.mdl"));
+	charObject->SetMaterial(cache->GetResource<Material>("Materials/Stone.xml"));
+	charObject->SetCastShadows(true);
+
+	//animCtrl->PlayExclusive("Crab/Models/Jump.ani", 1, true, 0.0f);
+	//animCtrl->PlayExclusive("Crab/Models/Walk.ani", 1, true, 0.0f);
+	//animCtrl->PlayExclusive("Crab/Models/Idle.ani", 1, true, 0.0f);
+
+	CrabCharacterController* controller = charNode->CreateComponent<CrabCharacterController>();
+	controller->CreatePhysComponents(1.9f, 0.5f);
+
+	return charNode;
 }
 
 void CharacterDemo::CreateInstructions() {
@@ -361,7 +387,9 @@ void CharacterDemo::HandlePostUpdate(StringHash eventType, VariantMap& eventData
 	if (!character_)
 		return;
 
-	Node* characterNode = character_->GetNode();
+	// !!! NEWLY REMOVED !!!!
+	//Node* characterNode = character_->GetNode();
+	//
 
 	//// Get camera lookat dir from character yaw + pitch
 	//const Quaternion& rot = characterNode->GetRotation();
@@ -397,8 +425,8 @@ void CharacterDemo::HandlePostUpdate(StringHash eventType, VariantMap& eventData
 	//	cameraNode_->SetRotation(dir);
 	//}
 
-	cameraNode_->SetPosition(characterNode->GetPosition() + Vector3(0.0f, 20.0f, -20.0f));
-	cameraNode_->LookAt(characterNode->GetPosition(), Vector3(0.0f, 1.0f, 0.0f));
+	cameraNode_->SetPosition(character_->GetPosition() + Vector3(0.0f, 20.0f, -20.0f)); //characterNode->character
+	cameraNode_->LookAt(character_->GetPosition(), Vector3(0.0f, 1.0f, 0.0f));
 
 	/*auto* renderer = GetSubsystem<Renderer>();
 	renderer->SetShadowQuality(ShadowQuality::SHADOWQUALITY_BLUR_VSM);

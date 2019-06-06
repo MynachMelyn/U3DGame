@@ -30,7 +30,7 @@ void KinematicDog::Start() {
 	modelNode = node_->CreateChild("Model Node");
 	modelNode->SetPosition(Vector3(0.0f, 0.0f, 2.0f)); // Offset, to get the collider at the rear feet
 	controller = node_->CreateComponent<CharacterController>();
-	controller->CreatePhysComponents(0.5f);
+	controller->CreatePhysComponents(1.0f); // 0.5
 
 	auto* model = modelNode->CreateComponent<AnimatedModel>();
 	model->SetModel(cache->GetResource<Model>("Beagle/Models/Geo_Beagle.mdl"));
