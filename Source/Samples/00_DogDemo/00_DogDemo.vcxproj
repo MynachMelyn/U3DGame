@@ -275,30 +275,46 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActiveCrabModule.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterController.cpp" />
     <ClCompile Include="CharacterDemo.cpp" />
     <ClCompile Include="CrabCharacterController.cpp" />
+    <ClCompile Include="CrabModule.cpp" />
     <ClCompile Include="DynamicGrass.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="KinematicDog.cpp" />
     <ClCompile Include="Lightning.cpp" />
     <ClCompile Include="Lightning.h" />
+    <ClCompile Include="ModuleSocket.cpp" />
+    <ClCompile Include="Mortal.cpp" />
     <ClCompile Include="NewCharacter.cpp" />
+    <ClCompile Include="PhysicalProjectile.cpp" />
     <ClCompile Include="SelfDestructor.cpp" />
+    <ClCompile Include="SmartMissile.cpp" />
+    <ClCompile Include="SmartSalvoLauncher.cpp" />
     <ClCompile Include="Touch.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActiveCrabModule.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterController.h" />
     <ClInclude Include="CharacterDemo.h" />
     <ClInclude Include="CrabCharacterController.h" />
+    <ClInclude Include="CrabModule.h" />
     <ClInclude Include="DynamicGrass.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="KinematicDog.h" />
+    <ClInclude Include="ModuleSocket.h" />
+    <ClInclude Include="ModuleSocketTypes.h" />
+    <ClInclude Include="Mortal.h" />
     <ClInclude Include="NewCharacter.h" />
+    <ClInclude Include="PhysicalProjectile.h" />
     <ClInclude Include="SelfDestructor.h" />
+    <ClInclude Include="SmartMissile.h" />
+    <ClInclude Include="SmartSalvoLauncher.h" />
     <ClInclude Include="Touch.h" />
+    <ClInclude Include="WeaponModule.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

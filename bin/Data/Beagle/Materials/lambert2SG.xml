@@ -1,6 +1,6 @@
 <material>
 	<technique name="Techniques/Diff.xml"/>
-	<texture name="Beagle/Textures/Tex_Beagle.png" unit="diffuse"/>
+	<texture name="Crab/Beagle/Textures/Tex_Beagle.png" unit="diffuse"/>
 	<parameter name="MatDiffColor" value="1 1 1 1"/>
 	<parameter name="MatSpecColor" value="0.05 0.05 0.05 50"/>
 </material>

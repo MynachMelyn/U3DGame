@@ -1,5 +1,7 @@
 <material>
-	<technique name="Techniques/NoTexture.xml"/>
-	<parameter name="MatDiffColor" value="0.0582341 0.64 0.153574 1"/>
-	<parameter name="MatSpecColor" value="0.5 0.5 0.5 50"/>
+	<technique name="Techniques/DiffBanded.xml"/>
+	<texture name="Crab/Textures/Legs_Base_Color.png" unit="Diffuse"/>
+	<parameter name="MatDiffColor" value="1 1 1 1"/>
+	<parameter name="MatSpecColor" value="0.05 0.05 0.05 50"/>
+	<parameter name="BandCount" value="1.0" />
 </material>

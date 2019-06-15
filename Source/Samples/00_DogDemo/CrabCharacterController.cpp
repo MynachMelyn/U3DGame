@@ -3,6 +3,8 @@
 #include <Bullet/BulletDynamics/Character/btKinematicCharacterController.h>
 
 #include "CrabCharacterController.h"
+#include "SmartSalvoLauncher.h"
+#include "ModuleSocket.h"
 #include "Global.h"
 
 #undef new //???
@@ -31,12 +33,27 @@ CrabCharacterController::~CrabCharacterController() {
 
 void CrabCharacterController::RegisterObject(Context* context) {
 	context->RegisterFactory<CrabCharacterController>();
+	//TODO MOVE THESE GOONS
+	ModuleSocket::RegisterObject(context);
+	SmartSalvoLauncher::RegisterObject(context);
 }
 
 void CrabCharacterController::DelayedStart() {
 	animControl_ = GetNode()->CreateComponent<AnimationController>();
 	//animControl_->PlayExclusive("Crab/Models/Walk.ani", 0, true, 0.2f);
+
 	node_->SetScale(0.02f);
+
+	Node* backSocketNode = node_->CreateChild("Crab Back Socket");
+	backSocket = backSocketNode->CreateComponent<ModuleSocket>();
+	backSocket->SetSocketType(BACK);
+
+	Node* launcherNode = GetScene()->CreateChild("Crab Salvo Launcher");
+	SmartSalvoLauncher* launcher = launcherNode->CreateComponent<SmartSalvoLauncher>();
+	launcherNode->SetWorldTransform(node_->GetWorldPosition(), node_->GetWorldRotation());
+	launcherNode->SetScale(0.2f);
+
+	backSocket->Install(launcher);
 }
 
 void CrabCharacterController::FixedUpdate(float timeStep) {
@@ -105,6 +122,10 @@ void CrabCharacterController::FixedUpdate(float timeStep) {
 			bulletController_->jump(btVector3(0, 6, 0));
 			animControl_->PlayExclusive("Crab/Models/Jump.ani", 0, false, 0.0f);
 			animControl_->SetTime("Crab/Models/Jump.ani", 0);
+
+			// TEMPORARY
+			//((ActiveCrabModule*)backSocket->GetInstalledModule())->Activate(); // This should cause WeaponModule's activate to call Launcher's activate to call fire!
+			((SmartSalvoLauncher*)backSocket->GetInstalledModule())->Activate(); // This should cause WeaponModule's activate to call Launcher's activate to call fire!
 		}
 	}
 

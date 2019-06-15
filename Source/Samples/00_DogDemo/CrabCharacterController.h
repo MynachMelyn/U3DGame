@@ -1,5 +1,6 @@
 #pragma once
 #include <Urho3D/Urho3DAll.h>
+#include <ModuleSocket.h>
 
 class btPairCachingGhostObject;
 class btKinematicCharacterController;
@@ -42,4 +43,5 @@ private:
 	const float air_accelerate = 2.0f; // 0.1f
 	const float ground_accelerate = 2.0f;
 
+	ModuleSocket* backSocket;
 };
