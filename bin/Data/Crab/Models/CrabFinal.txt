@@ -1,0 +1,5 @@
+Materials/Carapace.xml
+Materials/Legs.xml
+Materials/Claw.xml
+Materials/Eyes.xml
+Materials/Claw Small.xml

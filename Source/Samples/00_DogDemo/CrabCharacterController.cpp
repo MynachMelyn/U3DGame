@@ -14,6 +14,7 @@ const int CTRL_BACK = 2;
 const int CTRL_LEFT = 4;
 const int CTRL_RIGHT = 8;
 const int CTRL_JUMP = 16;
+const int CTRL_ACTIVATEBACK = 32;
 // Функция копирует значения X и Z из вектора from в вектор target.
 // Эта функция используется, чтобы изменить горизонтальную скорость объекта, но не затронуть вертикальную.
 /*static void SetXZ(Vector3& target, const Vector3& from)
@@ -42,7 +43,8 @@ void CrabCharacterController::DelayedStart() {
 	animControl_ = GetNode()->CreateComponent<AnimationController>();
 	//animControl_->PlayExclusive("Crab/Models/Walk.ani", 0, true, 0.2f);
 
-	node_->SetScale(0.02f);
+	// Redundant now
+	//node_->SetScale(0.02f);
 
 	Node* backSocketNode = node_->CreateChild("Crab Back Socket");
 	backSocket = backSocketNode->CreateComponent<ModuleSocket>();
@@ -51,7 +53,7 @@ void CrabCharacterController::DelayedStart() {
 	Node* launcherNode = GetScene()->CreateChild("Crab Salvo Launcher");
 	SmartSalvoLauncher* launcher = launcherNode->CreateComponent<SmartSalvoLauncher>();
 	launcherNode->SetWorldTransform(node_->GetWorldPosition(), node_->GetWorldRotation());
-	launcherNode->SetScale(0.2f);
+	//launcherNode->SetScale(0.2f);
 
 	backSocket->Install(launcher);
 }
@@ -125,8 +127,12 @@ void CrabCharacterController::FixedUpdate(float timeStep) {
 
 			// TEMPORARY
 			//((ActiveCrabModule*)backSocket->GetInstalledModule())->Activate(); // This should cause WeaponModule's activate to call Launcher's activate to call fire!
-			((SmartSalvoLauncher*)backSocket->GetInstalledModule())->Activate(); // This should cause WeaponModule's activate to call Launcher's activate to call fire!
+
 		}
+	}
+
+	if (controls_.IsDown(CTRL_ACTIVATEBACK)) {
+		((SmartSalvoLauncher*)backSocket->GetInstalledModule())->Activate(); // This should cause WeaponModule's activate to call Launcher's activate to call fire!
 	}
 
 	btTransform t;
@@ -173,6 +179,7 @@ void CrabCharacterController::Update(float timeStep) {
 	controls_.Set(CTRL_LEFT, input->GetKeyDown(KEY_A));
 	controls_.Set(CTRL_RIGHT, input->GetKeyDown(KEY_D));
 	controls_.Set(CTRL_JUMP, input->GetKeyDown(KEY_SPACE));
+	controls_.Set(CTRL_ACTIVATEBACK, input->GetKeyDown(KEY_E));
 
 	btTransform t;
 	t = bulletController_->getGhostObject()->getWorldTransform();
@@ -207,6 +214,7 @@ void CrabCharacterController::CreatePhysComponents(float height, float diameter)
 	world->getBroadphase()->getOverlappingPairCache()->setInternalGhostPairCallback(new btGhostPairCallback());
 	ghostObject_->setCollisionShape(capsule);
 	ghostObject_->setCollisionFlags(btCollisionObject::CF_CHARACTER_OBJECT);
+
 	bulletController_ = new btKinematicCharacterController(ghostObject_, capsule, 0.3f, btVector3(0, 0, 1));
 	//bulletController_->setGravity(world->getGravity());
 	bulletController_->setGravity(world->getGravity());

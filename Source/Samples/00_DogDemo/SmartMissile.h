@@ -43,11 +43,14 @@ private:
 
 	float mass = 1.0f;
 
-	float thrustForce = 50.0f;
+	float thrustForce = 25.0f;
 	float constantDeceleration = 5.0f; //Should help prevent overshooting later on
 
 	RigidBody* rigidBody = nullptr;
 	CollisionShape* collision = nullptr;
 
 	Node* target = nullptr;
+
+	float timeSinceInit = 0.0f;
+	float timeToEngage = 1.0f;
 };

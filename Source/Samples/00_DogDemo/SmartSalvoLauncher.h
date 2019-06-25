@@ -40,5 +40,11 @@ private:
 	int ammoInMag = magSize;
 	int ammoInReserve = ammoReserveSize;
 
+	bool isFiring = false;			// are we in the middle of a barrage?
+	const float coolDownBetweenShots = 0.2f;	// time to wait between shots
+	float coolDownProgress = 0.0f;	// time into cooldown between shots
+	int shotsFired = 0;				// progress into volley
+	static const int maxShots = 8;	// volley size
+
 	//static const SocketType acceptedSocket = BACK;
 };

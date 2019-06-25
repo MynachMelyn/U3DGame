@@ -28,7 +28,21 @@ void SmartSalvoLauncher::DelayedStart() {
 
 /// Handle physics world update. Called by LogicComponent base class.
 void SmartSalvoLauncher::Update(float timeStep) {
+	if (isFiring) {
+		coolDownProgress += timeStep;
+		if (coolDownProgress > coolDownBetweenShots) {
+			Node* missile = GetScene()->CreateChild("Missile");
+			missile->SetWorldTransform(node_->GetWorldPosition() + (Vector3::UP * 2.0f), node_->GetWorldRotation());
+			missile->CreateComponent<SmartMissile>();
 
+			coolDownProgress = 0.0f;
+			shotsFired++;
+			if (shotsFired >= maxShots) {
+				shotsFired = 0;
+				isFiring = false;
+			}
+		}
+	}
 }
 
 void SmartSalvoLauncher::onInstall() {
@@ -47,13 +61,9 @@ void SmartSalvoLauncher::Reload() {
 }
 
 void SmartSalvoLauncher::Fire() {
-
-	//node_->SetPosition(node_->GetPosition() + Vector3(0.0f, 0.25f, 0.0f));
-
-	Node* missile = GetScene()->CreateChild("Missile");
-	missile->SetWorldTransform(node_->GetWorldPosition() + (Vector3::UP * 3.0f), node_->GetWorldRotation());
-	//missile->SetPosition(missile->GetPosition() + (missile->GetRotation() * Vector3::UP * 3)); // Move upward by 3 units to avoid collision
-	missile->CreateComponent<SmartMissile>();
+	if (!isFiring) {
+		isFiring = true;
+	}
 }
 
 /// Adds to ammo reserve
