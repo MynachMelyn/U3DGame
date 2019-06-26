@@ -1,6 +1,8 @@
 #pragma once
 
 #include "WeaponModule.h"
+#include <algorithm> 
+#include <vector>
 
 using namespace Urho3D;
 
@@ -45,6 +47,13 @@ private:
 	float coolDownProgress = 0.0f;	// time into cooldown between shots
 	int shotsFired = 0;				// progress into volley
 	static const int maxShots = 8;	// volley size
+
+
+	std::vector<Node*> boneList;
+	std::vector<Node*> rocketPlaceholders;	// the lil rocket models we stick in the tubes
+	static const int barrelRows = 3;		// number of rows of rockets
+	void CreateRocketInBarrel(int i);		// puts rocket placeholders in a barrel
+	void RemoveRocketFromBarrel();			// removes last rocket placeholder from the relevant barrel
 
 	//static const SocketType acceptedSocket = BACK;
 };

@@ -7,12 +7,15 @@ SmartMissile::SmartMissile(Context* context) :
 	SetUpdateEventMask(USE_UPDATE);
 }
 
+
+// Otherwise we get unresolved extern. symbols?? These refer to the static model definitions we have in the header
 void SmartMissile::RegisterObject(Context* context) {
 	context->RegisterFactory<SmartMissile>();
 }
 
 void SmartMissile::Start() {
-	//node_->SetScale(0.2f);
+	SmartMissile::modelNoWings = cache->GetResource<Model>("Missiles/Models/MissileNoWings.mdl");
+	SmartMissile::modelWithWings = cache->GetResource<Model>("Missiles/Models/Missile.mdl");
 
 	collision = node_->CreateComponent<CollisionShape>();
 	collision->SetBox(Vector3(0.1f, 0.1f, 0.4f));
@@ -33,7 +36,9 @@ void SmartMissile::Start() {
 	rigidBody->SetUseGravity(true);
 
 	StaticModel* model = node_->CreateComponent<StaticModel>();
-	model->SetModel(cache->GetResource<Model>("Missiles/Models/Missile.mdl"));
+	model->SetModel(modelNoWings);
+	//model->SetModel(cache->GetResource<Model>("Missiles/Models/MissileNoWings.mdl"));
+	model->SetModel(SmartMissile::modelNoWings);
 
 	target = GetScene()->GetChild("target", true);
 
@@ -47,8 +52,14 @@ void SmartMissile::DelayedStart() {
 
 /// Handle physics world update. Called by LogicComponent base class.
 void SmartMissile::Update(float timeStep) {
-	if (timeSinceInit < timeToEngage) {
-		timeSinceInit += timeStep;
+	if (!engaged) {
+		if (timeSinceInit < timeToEngage) {
+			timeSinceInit += timeStep;
+		} else {
+			engaged = true;
+			// Now that we have engaged, change the model to the winged model ONCE.
+			this->GetComponent<StaticModel>()->SetModel(SmartMissile::modelWithWings);
+		}
 	} else {
 		if (target != nullptr) {
 			rigidBody->SetUseGravity(false);
@@ -59,9 +70,7 @@ void SmartMissile::Update(float timeStep) {
 
 			// For now, targeting is instant and simply points at the target.
 			node_->LookAt(target->GetWorldPosition(), Vector3::UP, TS_WORLD);
-			//rigidBody->SetRotation
 		}
-
 		rigidBody->ApplyForce(node_->GetRotation() * Vector3::FORWARD * thrustForce); // Apply force forward
 	}
 }

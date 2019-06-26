@@ -53,4 +53,9 @@ private:
 
 	float timeSinceInit = 0.0f;
 	float timeToEngage = 1.0f;
+
+	bool engaged = false;
+
+	Model* modelNoWings;
+	Model* modelWithWings;
 };
