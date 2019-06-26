@@ -40,6 +40,9 @@ void CrabCharacterController::RegisterObject(Context* context) {
 }
 
 void CrabCharacterController::DelayedStart() {
+
+	GetNode()->AddTag("player");
+
 	animControl_ = GetNode()->CreateComponent<AnimationController>();
 	//animControl_->PlayExclusive("Crab/Models/Walk.ani", 0, true, 0.2f);
 
@@ -213,14 +216,15 @@ void CrabCharacterController::CreatePhysComponents(float height, float diameter)
 	ghostObject_->setWorldTransform(startTransform);
 	world->getBroadphase()->getOverlappingPairCache()->setInternalGhostPairCallback(new btGhostPairCallback());
 	ghostObject_->setCollisionShape(capsule);
-	ghostObject_->setCollisionFlags(btCollisionObject::CF_CHARACTER_OBJECT);
+	ghostObject_->setCollisionFlags(btCollisionObject::CF_CHARACTER_OBJECT/* + 0b00000001*/);
+
 
 	bulletController_ = new btKinematicCharacterController(ghostObject_, capsule, 0.3f, btVector3(0, 0, 1));
 	//bulletController_->setGravity(world->getGravity());
 	bulletController_->setGravity(world->getGravity());
 	bulletController_->setMaxPenetrationDepth(btScalar(0.0f));
 
-	world->addCollisionObject(ghostObject_, btBroadphaseProxy::CharacterFilter, btBroadphaseProxy::AllFilter);
+	world->addCollisionObject(ghostObject_, btBroadphaseProxy::CharacterFilter + 0b00000001, 0b10111111);
 	world->addAction(bulletController_);
 	bulletController_->setMaxJumpHeight(1.5);
 

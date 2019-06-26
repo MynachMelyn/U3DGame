@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="780.409" />
 	<attribute name="Next Replicated Node ID" value="93" />
 	<attribute name="Next Replicated Component ID" value="89" />
-	<attribute name="Next Local Node ID" value="16806488" />
-	<attribute name="Next Local Component ID" value="16806920" />
+	<attribute name="Next Local Node ID" value="16806491" />
+	<attribute name="Next Local Component ID" value="16806935" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
@@ -166,6 +166,7 @@
 				<attribute name="Physics Position" value="-8.36174 -0.0497152 -13.9914" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
+				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16777468">
 				<attribute name="Shape Type" value="ConvexHull" />
@@ -568,6 +569,24 @@
 				<attribute name="Model" value="Model;ForestNew/Models/PineCone.mdl" />
 				<attribute name="Material" value="Material;ForestNew/Materials/lambert2SG.xml" />
 				<attribute name="Cast Shadows" value="true" />
+			</component>
+		</node>
+		<node id="16806490">
+			<attribute name="Is Enabled" value="true" />
+			<attribute name="Name" value="CollideTest" />
+			<attribute name="Tags" />
+			<attribute name="Position" value="0.847524 0.053224 -0.559686" />
+			<attribute name="Rotation" value="1 0 0 0" />
+			<attribute name="Scale" value="0.5 0.5 0.5" />
+			<attribute name="Variables" />
+			<component type="RigidBody" id="16806933">
+				<attribute name="Physics Rotation" value="0.99629 0 0.0860543 0" />
+				<attribute name="Physics Position" value="7.71708 0.482525 -6.79604" />
+				<attribute name="Mass" value="5" />
+				<attribute name="Is Kinematic" value="true" />
+			</component>
+			<component type="CollisionShape" id="16806934">
+				<attribute name="Shape Type" value="Sphere" />
 			</component>
 		</node>
 	</node>

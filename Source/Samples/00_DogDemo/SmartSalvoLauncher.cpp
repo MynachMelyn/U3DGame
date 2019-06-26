@@ -48,18 +48,19 @@ void SmartSalvoLauncher::Update(float timeStep) {
 	if (isFiring) {
 		coolDownProgress += timeStep;
 		if (coolDownProgress > coolDownBetweenShots) {
-			Node* missile = GetScene()->CreateChild("Missile");
-			//missile->SetWorldTransform(node_->GetWorldPosition() + (Vector3::UP * 2.0f), node_->GetWorldRotation());
-			missile->SetWorldTransform(rocketPlaceholders.at(ammoInMag - 1)->GetWorldPosition(), node_->GetWorldRotation());
-			missile->LookAt(missile->GetWorldPosition() + Vector3::UP, Vector3::UP, TS_WORLD);
-			missile->CreateComponent<SmartMissile>();
+			if (ammoInMag > 0) {
+				Node* missile = GetScene()->CreateChild("Missile");
+				//missile->SetWorldTransform(node_->GetWorldPosition() + (Vector3::UP * 2.0f), node_->GetWorldRotation());
+				missile->SetWorldTransform(rocketPlaceholders.at(ammoInMag - 1)->GetWorldPosition(), node_->GetWorldRotation());
+				missile->LookAt(missile->GetWorldPosition() + Vector3::UP, Vector3::UP, TS_WORLD);
+				missile->CreateComponent<SmartMissile>();
 
-			RemoveRocketFromBarrel(); //Remove our current rocket placeholder (the visible rocket in the tube)
+				RemoveRocketFromBarrel(); //Remove our current rocket placeholder (the visible rocket in the tube)
 
-			coolDownProgress = 0.0f;
-			shotsFired++;
-			ammoInMag--;
-
+				coolDownProgress = 0.0f;
+				shotsFired++;
+				ammoInMag--;
+			}
 			if (shotsFired >= maxShots || ammoInMag <= 0) {
 				shotsFired = 0;
 				isFiring = false;

@@ -3,6 +3,8 @@
 #include <PhysicalProjectile.h>
 #include <Urho3D/Physics/RigidBody.h>
 #include <Urho3D/Physics/CollisionShape.h>
+#include <Urho3D/Graphics/ParticleEmitter.h>
+#include <Urho3D/Graphics/ParticleEffect.h>
 
 using namespace Urho3D;
 
@@ -58,4 +60,6 @@ private:
 
 	Model* modelNoWings;
 	Model* modelWithWings;
+
+	ParticleEmitter* emitter;
 };

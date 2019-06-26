@@ -26,8 +26,11 @@ void DynamicGrass::Start() {
 	// Prevent it being a physical box, and more of a volume trigger
 	body->SetTrigger(true);
 	// Prevent collision checks with typical objects, use a special last layer
-	body->SetCollisionLayer((unsigned)128); // Only other things on last layer can collide with us
-	body->SetCollisionMask((unsigned)128); // Only collide us with things on this layer
+	//body->SetCollisionLayer(0b00000001); // Only other things on last layer can collide with us
+	//body->SetCollisionMask(0b00000001); // Only collide us with things on this layer
+
+	body->SetCollisionLayer(0b1111111); // TEMP
+	body->SetCollisionMask(0b11111111);
 
 	collision = node_->CreateComponent<CollisionShape>();
 	String name = node_->GetComponent<StaticModel>()->GetModel()->GetName();
@@ -72,7 +75,11 @@ void DynamicGrass::HandleNodeCollision(StringHash eventType, VariantMap& eventDa
 	Node* contactNode = (Node*)eventData[P_OTHERNODE].GetPtr();
 	RigidBody* rigidBody = contactNode->GetComponent<RigidBody>();
 	// No kinematics allowed (i.e. no trees)
-	if (grassMaterial && !rigidBody->IsKinematic()) {
+	if (grassMaterial/* && (!rigidBody->IsKinematic() || rigidBody->GetNode()->GetTags().Contains(String("player")))*/) {
+
+		//temp
+		String name = contactNode->GetName();
+
 
 		/*StaticModel* model = contactNode->GetComponent<StaticModel>(true);
 		Vector3 modelSize = model->GetWorldBoundingBox().Size();
@@ -109,7 +116,7 @@ void DynamicGrass::FixedPostUpdate(float timeStep) {
 		//grassMaterial->SetShaderParameter("NumberOfObjects", 1);
 		varvec->Clear();
 		sizevec->Clear();
-		collidedThisFrame = false;
+		//collidedThisFrame = false;
 	}
 }
 /*

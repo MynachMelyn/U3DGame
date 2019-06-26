@@ -25,7 +25,9 @@ void SmartMissile::Start() {
 
 	// Rockets are on 2nd layer, don't collide with layer 4th layer
 	//rigidBody->SetCollisionLayerAndMask(2, Urho3D::M_MAX_UNSIGNED);
-	rigidBody->SetCollisionLayerAndMask(2, 1 < 2 < 3 < 4 < 6 < 7 < 8);
+	//rigidBody->SetCollisionLayerAndMask(2, 1 < 2 < 3 < 4 < 6 < 7);
+	rigidBody->SetCollisionLayerAndMask(0b01000000, 0b11011111); // Don't collide with player on 5th layer (layer 4)
+	//rigidBody->SetCollisionLayerAndMask(1, 1 < 2 < 3 < 4 < 6 < 7 < 8);
 
 	//rigidBody->SetAngularDamping(5.0f);
 	//rigidBody->SetAngularFactor(Vector3::ZERO);
@@ -42,12 +44,19 @@ void SmartMissile::Start() {
 
 	target = GetScene()->GetChild("target", true);
 
+	emitter = GetNode()->CreateComponent<ParticleEmitter>();
+	emitter->SetEffect(cache->GetResource<ParticleEffect>("Particle/SmokeMissile.xml"));
+	emitter->SetEmitting(false);
+
 }
 void SmartMissile::DelayedStart() {
 	SetRandomSeed(time->GetSystemTime());
-	node_->LookAt(Vector3(Random() - 0.5f, 0.0f, Random() - 0.5f) + node_->GetWorldPosition() + Vector3::UP * 2.0f, Vector3::UP, TS_WORLD);
+	//node_->LookAt(Vector3(Random() - 0.5f, 0.0f, Random() - 0.5f) + node_->GetWorldPosition() + Vector3::UP * 2.0f, Vector3::UP, TS_WORLD);
+	node_->LookAt(
+		(Vector3(Random() - 0.5f, 0.0f, Random() - 0.5f) / 3.0f)
+		+ node_->GetWorldPosition() + Vector3::UP * 2.0f, Vector3::UP, TS_WORLD);
 	rigidBody->ApplyImpulse((GetNode()->GetRotation() * Vector3::FORWARD) * 10.0f);
-	rigidBody->ApplyTorque(GetNode()->GetRotation() * Vector3(0.0f, 0.0f, (Random() + 0.1f) * 10.0f));
+	rigidBody->ApplyTorque(GetNode()->GetRotation() * Vector3(0.0f, 0.0f, (Random() + 0.1f) * 3.0f));
 }
 
 /// Handle physics world update. Called by LogicComponent base class.
@@ -59,6 +68,7 @@ void SmartMissile::Update(float timeStep) {
 			engaged = true;
 			// Now that we have engaged, change the model to the winged model ONCE.
 			this->GetComponent<StaticModel>()->SetModel(SmartMissile::modelWithWings);
+			emitter->SetEmitting(true);
 		}
 	} else {
 		if (target != nullptr) {

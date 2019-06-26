@@ -128,8 +128,8 @@ void CharacterDemo::SetupViewport() {
 	SharedPtr<Viewport> rttViewport(new Viewport(context_, scene_, cameraNode_->GetComponent<Camera>(), IntRect(0.0f, 0.0f, 1920.0f, 1080.0f)));
 
 	// THIS IS FOR TOGGLING THE DOWNSAMPLING
-	//rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth_lowres.xml"));
-	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
+	rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth_lowres.xml"));
+	//rttViewport->SetRenderPath(cache->GetResource<XMLFile>("CoreData/RenderPaths/ForwardHWDepth.xml"));
 
 	// DO NOT DO THESE
 	//rttViewport->GetRenderPath()->Append(cache->GetResource<XMLFile>("PostProcess/Dither.xml"));
@@ -441,5 +441,5 @@ void CharacterDemo::HandlePostUpdate(StringHash eventType, VariantMap& eventData
 
 void CharacterDemo::HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData) {
 	//if (drawDebug_)
-	scene_->GetComponent<PhysicsWorld>()->DrawDebugGeometry(false);
+	//scene_->GetComponent<PhysicsWorld>()->DrawDebugGeometry(false);
 }
