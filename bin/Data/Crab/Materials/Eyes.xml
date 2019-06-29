@@ -1,5 +1,6 @@
 <material>
 	<technique name="Techniques/DiffBanded.xml"/>
+	<technique name="Techniques/DiffBanded.xml"/>
 	<texture name="Crab/Textures/Eyes_Base_Color.png" unit="Diffuse"/>
 	<parameter name="MatDiffColor" value="1 1 1 1"/>
 	<parameter name="MatSpecColor" value="0.05 0.05 0.05 50"/>

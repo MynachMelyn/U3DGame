@@ -28,6 +28,8 @@ public:
 
 	AnimationController* animControl_;
 
+	void HandleNodeCollision(StringHash eventType, VariantMap& eventData);
+
 private:
 	virtual void DelayedStart() override;
 	virtual void FixedUpdate(float timeStep) override;
@@ -37,11 +39,25 @@ private:
 	Vector3 MoveGround(Vector3 accelDir, Vector3 prevVelocity, float time);
 	Vector3 MoveAir(Vector3 accelDir, Vector3 prevVelocity, float time);
 
-	const float friction = 10.0f;
-	const float MOVE_SPEED = 0.1f; //10
-	const float MOVE_SPEED_AIR = 0.1f; //10
-	const float air_accelerate = 2.0f; // 0.1f
-	const float ground_accelerate = 2.0f;
+	//const float friction = 10.0f; //10.0f; // 5.0f; //10.0f;
+	const float friction = 10.0f; //10.0f; // 5.0f; //10.0f;
+	 // 100 // 0.1f?
+	const float MOVE_SPEED_AIR = 0.1f; // 0.1f
+
+
+	const float air_accelerate_default = 0.1f;
+	const float air_accelerate_rockets = 2.0f;
+	float air_accelerate = air_accelerate_default; // 16 //2.0f; // 0.1f
+
+	const float ground_accelerate_default = 0.8f; // 2.0f
+	const float ground_accelerate_advanced = 2.0f;
+	float ground_accelerate = ground_accelerate_default; // 16.0f;
+	const float MOVE_SPEED_DEFAULT = 0.1f;
+	const float MOVE_SPEED_ADVANCED = 0.15f;
+	float MOVE_SPEED = MOVE_SPEED_DEFAULT;
+
+	const float velocityWalkSpeedFactor = 20.0f; //20.0f
 
 	ModuleSocket* backSocket;
+
 };

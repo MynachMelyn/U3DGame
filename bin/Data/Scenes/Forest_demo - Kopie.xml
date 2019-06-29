@@ -7,8 +7,8 @@
 	<attribute name="Elapsed Time" value="780.409" />
 	<attribute name="Next Replicated Node ID" value="93" />
 	<attribute name="Next Replicated Component ID" value="89" />
-	<attribute name="Next Local Node ID" value="16806500" />
-	<attribute name="Next Local Component ID" value="16806989" />
+	<attribute name="Next Local Node ID" value="16806498" />
+	<attribute name="Next Local Component ID" value="16806976" />
 	<attribute name="Variables" />
 	<attribute name="Variable Names" value="" />
 	<component type="Octree" id="1" />
@@ -114,9 +114,8 @@
 			<component type="RigidBody" id="16777458">
 				<attribute name="Physics Rotation" value="0.977396 0 -0.211417 0" />
 				<attribute name="Physics Position" value="0.907146 -0.0497152 -20.149" />
-				<attribute name="Collision Layer" value="3" />
+				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16777459">
 				<attribute name="Shape Type" value="ConvexHull" />
@@ -142,7 +141,6 @@
 				<attribute name="Physics Position" value="6.29226 -0.0497152 -1.7996" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16777465">
 				<attribute name="Shape Type" value="ConvexHull" />
@@ -247,7 +245,6 @@
 				<attribute name="Physics Position" value="-2.60305 -0.131943 -18.5736" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16777489">
 				<attribute name="Shape Type" value="ConvexHull" />
@@ -272,12 +269,11 @@
 				<attribute name="Physics Position" value="22.6093 -0.124117 -1.34674" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806530">
-				<attribute name="Shape Type" value="Cylinder" />
-				<attribute name="Size" value="2 3 1" />
-				<attribute name="Offset Position" value="0 1.5 0" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="11.6826 11.5053 2.66087" />
+				<attribute name="Offset Position" value="-0.580126 5.7527 0.178212" />
 			</component>
 		</node>
 		<node id="65">
@@ -306,6 +302,17 @@
 				<attribute name="Model" value="Model;ForestNew/Models/DeadSpruce2.mdl" />
 				<attribute name="Material" value="Material;ForestNew/Materials/DeadSpruceTreeTrunk.xml" />
 				<attribute name="Cast Shadows" value="true" />
+			</component>
+			<component type="RigidBody" id="16806535">
+				<attribute name="Physics Rotation" value="1 0 8.19564e-08 0" />
+				<attribute name="Physics Position" value="14.7866 0.00148821 -3.57417" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
+			</component>
+			<component type="CollisionShape" id="16806536">
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="2.35971 4.22417 2.29053" />
+				<attribute name="Offset Position" value="-0.0559605 2.11004 0.00105017" />
 			</component>
 		</node>
 		<node id="67">
@@ -349,14 +356,14 @@
 			</component>
 			<component type="RigidBody" id="16806553">
 				<attribute name="Physics Rotation" value="0.999545 -0.030164 6.70553e-08 2.09548e-09" />
-				<attribute name="Physics Position" value="0.575324 0.00130987 -2.1369" />
+				<attribute name="Physics Position" value="0.575324 0.00130964 -2.1369" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806554">
-				<attribute name="Size" value="2 3 2" />
-				<attribute name="Offset Position" value="0.0682167 1.5 0.018019" />
+				<attribute name="Shape Type" value="ConvexHull" />
+				<attribute name="Size" value="2.11665 5.56065 1.9342" />
+				<attribute name="Offset Position" value="0.0682167 2.77824 0.018019" />
 			</component>
 		</node>
 		<node id="71">
@@ -374,14 +381,14 @@
 			</component>
 			<component type="RigidBody" id="16806550">
 				<attribute name="Physics Rotation" value="1 0 8.19564e-08 0" />
-				<attribute name="Physics Position" value="4.83754 0.00328159 -17.1156" />
-				<attribute name="Collision Layer" value="3" />
+				<attribute name="Physics Position" value="4.83754 0.00328136 -17.1156" />
+				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806551">
 				<attribute name="Shape Type" value="ConvexHull" />
-				<attribute name="Model" value="Model;ForestNew/Models/SpruceTree1.mdl" />
+				<attribute name="Size" value="5.9008 12.0855 5.4431" />
+				<attribute name="Offset Position" value="-0.16273 6.03751 0.044631" />
 			</component>
 		</node>
 		<node id="73">
@@ -402,11 +409,11 @@
 				<attribute name="Physics Position" value="-3.08957 0 -15.9063" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806557">
 				<attribute name="Shape Type" value="ConvexHull" />
-				<attribute name="Model" value="Model;ForestNew/Models/SpruceTree3.mdl" />
+				<attribute name="Size" value="3.51846 10.1982 3.09648" />
+				<attribute name="Offset Position" value="-0.0030511 5.09383 0.0910478" />
 			</component>
 		</node>
 		<node id="79">
@@ -515,9 +522,9 @@
 				<attribute name="Physics Position" value="-3.85975 0.383858 -7.12275" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806578">
+				<attribute name="Shape Type" value="ConvexHull" />
 				<attribute name="Size" value="3.12211 1.37311 1.46764" />
 				<attribute name="Offset Position" value="-0.0531055 0.118639 -0.727159" />
 			</component>
@@ -583,6 +590,19 @@
 			</component>
 		</node>
 	</node>
+	<node id="16777585">
+		<attribute name="Is Enabled" value="false" />
+		<attribute name="Name" value="Man" />
+		<attribute name="Tags" />
+		<attribute name="Position" value="-0.856661 -2.38498 25.7753" />
+		<attribute name="Rotation" value="0.00147993 0 0.999999 0" />
+		<attribute name="Scale" value="4.1622 4.1622 4.1622" />
+		<attribute name="Variables" />
+		<component type="StaticModel" id="16777718">
+			<attribute name="Model" value="Model;Models/Jack.mdl" />
+			<attribute name="Material" value="Material;Beagle/Materials/lambert2SGUnlit.xml;Beagle/Materials/lambert2SGUnlit.xml" />
+		</component>
+	</node>
 	<node id="16783872">
 		<attribute name="Is Enabled" value="true" />
 		<attribute name="Name" value="Building" />
@@ -603,10 +623,7 @@
 		<component type="RigidBody" id="16784005">
 			<attribute name="Physics Rotation" value="0.766043 0 -0.64279 0" />
 			<attribute name="Physics Position" value="40.7635 -0.01 -9.81448" />
-			<attribute name="Mass" value="5" />
 			<attribute name="Friction" value="0.55" />
-			<attribute name="Collision Layer" value="3" />
-			<attribute name="Use Gravity" value="false" />
 			<attribute name="Is Kinematic" value="true" />
 		</component>
 		<node id="16783871">
@@ -75952,7 +75969,6 @@
 				<attribute name="Physics Position" value="14.1305 0 -9.10419" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16784089">
 				<attribute name="Size" value="3 1 1" />
@@ -75989,8 +76005,8 @@
 			</component>
 			<component type="RigidBody" id="16784097">
 				<attribute name="Physics Position" value="35.4971 0.00328159 2.25642" />
-				<attribute name="Mass" value="5" />
-				<attribute name="Is Kinematic" value="true" />
+				<attribute name="Collision Layer" value="2" />
+				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16784098">
 				<attribute name="Shape Type" value="ConvexHull" />
@@ -76012,8 +76028,8 @@
 			</component>
 			<component type="RigidBody" id="16784100">
 				<attribute name="Physics Position" value="38.9019 0 1.294" />
+				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16784101">
 				<attribute name="Shape Type" value="ConvexHull" />
@@ -76035,8 +76051,8 @@
 			</component>
 			<component type="RigidBody" id="16784103">
 				<attribute name="Physics Position" value="41.938 0.00438166 1.96407" />
+				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16784104">
 				<attribute name="Shape Type" value="ConvexHull" />
@@ -76059,6 +76075,7 @@
 			<component type="RigidBody" id="16784106">
 				<attribute name="Physics Rotation" value="0.707107 0.707107 0 0" />
 				<attribute name="Physics Position" value="45.0093 2.38419e-07 0.0269569" />
+				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
 			</component>
 			<component type="CollisionShape" id="16784107">
@@ -76082,8 +76099,8 @@
 			<component type="RigidBody" id="16806541">
 				<attribute name="Physics Rotation" value="0.67038 0.740045 0.036303 0.0400755" />
 				<attribute name="Physics Position" value="-1.0167 -0.0217173 -0.756166" />
+				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806542">
 				<attribute name="Shape Type" value="Cone" />
@@ -76711,10 +76728,8 @@
 			</component>
 			<component type="RigidBody" id="16806502">
 				<attribute name="Physics Position" value="15.5581 -0.0516615 -1.35283" />
-				<attribute name="Mass" value="1" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806503">
 				<attribute name="Size" value="2 1 2" />
@@ -76736,10 +76751,8 @@
 			<component type="RigidBody" id="16806505">
 				<attribute name="Physics Rotation" value="0.795361 0 -0.606136 0" />
 				<attribute name="Physics Position" value="16.8946 0.717351 -0.0056107" />
-				<attribute name="Mass" value="1" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806506">
 				<attribute name="Size" value="2 2 2" />
@@ -76761,10 +76774,8 @@
 			<component type="RigidBody" id="16806508">
 				<attribute name="Physics Rotation" value="0.691155 0 0.722706 0" />
 				<attribute name="Physics Position" value="19.0218 0.730404 -0.0347345" />
-				<attribute name="Mass" value="1" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806509">
 				<attribute name="Size" value="2 2 2" />
@@ -76786,10 +76797,8 @@
 			<component type="RigidBody" id="16806511">
 				<attribute name="Physics Rotation" value="0.919741 -0.296933 0.244309 0.0788737" />
 				<attribute name="Physics Position" value="17.3016 -0.00894201 -1.28291" />
-				<attribute name="Mass" value="1" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806512" />
 		</node>
@@ -76829,10 +76838,8 @@
 			</component>
 			<component type="RigidBody" id="16806568">
 				<attribute name="Physics Position" value="-4.54013 1.87593 -12.5511" />
-				<attribute name="Mass" value="1" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806569">
 				<attribute name="Shape Type" value="ConvexHull" />
@@ -76877,10 +76884,8 @@
 			<component type="RigidBody" id="16806571">
 				<attribute name="Physics Rotation" value="0.82437 0 0.566051 0" />
 				<attribute name="Physics Position" value="-6.88693 0.616796 -5.6742" />
-				<attribute name="Mass" value="1" />
 				<attribute name="Collision Layer" value="2" />
 				<attribute name="Use Gravity" value="false" />
-				<attribute name="Is Kinematic" value="true" />
 			</component>
 			<component type="CollisionShape" id="16806572">
 				<attribute name="Shape Type" value="ConvexHull" />

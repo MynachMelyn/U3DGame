@@ -46,7 +46,7 @@ private:
 	float mass = 1.0f;
 
 	float thrustForce = 25.0f;
-	float constantDeceleration = 5.0f; //Should help prevent overshooting later on
+	//float constantDeceleration = 5.0f; //Should help prevent overshooting later on
 
 	RigidBody* rigidBody = nullptr;
 	CollisionShape* collision = nullptr;
@@ -62,4 +62,13 @@ private:
 	Model* modelWithWings;
 
 	ParticleEmitter* emitter;
+
+	Node* modelNode;
+
+	const float UPWARD_LAUNCH_FORCE = 15.0f; //10
+
+	float timeAlive = 0.0f; // Time this rocket has existed - used to slowly increase tracking strength
+	const float trackingTimeMax = 2.0f;
+	float timeFactor = 1.0f;
+	float trackingMultiplier = 8.0f;
 };

@@ -1,7 +1,6 @@
 <material>
 	<technique name="Techniques/DiffBanded.xml"/>
-	<technique name="Techniques/DiffBanded.xml"/>
-	<texture name="Crab/Textures/Claw Small_Base_Color.png" unit="Diffuse"/>
+	<texture name="Crab/Textures/Claw_Base_Color.png" unit="Diffuse"/>
 	<parameter name="MatDiffColor" value="1 1 1 1"/>
 	<parameter name="MatSpecColor" value="0.05 0.05 0.05 50"/>
 	<parameter name="BandCount" value="1.0" />

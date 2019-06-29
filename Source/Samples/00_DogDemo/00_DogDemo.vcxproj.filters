@@ -139,5 +139,8 @@
     <ClInclude Include="ModuleSocket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Layers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
