@@ -52,7 +52,9 @@ void CrabCharacterController::DelayedStart() {
 	//rigidBody->SetTrigger(true);
 	rigidBody->SetCollisionLayerAndMask(0b11111111, 0b11011111); // DON'T COLLIDE WITH PLAYER, MASK HIM OUT
 
-	SubscribeToEvent(node_, E_NODECOLLISION, URHO3D_HANDLER(CrabCharacterController, HandleNodeCollision));
+
+	// Changed to E_NODECOLLISIONSTART 04July to reduce issues
+	SubscribeToEvent(node_, E_NODECOLLISIONSTART, URHO3D_HANDLER(CrabCharacterController, HandleNodeCollision));
 
 	GetNode()->AddTag("player");
 
@@ -269,11 +271,31 @@ void CrabCharacterController::CreatePhysComponents(float height, float diameter)
 
 	ghostObject_->setFriction(0.5f);
 	ghostObject_->setRestitution(50.0f);
+
 	bulletController_->setMaxPenetrationDepth(0.01f);
+
+
+	// New new!
+
+	SubscribeToEvent(node_, E_PHYSICSCOLLISIONSTART, URHO3D_HANDLER(CrabCharacterController, HandleNodeCollision));
 }
 
+
+
+void CrabCharacterController::DebugGhostCollision(StringHash eventType, VariantMap& eventData) {
+	using namespace PhysicsCollisionStart;
+
+	RigidBody *rb1 = (RigidBody*)eventData[P_BODYA].GetPtr();
+	btTransform t;
+	rb1->getWorldTransform(t);
+	if (t == ghostObject_->getWorldTransform()) {
+		int done = 1;
+	}
+}
+
+
 void CrabCharacterController::HandleNodeCollision(StringHash eventType, VariantMap& eventData) {
-	using namespace NodeCollision;
+	using namespace NodeCollisionStart; //+Start 04July
 
 	Node* contactNode = (Node*)eventData[P_OTHERNODE].GetPtr();
 	String f = contactNode->GetName();

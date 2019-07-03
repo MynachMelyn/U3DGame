@@ -29,6 +29,7 @@ public:
 	AnimationController* animControl_;
 
 	void HandleNodeCollision(StringHash eventType, VariantMap& eventData);
+	void DebugGhostCollision(StringHash eventType, VariantMap& eventData);
 
 private:
 	virtual void DelayedStart() override;

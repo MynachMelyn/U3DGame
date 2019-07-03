@@ -87,6 +87,8 @@ void SmartMissile::Update(float timeStep) {
 				timeFactor = (timeAlive / trackingTimeMax);
 			}
 
+			/// TODO:: Have a separate node/vector that points toward the thrust direction calculated here, and just have the rocket point towards its direction
+
 			Vector3 forwardDir = (node_->GetRotation() * Vector3::FORWARD).Normalized();
 			Vector3 targetDir = (target->GetWorldPosition() - node_->GetWorldPosition()).Normalized();
 
