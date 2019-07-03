@@ -96,8 +96,6 @@ void SmartMissile::Update(float timeStep) {
 
 			float angleBetweenVectors = Acos(forwardDir.DotProduct(targetDir));
 
-			// Turn faster when closer
-			float dist = (target->GetWorldPosition() - node_->GetWorldPosition()).Length();
 			float turnFactor = 1.0f + (timeFactor * trackingMultiplier);
 
 			float angle = 50.0f * turnFactor * timeStep; // 5.0f deg per sec
@@ -105,14 +103,15 @@ void SmartMissile::Update(float timeStep) {
 			Quaternion rotation = Quaternion::IDENTITY;
 			rotation.FromAngleAxis(angle, axis);
 
-			if (angle < angleBetweenVectors) { // If amount we're gonna rotate is less than the distance, just do LookAt
+			if (angle < angleBetweenVectors && timeFactor < 1) { // If amount we're gonna rotate is less than the distance, just do LookAt
 				node_->Rotate(rotation, Urho3D::TS_WORLD);
 			} else {
 				node_->LookAt(target->GetWorldPosition());
 			}
 
 
-			// SORTA WORKS, LOOKS TOO SHARP
+
+			// SORTA WORKS, LOOKS TOO SHARP, ALSO FLIPS THE ROCKETS IF THEY ENGAGE WHILE FALLING
 			//node_->LookAt(node_->GetWorldPosition() + rigidBody->GetLinearVelocity());
 			//rigidBody->ApplyForce((target->GetWorldPosition() - node_->GetWorldPosition()).Normalized() * thrustForce); // Apply force forward
 		}

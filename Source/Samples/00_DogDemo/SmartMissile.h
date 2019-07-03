@@ -68,7 +68,7 @@ private:
 	const float UPWARD_LAUNCH_FORCE = 15.0f; //10
 
 	float timeAlive = 0.0f; // Time this rocket has existed - used to slowly increase tracking strength
-	const float trackingTimeMax = 2.0f;
-	float timeFactor = 1.0f;
+	const float trackingTimeMax = 1.5f;
+	float timeFactor = 1.0f;			// All this weird shit increases the tracking-rotation speed over time, eventually just using LookAt to snap to target
 	float trackingMultiplier = 8.0f;
 };
